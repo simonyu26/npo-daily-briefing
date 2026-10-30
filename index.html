@@ -488,6 +488,75 @@
     cursor: pointer;
   }
   .sug-item input { margin-top: 4px; cursor: pointer; }
+
+  /* 歷史日報折疊專區 (Collapsible Past Briefings) */
+  .history-section {
+    margin-top: 28px;
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  }
+  .history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--ink);
+  }
+  .history-title {
+    font-family: "Noto Serif TC", "Songti TC", Georgia, serif;
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--ink);
+    margin: 0;
+  }
+  details.hist-day {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    background: var(--warm-bg);
+    overflow: hidden;
+    transition: all 0.15s;
+  }
+  details.hist-day[open] {
+    background: #ffffff;
+    border-color: #cbd5e1;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+  }
+  details.hist-day > summary {
+    padding: 13px 16px;
+    font-weight: 800;
+    font-size: 0.96rem;
+    color: var(--ink);
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  details.hist-day > summary::-webkit-details-marker { display: none; }
+  details.hist-day > summary:hover { background: #f1efea; }
+  .hist-day-body {
+    padding: 14px 18px 18px 18px;
+    border-top: 1px solid var(--border);
+    font-size: 0.93rem;
+    line-height: 1.75;
+  }
+  .hist-item {
+    padding: 12px 14px;
+    background: #fafaf9;
+    border-left: 3px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 10px;
+  }
+  .hist-item:last-child { margin-bottom: 0; }
 </style>
 </head>
 <body>
@@ -552,6 +621,7 @@
     <div class="masthead-meta">
       <div><strong>2026 年 10 月 30 日（週五）</strong> ｜ 過去 7 日實證核驗</div>
       <div style="margin-top:6px;display:flex;gap:8px;justify-content:flex-end;align-items:center;flex-wrap:wrap;">
+        <button class="btn-save-sub" style="background:#fef3c7;color:#92400e;border-color:#fde68a;font-weight:700;" onclick="document.getElementById('history-archive-section').scrollIntoView({behavior:'smooth'})">🗂️ 過去歷史日報折疊區 ↓</button>
         <button class="btn-save-sub" style="background:#eef2ff;color:#3730a3;border-color:#c7d2fe;font-weight:700;" onclick="publishIssueToNotion()">📲 整份晨報發送到 Notion</button>
         <button class="btn-save-sub" style="background:#f0fdf4;color:#166534;border-color:#86efac;font-weight:700;" onclick="publishToGitHub()">🌐 一鍵推到 GitHub 網站</button>
         <button class="btn-save-sub" onclick="document.getElementById('github-modal').classList.add('show')">🔑 貼上 GitHub 金鑰</button>
@@ -565,6 +635,136 @@
 
   <!-- 單頁一氣呵成雜誌長文區 -->
   <main class="paper-sheet" id="art-card"></main>
+
+  <!-- 過去歷史日報折疊總覽專區 -->
+  <section class="history-section" id="history-archive-section">
+    <div class="history-header">
+      <div>
+        <div class="masthead-eyebrow">Historical Briefings Archive ・ 跨日知識累積</div>
+        <h2 class="history-title">🗂️ 過去歷史日報折疊總覽（點擊日期即可展開閱讀）</h2>
+      </div>
+      <div style="display:flex;gap:6px;">
+        <button class="btn-save-sub" onclick="document.querySelectorAll('details.hist-day').forEach(d=>d.open=true)">➕ 全部展開</button>
+        <button class="btn-save-sub" onclick="document.querySelectorAll('details.hist-day').forEach(d=>d.open=false)">➖ 全部收合</button>
+      </div>
+    </div>
+
+    <!-- 2026-10-29 週四 -->
+    <details class="hist-day">
+      <summary>
+        <span>📅 <strong>2026-10-29（週四）</strong>｜策略募款與捐款人行為（3 則主文獻 ＋ 延伸研究）</span>
+        <span style="font-size:0.8rem;color:var(--accent);">點擊展開 / 收合 ▾</span>
+      </summary>
+      <div class="hist-day-body">
+        <div style="margin-bottom:10px;display:flex;justify-content:flex-end;">
+          <a class="source-link" href="archive/2026-10-29.html" target="_blank">🔗 開啟 10/29 週四完整獨立閱讀頁 ↗</a>
+        </div>
+        <div class="hist-item">
+          <strong>[THU-1｜🇺🇸 美國機構募款] 免稅補貼下的冷漠聳肩：資產規模 2.2 兆美元的基金會如何以「被動囤積資本」威脅民主體制與 NPO 永續？</strong><br/>
+          <small style="color:var(--muted);">原文：<em>The tax-subsidized shrug: How foundation leaders threaten democracy and the nonprofit sector</em>（Nonprofit Quarterly, Aparna Rae）｜ <a href="https://nonprofitquarterly.org/the-tax-subsidized-shrug-how-foundation-leaders-threaten-democracy-and-the-nonprofit-sector/" target="_blank">原始連結 ↗</a></small>
+          <p style="margin:6px 0 0 0;">批判美國私人基金會坐擁 2.2 兆美元免稅資產卻死守 5% 最低撥款率上限，呼籲轉向多年期無限制一般營運補助（Multi-Year General Operating Support）。<br/>📚 <strong>延伸文獻：</strong>Madoff (2020)《The Five Percent Fig Leaf》｜Heist & Vance-McMullen (2019) DAF 撥款實證｜Salehi & Infante (2024) 信任導向慈善。</p>
+        </div>
+        <div class="hist-item">
+          <strong>[THU-2｜🇯🇵 日本寄付稅制] 日本 5 大 NPO 聯盟聯手出擊：認定 NPO 制度 25 週年之「2026 年度寄付稅制擴充共同要望書」</strong><br/>
+          <small style="color:var(--muted);">原文：<em>政策提言｜ 2026年度税制改正に関する共同要望書を提出</em>（日本ファンドレイジング協会 JFRA 等 5 團體）｜ <a href="https://jfra.jp/news/20261027-tax-reform-proposal" target="_blank">原始連結 ↗</a></small>
+          <p style="margin:6px 0 0 0;">聚焦個人寄付金扣除上限倍增與 5 年結轉、企業捐贈特別損金算入限度提高至所得 10% 並納入 IT 與民生實物全額損金、以及消除「遺贈寄付」之擬制讓渡所得稅障礙。<br/>📚 <strong>延伸文獻：</strong>Russell James (2016) 遺贈詢問實驗｜Yamamura et al. (2023) 日本故鄉稅計量分析｜Webb (1994) 企業實物捐贈財政誘因。</p>
+        </div>
+        <div class="hist-item">
+          <strong>[THU-3｜🌐 國際頂刊] 特殊募款活動在「關係型募款（Relationship Fundraising）」中的實證角色：活動累積參與度與大額捐款轉化盲點</strong><br/>
+          <small style="color:var(--muted);">原文：<em>Exploring the Role of Special Events in Relationship Fundraising</em>（Nonprofit Management and Leadership, Jensen et al., 2026）｜ <a href="https://doi.org/10.1002/nml.70067" target="_blank">DOI: 10.1002/nml.70067 ↗</a></small>
+          <p style="margin:6px 0 0 0;">實證發現出席慈善晚宴等特殊活動能維持一般定期捐款黏著度，但對「轉化為大額捐贈（Major Gifts）」無直接預測力，大額捐款唯一關鍵仍是一對一專人深度培育。</p>
+        </div>
+      </div>
+    </details>
+
+    <!-- 2026-10-28 週三 -->
+    <details class="hist-day">
+      <summary>
+        <span>📅 <strong>2026-10-28（週三）</strong>｜財務管理與永續商業模式（3 則主文獻）</span>
+        <span style="font-size:0.8rem;color:var(--accent);">點擊展開 / 收合 ▾</span>
+      </summary>
+      <div class="hist-day-body">
+        <div style="margin-bottom:10px;display:flex;justify-content:flex-end;">
+          <a class="source-link" href="archive/2026-10-26_to_28.html" target="_blank">🔗 開啟週一至週三完整合輯閱讀頁 ↗</a>
+        </div>
+        <div class="hist-item">
+          <strong>[WED-1｜🇺🇸 美國慈善財務] 女性與原住民領導的「社區基金（Community Funds）」正在改寫美國慈善財務分配規則</strong><br/>
+          <small style="color:var(--muted);">原文：<em>Women- and Indigenous-led community funds are rewriting the rules of US philanthropy</em>（Nonprofit Quarterly）｜ <a href="https://nonprofitquarterly.org/women-and-indigenous-led-community-funds-are-rewriting-the-rules-of-us-philanthropy/" target="_blank">原始連結 ↗</a></small>
+          <p style="margin:6px 0 0 0;">透過參與式撥款（Participatory Grantmaking）與無限制資金，翻轉傳統基金會由上而下的財務控制權。</p>
+        </div>
+        <div class="hist-item">
+          <strong>[WED-2｜🇯🇵 日本休眠預金] 日本 JANPIA 2026 年度休眠預金活用事業「通常枠〈第 2 回〉」公募啟動（約 40.1 億日圓規模）＆〈第 1 回〉12 團體採擇財務分析</strong><br/>
+          <small style="color:var(--muted);">出處：一般財団法人日本民間公益活動連携機構 (JANPIA) ｜ <a href="https://www.janpia.or.jp/koubo/" target="_blank">原始連結 ↗</a></small>
+          <p style="margin:6px 0 0 0;">剖析日本休眠預金制度如何強制搭配至多 20% 之管理營運費補助與非財務伴走支援，建構 NPO 全成本回收韌性。</p>
+        </div>
+        <div class="hist-item">
+          <strong>[WED-3｜🇯🇵 日本公益會計] 日本「令和 6 年新公益法人會計基準」實務移行關鍵：從「正味財產增減計算書」轉向「活動計算書」與中期收支均衡</strong><br/>
+          <small style="color:var(--muted);">出處：内閣府公益認定等委員会事務局 ｜ <a href="https://www.koeki-info.go.jp/" target="_blank">原始連結 ↗</a></small>
+          <p style="margin:6px 0 0 0;">廢除傳統正味財產增減計算書、全面改採活動計算書，並導入 5 年中期收支均衡（中期的収支均衡）與使途特定財產彈性儲備規範。</p>
+        </div>
+      </div>
+    </details>
+
+    <!-- 2026-10-27 週二 -->
+    <details class="hist-day">
+      <summary>
+        <span>📅 <strong>2026-10-27（週二）</strong>｜組織治理與責信（3 則主文獻）</span>
+        <span style="font-size:0.8rem;color:var(--accent);">點擊展開 / 收合 ▾</span>
+      </summary>
+      <div class="hist-day-body">
+        <div class="hist-item">
+          <strong>[TUE-1｜🇹🇼 台灣社福責信] 臺南 2 歲女童虐死案（萱萱案）社工訪視造假遭廢止證照與跨轄區社會安全網責信檢討</strong><br/>
+          <small style="color:var(--muted);">出處：Right Plus 多多益善【雙週報｜10/12-10/25】｜ <a href="https://rightplus.org/2026/10/27/" target="_blank">原始連結 ↗</a></small>
+          <p style="margin:6px 0 0 0;">檢討訪視紀錄造假背後的督導內控失靈、跨縣市轉介斷裂，以及「NGO 光環效應」下的組織道德風險。</p>
+        </div>
+        <div class="hist-item">
+          <strong>[TUE-2｜🇺🇸 美國治理] 當大型基金會突然撤出社會正義運動，誰來填補缺口？（剖析機構型慈善的「無預警撤資背叛」與運動韌性）</strong><br/>
+          <small style="color:var(--muted);">原文：<em>Who fills the gap when philanthropy walks away from social justice movements?</em>（Nonprofit Quarterly）｜ <a href="https://nonprofitquarterly.org/who-fills-the-gap-when-philanthropy-walks-away-from-social-justice-movements/" target="_blank">原始連結 ↗</a></small>
+        </div>
+        <div class="hist-item">
+          <strong>[TUE-3｜🇺🇸 美國治理] 僅有家暴防治宣導還不夠——公益慈善必須投資於「倖存者正義（Survivor Justice）」與系統性賦權</strong><br/>
+          <small style="color:var(--muted);">原文：<em>Domestic violence awareness is not enough—philanthropy must invest in survivor justice</em>（Nonprofit Quarterly）｜ <a href="https://nonprofitquarterly.org/domestic-violence-awareness-is-not-enough-philanthropy-must-invest-in-survivor-justice/" target="_blank">原始連結 ↗</a></small>
+        </div>
+      </div>
+    </details>
+
+    <!-- 2026-10-26 週一 -->
+    <details class="hist-day">
+      <summary>
+        <span>📅 <strong>2026-10-26（週一）</strong>｜策略與使命創新（3 則主文獻）</span>
+        <span style="font-size:0.8rem;color:var(--accent);">點擊展開 / 收合 ▾</span>
+      </summary>
+      <div class="hist-day-body">
+        <div class="hist-item">
+          <strong>[MON-1｜🇺🇸 SSIR] 打造有效的氣候與社會政策需要「社區第一線數據」：波特蘭 HEART 標準之社會創新實踐</strong><br/>
+          <small style="color:var(--muted);">原文：<em>Creating Climate Policy That Works Requires Community Data</em>（Stanford Social Innovation Review）｜ <a href="https://ssir.org/articles/entry/creating_climate_policy_that_works_requires_community_data" target="_blank">原始連結 ↗</a></small>
+        </div>
+        <div class="hist-item">
+          <strong>[MON-2｜🇺🇸 SSIR] 邁向「生成式慈善（Generative Philanthropy）」：超越短期績效指標、重建人類繁榮的歷史借鏡</strong><br/>
+          <small style="color:var(--muted);">原文：<em>Toward Generative Philanthropy</em>（Stanford Social Innovation Review）｜ <a href="https://ssir.org/articles/entry/toward_generative_philanthropy" target="_blank">原始連結 ↗</a></small>
+        </div>
+        <div class="hist-item">
+          <strong>[MON-3｜🇹🇼 台灣社區共生] 當社區共生成為可能：地方診所代購日用品、在地組織串聯、推動全齡友善宅（弘道全國共生論壇實踐）</strong><br/>
+          <small style="color:var(--muted);">出處：Right Plus 多多益善 ｜ <a href="https://rightplus.org/2026/10/23/" target="_blank">原始連結 ↗</a></small>
+        </div>
+      </div>
+    </details>
+
+    <!-- 2026-10-23 上週五 -->
+    <details class="hist-day">
+      <summary>
+        <span>📅 <strong>2026-10-23（上週五）</strong>｜法規政策與自律動態（主文獻 ＋ 制度性背叛原典）</span>
+        <span style="font-size:0.8rem;color:var(--accent);">點擊展開 / 收合 ▾</span>
+      </summary>
+      <div class="hist-day-body">
+        <div class="hist-item">
+          <strong>[🇹🇼 台灣兒少安置法制] 陳旺德、麥王若凡／孩子說了不舒服，為何大人可以不回應？（安置機構不當對待與制度性背叛剖析）</strong><br/>
+          <small style="color:var(--muted);">出處：Right Plus 多多益善 ｜ <a href="https://rightplus.org/2026/10/22/chilren_placement_and_rights" target="_blank">原始連結 ↗</a></small>
+          <p style="margin:6px 0 0 0;">📚 <strong>延伸原典：</strong>Smith & Freyd (2014)《Institutional betrayal》（DOI: <code>10.1037/a0037564</code>）｜Alnoor Ebrahim (2003)《Accountability in Practice: Mechanisms for NGOs》（DOI: <code>10.1016/S0305-750X(03)00014-6</code>）。</p>
+        </div>
+      </div>
+    </details>
+  </section>
 </div>
 
 <script>
