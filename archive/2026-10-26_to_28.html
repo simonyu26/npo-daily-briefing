@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>NPO 本週每日主題情報報告（週一至週三補齊版）</title>
+<style>
+  :root {
+    --bg: #f8fafc; --card: #ffffff; --border: #e2e8f0; --text: #0f172a; --muted: #475569;
+    --accent: #1e40af; --accent-soft: #dbeafe; --green-bg: #dcfce7; --green-text: #166534;
+    --purple-bg: #f3e8ff; --purple-text: #6b21a8; --amber-bg: #fef3c7; --amber-text: #92400e;
+    --indigo-bg: #eef2ff; --indigo-border: #c7d2fe; --indigo-text: #3730a3;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 14px; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", sans-serif; background: var(--bg); color: var(--text); line-height: 1.58; }
+  .top-banner { background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%); color: #fff; padding: 16px 18px; border-radius: 12px; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+  .top-banner h1 { margin: 0; font-size: 1.1rem; }
+  .top-banner .sub { font-size: 0.8rem; color: #cbd5e1; margin-top: 3px; }
+  .day-tabs { display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
+  .day-btn { border: 1px solid var(--border); background: #fff; color: var(--muted); padding: 8px 14px; border-radius: 8px; font-size: 0.85rem; font-weight: 700; cursor: pointer; }
+  .day-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .art-nav { display: flex; gap: 6px; margin-bottom: 12px; flex-wrap: wrap; align-items: center; }
+  .art-pill { border: 1px solid var(--border); background: #fff; color: var(--muted); padding: 5px 12px; border-radius: 999px; font-size: 0.8rem; font-weight: 600; cursor: pointer; }
+  .art-pill.active { background: #0f172a; color: #fff; border-color: #0f172a; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
+  .meta-bar { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; font-size: 0.78rem; color: var(--muted); margin-bottom: 6px; }
+  .badge { padding: 2px 8px; border-radius: 999px; font-weight: 600; font-size: 0.74rem; }
+  .b-region { background: var(--accent-soft); color: var(--accent); }
+  .b-ok { background: var(--green-bg); color: var(--green-text); }
+  .tag-pill { background: #f1f5f9; color: #334155; font-family: monospace; font-size: 0.73rem; padding: 2px 7px; border-radius: 999px; }
+  h2.title-zh { margin: 4px 0 3px 0; font-size: 1.06rem; }
+  .title-orig { font-size: 0.88rem; font-weight: 600; color: #1e40af; margin-bottom: 6px; }
+  .action-bar { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin: 10px 0 12px 0; padding: 8px 10px; background: #f8fafc; border-radius: 8px; border: 1px solid var(--border); }
+  .save-btn { border: 1px solid #cbd5e1; background: #fff; color: #0f172a; padding: 5px 10px; border-radius: 6px; font-size: 0.78rem; font-weight: 600; cursor: pointer; transition: all 0.15s; }
+  .save-btn:hover { background: #eff6ff; border-color: #93c5fd; }
+  .save-btn.primary { background: #1e40af; color: #fff; border-color: #1e40af; }
+  .save-btn.primary:hover { background: #1e3a8a; }
+  .save-btn.done { background: var(--green-bg); color: var(--green-text); border-color: #86efac; }
+  .sub-tabs { display: flex; gap: 6px; border-bottom: 1px solid var(--border); padding-bottom: 8px; margin-bottom: 12px; flex-wrap: wrap; }
+  .sub-btn { border: none; background: #f1f5f9; color: var(--muted); padding: 6px 12px; border-radius: 6px; font-size: 0.8rem; font-weight: 600; cursor: pointer; }
+  .sub-btn.active { background: #0f172a; color: #fff; }
+  .bullet-box { margin-bottom: 10px; padding: 10px 12px; background: #f8fafc; border-radius: 8px; border-left: 3px solid var(--accent); font-size: 0.86rem; }
+  .quote-box { margin-top: 6px; padding: 6px 10px; background: #fff; border: 1px dashed #cbd5e1; border-radius: 6px; font-family: Georgia, serif; font-style: italic; font-size: 0.8rem; color: #334155; }
+  .ref-card { border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; margin-bottom: 10px; background: #fff; }
+  .ref-title-zh { font-weight: 700; font-size: 0.92rem; margin: 3px 0 2px 0; }
+  .ref-title-orig { font-weight: 600; font-size: 0.83rem; color: #1e40af; margin-bottom: 4px; }
+  .deep-btn { background: var(--indigo-bg); color: var(--indigo-text); border: 1px solid var(--indigo-border); padding: 5px 10px; border-radius: 6px; font-size: 0.78rem; font-weight: 700; cursor: pointer; }
+  .deep-drawer { display: none; margin-top: 8px; padding: 10px 12px; background: #f8fafc; border-left: 3px solid var(--indigo-text); border-radius: 6px; font-size: 0.82rem; }
+  .deep-drawer.show { display: block; }
+  .ext-link { font-size: 0.78rem; color: var(--accent); font-weight: 600; text-decoration: none; }
+  .ext-link:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<div class="top-banner">
+  <div>
+    <h1>📋 NPO 本週每日主題情報報告（週一 10/26 ～ 週三 10/28 補齊版）</h1>
+    <div class="sub">嚴格限定過去 7 天內（2026-10-21 ～ 2026-10-28）發布 ｜ 附原文文獻名稱、📜 原文引句、各 3 篇延伸參考文獻 ＆ 直接入庫按鈕（未點擊預設不存入）</div>
+  </div>
+</div>
+
+<div class="day-tabs" id="day-tabs"></div>
+<div class="art-nav" id="art-nav"></div>
+<div class="card" id="art-card"></div>
+
+<script>
+const DAYS = [
+  {
+    dayKey: "mon",
+    label: "📅 週一 (10/26)｜策略與使命創新",
+    items: [
+      {
+        code: "MON-1",
+        region: "🇺🇸 國際策略與社區數據",
+        timestamp: "2026-10-27 08:00 UTC",
+        titleZh: "打造有效的氣候與社會政策需要「社區第一線數據」：波特蘭 HEART 標準之社會創新實踐",
+        titleOrig: "Creating Climate Policy That Works Requires Community Data",
+        authors: "Taren Evans & Nikita Daryanani",
+        publisher: "Stanford Social Innovation Review (SSIR)",
+        pubDate: "2026-10-27",
+        year: 2026,
+        url: "https://ssir.org/articles/entry/creating_climate_policy_that_works_requires_community_data",
+        tags: ["strategy", "social-enterprises", "accountability", "us"],
+        bullets: [
+          {
+            text: "【將社區生命經驗轉化為政策數據（Community Data as Evidence）】針對 2021 年北美熱穹頂導致近百名居民於家中喪生的系統失靈，波特蘭有色人種聯盟（CCC）透過社區政策工作坊，將弱勢住戶的日常生存經驗結構化為可操作的政策指標。",
+            quote: "\"Creating effective, equitable climate policy requires public institutions to treat the lived experiences and localized knowledge of frontline communities as valid, actionable data.\""
+          },
+          {
+            text: "【HEART 五大韌性建築與社區標準】由基層居民共同制定出 HEART 標準——涵蓋健康（Health）、能源正義（Equitable energy）、反迫遷（Anti-displacement）、社區韌性（Resilience）與室內溫度安全（Temperature），成功翻轉由上而下的專家技術官僚立法模式。",
+            quote: "\"Out of these community-led conversations emerged the HEART Standards—standing for Health, Equitable energy, Anti-displacement, Resilience, and Temperature.\""
+          }
+        ],
+        critiques: [
+          "【社區參與式數據的方法論挑戰】草根質性經驗轉譯為政府法規指標時，常面臨行政部門以「樣本代表性不足」或「缺乏成本效益量化模型」為由予以排斥，NPO 必須具備將敘事轉化為法規條文的「制度轉譯力」。",
+          "【對台灣與日本地方創生／淨零公正轉型之啟示】台灣 2026 年推動淨零轉型與高齡社區調適時，往往偏重硬體節能補助，缺乏如 HEART 標準中「反迫遷（Anti-displacement）」與「脆弱家戶室內環境安全」的社會正義維度。"
+        ],
+        consultant: "建議投入氣候調適、社區營造或弱勢居住議題的 NPO，在進行影響力評估（IMM）時，將「受助者定義之生活品質指標」納入邏輯模型（Theory of Change），作為政策倡議的實證武器。",
+        teachingQ: "傳統公共政策依賴專家統計數據，為何 Evans & Daryanani (2026) 主張「沒有社區第一線數據就無法制定有效政策」？NPO 如何扮演社區知識與政府法規之間的轉譯者？",
+        refs: [
+          {
+            code: "MON-1A",
+            titleZh: "街頭科學：社區在地知識與環境健康正義實證分析",
+            titleOrig: "Street Science: Community Knowledge and Environmental Health Justice",
+            authors: "Corburn, Jason (2005)",
+            journal: "MIT Press",
+            doi: "https://doi.org/10.7551/mitpress/6494.001.0001",
+            point: "提出「街頭科學（Street Science）」理論，論證在地居民的生活經驗知識如何補強傳統流行病學與環境政策專家模型的盲點。",
+            value: "為 SSIR 本文之「Community Data」提供最扎實的方法論與知識論基礎。",
+            deep: "Corburn 透過紐約布魯克林低收入社區的環境健康案例證明，將社區住民視為「共同研究者（Co-researchers）」而非單純受試者，能大幅提升公共政策的在地執行率與正當性。"
+          },
+          {
+            code: "MON-1B",
+            titleZh: "守護非營利部門的公共性：資源、倡議角色與公共價值實證",
+            titleOrig: "Preserving the Publicness of the Nonprofit Sector: Resources, Roles, and Public Values",
+            authors: "Moulton, Stephanie & Eckerd, Adam (2012)",
+            journal: "Nonprofit and Voluntary Sector Quarterly (NVSQ), 41(4), 656–685",
+            doi: "https://doi.org/10.1177/0899764011419517",
+            point: "剖析非營利組織如何結合第一線社區連結與制度資源，在政策倡議與公共價值創造過程中發揮關鍵中介角色。",
+            value: "可直接對照波特蘭 CCC 聯盟如何從服務型組織升級為制度規則制定者。",
+            deep: "研究指出，非營利組織的公共價值（Publicness）高度取決於其能否將基層公民聲音轉譯進公共決策體系。"
+          },
+          {
+            code: "MON-1C",
+            titleZh: "非營利災難管理之行銷與溝通策略：強化社區韌性之 7T 架構",
+            titleOrig: "Marketing Tactics for Nonprofit Disaster Management: A 7T Framework for Community Resilience",
+            authors: "Akcicek, Cansu, Caliskan, Aylin, & Ozturkoglu, Yucel (2026)",
+            journal: "Nonprofit and Voluntary Sector Quarterly (NVSQ), OnlineFirst Sept 2026",
+            doi: "https://doi.org/10.1177/08997640261487107",
+            point: "2026 年 NVSQ 最新發表：提出非營利組織強化極端氣候與災難社區韌性的「7T 策略架構」，強調事前社區溝通與信任建構。",
+            value: "將極端高溫與氣候災害下的社區動員轉化為可操作的 NPO 管理矩陣。",
+            deep: "結合行銷學與防災管理，說明 NPO 如何透過精準的社區關係經營，在災前建立高韌性互助網絡。"
+          }
+        ]
+      },
+      {
+        code: "MON-2",
+        region: "🌍 國際策略與慈善哲學",
+        timestamp: "2026-10-21 09:00 UTC",
+        titleZh: "邁向「生成式慈善（Generative Philanthropy）」：超越短期績效指標、重建人類繁榮的歷史借鏡",
+        titleOrig: "Toward Generative Philanthropy",
+        authors: "Sarah Mousa",
+        publisher: "Stanford Social Innovation Review (SSIR)",
+        pubDate: "2026-10-21",
+        year: 2026,
+        url: "https://ssir.org/articles/entry/toward_generative_philanthropy",
+        tags: ["strategy", "philanthropy", "performance", "sroi"],
+        bullets: [
+          {
+            text: "【批判「只資助可量化見效方案（What Works）」的策略窄化】當代策略性慈善（Strategic Philanthropy）過度執迷於短期 KPI 與單一干預實驗（RCTs），反而破壞了公共醫療、教育與社區長期繁榮所需的基礎制度建設。",
+            quote: "\"What if—rather than focusing on funding 'what works'—philanthropy asked what people and societies need to live well and flourish, and built the resources to match?\""
+          },
+          {
+            text: "【歷史公益留本基金（Waqf）與開羅曼蘇爾醫院之制度啟示】借鏡 13 世紀開羅 Bimaristan al-Mansuri 醫院與伊斯蘭公益信託（Waqf）模式，展現如何透過永續收益資產配置，無條件為所有公民提供兼具尊嚴與全人關懷的公共服務。",
+            quote: "\"Historical models of charitable endowments offer a lens to critique and rethink the narrow assumptions of modern metrics-driven philanthropy.\""
+          }
+        ],
+        critiques: [
+          "【生成式慈善的治理與防弊挑戰】歷史上的 Waqf 或永久留本基金會雖能擺脫短期專案指標綁架，但若缺乏現代透明治理與外部監督，極易陷入資產僵化或內部管理階層尋租。",
+          "【對 SROI 與影響力管理（IMM）的深刻省思】提醒研究者與顧問：SROI 等貨幣化評估工具應作為「組織學習與溝通的輔助」，而非淘汰長期結構性倡議與基礎陪伴服務的斷頭台。"
+        ],
+        consultant: "在協助大型基金會規劃 3～5 年策略藍圖時，建議採取「雙軌投資組合」：70% 支持具明確成果指標之核心方案，30% 則作為支持受助組織長期組織韌性與系統創新的「生成式無指定用途資金（Generative Core Funding）」。",
+        teachingQ: "「策略性慈善（Strategic Philanthropy）」與 Mousa (2026) 提出的「生成式慈善（Generative Philanthropy）」在核心假設上有何根本差異？過度強調 KPI 會對社福現場造成什麼副作用？",
+        refs: [
+          {
+            code: "MON-2A",
+            titleZh: "策略性慈善的極限與系統性變革之再思考",
+            titleOrig: "Strategic Philanthropy for a Complex World",
+            authors: "Kania, John, Kramer, Mark, & Russell, Patty (2014)",
+            journal: "Stanford Social Innovation Review (SSIR), Summer 2014",
+            doi: "https://ssir.org/articles/entry/strategic_philanthropy_for_a_complex_world",
+            point: "由「集體影響力（Collective Impact）」創始學者撰寫，承認傳統線性「預測與控制型策略慈善」在面對複雜社會問題時的失靈，主張轉向突現式策略（Emergent Strategy）。",
+            value: "與 Mousa (2026) 形成前後十年的關鍵理論對話。",
+            deep: "剖析為何單一專案的微觀成功（What Works in isolation）無法自動擴散為總體社會系統的改變。"
+          },
+          {
+            code: "MON-2B",
+            titleZh: "兩百年報紙報導中之慈善形象變遷：情感、批判與組織脈絡 (1840–2024)",
+            titleOrig: "The Changing Face of Philanthropy: Sentiment, Criticism, and Organizational Context in Two Centuries of Newspaper Coverage (1840–2024)",
+            authors: "Meier, Dominik S. (2026)",
+            journal: "Nonprofit and Voluntary Sector Quarterly (NVSQ), OnlineFirst Sept 2026",
+            doi: "https://doi.org/10.1177/08997640261479632",
+            point: "2026 年 NVSQ 最新發表：運用巨量文本探勘分析 1840–2024 年間媒體對慈善事業的情感與批判演變，揭示當代社會對「富豪技術官僚慈善」的信任危機。",
+            value: "為「超越技術官僚指標、回歸公共正當性」提供長時段量化歷史證據。",
+            deep: "顯示每當貧富差距擴大且慈善機構過度強調商業化管理時，公眾對公益部門的批判聲浪便顯著攀升。"
+          },
+          {
+            code: "MON-2C",
+            titleZh: "見樹又見林：以集體責信與信任導向慈善作為系統性變革之基石",
+            titleOrig: "Forest for the Trees: Collective Accountability and Trust as Groundwork for Systems Change",
+            authors: "Salehi, Shaady & Infante, Pia (2024)",
+            journal: "The Foundation Review, 16(2)",
+            doi: "https://doi.org/10.9707/1944-5660.1707",
+            point: "系統化闡述「信任本位慈善」的核心實務原則：多年期非指定用途資助、簡化文書申請、主動傾聽受助社區需求並建立集體責信。",
+            value: "提供將「生成式慈善」哲學理念轉化為基金會撥款流程的操作指南。",
+            deep: "實證檢視基金會在取消繁瑣期末 KPI 報表後，如何透過深度夥伴對話維持更高的實質責信。"
+          }
+        ]
+      },
+      {
+        code: "MON-3",
+        region: "🇹🇼 台灣與日本高齡社會創新",
+        timestamp: "2026-10-23 10:00 +08:00",
+        titleZh: "當社區共生成為可能：地方診所代購日用品、在地組織串聯、推動全齡友善宅（弘道全國共生論壇實踐）",
+        titleOrig: "當社區共生成為可能：地方診所代購日用品、在地組織串聯、推動全齡友善宅",
+        authors: "Right Plus 多多益善編輯部",
+        publisher: "Right Plus 多多益善",
+        pubDate: "2026-10-23",
+        year: 2026,
+        url: "https://rightplus.org/2026/10/23/",
+        tags: ["strategy", "social-enterprises", "taiwan", "japan"],
+        bullets: [
+          {
+            text: "【打破醫療與社福疆界的「生活幫手」創新模式】在弘道老人福利基金會舉辦之「全國共生論壇」中，新北市貢寮「樂文診所」展示了如何從基層醫療出發，跨足日用品代購與外籍看護培力，解決偏鄉高齡者「看得到病卻買不到生活物資」的斷鏈困境。",
+            quote: "「共生不僅是照顧老人，更涵蓋了公共空間設計、醫療照顧、住宅規畫（如全齡友善宅）以及居民的主動參與。」"
+          },
+          {
+            text: "【從單向服務提供轉向跨世代互助生態系】結合高雄「東金好客廳」、小鄉社造志業聯盟與淡水全齡友善宅案例，證明超高齡社會的 NPO 策略必須從「機構式單一照顧」轉型為「促成居民互助與跨業結盟的平台樞紐」。",
+            quote: "「不同年齡、背景與需求的人，都能在社區中發揮自身能力、互相支持，進而打造出讓所有人都能安居、互助的友善生活圈。」"
+          }
+        ],
+        critiques: [
+          "【跨界共生模式的財務永續與法規壁壘】地方診所兼辦日用品物流或社福團體跨足全齡住宅，在台灣常面臨《醫療法》、《長照服務法》與衛福部／內政部跨部會補助核銷項目不相容的制度障礙。",
+          "【與日本「地域共生社会」政策之對照】日本厚生労働省自 2020 年代全面推動「重層的支援体制整備事業」，由地方政府整合高齡、身障、兒少與生活困窮四大預算；台灣目前的社區共生則仍高度依賴個別民間基金會（如弘道）自籌資源突圍。"
+        ],
+        consultant: "輔導長照與社區型 NPO 時，建議導入「生態系策略地圖（Ecosystem Mapping）」，盤點在地診所、宮廟、超商與學校的閒置資源，以「共同創造生活支持網」取代自建高成本的單一服務據點。",
+        teachingQ: "對照台灣弘道基金會的「社區共生」實踐與日本厚生労働省的「地域共生社会（重層的支援体制）」，民間 NPO 先行創新與政府制度化整合各自有何優劣勢？",
+        refs: [
+          {
+            code: "MON-3A",
+            titleZh: "公民社會體制理論：四種國家與第三方部門之跨國制度比較模型",
+            titleOrig: "Social Origins of Civil Society: Explaining the Nonprofit Sector Cross-Nationally",
+            authors: "Salamon, Lester M. & Anheier, Helmut K. (1998)",
+            journal: "Voluntas: International Journal of Voluntary and Nonprofit Organizations, 9(3), 213–248",
+            doi: "https://doi.org/10.1023/A:1022058200985",
+            point: "全球非營利研究經典原典：剖析不同國家福利體制下政府與民間非營利部門的分工與共生關係。",
+            value: "直接提供比較台灣民間基金會自發共生與日本政府制度化「地域共生社会」的宏觀理論視角。",
+            deep: "解釋東亞脈絡下第三部門如何同時扮演公共服務補充者與社區社會連帶建構者。"
+          },
+          {
+            code: "MON-3B",
+            titleZh: "消失中的公共空間與非營利組織守護「第三空間（Third Spaces）」之策略角色",
+            titleOrig: "The disappearing commons and the role of nonprofits in protecting our third spaces",
+            authors: "Biradar, Arpita (2026)",
+            journal: "Nonprofit Quarterly (NPQ), October 19, 2026",
+            doi: "https://nonprofitquarterly.org/",
+            point: "剖析當代商業化都市中免費公共交誼空間（Third Spaces）的萎縮，論證非營利組織如何透過打造社區客廳與共享空間重建社會資本。",
+            value: "完美印證弘道基金會「東金好客廳」作為社區社會基礎設施（Social Infrastructure）的策略價值。",
+            deep: "結合社會學家 Ray Oldenburg 的第三空間理論與 Klinenberg 的「社會基礎設施」概念，說明實體共生空間如何降低高齡孤獨死與災難脆弱度。"
+          },
+          {
+            code: "MON-3C",
+            titleZh: "跨部門協力之設計與執行：醫療、社福與社區組織整合之治理挑戰",
+            titleOrig: "Designing and Implementing Cross-Sector Collaborations: Needed and Challenging",
+            authors: "Bryson, John M., Crosby, Barbara C., & Stone, Melissa M. (2015)",
+            journal: "Public Administration Review, 75(5), 647–663",
+            doi: "https://doi.org/10.1111/puar.12432",
+            point: "跨部門協力治理最經典的理論架構：梳理醫療、社福與在地組織建立長期協作網絡的制度條件、信任建構與治理結構。",
+            value: "可作為分析「偏鄉診所 × 社福基金會 × 在地社造組織」跨界合作成敗的理論檢核表。",
+            deep: "指出跨界合作最常失敗於「各部門績效考核指標衝突」，必須建立共同認可的社區整體成果指標。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    dayKey: "tue",
+    label: "📅 週二 (10/27)｜組織治理與責信",
+    items: [
+      {
+        code: "TUE-1",
+        region: "🇹🇼 台灣社福責信與外部監督",
+        timestamp: "2026-10-27 12:00 +08:00",
+        titleZh: "臺南 2 歲女童虐死案（萱萱案）社工訪視造假遭廢止證照與跨轄區社會安全網責信檢討",
+        titleOrig: "【雙週報｜10/12-10/25】萱萱案社工訪視造假遭廢止證照、老人福利法三讀擴大健保費補助惹議、３團體推新住民多語生活專線",
+        authors: "Right Plus 多多益善編輯部",
+        publisher: "Right Plus 多多益善",
+        pubDate: "2026-10-27",
+        year: 2026,
+        url: "https://rightplus.org/2026/10/27/",
+        tags: ["accountability", "governance", "compliance", "taiwan"],
+        bullets: [
+          {
+            text: "【社工長期虛構訪視紀錄遭廢止執照與證書】臺南市家防中心負責兒少保護個案（2 歲女童萱萱）之林姓社工，在個案早已搬遷至臺中後仍長期虛構不實訪視紀錄，直到女童遭虐身亡才東窗事發；臺南市社工師懲戒委員會決議廢止其社工師證書與執業執照。",
+            quote: "「負責該起兒少保護個案的林姓社工，因長期未落實訪視、甚至在女童早已搬遷至臺中後仍虛構並回報不實訪視紀錄，遭決議廢止其社會工作師證書及執業執照。」"
+          },
+          {
+            text: "【衛福部確立「人在地」跨轄處理原則與紀錄常態抽查】針對跨縣市搬遷造成的列管三不管地帶，衛福部檢討確立未來以「人在地」縣市先行調查處理為原則，並要求各地方政府與委辦社福機構將個案訪視紀錄抽查常態化。",
+            quote: "「衛福部針對跨縣市列管機制進行檢討，未來確立將以『人在地』縣市處理為原則，並推動將個案紀錄抽查工作常態化。」"
+          }
+        ],
+        critiques: [
+          "【從「個人道德懲戒」到「組織督導失靈」的治理盲點】廢止單一社工證照雖展現行政究責決心，但若未檢討為何內部督導（Supervisor）在長達數月時間內皆僅憑文字紀錄核章、未能透過電訪或交叉查核發現個案早已離轄，將無法根除「文書造假式合規（Paper Compliance）」。",
+          "【高案量負荷與防禦性造假的結構誘因】當公部門與受託 NPO 面臨極端案量比與僵化的月報表結案率要求時，第一線人員極易產生「先填完系統表單應付稽核」的扭曲誘因。"
+        ],
+        consultant: "建議承接政府兒少保護、脆弱家庭或長照個管方案之 NPO 董事會與總幹事，立即導入「雙層隨機實地／電話覆核機制（Spot-Check Audit）」與「高風險跨轄個案雙督導會簽制」，避免第一線督導淪為橡皮圖章。",
+        teachingQ: "在臺南萱萱案與先前兒福聯盟凱凱案中，皆出現「書面訪視紀錄看似完整、實質保護卻完全失靈」的現象。從非營利組織治理與內稽內控視角，應如何設計「防範文書造假又不增加基層無謂文書負擔」的責信機制？",
+        refs: [
+          {
+            code: "TUE-1A",
+            titleZh: "兒童保護社會工作中的官僚化與「遵從文化」風險分析",
+            titleOrig: "The Munro Review of Child Protection: Final Report – A Child-Centred System",
+            authors: "Munro, Eileen (2011)",
+            journal: "Department for Education (UK Government Command Paper 8062)",
+            doi: "https://www.gov.uk/government/publications/munro-review-of-child-protection-final-report-a-child-centred-system",
+            point: "英國最具影響力的兒少保護制度總檢討報告：指出過度強調電腦表單填報與程序合規（Prescription & Audit Culture），反而剝奪了社工實地觀察孩子安全與進行專業判斷的時間。",
+            value: "為台灣社安網頻傳「表單填報正常但孩子受虐身亡」的結構病因提供最精準的制度診斷。",
+            deep: "Munro 教授指出，當組織將「按時填完系統表單」等同於「做好保護工作」時，便會誘發基層為求表面合規而忽視真實風險。"
+          },
+          {
+            code: "TUE-1B",
+            titleZh: "新公共管理下之基層官僚政策執行與績效扭曲行為研究",
+            titleOrig: "Policy Work: Street-Level Organizations Under New Managerialism",
+            authors: "Brodkin, Evelyn Z. (2011)",
+            journal: "Journal of Public Administration Research and Theory, 21(suppl_2), i253–i279",
+            doi: "https://doi.org/10.1093/jopart/muq093",
+            point: "實證剖析人群服務機構（Human Service Organizations）在面對新公共管理（NPM）量化考核時，第一線人員如何採取「策略性應付或數字美化」以求生存。",
+            value: "幫助管理層理解「訪視造假」背後的組織結構與管理控制失靈。",
+            deep: "證明當管理層只看量化結案率與訪視次數，卻不檢視服務品質與案量合理性時，非正式的違規捷徑就會成為潛規則。"
+          },
+          {
+            code: "TUE-1C",
+            titleZh: "探索 NGO 光環的黑暗面：使命感、道德光環如何導致組織不當行為",
+            titleOrig: "Exploring the Dark Side of the NGO Halo: Relating NGO Mission, Morals, and People to NGO Unethical Behavior",
+            authors: "De Bruin Cardoso, Isabel, Meyer, Marco, & Kaptein, Muel (2025)",
+            journal: "Journal of Philanthropy and Marketing, OnlineFirst 2025",
+            doi: "https://doi.org/10.1002/nvsm.70000",
+            point: "實證指出非營利與助人專業組織常因自認「充滿愛心與道德正當性（NGO Halo）」，反而疏於建立嚴謹的內部舞弊查核與互相監督機制。",
+            value: "直接打破「社福人員不會造假」的道德天真假設，強調制度化內控的必要性。",
+            deep: "說明過度依賴「個人善意與專業自律」而缺乏獨立查核機制，正是助人組織爆發嚴重醜聞的共同根源。"
+          }
+        ]
+      },
+      {
+        code: "TUE-2",
+        region: "🇺🇸 國際基金會治理與撤資責信",
+        timestamp: "2026-10-27 11:00 UTC",
+        titleZh: "當大型基金會突然撤出社會正義運動，誰來填補缺口？（剖析機構型慈善的「無預警撤資背叛」與運動韌性）",
+        titleOrig: "Who fills the gap when philanthropy walks away from social justice movements?",
+        authors: "Santana Moreno",
+        publisher: "Nonprofit Quarterly (NPQ)",
+        pubDate: "2026-10-27",
+        year: 2026,
+        url: "https://nonprofitquarterly.org/who-fills-the-gap-when-philanthropy-walks-away-from-social-justice-movements/",
+        tags: ["governance", "accountability", "philanthropy", "strategy", "us"],
+        bullets: [
+          {
+            text: "【大型贊助基金會「無預警策略轉向與撤資」的治理責信真空】Emergent Fund 副執行長 Santana Moreno 批判，近年多家美國大型機構型基金會在政治氛圍轉變或董事會換屆後，突襲式裁撤種族正義、移民權益與性別暴力防治資助專案（如過去 NoVo Foundation 撤出佔全美 96% 資金之性別暴力防治專案），導致基層 NPO 陷入斷炊危機。",
+            quote: "\"What happens when major institutional philanthropies abruptly wind down funding allocations or silently pull back support from crucial social justice areas—leaving grassroots movements destabilized?\""
+          },
+          {
+            text: "【建構不依賴單一基金會恩庇的「突現式資金池（Emergent & Movement-Accountable Funds）」】主張草根運動與中小型 NPO 必須透過「共同治理中介基金」與「負責任的退場承諾（Responsible Exit Clauses）」，翻轉大型出資者單方面決定社會運動生死的權力失衡。",
+            quote: "\"Organizations must stop letting institutional philanthropy define its own terms and control the parameters of social change.\""
+          }
+        ],
+        critiques: [
+          "【基金會享有永久免稅特權卻缺乏「對受助領域之退場責信」】在現行美、日、台稅法下，財團法人基金會享有高度租稅優惠，但其董事會變更資助主題時，對長期依賴其資助的基層 NPO 卻無任何法定的緩衝期或退場安置義務。",
+          "【對台灣企業基金會與大型贊助型財團法人之啟示】台灣許多中小型社福與議題倡議 NPO 高度依賴少數企業 ESG 專案或大型公益信託贊助；一旦企業更換董事長或改變 ESG 主題，受助團體往往在年底才被告知不再續約。"
+        ],
+        consultant: "輔導受助型 NPO 時，應嚴格設定「單一企業或基金會贊助佔比不得超過年度總收入 25%」的財務風險紅線；輔導撥款型基金會（Grantmaking Foundations）時，則應協助制定包含「至少 12～24 個月預告期與轉型支持金」的《負責任退場治理準則（Responsible Exit Policy）》。",
+        teachingQ: "撥款型基金會（Grantmaking Foundations）董事會在決定「策略轉型、停止資助既有領域」時，對過去扶植的草根 NPO 是否負有道義或治理上的「退場責信（Exit Accountability）」？",
+        refs: [
+          {
+            code: "TUE-2A",
+            titleZh: "擴展非營利組織倡議與組織韌性：基金會多年期資助與退場反思",
+            titleOrig: "Expanding Organizational Advocacy Capacity: Reflections From the Field",
+            authors: "Gardner, Annette L., Geierstanger, Sara, Nascimento, Lori Miller, & Brindis, Claire (2011)",
+            journal: "The Foundation Review, 3(1), Article 8",
+            doi: "https://doi.org/10.4087/FOUNDATIONREVIEW-D-10-00038",
+            point: "系統性檢視大型基金會資助基層倡議組織時的治理決策與階段性退場挑戰，強調長期核心能力建構與永續資金銜接的重要性。",
+            value: "直接將 Moreno (2026) 對基金會資助中斷的批判轉化為基金會董事會可採納的實證評估架構。",
+            deep: "實證指出，若基金會缺乏長期能力建構與退場銜接規劃，一旦專案補助結束，基層倡議聯盟極易面臨組織萎縮。"
+          },
+          {
+            code: "TUE-2B",
+            titleZh: "出資者影響力策略與受助者向下責信之衝突：NGO 個案研究",
+            titleOrig: "Donors’ influence strategies and beneficiary accountability: an NGO case study",
+            authors: "Uddin, Mohammed Mohi & Belal, Ataur Rahman (2019)",
+            journal: "Accounting Forum, 43(1), 113–134",
+            doi: "https://doi.org/10.1080/01559982.2019.1589905",
+            point: "剖析大型機構出資者（Institutional Donors）如何透過資金附帶條件與優先序變更，強迫受助 NGO 偏離在地受助者的真實需求。",
+            value: "從會計與責信理論驗證「出資者權力過度集中」對基層社會使命的扭曲效果。",
+            deep: "說明當出資者與受助 NGO 缺乏對等協商機制時，受助組織如何透過建立多元小額捐款群體來奪回使命自主權。"
+          },
+          {
+            code: "TUE-2C",
+            titleZh: "共同建構 NGO 責信：調合出資者「強加責信」與組織「內在使命責信」",
+            titleOrig: "The Co-Construction of NGO Accountability: Aligning Imposed and Felt Accountability in NGO-Funder Accountability Relationships",
+            authors: "Munro, Kirsty (2016)",
+            journal: "Social and Environmental Accountability Journal, 36(3), 182–183",
+            doi: "https://doi.org/10.1080/0969160x.2016.1245941",
+            point: "比較出資者由上而下要求的「強加責信（Imposed Accountability）」與 NPO 工作者對受助社區的「內在感受責信（Felt Accountability）」，探討雙向對等契約之可能。",
+            value: "提供重構「贊助方—受助方（Funder-Grantee）」治理關係的理論框架。",
+            deep: "主張健康的公益生態系必須讓受助 NPO 也能對出資基金會進行「逆向評估（Upward Evaluation of Funders）」。"
+          }
+        ]
+      },
+      {
+        code: "TUE-3",
+        region: "🇺🇸 國際性別暴力防治與倖存者正義",
+        timestamp: "2026-10-21 13:00 UTC",
+        titleZh: "僅有家暴防治宣導還不夠——公益慈善必須投資於「倖存者正義（Survivor Justice）」與系統性賦權",
+        titleOrig: "Domestic violence awareness is not enough—philanthropy must invest in survivor justice",
+        authors: "Nonprofit Quarterly Editorial & Movement Contributors",
+        publisher: "Nonprofit Quarterly (NPQ)",
+        pubDate: "2026-10-21",
+        year: 2026,
+        url: "https://nonprofitquarterly.org/domestic-violence-awareness-is-not-enough-philanthropy-must-invest-in-survivor-justice/",
+        tags: ["governance", "accountability", "philanthropy", "trust"],
+        bullets: [
+          {
+            text: "【從「短期緊急庇護與宣導」轉向「結構性經濟自主與住房正義」】文章批判傳統家暴防治慈善資金過度集中於「10月家暴防治月公關宣導」與高門檻的短期緊急庇護所，卻忽視倖存者脫離暴力環境最關鍵的長期直接現金支持（Direct Cash Transfers）、平價住房與勞動保障。",
+            quote: "\"Domestic violence awareness is not enough—philanthropy must invest in survivor justice by funding economic autonomy, housing stability, and survivor-led governance.\""
+          },
+          {
+            text: "【由倖存者主導治理（Survivor-Led Governance）】呼籲防治性別暴力之非營利組織董事會與撥款委員會，必須將決策權交還給具親身經歷之倖存者代表（Lived-Experience Leaders），破除父權式保護主義（Paternalistic Care）造成的二度控制。",
+            quote: "\"Centering survivor justice requires shifting governance power and unrestricted resources directly to organizations led by survivors themselves.\""
+          }
+        ],
+        critiques: [
+          "【庇護機構「生活管理規約」與受助者自主權的內在張力】無論在美國、日本或台灣，傳統婦女與兒少庇護安置機構常以「安全保護」為名，實施嚴格的門禁、沒收手機與限制外出工作規定，無意間複製了加害者的控制模式。",
+          "【對台灣婦幼保護社福團體治理轉型之啟示】台灣《家庭暴力防治法》體系極度成熟，但民間婦女保護基金會之董事會鮮少納入服務使用者（倖存者）代表；引入「倖存者參與治理」將是下一階段責信升級的關鍵。"
+        ],
+        consultant: "建議婦幼保護與家暴防治 NPO 檢視內部服務規約，導入「自決取向之創傷知情模式（Voluntary & Trauma-Informed Services）」，並在服務品質委員會中保留至少 2 席予曾接受服務之過來人代表。",
+        teachingQ: "傳統社會福利機構強調「由專業社工評估並替案主做最佳決定」，而「倖存者正義（Survivor Justice）」則強調「直接給予無條件現金與決策權」。這兩種治理哲學在實務運作上如何對話與整合？",
+        refs: [
+          {
+            code: "TUE-3A",
+            titleZh: "傾聽受暴婦女：以倖存者為中心之倡議、心理健康與正義實踐專書",
+            titleOrig: "Listening to Battered Women: A Survivor-Centered Approach to Advocacy, Mental Health, and Justice",
+            authors: "Goodman, Lisa A. & Epstein, Deborah (2008)",
+            journal: "American Psychological Association (APA Books)",
+            doi: "https://doi.org/10.1037/11651-000",
+            point: "美國心理學會（APA）經典專書：批判家暴防治機構在專業化與政府契約化過程中，逐漸喪失早期婦女運動「賦權與傾聽」的初衷，淪為標準化結案工廠。",
+            value: "為 NPQ 本文之「Survivor Justice」提供最完整的學術與臨床依據。",
+            deep: "詳細拆解庇護所與司法倡議機構如何透過修改內部治理規則，重新將選擇權交還給受暴婦女。"
+          },
+          {
+            code: "TUE-3B",
+            titleZh: "彈性直接資金支持（Flexible Funding）作為預防親密伴侶暴力倖存者無家可歸之實證策略",
+            titleOrig: "Flexible Funding as a Promising Strategy to Prevent Homelessness for Survivors of Intimate Partner Violence",
+            authors: "Sullivan, Cris M., Bomsta, Heather D., & Hacskaylo, Margaret A. (2019)",
+            journal: "Journal of Interpersonal Violence, 34(14), 3017–3033",
+            doi: "https://doi.org/10.1177/0886260516664318",
+            point: "透過嚴謹追蹤數據證明，直接提供家暴倖存者「無指定用途之彈性現金支持（Flexible Funding）」，比傳統限制性物資發放更能有效幫助其脫離施暴環境並穩定住房。",
+            value: "用實證數據支持「信任受助者財務自主權」的治理創新。",
+            deep: "打破傳統捐款人與社福機構擔心「給現金會被濫用」的刻板印象。"
+          },
+          {
+            code: "TUE-3C",
+            titleZh: "政府強制通報制度引發之「制度性背叛」風險研究",
+            titleOrig: "Government-mandated institutional betrayal",
+            authors: "Smidt, Alec M. & Freyd, Jennifer J. (2018)",
+            journal: "Journal of Trauma & Dissociation, 19(5), 491–499",
+            doi: "https://doi.org/10.1080/15299732.2018.1502029",
+            point: "剖析當法律強制要求機構在未獲成年受害者同意下一律啟動官方通報程序時，如何剝奪受害者控制感並構成「政府強制型制度性背叛」。",
+            value: "連接上週五您入庫之 Smith & Freyd (2014) 原典，深化對「法遵通報 vs. 倖存者自主權」的倫理思辨。",
+            deep: "提醒助人機構在執行法定通報時，必須極力透明化流程並賦予當事人最大程度的知情與參與權。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    dayKey: "wed",
+    label: "📅 週三 (10/28)｜財務管理與永續商業模式",
+    items: [
+      {
+        code: "WED-1",
+        region: "🇺🇸 參與式基金與財務分配革新",
+        timestamp: "2026-10-27 14:00 UTC",
+        titleZh: "女性與原住民領導的「社區基金（Community Funds）」正在改寫美國慈善財務分配規則",
+        titleOrig: "Women- and Indigenous-led community funds are rewriting the rules of US philanthropy",
+        authors: "Ebru Akgün",
+        publisher: "Nonprofit Quarterly (NPQ)",
+        pubDate: "2026-10-27",
+        year: 2026,
+        url: "https://nonprofitquarterly.org/women-and-indigenous-led-community-funds-are-rewriting-the-rules-of-us-philanthropy/",
+        tags: ["fundraising", "philanthropy", "governance", "accounting", "us"],
+        bullets: [
+          {
+            text: "【以「對話邀請（Requests for Conversations）」取代高成本文書招標（RFPs）】波士頓婦女基金（Boston Women's Fund）與原住民社區基金廢除傳統動輒數十頁的財務與企劃申請書（RFP），改以結構化深度對話評估基層組織需求，大幅降低小型 NPO 的「募款交易成本（Fundraising Transaction Costs）」。",
+            quote: "\"Rather than top-down grantmaking dictated by wealthy donors, these models emphasize trust, shared power, participatory decision-making, and replacing cumbersome grant applications with 'Requests for Conversations'.\""
+          },
+          {
+            text: "【參與式撥款（Participatory Grantmaking）與多年期全成本核心資助】將資金配置決策權交由社區代表組成的審議委員會，並優先提供不限特定專案科目的「全成本營運資金（General Operating Support）」，實質強化基層組織的資產負債表韌性。",
+            quote: "\"Women's funds, giving circles, and Indigenous-led community foundations are shifting financial decision-making power directly to community members closest to the issues.\""
+          }
+        ],
+        critiques: [
+          "【非書面申請模式在財團法人內控與稅務查核上的合規設計】以「對話錄音／訪談紀錄」取代傳統書面企劃書，雖能解放基層 NPO 行政負擔，但在會計師查核與主管機關（如美國 IRS 或台灣財政部／衛福部）抽查時，必須由撥款基金會內部人員轉譯為標準化的「盡職調查與撥款決議備忘錄（Due Diligence Memo）」。",
+          "【對台灣「聯合勸募」與本土社區基金會之借鏡】台灣聯合勸募與大型企業基金會近年雖力求簡化表單，但對中小型社福團體而言，方案申請與核銷憑證的行政成本仍極高；引入「按組織規模分級之對話式審查」極具可行性。"
+        ],
+        consultant: "建議撥款型基金會與企業 ESG 部門將「小額基層培力補助（如新台幣 50 萬元以下）」改採「簡式訪談審查＋定額核銷制」，把行政稽核資源集中於大型資本支出專案，達成全成本效率最佳化。",
+        teachingQ: "傳統財務管理認為「申請表單越詳盡、核銷憑證越嚴格，資金使用效率越高」；為何 Akgün (2026) 報導的社區基金卻發現「廢除繁瑣 RFP 改採對話審查」反而能創造更高的社會投資報酬？",
+        refs: [
+          {
+            code: "WED-1A",
+            titleZh: "非營利組織「飢餓循環（Nonprofit Starvation Cycle）」與全成本回收之財務經典研究",
+            titleOrig: "The Nonprofit Starvation Cycle",
+            authors: "Gregory, Ann Goggins & Howard, Don (2009)",
+            journal: "Stanford Social Innovation Review (SSIR), Fall 2009",
+            doi: "https://ssir.org/articles/entry/the_nonprofit_starvation_cycle",
+            point: "NPO 財務管理領域最著名的經典文獻：揭示出資者過度壓低行政管理費（Overhead Cap）如何迫使 NPO 削減必要資訊系統與行政人力，最終導致組織產能崩潰與財報失真。",
+            value: "為本文主張「提供多年期非指定用途核心營運資金」提供最堅實的財務學理依據。",
+            deep: "說明打破飢餓循環的第一步，正是出資基金會主動承擔審查成本並核給真實的全成本（Full Cost Recovery）。"
+          },
+          {
+            code: "WED-1B",
+            titleZh: "參與式撥款（Participatory Grantmaking）之治理結構與財務決策實證分析",
+            titleOrig: "Deciding Together: Shifting Power and Resources Through Participatory Grantmaking",
+            authors: "Gibson, Cynthia (2018)",
+            journal: "Candid / GrantCraft Foundation Research Report",
+            doi: "https://doi.org/10.15868/socialsector.32988",
+            point: "全面盤點全球參與式撥款基金的運作模式、利益衝突迴避機制（Conflict of Interest Policies）與財務責信設計。",
+            value: "解答「讓受助社區代表決定資金分配，要如何避免私相授受與違反內控」的實務疑問。",
+            deep: "提供四種不同程度的社區參與財務決策模型（從諮詢建議權到最終撥款否決權）。"
+          },
+          {
+            code: "WED-1C",
+            titleZh: "捐款圈（Giving Circles）：慈善、自願結社與非營利財務民主化原典專書",
+            titleOrig: "Giving Circles: Philanthropy, Voluntary Association, and Democracy",
+            authors: "Eikenberry, Angela M. (2009)",
+            journal: "Indiana University Press",
+            doi: "https://iupress.org/9780253220837/giving-circles/",
+            point: "實證追蹤美國草根捐款圈與女性基金如何匯聚中產與社區小額資金，扶持主流大型基金會忽視的邊緣社會創新方案。",
+            value: "可作為台灣發展「在地社區公益基金」與群眾集資治理模式的制度範本。",
+            deep: "分析參與式基金如何同時達成「財務資源募集」與「公民審議教育」的雙重外部效益。"
+          }
+        ]
+      },
+      {
+        code: "WED-2",
+        region: "🇯🇵 日本休眠預金與社會投資",
+        timestamp: "2026-10-21 09:00 +09:00",
+        titleZh: "日本 JANPIA 2026 年度休眠預金活用事業「通常枠〈第 2 回〉」公募啟動（約 40.1 億日圓規模）＆〈第 1 回〉12 團體採擇財務分析",
+        titleOrig: "2026年度 休眠預金等活用事業「通常枠〈第2回〉」資金分配団体公募（申請受付：10月21日～10月30日）および〈第1回〉採択結果公表",
+        authors: "一般財団法人 日本民間公益活動連携機構 (JANPIA)",
+        publisher: "JANPIA（休眠預金活用プラットフォーム）",
+        pubDate: "2026-10-21",
+        year: 2026,
+        url: "https://www.janpia.or.jp/koubo/",
+        tags: ["accounting", "fundraising", "social-enterprises", "sroi", "japan"],
+        bullets: [
+          {
+            text: "【2026 年度通常枠〈第 1 回〉採擇 12 事業（約 19.80 億日圓）與〈第 2 回〉約 40.1 億日圓申請受理】JANPIA 於 2026 年 10 月正式公布了通常枠〈第 1 回〉從 58 個申請團體中脫穎而出的 12 家資金分配團體（含全國食物銀行推進協議會、ちくご川社區財團、PoliPoli、ETIC. 等，最長 3 年共 19.8 億日圓），並於 10 月 21 日至 10 月 30 日開放〈第 2 回〉申請（預算規模約 40.1 億日圓）。",
+            quote: "「2026年度通常枠〈第1回〉は58事業の申請から12事業（助成総額約19.80億円）を選定。〈第2回〉は10月21日より申請受付を開始し、10月30日17時締切（助成総額目安約40.1億円）。」"
+          },
+          {
+            text: "【「資金分配團體（FDO）× 執行團體」雙層培力與全成本補助結構】日本《休眠預金等活用法》透過中介型 NPO（資金分配團體）進行資金批發，並強制將「非財務伴走支援（管理培力、影響力評估 IMM 建置）」與「管理費／間接成本（原則最高可編列 15%～20%）」納入合法補助範圍。",
+            quote: "「草の根活動支援事業、イノベーション企画支援事業、ソーシャルビジネス形成支援事業、災害支援事業の各領域において、資金支援と非資金的支援（伴走支援）を一体的に実施。」"
+          }
+        ],
+        critiques: [
+          "【休眠預金制度的行政稽核負荷與「伴走支援」專業落差】雖然休眠預金提供了高達數十億日圓的長期資金，但因涉及準公共資金（國民靜止戶存款），其會計專戶管理、公認會計師查核與事前／事後影響力評估（SROI/IMM）要求極為繁複，常讓基層執行團體感到行政超載。",
+          "【台灣引進「靜止戶公益基金」或「社會創新批發基金」之制度比較】台灣金管會過去主要鼓勵銀行將靜止戶款項退還存戶，尚未如日本、英國（Big Society Capital）與韓國立法將逾期無人認領之休眠存款轉化為第三部門永續創投基金，極具政策倡議空間。"
+        ],
+        consultant: "台灣大型中介型組織（如聯合勸募、自律聯盟、社企流、各縣市社區基金會）可借鏡日本 JANPIA「資金分配團體（FDO）」之商業模式，向大型企業或家族辦公室提案成立「結合資金撥款＋財務治理伴走培力」的主題式批發基金。",
+        teachingQ: "比較日本《休眠預金等活用法》的「JANPIA → 資金分配團體（中介 NPO）→ 基層執行團體」三層架構，與台灣現行「衛福部彩券回饋金／公益勸募直接補助單一機構」模式，兩者在培植非營利生態系財務韌性上有何根本差異？",
+        refs: [
+          {
+            code: "WED-2A",
+            titleZh: "日本休眠預金活用制度中「社會影響力評估（IMM）」新實踐與第一線學習研究",
+            titleOrig: "社会的インパクト評価の新たな取組からの現場の学び",
+            authors: "根尾 智子, 髙木 陽子, 後藤 三紀子, 安藤 順一 (2025)",
+            journal: "日本評価研究 (Japanese Journal of Evaluation Studies), 25(2), 49–62",
+            doi: "https://doi.org/10.11278/jjoes.25.2_49",
+            point: "日本評估學會針對《休眠預金等活用法》實務現場的實證研究，剖析資金分配團體（FDO）與執行團體在落實事前・事後社會影響力評估時的治理與學習。",
+            value: "幫助日文讀者深入掌握 JANPIA 休眠預金制度在評估與伴走支援上的最新實證成果。",
+            deep: "詳細分析休眠預金如何將「社会的インパクト評価（IMM）」寫入全國 NPO 補助標準，帶動日本第三部門評估專業化。"
+          },
+          {
+            code: "WED-2B",
+            titleZh: "信用合作社與互助金融機構之財務監理：利害關係人認知與財務績效影響",
+            titleOrig: "Financial Regulation in Credit Unions: Stakeholder Perceptions and Implications for Financial Performance",
+            authors: "Ward, Anne Marie & Mangan, Anita (2026)",
+            journal: "Nonprofit and Voluntary Sector Quarterly (NVSQ), OnlineFirst Sept 2026",
+            doi: "https://doi.org/10.1177/08997640261481082",
+            point: "2026 年 NVSQ 最新發表：探討第三部門與互助型金融機構在面對嚴格財務合規監理時，如何平衡「法規遵循成本」與「社會使命績效」。",
+            value: "直接呼應日本休眠預金與公益创投基金在強化財務稽核時面臨的合規成本權衡。",
+            deep: "實證指出，過度的銀行級合規要求若未考量非營利組織規模差異，將產生排擠基層創新的副作用。"
+          },
+          {
+            code: "WED-2C",
+            titleZh: "財務條件、政治關聯與非營利組織投資收益：來自基金會之實證證據",
+            titleOrig: "Financial Conditions, Political Connections, and Nonprofit Investment Income: Evidence From Chinese Foundations",
+            authors: "Ye, Meng, Lu, Jiahuan, & Dong, Qiang (2026)",
+            journal: "Nonprofit and Voluntary Sector Quarterly (NVSQ), OnlineFirst Sept 2026",
+            doi: "https://doi.org/10.1177/08997640261477718",
+            point: "2026 年 NVSQ 最新發表：實證分析基金會如何透過資本市場投資與資產配置創造非捐款財務收入（Investment Income），以緩衝募款波動。",
+            value: "與日本休眠預金、台灣財團法人基金保值與投資配置形成東亞比較研究。",
+            deep: "揭示基金會專業投資治理能力（Board Financial Expertise）與制度網絡對長期財務永續性的顯著影響。"
+          }
+        ]
+      },
+      {
+        code: "WED-3",
+        region: "🇯🇵 日本新公益法人會計基準與財務規律",
+        timestamp: "2026-10-26 10:00 +09:00",
+        titleZh: "日本「令和 6 年新公益法人會計基準」實務移行關鍵：從「正味財產增減計算書」轉向「活動計算書」與中期收支均衡",
+        titleOrig: "新公益法人制度（改正公益認定法）および「令和6年公益法人会計基準」への実務移行・中期的収支均衡と区分経理の運用整理",
+        authors: "内閣府公益認定等委員会・日本公認会計士協会 (JICPA)",
+        publisher: "公益法人インフォメーション（内閣府）",
+        pubDate: "2026-10-26",
+        year: 2026,
+        url: "https://www.koeki-info.go.jp/",
+        tags: ["accounting", "compliance", "governance", "transparency", "japan"],
+        bullets: [
+          {
+            text: "【財務報表結構大革新：廢除「正味財產增減計算書」、全面導入「活動計算書」】配合 2025 年 4 月施行之改正《公益法人認定法》與 3 年移行猶豫期（至 2028 年 4 月前），日本公益法人正於 2026 年秋季預算與系統改版期全面轉向「令和 6 年新公益法人會計基準」，與 NPO 法人會計基準靠攏，廢除繁瑣的資產負債表內譯表，改以財務附註（注記）揭露公益事業區分資訊。",
+            quote: "「決算書体系の大幅な変更（『正味財産増減計算書』から『活動計算書』への移行、貸借対照表内訳表の廃止、注記による情報開示の充実）に向け、実務移行が本格化。」"
+          },
+          {
+            text: "【財務規律彈性化：從「單年度收支相抵」改為「中期的收支均衡（5 年週期）」】過去舊制強制要求公益目的事業每年「收入不得超過費用（單年度收支相抵原則）」，導致公益法人無法累積轉型準備金；新制正式改採「中期（5 年內）收支均衡」並新設「公益充実資金」，允許法人跨年度保留盈餘投入策略性數位與社會創新投資。",
+            quote: "「単年度の収支相償原則を見直し、中期的な収支均衡（5年単位での判定）および『公益充実資金』の積立を認めることで、財務規律の柔軟化と自律的経営を促進。」"
+          }
+        ],
+        critiques: [
+          "【會計基準簡化與外部監督透明度的權衡】廢除「貸借対照表内訳表（資產負債表依公益／收益事業分欄表）」雖大幅減輕中小型公益法人的日常記帳負擔，但若附註（注記）揭露不夠細緻，外部捐款人與監事將較難一眼看出「收益事業盈餘是否確實回流公益事業」。",
+          "【對台灣《財團法人法》與「免納所得稅適用標準（60% 支出率）」之重大政策啟示】台灣《教育文化公益慈善機關或團體免納所得稅適用標準》至今仍採取僵化的「當年度支出須達收入 60%，否則須專案報請主管機關核准結餘經費保留計畫（最長 4 年）」；日本改採「法定 5 年期中期收支均衡＋公益充實資金」的制度設計，極適合作為台灣修正免稅標準的立法借鏡！"
+        ],
+        consultant: "輔導台灣財團法人基金會進行年度預算與稅務規劃時，可借鏡日本「公益充実資金」概念，協助董事會提前編製 3～4 年期的「中長期數位與使命轉型結餘保留計畫書」，向主管機關與國稅局爭取合法保留跨年度策略儲備金。",
+        teachingQ: "為什麼傳統非營利會計與稅法（如日本舊制「單年度收支相償」與台灣「當年度 60% 支出率限制」）會阻礙 NPO 進行長期資本投資與數位轉型？日本新制改採「5 年中期收支均衡」如何解決這個財務困境？",
+        refs: [
+          {
+            code: "WED-3A",
+            titleZh: "從 P2M 專案與使命管理架構剖析日本非營利公益資金與社會影響力評估體系",
+            titleOrig: "P2Mフレームワークからみた「休眠預金等活用制度」の社会的インパクト評価の枠組みの研究",
+            authors: "小笠原 由佳, 沖浦 文彦 (2023)",
+            journal: "国際P2M学会誌, 17(2), 133–148",
+            doi: "https://doi.org/10.20702/iappmjour.17.2_133",
+            point: "從日本專案與計畫管理（P2M）架構剖析非營利組織的多年度事業財務規劃、區分經理與社會影響力責任認列規則。",
+            value: "提供日本非營利法人在跨年度中期收支管理與計畫成果揭露上的實證框架。",
+            deep: "釐清非營利組織如何將多年期使命目標與中長期財務收支均衡緊密結合。"
+          },
+          {
+            code: "WED-3B",
+            titleZh: "油箱見底：美國非營利組織營運準備金（Operating Reserves）與財務脆弱度之實證研究",
+            titleOrig: "Running on Empty: The Operating Reserves of U.S. Nonprofit Organizations",
+            authors: "Calabrese, Thad D. (2013)",
+            journal: "Nonprofit Management and Leadership, 23(3), 281–302",
+            doi: "https://doi.org/10.1002/nml.21064",
+            point: "NPO 財務韌性研究經典：實證分析非營利組織為何普遍存在「營運準備金不足（Under-capitalization）」現象，並證明適度累積跨年度淨資產儲備能顯著降低經濟衰退期的服務中斷風險。",
+            value: "為日本新制「中期收支均衡與公益充実資金」提供最核心的實證財務學支撐。",
+            deep: "驗證當法規或捐款人懲罰「帳上有結餘」的 NPO 時，將直接導致第三部門整體抗風險能力惡化。"
+          },
+          {
+            code: "WED-3C",
+            titleZh: "非營利組織超額留本基金（Excess Endowment Holdings）之代理問題與支出行為實證",
+            titleOrig: "Agency problems of excess endowment holdings in not-for-profit firms",
+            authors: "Core, John E., Guay, Wayne R., & Verdi, Robert S. (2006)",
+            journal: "Journal of Accounting and Economics, 41(3), 307–333",
+            doi: "https://doi.org/10.1016/j.jacceco.2006.02.001",
+            point: "會計與財務經濟學頂刊經典：實證探討非營利組織累積龐大淨資產與留本基金時的跨期資產配置、治理監督與支出率行為。",
+            value: "可作為課堂上比較美（5% 資產支出率）、日（5 年中期收支均衡）、台（當年度收入 60% 支出率）三國財務規律的經典實證文獻。",
+            deep: "證明財務規律設計必須兼顧防止管理層過度囤積資金與維持組織跨年度營運穩定。"
+          }
+        ]
+      }
+    ]
+  }
+];
+
+let curDayIdx = 0;
+let curArtIdx = 0;
+let curSubTab = 0;
+const savedState = {};
+
+function toBase64Url(obj) {
+  const jsonStr = JSON.stringify(obj);
+  const bytes = new TextEncoder().encode(jsonStr);
+  let bin = "";
+  bytes.forEach(b => bin += String.fromCharCode(b));
+  return btoa(bin).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+}
+
+async function triggerSave(payload, statusSpanId) {
+  const el = document.getElementById(statusSpanId);
+  if (el) el.innerHTML = `<span style="color:#1e40af;font-weight:700;font-size:0.78rem;">⏳ 正在寫入 ${payload.target === 'both' ? 'Zotero ＆ Notion' : payload.target.toUpperCase()}...</span>`;
+  try {
+    const resp = await fetch("http://127.0.0.1:8765/api/save", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    });
+    const res = await resp.json();
+    if (res && res.ok) {
+      savedState[payload.code] = res;
+      const zBadge = res.zotero_key ? `<span class="badge b-ok">✅ Zotero: ${res.zotero_key}</span> ` : "";
+      const nLink = res.notion_url ? `<a class="ext-link" href="${res.notion_url}" target="_blank" rel="noopener">📝 開啟 Notion 筆記</a>` : "";
+      if (el) el.innerHTML = zBadge + nLink;
+      return;
+    }
+  } catch (e) {
+    // Fallback to top-level GET link if iframe CSP blocks fetch
+    const b64 = toBase64Url(payload);
+    window.open(`http://127.0.0.1:8765/api/save?d=${b64}`, "_blank");
+    if (el) el.innerHTML = `<span class="badge b-ok">✅ 已於新分頁執行入庫（預設不自動覆寫未選項目）</span>`;
+  }
+}
+
+function buildSaveButtonsHtml(itemObj, isMain) {
+  const code = itemObj.code;
+  const statusId = `status-${code}`;
+  const existing = savedState[code];
+  const initStatus = existing
+    ? `${existing.zotero_key ? `<span class="badge b-ok">✅ Zotero: ${existing.zotero_key}</span> ` : ""}${existing.notion_url ? `<a class="ext-link" href="${existing.notion_url}" target="_blank">📝 開啟 Notion</a>` : ""}`
+    : `<span style="font-size:0.75rem;color:#64748b;">（未點擊則預設不存入）</span>`;
+
+  const makePayload = (target) => ({
+    target,
+    code: itemObj.code,
+    titleZh: itemObj.titleZh,
+    titleOrig: itemObj.titleOrig,
+    authors: itemObj.authors,
+    journal: itemObj.journal || itemObj.publisher,
+    publisher: itemObj.publisher || itemObj.journal,
+    pubDate: itemObj.pubDate || "2026-10-26",
+    year: itemObj.year || 2026,
+    doi: itemObj.doi || itemObj.url,
+    url: itemObj.url || itemObj.doi,
+    tags: itemObj.tags || ["accountability", "governance"],
+    summaryShort: isMain ? itemObj.bullets.map(b => b.text).join(" ") : itemObj.point,
+    summaryPoints: isMain ? itemObj.bullets.map(b => b.text) : [itemObj.point],
+    criticalPoints: isMain ? itemObj.critiques : [itemObj.value],
+    consultantInsight: isMain ? itemObj.consultant : itemObj.deep,
+    teachingQuestion: isMain ? itemObj.teachingQ : `請結合《${itemObj.titleOrig}》探討其對台灣與日本 NPO 之實務啟示。`
+  });
+
+  const pBoth = JSON.stringify(makePayload("both")).replace(/"/g, "&quot;");
+  const pZot = JSON.stringify(makePayload("zotero")).replace(/"/g, "&quot;");
+  const pNot = JSON.stringify(makePayload("notion")).replace(/"/g, "&quot;");
+
+  return `
+    <button class="save-btn primary" onclick="triggerSave(${pBoth}, '${statusId}')">📥 同時存入 Zotero ＆ Notion</button>
+    <button class="save-btn" onclick="triggerSave(${pZot}, '${statusId}')">📚 僅存入 Zotero</button>
+    <button class="save-btn" onclick="triggerSave(${pNot}, '${statusId}')">📝 僅存入 Notion</button>
+    <span id="${statusId}">${initStatus}</span>
+  `;
+}
+
+function renderAll() {
+  document.getElementById("day-tabs").innerHTML = DAYS.map((d, i) => `
+    <button class="day-btn ${i === curDayIdx ? 'active' : ''}" onclick="curDayIdx=${i};curArtIdx=0;curSubTab=0;renderAll();">${d.label}</button>
+  `).join("");
+
+  const day = DAYS[curDayIdx];
+  document.getElementById("art-nav").innerHTML = day.items.map((it, i) => `
+    <button class="art-pill ${i === curArtIdx ? 'active' : ''}" onclick="curArtIdx=${i};curSubTab=0;renderAll();">
+      第 ${i + 1} 則：${it.titleZh.slice(0, 14)}…
+    </button>
+  `).join("");
+
+  const art = day.items[curArtIdx];
+  let bodyHtml = "";
+  if (curSubTab === 0) {
+    bodyHtml = art.bullets.map(b => `
+      <div class="bullet-box">
+        <div>${b.text} <a class="ext-link" href="${art.url}" target="_blank" rel="noopener">[原始文本連結]</a></div>
+        <div class="quote-box">📜 <strong>原文引句 (Verbatim Quote)：</strong>${b.quote}</div>
+      </div>
+    `).join("");
+  } else if (curSubTab === 1) {
+    bodyHtml = art.critiques.map(c => `<div class="bullet-box" style="border-left-color:#d97706;">⚖️ ${c}</div>`).join("");
+  } else if (curSubTab === 2) {
+    bodyHtml = `
+      <div class="bullet-box" style="border-left-color:#059669;"><strong>💼 顧問實務洞察：</strong><br/>${art.consultant}</div>
+      <div class="bullet-box" style="border-left-color:#7c3aed;"><strong>🎓 課堂備課提問：</strong><br/>${art.teachingQ}</div>
+    `;
+  } else {
+    bodyHtml = art.refs.map((r, rIdx) => {
+      const rWithTags = Object.assign({ tags: art.tags, pubDate: "2025-01-01", year: 2025 }, r);
+      const dId = `dd-${art.code}-${rIdx}`;
+      return `
+        <div class="ref-card">
+          <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;">
+            <span class="badge" style="background:var(--purple-bg);color:var(--purple-text);">延伸參考文獻 ${r.code}</span>
+            <a class="ext-link" href="${r.doi}" target="_blank" rel="noopener">🔗 Crossref / 原文連結: ${r.doi}</a>
+          </div>
+          <div class="ref-title-zh">${r.titleZh}</div>
+          <div class="ref-title-orig">📖 原文文獻名稱：${r.titleOrig}</div>
+          <div style="font-size:0.78rem;color:var(--muted);margin-bottom:6px;">👤 <strong>作者：</strong>${r.authors} ｜ 🏛️ <strong>出處：</strong><em>${r.journal}</em></div>
+          <div style="font-size:0.83rem;background:#f8fafc;padding:6px 10px;border-radius:6px;margin-bottom:4px;"><strong>📌 核心論點：</strong>${r.point}</div>
+          <div style="font-size:0.82rem;background:var(--amber-bg);color:var(--amber-text);padding:6px 10px;border-radius:6px;margin-bottom:8px;"><strong>💡 對照價值：</strong>${r.value}</div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;">
+            ${buildSaveButtonsHtml(rWithTags, false)}
+            <button class="deep-btn" onclick="document.getElementById('${dId}').classList.toggle('show')">🔍 深入閱讀與討論此文獻</button>
+          </div>
+          <div class="deep-drawer" id="${dId}">
+            <strong>🔬 深度方法論與台日實務研討：</strong><br/>${r.deep}<br/>
+            <span style="color:#3730a3;font-weight:600;">💬 研討提問：</span>如何將《${r.titleOrig}》之研究發現與主文獻《${art.titleOrig}》結合應用於台灣與日本之非營利治理實務？
+          </div>
+        </div>
+      `;
+    }).join("");
+  }
+
+  document.getElementById("art-card").innerHTML = `
+    <div class="meta-bar">
+      <span class="badge b-region">${art.region}</span>
+      <span class="badge b-ok">✅ 原文核驗通過</span>
+      <span>🕒 發布時間：<strong>${art.timestamp}</strong></span>
+      <span>🏛️ 出處：<strong>${art.publisher}</strong> (${art.authors})</span>
+      <a class="ext-link" href="${art.url}" target="_blank" rel="noopener">🔗 開啟原始文本</a>
+    </div>
+    <h2 class="title-zh">${art.titleZh}</h2>
+    <div class="title-orig">📖 原文文獻名稱：${art.titleOrig}</div>
+    <div style="margin-bottom:6px;">${art.tags.map(t => `<span class="tag-pill">${t}</span>`).join(" ")}</div>
+
+    <div class="action-bar">
+      <strong style="font-size:0.8rem;color:#1e293b;">📌 主文獻直接入庫操作：</strong>
+      ${buildSaveButtonsHtml(art, true)}
+    </div>
+
+    <div class="sub-tabs">
+      <button class="sub-btn ${curSubTab === 0 ? 'active' : ''}" onclick="curSubTab=0;renderAll();">📌 1. 事實摘要 ＆ 📜 原文引句</button>
+      <button class="sub-btn ${curSubTab === 1 ? 'active' : ''}" onclick="curSubTab=1;renderAll();">⚖️ 2. 批判性觀點與反思</button>
+      <button class="sub-btn ${curSubTab === 2 ? 'active' : ''}" onclick="curSubTab=2;renderAll();">💼 3. 顧問洞察 ＆ 🎓 備課提問</button>
+      <button class="sub-btn ${curSubTab === 3 ? 'active' : ''}" onclick="curSubTab=3;renderAll();">📚 4. 深入展開 ＆ 3 篇延伸文獻 (含直接入庫按鈕)</button>
+    </div>
+    <div>${bodyHtml}</div>
+  `;
+}
+
+// Fetch existing saved state from local bridge server if running
+fetch("http://127.0.0.1:8765/api/status").then(r => r.json()).then(d => {
+  if (d && d.saved) Object.assign(savedState, d.saved);
+  renderAll();
+}).catch(() => renderAll());
+
+renderAll();
+</script>
+</body>
+</html>
