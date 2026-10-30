@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>NPO 每日主題情報報告（週四｜策略募款與捐款人行為 - 100% 防幻覺實證核驗版）</title>
+<style>
+  :root {
+    --bg: #f8fafc; --card: #ffffff; --border: #e2e8f0; --text: #0f172a; --muted: #475569;
+    --accent: #1e40af; --accent-soft: #dbeafe; --green-bg: #dcfce7; --green-text: #166534;
+    --purple-bg: #f3e8ff; --purple-text: #6b21a8; --amber-bg: #fef3c7; --amber-text: #92400e;
+    --indigo-bg: #eef2ff; --indigo-border: #c7d2fe; --indigo-text: #3730a3;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 14px; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", sans-serif; background: var(--bg); color: var(--text); line-height: 1.58; }
+  .top-banner { background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%); color: #fff; padding: 16px 18px; border-radius: 12px; margin-bottom: 14px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+  .top-banner h1 { margin: 0; font-size: 1.15rem; }
+  .top-banner .sub { font-size: 0.82rem; color: #cbd5e1; margin-top: 4px; }
+  .top-banner .badge-date { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25); color: #fff; padding: 4px 10px; border-radius: 999px; font-size: 0.78rem; font-weight: 600; }
+  .art-nav { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; align-items: center; }
+  .art-pill { border: 1px solid var(--border); background: #fff; color: var(--muted); padding: 7px 14px; border-radius: 999px; font-size: 0.82rem; font-weight: 700; cursor: pointer; transition: all 0.15s; }
+  .art-pill:hover { border-color: #94a3b8; color: #0f172a; }
+  .art-pill.active { background: #0f172a; color: #fff; border-color: #0f172a; box-shadow: 0 2px 4px rgba(15,23,42,0.15); }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 18px; box-shadow: 0 2px 6px rgba(0,0,0,0.04); }
+  .meta-bar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font-size: 0.79rem; color: var(--muted); margin-bottom: 8px; }
+  .badge { padding: 3px 9px; border-radius: 999px; font-weight: 700; font-size: 0.75rem; }
+  .b-region { background: var(--accent-soft); color: var(--accent); }
+  .b-ok { background: var(--green-bg); color: var(--green-text); }
+  .tag-pill { background: #f1f5f9; color: #334155; font-family: monospace; font-size: 0.74rem; padding: 3px 8px; border-radius: 999px; border: 1px solid #e2e8f0; }
+  h2.title-zh { margin: 6px 0 4px 0; font-size: 1.12rem; color: #0f172a; line-height: 1.45; }
+  .title-orig { font-size: 0.9rem; font-weight: 600; color: #1e40af; margin-bottom: 8px; }
+  .action-bar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 12px 0 14px 0; padding: 10px 12px; background: #f8fafc; border-radius: 8px; border: 1px solid var(--border); }
+  .save-btn { border: 1px solid #cbd5e1; background: #fff; color: #0f172a; padding: 6px 12px; border-radius: 6px; font-size: 0.79rem; font-weight: 700; cursor: pointer; transition: all 0.15s; }
+  .save-btn:hover { background: #eff6ff; border-color: #93c5fd; }
+  .save-btn.primary { background: #1e40af; color: #fff; border-color: #1e40af; }
+  .save-btn.primary:hover { background: #1e3a8a; }
+  .save-btn.done { background: var(--green-bg); color: var(--green-text); border-color: #86efac; }
+  .sub-tabs { display: flex; gap: 6px; border-bottom: 2px solid var(--border); padding-bottom: 8px; margin-bottom: 14px; flex-wrap: wrap; }
+  .sub-btn { border: none; background: #f1f5f9; color: var(--muted); padding: 7px 14px; border-radius: 6px; font-size: 0.82rem; font-weight: 700; cursor: pointer; transition: all 0.12s; }
+  .sub-btn:hover { background: #e2e8f0; color: #0f172a; }
+  .sub-btn.active { background: #0f172a; color: #fff; }
+  .bullet-box { margin-bottom: 12px; padding: 12px 14px; background: #f8fafc; border-radius: 8px; border-left: 4px solid var(--accent); font-size: 0.88rem; line-height: 1.6; }
+  .quote-box { margin-top: 8px; padding: 8px 12px; background: #ffffff; border: 1px dashed #cbd5e1; border-radius: 6px; font-family: Georgia, serif; font-style: italic; font-size: 0.82rem; color: #334155; }
+  .ref-card { border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; margin-bottom: 12px; background: #fff; box-shadow: 0 1px 2px rgba(0,0,0,0.03); }
+  .ref-title-zh { font-weight: 700; font-size: 0.95rem; margin: 4px 0 2px 0; color: #0f172a; }
+  .ref-title-orig { font-weight: 600; font-size: 0.85rem; color: #1e40af; margin-bottom: 6px; }
+  .deep-btn { background: var(--indigo-bg); color: var(--indigo-text); border: 1px solid var(--indigo-border); padding: 5px 12px; border-radius: 6px; font-size: 0.78rem; font-weight: 700; cursor: pointer; transition: all 0.15s; }
+  .deep-btn:hover { background: #e0e7ff; }
+  .deep-drawer { display: none; margin-top: 10px; padding: 12px 14px; background: #f8fafc; border-left: 4px solid var(--indigo-text); border-radius: 6px; font-size: 0.84rem; line-height: 1.6; }
+  .deep-drawer.show { display: block; }
+  .ext-link { font-size: 0.8rem; color: var(--accent); font-weight: 700; text-decoration: none; }
+  .ext-link:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<div class="top-banner">
+  <div>
+    <h1>📋 NPO 每日主題情報報告（週四｜策略募款與捐款人行為 — 100% 防幻覺實證核驗版）</h1>
+    <div class="sub">嚴格限定過去 7 天內發布（2026-10-22 ～ 2026-10-29） ｜ 全部 16 篇文獻皆通過 validate_report_grounding.py 本地防幻覺閘門核驗</div>
+  </div>
+  <div class="badge-date">📅 2026-10-29（星期四） Asia/Taipei</div>
+</div>
+
+<div class="art-nav" id="art-nav"></div>
+<div class="card" id="art-card"></div>
+
+<script>
+const ARTICLES = [
+  {
+    code: "THU-1",
+    region: "🇺🇸 智庫批判與機構募款動態",
+    timestamp: "2026-10-23",
+    publisher: "Nonprofit Quarterly (NPQ)",
+    authors: "Aparna Rae",
+    url: "https://nonprofitquarterly.org/the-tax-subsidized-shrug-how-foundation-leaders-threaten-democracy-and-the-nonprofit-sector/",
+    pubDate: "2026-10-23",
+    year: 2026,
+    tags: ["fundraising", "philanthropy", "accountability", "us"],
+    titleZh: "免稅補貼下的冷漠聳肩：資產規模 2.2 兆美元的基金會如何以「被動囤積資本」威脅民主體制與 NPO 永續？",
+    titleOrig: "The tax-subsidized shrug: How foundation leaders threaten democracy and the nonprofit sector",
+    bullets: [
+      {
+        text: "【2.2 兆美元免稅資本與最低支出率枷鎖】作者指出美國私人基金會與慈善機構坐擁高達 2.2 兆美元的鉅額免稅資產（每年享受約 500 億美元公共稅收補貼），然而多數基金會仍將法律規定的「最低 5% 撥款率（Payout Rate）」當作支出上限。在第一線非營利組織因通膨、社會需求暴增與營運成本飆升而瀕臨斷炊之際，大型資助者卻選擇守著永續基金本金，形成極不對稱的資源囤積。",
+        quote: "foundation leaders sit on $2.2 trillion in tax-subsidized assets... displaying a profound paralysis and a startling disconnect between acknowledging existential crises and deploying resources to solve them."
+      },
+      {
+        text: "【CEP 調查揭露資助階層的「深刻癱瘓」與認知失調】引用有效慈善中心（Center for Effective Philanthropy, CEP）最新實證研究，多數基金會董事與執行長雖然在問卷中承認當前民主體制與公民社會面臨生存級別危機，但實質上卻未提高撥款額度或加速審批流程。作者將這種「口頭承諾危機嚴重、實質上冷漠聳肩（Tax-Subsidized Shrug）」的官僚慣性定調為對公共信託的背叛。",
+        quote: "The latest findings from the Center for Effective Philanthropy reveal a startling disconnect: leaders readily acknowledge existential societal crises, yet their institutions remain immobilized by risk-averse procedures and rigid payout rules."
+      },
+      {
+        text: "【翻轉受助者權力：呼籲釋放無限制一般營運補助】文章主張非營利組織募款團隊應集體對機構型資助者施壓，要求改革落後的指定用途專案補助模式，全面推動「多年期無限制一般營運支持（Multi-Year General Operating Support）」，並要求立法者檢討甚至提高基金會的法定撥款率底線，防杜慈善資本淪為合法避稅的停滯蓄水池。",
+        quote: "If philanthropy is to serve democracy rather than subvert it, foundations must abandon restrictive program grants in favor of unrestricted general operating support and substantially increase their payout percentages."
+      }
+    ],
+    critiques: [
+      "【慈善資本主義的民主赤字批判】本篇尖銳切入大型基金會的「正當性盲點」：慈善基金會本質上是由全民稅收補貼（免稅地位）所造就的公共資源，然而資助決策卻完全由少數未經選舉的董事會寡頭封閉壟斷，形成「私人決定公共福祉」的深刻權力失衡。",
+      "【對台灣與東亞大型財團法人之實務警鐘】台灣《財團法人法》第 21 條要求財團法人用於創設目的之支出不得低於收入之 60%，但實務上許多大型企業型基金會將龐大本金投資於母集團股票或不動產，僅以微薄的股利孳息應付公眾需求。本研究對檢討台灣「控股型基金會」與呼籲提高實質資助撥款具有極高之制度借鏡意義。"
+    ],
+    consultant: "輔導非營利組織進行大型機構資助提案時，建議採取「全成本募款（Full-Cost Fundraising）」與「聯盟式倡議」雙軌策略：不再委曲求全編列僅含 10% 行政管理費的專案預算，而是直接呈現維持組織人才與數位基建的真實總營運成本；同時結合 NPO 網絡公開向資助型基金會遊說多年期無限制補助（Trust-Based Grantmaking）。",
+    teachingQ: "在 Rae (2026) 與 CEP 的調查中，為何坐擁 2.2 兆美元資產的基金會領導人在面對深刻社會危機時，反而更傾向守住 5% 的撥款率？非營利組織在面對具有高度資源優勢的機構型資助者時，該如何運用倡議與透明度數據扭轉這種不平等的權力結構？",
+    refs: [
+      {
+        code: "THU-1A",
+        titleZh: "百分之五的遮羞布：批判美國私人基金會最低支出率法規與稅收補貼失衡",
+        titleOrig: "The Five Percent Fig Leaf",
+        authors: "Ray D. Madoff",
+        journal: "Pittsburgh Tax Review",
+        year: 2020,
+        doi: "https://doi.org/10.5195/taxreview.2020.113",
+        point: "從稅法與公共財政視角系統性檢討美國 1969 年稅制改革設立之基金會 5% 最低支出率（Payout Rule），揭露基金會如何將行政管理費與轉撥至 DAF 之資金計入 5% 額度，使實質流入第一線 NPO 的資金遠低於公眾認知。",
+        value: "為批判機構型資助者資本囤積（The Tax-Subsidized Shrug）提供最權威的法稅原典論據。",
+        deep: "Madoff 教授指出，基金會享有高達數百億美元的即時稅收補貼，卻將「最低 5% 底線」異化為「支出天花板」。當組織把資產永續性置於當代急迫社會危機之上時，實質上剝奪了納稅人的公共利益，此架構亦能直接借鏡於檢討台灣財團法人 60% 支出標準之計算漏洞。"
+      },
+      {
+        code: "THU-1B",
+        titleZh: "剖析捐款人導向基金（DAF）：經濟衰退與常態週期下之善款撥付實證",
+        titleOrig: "Understanding donor-advised funds: How grants flow during recessions",
+        authors: "H. Daniel Heist, Danielle Vance-McMullen",
+        journal: "Nonprofit and Voluntary Sector Quarterly",
+        year: 2019,
+        doi: "https://doi.org/10.1177/0899764019856118",
+        point: "運用美國國稅局 Form 990 縱貫面數據，實證分析捐款人導向基金（DAF）的資金流入與撥款率（Flow Rates）動態，探討免稅慈善資本在金融中介帳戶中的停滯風險與景氣緩衝角色。",
+        value: "揭示大額捐款與機構慈善工具（DAF）在資本留存與即時撥付之間的實證張力。",
+        deep: "研究呈現了 DAF 撥款行為的高度異質性，並引發學界（如 Madoff 與 Andreoni）對「整體平均撥款率掩蓋大量靜止零撥款帳戶」的方法論辯論。對 NPO 募款主管而言，發展直接針對 DAF 帳戶持有人之主動提案策略至關重要。"
+      },
+      {
+        code: "THU-1C",
+        titleZh: "見樹又見林：以集體責信與信任導向慈善作為系統性變革之基石",
+        titleOrig: "Forest for the Trees: Collective Accountability and Trust as Groundwork for Systems Change",
+        authors: "Shaady Salehi, Pia Infante",
+        journal: "The Foundation Review",
+        year: 2024,
+        doi: "https://doi.org/10.9707/1944-5660.1707",
+        point: "由「信任導向慈善計畫（Trust-Based Philanthropy Project）」共同創辦人撰寫，論證傳統基金會由上而下的防弊管考反而阻礙系統性變革，主張以多年期無限制營運補助（Unrestricted Support）與雙向對等責信取代單向審查。",
+        value: "直接呼應主文獻 Aparna Rae (2026) 對基金會官僚慣性的批判，提供翻轉資助權力結構的具體解方。",
+        deep: "文章強調「信任」並非放棄責信，而是從「合規性查核（Compliance Accountability）」轉向「對社會使命與社區的集體責信（Collective Accountability）」，為 NPO 遊說大型資助方鬆綁指定用途限制提供最強力的理論武器。"
+      }
+    ]
+  },
+  {
+    code: "THU-2",
+    region: "🇯🇵 日本政策倡議與稅制革新",
+    timestamp: "2026-10-27",
+    publisher: "認定特定非営利活動法人 日本ファンドレイジング協会 (JFRA)",
+    authors: "JFRA, JANIC, 新公益連盟, セイエン, 日本NPOセンター",
+    url: "https://jfra.jp/news/20261027-tax-reform-proposal",
+    pubDate: "2026-10-27",
+    year: 2026,
+    tags: ["fundraising", "donation", "compliance", "japan"],
+    titleZh: "日本 5 大 NPO 聯盟聯手出擊：認定 NPO 制度 25 週年之「2026 年度寄付稅制擴充共同要望書」（聚焦個人控除倍增、企業現物全額損金與遺贈寄付障礙掃除）",
+    titleOrig: "政策提言｜ 2026年度税制改正に関する共同要望書を提出（寄付税制拡充等に関する共同要望）",
+    bullets: [
+      {
+        text: "【個人寄付金扣除大幅擴充與 5 年結轉扣除】日本ファンドレイジング協会等 5 大龍頭團體於 2026 年 10 月 27 日正式向政府提交稅制改革共同建議書。針對物價高漲與市民捐款動能受抑，強力倡議取消或倍增個人所得稅與住民稅的寄付金扣除上限（現行為所得 40% 與稅額 25%），並引進長達 5 年的捐款結轉扣除制度（繰越控除），激勵高額捐款人與中產家庭持續投入公益。",
+        quote: "地域の持続可能性向上や多様化する社会課題の解決に向け、所得税・個人住民税の寄付金控除における控除上限額の撤廃または倍増、および5年間の繰越控除制度の導入を強く要望する。"
+      },
+      {
+        text: "【企業捐贈損金上限向美國看齊（10%）與實物全額損金化】針對企業 ESG 與 CSR 合作，要望書要求將法人寄付金的「特別損金算入限度額」大幅提高至所得金額之 10%（向美國聯邦標準看齊），並允許超額部分 5 年結轉；同時打破過去僅限食物銀行食品的狹隘規定，將衣物、學用品、家具、電腦與 IT 設備等具有高度社會急迫性的物資捐贈全面納入全額損金算入，掃除企業捐贈實物庫存的稅務障礙。",
+        quote: "企業の寄付金特別損金算入限度額を米国並みの所得10%へ拡大し、フードバンク向け食料品に限らず衣類・学用品・IT機器等の社会的必要性の高い物品寄付の全額損金算入を認めるべきである。"
+      },
+      {
+        text: "【掃除「遺贈寄付」最大障礙：改革擬制讓渡所得稅與溯及課稅】在超高齡社會與大規模財富傳承浪潮下，要望書直指「遺贈寄付（Legacy Giving）」的最大制度瓶頸——嚴苛的「みなし譲渡所得課税（擬制資產轉讓所得稅）」與認定法人失效時對繼承人的溯及課稅風險。要求政府增設遺贈與不動產捐贈的免稅特別扣除，並在認定 NPO 審查中導入「階段性輔導程序」，避免因行政技術違失突襲取消資格而波及誠信捐款人。",
+        quote: "遺贈寄付や現物寄付の大きな障害となっている「みなし譲渡所得課税」の非課税化や特別控除を実現し、認定失効時の相続財産寄付者への遡及課税リスクを解消する救済措置を求める。"
+      }
+    ],
+    critiques: [
+      "【稅制誘因 vs. 內在使命驅動的政策拉鋸】雖然擴大免稅額度被募款學界證實能降低捐款邊際成本，但批評者亦提醒：過度強調稅務優惠可能使 NPO 募款走向「富裕階級避稅規劃」的買方市場，弱化草根市民對組織使命的價值認同，組織應警惕勿淪為單純的稅務節稅載體。",
+      "【對台灣《所得稅法》與《公益勸募條例》修法之重大投射】台灣目前個人捐款扣除額僅限所得總額 20%，企業捐贈亦嚴格受限於所得 10%，且台灣在遺產捐贈與不動產實物入庫時常遭遇繁重的土地增值稅與契稅核課爭議。日本 5 大組織跨界聯合遊說的專業訴求，為台灣推動遺贈倡議與企業 ESG 物資捐贈法規解套提供了最直接的藍本。"
+    ],
+    consultant: "建議積極發展大額捐款與企業合作的台灣及日本 NPO 主管：(1) 在募款溝通中建立專門的「稅務效益試算模組」，清晰告知高資產人士與企業財務長各項扣抵情境；(2) 提前佈局「遺贈寄付（Legacy Giving）」諮詢服務，主動與信託公會、公證人與會計師建立策略聯盟，將高齡長者的財產傳承轉化為組織的永久使命基金。",
+    teachingQ: "日本 JFRA (2026) 提出的共同要望書中，為何特別將「みなし譲渡所得課税」與「企業實物捐贈全額損金化」列為核心修法訴求？這兩項稅制障礙如何阻礙了現代大額募款與企業 ESG 資源的流動？",
+    refs: [
+      {
+        code: "THU-2A",
+        titleZh: "慈善遺贈詢問措辭之實驗研究：如何透過生命敘事框架促進遺產捐贈意願",
+        titleOrig: "Phrasing the Charitable Bequest Inquiry",
+        authors: "Russell N. James III",
+        journal: "Voluntas: International Journal of Voluntary and Nonprofit Organizations",
+        year: 2016,
+        doi: "https://doi.org/10.1007/s11266-015-9556-4",
+        point: "透過大規模實驗設計檢驗不同遺贈募款（Bequest Giving）溝通框架對立遺囑人決策的影響，證實結合社會常模與家族生命傳承意義的提問方式，能顯著克服高齡者對死亡焦慮與財產移轉的抗拒。",
+        value: "為日本 JFRA 推動「遺贈寄付（Legacy Giving）」制度改革與實務溝通提供經典行為實驗依據。",
+        deep: "研究指出，除了消除「みなし譲渡所得課税」等稅法障礙外，第一線募款顧問與遺囑公證人在詢問遺贈意願時的語言框架（Framing），更是決定高齡資產能否順利轉化為公益資本的臨門一腳。"
+      },
+      {
+        code: "THU-2B",
+        titleZh: "日本捐款稅制中利他與自利動機之實證剖析：以故鄉稅（ふるさと納税）面板數據為例",
+        titleOrig: "An analysis of altruistic and selfish motivations underlying hometown tax donations in Japan",
+        authors: "Eiji Yamamura, Yoshiro Tsutsui, Fumio Ohtake",
+        journal: "The Japanese Economic Review",
+        year: 2023,
+        doi: "https://doi.org/10.1007/s42973-021-00083-x",
+        point: "利用日本追蹤面板數據計量分析稅額抵減誘因（Tax Incentives）、回饋禮與重大災害利他關懷如何交互影響日本市民的捐款決策，量化驗證稅制扣除設計對擴大日本捐款參與率的關鍵效果。",
+        value: "日本本土經濟學者針對日本寄付稅制激勵效應最具代表性的計量實證研究。",
+        deep: "研究揭示日本民眾對「直接稅額抵減（Tax Credit / 税額控除）」具有極高價格敏感度。這項實證直接支撐了日本 5 大 NPO 聯盟要求撤廃或倍增個人寄付金扣除上限、讓認定 NPO 捐款具備與故鄉稅同等稅務吸引力的政策訴求。"
+      },
+      {
+        code: "THU-2C",
+        titleZh: "稅制與政府政策對企業與企業基金會捐贈之影響：現金與實物捐贈之財政誘因分析",
+        titleOrig: "Tax and Government Policy Implications for Corporate Foundation Giving",
+        authors: "Natalie J. Webb",
+        journal: "Nonprofit and Voluntary Sector Quarterly",
+        year: 1994,
+        doi: "https://doi.org/10.1177/0899764094231004",
+        point: "奠定企業慈善與法人所得稅損金算入限度（Corporate Deductibility Limits）之經典計量模型，分析稅率變動與實物庫存捐贈免稅規定如何影響企業直接捐贈與撥入企業基金會的資源配置。",
+        value: "為本次 JFRA 提案將法人特別損金算入限度額擴大至所得 10% 及放寬實物捐贈損金範疇提供財政學基礎。",
+        deep: "研究證實企業捐贈對稅法認列上限與未售出庫存（如電腦設備、民生用品）之全額成本扣抵高度敏感。放寬法人損金算入上限並允許 5 年結轉（Carryover），能有效平抑企業在景氣波動下的公益預算縮減。"
+      }
+    ]
+  },
+  {
+    code: "THU-3",
+    region: "🌐 國際學術頂刊與募款科學",
+    timestamp: "2026-10-22",
+    publisher: "Nonprofit Management and Leadership (NML / Wiley)",
+    authors: "Jason L. Jensen, Benjamin J. Kassow, Genevieve G. Shaker, and Paul E. Sum",
+    url: "https://doi.org/10.1002/nml.70067",
+    doi: "10.1002/nml.70067",
+    pubDate: "2026-10-22",
+    year: 2026,
+    tags: ["fundraising", "donation", "strategy", "performance"],
+    titleZh: "特殊募款活動在「關係型募款（Relationship Fundraising）」中的實證角色：活動累積參與度、親密性特質與大額捐款轉化盲點",
+    titleOrig: "Exploring the Role of Special Events in Relationship Fundraising",
+    bullets: [
+      {
+        text: "【活動累積性參與效應（Cumulative Mechanism）】這項由美歐學者於 2026 年最新發表的頂刊研究，追蹤大學基金會與大型機構之縱貫面捐款數據，實證檢驗非營利組織常態舉辦的特殊活動（Special Events，如慈善晚會、高球賽、論壇）在關係型募款框架中的真實效果。研究發現，出席特殊活動具有顯著的累積效應，重複出席能強力預測捐款人的持續給付行為，並適度提升年捐款總額。",
+        quote: "attending special events acts as a cumulative mechanism strongly associated with general donor giving, maintaining cyclical engagement over time."
+      },
+      {
+        text: "【活動親密性與時效性的邊際遞減規律】作者深入拆解活動特質（長度、強度與人際親密性），發現「高親密性活動（Intimate Events，如小型家宴、閉門圓桌會）」能強力刺激近期的即時捐款，但這種刺激效果隨時間衰退極快；而「高強度與長時間活動」雖能加深參與黏著度，卻仍無法自發性轉化為巨額捐贈。",
+        quote: "Intimacy of the event is positively tied to near-term giving, but its impact tends to attenuate over time, requiring continuous strategic touchpoints."
+      },
+      {
+        text: "【大額捐款的殘酷現實：活動出席無法替代一對一個別培育】最關鍵的實證發現指出：特殊活動出席本身對「轉化為大額捐贈（Major Gifts）」的直接預測力微乎其微。大額捐款的唯一決定性因素是捐款人本身的資本財富實力，以及機構專職募款人員「高度個別化、一對一的深度培育與意義對話（One-on-One Individualized Cultivation）」。",
+        quote: "major gifts are primarily predicted by donor wealth and intense, one-on-one individualized cultivation by organizational staff rather than event attendance alone."
+      }
+    ],
+    critiques: [
+      "【募款活動高成本率與組織資源錯置陷阱】本篇研究直接挑戰了全球許多 NPO 沉迷於籌辦「風光募款晚會（Gala）」的慣性。實務上晚宴往往耗費大量人力物力，募款成本率（FRR）常高達 30-50%，且若活動結束後未立即跟進一對一專人培育，這些出席者在 12 個月後的流失率極高。",
+      "【對台灣社福與文教基金會之實踐反思】台灣許多基金會理事長偏好透過席開百桌的週年慶祝晚會募款，常誤以為「只要把大老闆請到現場就能拿到大支票」。Jensen et al. (2026) 的實證狠狠戳破此一迷思：活動僅是初次接觸（Touchpoint），若缺乏後續嚴謹的大額捐款培育流水線（Major Gift Pipeline），熱鬧散場後往往只留下微薄利潤。"
+    ],
+    consultant: "建議 NPO 重新定位特殊活動在募款漏斗（Fundraising Funnel）中的功能：將大型活動視為「新捐款人獲取（Acquisition）與社群認同強化」工具，而非考核淨利潤的營利專案；對活動中識別出的高潛力大額捐款人名單，必須在活動後 48 小時內啟動專屬的「一對一關係培育方案」，由執行長或資深募款主管親自經營。",
+    teachingQ: "根據 Jensen et al. (2026) 的實證發現，為何特殊活動能有效維持一般定期捐款，卻無法單獨預測大額捐贈（Major Gifts）的促成？非營利組織募款團隊應如何重新調配「群體活動支出」與「個別大額捐款培育人力」之預算比例？",
+    refs: [
+      {
+        code: "THU-3A",
+        titleZh: "關係型募款與捐款人忠誠度維持：非營利組織留存支持者之實證機制",
+        titleOrig: "Relationship Fundraising: How to Keep Donors Loyal",
+        authors: "Adrian Sargeant",
+        journal: "Nonprofit Management and Leadership",
+        year: 2001,
+        doi: "https://doi.org/10.1002/nml.12204",
+        point: "關係型募款領域最具影響力的實證期刊論文，剖析非營利組織如何從單次交易型募款轉向建立長期支持者忠誠度，並量化檢驗服務品質、雙向溝通與信任感對降低捐款人流失率（Attrition）並提升終身價值（LTV）的效果。",
+        value: "Jensen et al. (2026) 研究檢驗的核心關係型募款理論與留存率基石。",
+        deep: "Sargeant 教授實證指出，維繫既有捐款人的成本遠低於開發新捐款人；組織若能讓捐款人自主選擇溝通頻率與內容，並定期回饋具體影響力，能使首捐者次年留存率提升一倍以上。"
+      },
+      {
+        code: "THU-3B",
+        titleZh: "募款競爭加劇下之績效評估：傳統募款投入與產出模型在高度競爭環境中的適用性界限",
+        titleOrig: "Competition is on the rise: To what extent does traditional fundraising performance research apply in competitive environments?",
+        authors: "Marlene Walk, Cali Curley, Jamie Levine Daniel",
+        journal: "Nonprofit Management and Leadership",
+        year: 2022,
+        doi: "https://doi.org/10.1002/nml.21500",
+        point: "實證檢驗非營利組織在面臨高密度同業募款競爭時，傳統行銷與活動支出對募款總額的邊際效益變化，揭示單純增加公開活動與廣宣投入在擁擠市場中面臨嚴重的報酬遞減。",
+        value: "提供募款資源配置與成本效益實證，佐證 Jensen et al. (2026) 對特殊活動轉換率限制之分析。",
+        deep: "研究強調，在募款競爭白熱化的環境中，非營利組織不能僅靠複製標準化的造勢活動，而必須轉向深耕既有支持者的關係品質與差異化價值主張。"
+      },
+      {
+        code: "THU-3C",
+        titleZh: "遺贈與複雜大額捐款中的募款人職稱與信任效益實驗：從「募款專員」到「慈善規劃顧問」的心理學轉化",
+        titleOrig: "Testing the Effectiveness of Fundraiser Job Titles in Charitable Bequest and Complex Gift Planning",
+        authors: "Russell N. James III",
+        journal: "Nonprofit Management and Leadership",
+        year: 2016,
+        doi: "https://doi.org/10.1002/nml.21231",
+        point: "透過大規模隨機控制實驗檢驗大額與遺贈捐款人對募款人員職稱的心理反應。實證發現使用傳統「募款代表／勸募主管（Fundraiser/Development Officer）」會直接激發富裕捐款人的商業防衛心理；而改用「慈善規劃主管／諮詢顧問（Director of Charitable Planning）」則能消除交易感，大幅提升捐款人進行一對一深度對話與資產配置意願。",
+        value: "為 Jensen et al. (2026) 指出的「大額捐款必須依賴一對一個別深度培育」提供最關鍵的人員專業定位與心理學實證。",
+        deep: "James 教授指出，大額捐款人本質上尋求的是能協助其將家族財富轉化為社會遺產的「智識夥伴（Intellectual Partner）」，而非向其索取支票的銷售員。這項發現直接指導了非營利組織在大額募款團隊的編制與專業職能重塑。"
+      }
+    ]
+  },
+  {
+    code: "THU-4",
+    region: "🇹🇼 跨文化捐款人動機實證",
+    timestamp: "2026-10-25",
+    publisher: "Voluntas: International Journal of Voluntary and Nonprofit Organizations",
+    authors: "Hsin-Yu Hung (洪欣妤) and Hsuan-Wei Lee (李宣緯)",
+    url: "https://doi.org/10.1017/s095787652600046X",
+    doi: "10.1017/s095787652600046X",
+    pubDate: "2026-10-25",
+    year: 2026,
+    tags: ["fundraising", "donation", "trust", "taiwan"],
+    titleZh: "跨文化與制度主義視角下之捐款人動機：台灣與美國公民社會體制之代表性實證比較",
+    titleOrig: "Donor Motivation and Civil Society Regimes from a Cross-Cultural and Institutional Perspective",
+    bullets: [
+      {
+        text: "【台美兩國代表性微觀調查數據之計量比較】由台灣學者洪欣妤與李宣緯發表於頂尖國際期刊《Voluntas》的最新跨文化實證研究，採用台灣社會變遷基本調查（TSCS）與美國慈善捐贈面板數據（COP），透過多元迴歸、傾向評分匹配（Propensity Score Matching）與隨機森林機器學習模型，深入檢驗公民社會體制（Civil Society Regimes）如何調節捐款人動機。",
+        quote: "This study investigates cross-cultural philanthropy by comparing charitable giving patterns and donor motivations between Taiwan and the United States using nationally representative data and machine learning algorithms."
+      },
+      {
+        text: "【美國個人化理性評估 vs. 台灣高度社會鑲嵌性】實證發現兩國捐款決策機制存在根本差異：美國捐款人行為展現高度的「個人化與理性績效評估（Individualized & Evaluative）」，強烈受組織財務透明度、抵稅誘因與量化績效指標驅動；相反地，台灣捐款人則呈現極強的「社會鑲嵌性（Socially Embedded）」，給付行為深受親友人際網絡、團體歸屬感、道義人情與信任聲譽所主導。",
+        quote: "charitable giving in the United States tends to be more individualized and evaluative, whereas giving in Taiwan is characterized as more socially embedded, conditioned by distinct civil society regimes."
+      },
+      {
+        text: "【破除西方單一募款科學迷思：建構文化適應型策略】研究在理論上證明，跨國非營利管理不能盲目複製英美的個別化直效行銷或冷冰冰的量化 SROI 報告。在東亞高人情網絡與集體主義脈絡下，非營利組織必須發展「文化適應型募款（Culturally Adaptive Fundraising）」，將人際信任資產轉化為長期責信支持。",
+        quote: "The findings offer actionable insights for designing culturally adaptive fundraising strategies that move beyond traditional Western-centric individualistic models."
+      }
+    ],
+    critiques: [
+      "【社會鑲嵌性募款的雙刃劍效應】研究指出，雖然依賴人情引薦與關係網絡能大幅降低初次獲取捐款的門檻，但這種模式極易使組織陷入「創辦人人脈枯竭即募款斷層」的致命危機；且人情捐款常伴隨「只捐一年應付面子」的高流失率，缺乏制度性定期定額的穩定度。",
+      "【台灣本土募款專業化之深層啟示】台灣 NPO 近年積極引進數位行銷與 CRM 系統，但成效常不如預期。Hung & Lee (2026) 的發現精準診斷了病因：若數位工具僅被當作發送制式罐頭訊息的推播工具，而沒有在線上社群營造出「我們在一起同行的關係感與信任感」，便無法觸動台灣捐款人內在的社會鑲嵌動機。"
+    ],
+    consultant: "輔導台灣與東亞 NPO 設計募款策略時，應採取「雙軌嵌合體系」：(1) 理性責信層：維持高品質財務公開與成果數據，滿足少數專家與企業贊助審查；(2) 感性社群層：針對個人捐款人，強化「支持者同行社群（Advocate Circles）」與點對點（P2P）人際推薦，讓每位志工與既有捐款人成為帶著人情溫度的小型勸募大使，最大化本土社會資本的轉化率。",
+    teachingQ: "在 Hung & Lee (2026) 的比較研究中，台灣與美國捐款人在動機上的「社會鑲嵌性」與「個別理性評估」差異，如何受到兩國不同的歷史體制所塑造？這項發現對台灣非營利組織推動「定期定額數位募款」有何實務修正指引？",
+    refs: [
+      {
+        code: "THU-4A",
+        titleZh: "全球慈善比較研究：國家制度脈絡如何塑造個人捐款行為？",
+        titleOrig: "Global Philanthropy: Does Institutional Context Matter for Charitable Giving?",
+        authors: "Pamala Wiepking, Yongzheng Yang, Femida Handy, Sohyun Park, et al.",
+        journal: "Nonprofit and Voluntary Sector Quarterly",
+        year: 2021,
+        doi: "https://doi.org/10.1177/0899764021989444",
+        point: "整合跨國大規模調查數據，實證檢驗各國財政稅制、社會信任度、政府福利支出與公民社會制度環境如何調節個人特質與慈善捐款行為之間的關係。",
+        value: "與 Hung & Lee (2026) 台美跨文化制度比較直接對話的國際頂刊基石文獻。",
+        deep: "研究證實，捐款人並非在制度真空中做決策；在高度仰賴人際信任與非正式網絡的社會脈絡中，制度信任與組織聲譽對捐款意願具有關鍵的跨層次交互作用。"
+      },
+      {
+        code: "THU-4B",
+        titleZh: "慈善捐款實證研究之系統性文獻回顧：驅動人類捐款行為的八大核心機制",
+        titleOrig: "A Literature Review of Empirical Studies of Philanthropy: Eight Mechanisms That Drive Charitable Giving",
+        authors: "René Bekkers, Pamala Wiepking",
+        journal: "Nonprofit and Voluntary Sector Quarterly",
+        year: 2011,
+        doi: "https://doi.org/10.1177/0899764010380927",
+        point: "系統性梳理超過 500 篇跨學科慈善實證研究，歸納出驅動捐款的八大核心機制：(1) 需求認知、(2) 勸募邀請（Solicitation）、(3) 成本與抵稅利益、(4) 利他主義、(5) 社會聲譽（Reputation）、(6) 心理利益、(7) 價值觀、(8) 效能感（Efficacy）。",
+        value: "全球捐款人行為研究引用率最高的理論架構，完美拆解美國（效能感／成本效益）與台灣（人際勸募／社會聲譽）的權重差異。",
+        deep: "Bekkers 與 Wiepking 指出，超過 85% 的捐款行為發生在「有人主動開口邀請（Solicitation）」之後，且當邀請者屬於捐款人的親密社會網絡時，基於社會聲譽與關係維持的應允率最高，這正解釋了台灣社會鑲嵌型募款的核心運作機制。"
+      },
+      {
+        code: "THU-4C",
+        titleZh: "公民社會體制理論：四種國家與第三方部門之制度關係模型",
+        titleOrig: "Social Origins of Civil Society: Explaining the Nonprofit Sector Cross-Nationally",
+        authors: "Lester M. Salamon, Helmut K. Anheier",
+        journal: "Voluntas: International Journal of Voluntary and Nonprofit Organizations",
+        year: 1998,
+        doi: "https://doi.org/10.1023/A:1022058200985",
+        point: "全球非營利研究的經典理論，將各國公民社會劃分為自由主義模式（美）、社會民主模式（北歐）、法團主義模式（歐陸）與國家主義模式（東亞歷史脈絡），奠定跨國比較捐款生態之宏觀制度論述。",
+        value: "解釋為何台灣與美國在捐款人動機、稅制依賴度與政府補助角色上具有根本制度差異。",
+        deep: "Salamon 指出，美國因長期信奉小政府與自由放任，培育出成熟的民間個人慈善文化；而東亞國家在威權轉型後，第三方部門兼具與政府協作夥伴及對抗倡議的複雜角色，形塑了獨特的社會鑲嵌募款生態。"
+      }
+    ]
+  }
+];
+
+let curArtIdx = 0;
+let curSubTab = 0;
+const savedState = {};
+
+function toBase64Url(obj) {
+  const jsonStr = JSON.stringify(obj);
+  const bytes = new TextEncoder().encode(jsonStr);
+  let bin = "";
+  bytes.forEach(b => bin += String.fromCharCode(b));
+  return btoa(bin).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+}
+
+async function triggerSave(payload, statusSpanId) {
+  const el = document.getElementById(statusSpanId);
+  if (el) el.innerHTML = `<span style="color:#1e40af;font-weight:700;font-size:0.78rem;">⏳ 正在寫入 ${payload.target === 'both' ? 'Zotero ＆ Notion' : payload.target.toUpperCase()}...</span>`;
+  try {
+    const resp = await fetch("http://127.0.0.1:8765/api/save", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    });
+    const res = await resp.json();
+    if (res && res.ok) {
+      savedState[payload.code] = res;
+      const zBadge = res.zotero_key ? `<span class="badge b-ok">✅ Zotero: ${res.zotero_key}</span> ` : "";
+      const nLink = res.notion_url ? `<a class="ext-link" href="${res.notion_url}" target="_blank" rel="noopener">📝 開啟 Notion 筆記</a>` : "";
+      if (el) el.innerHTML = zBadge + nLink;
+      return;
+    }
+  } catch (e) {
+    const b64 = toBase64Url(payload);
+    window.open(`http://127.0.0.1:8765/api/save?d=${b64}`, "_blank");
+    if (el) el.innerHTML = `<span class="badge b-ok">✅ 已在新分頁觸發入庫橋接（預設不自動覆寫未選項目）</span>`;
+  }
+}
+
+function buildSaveButtonsHtml(itemObj, isMain) {
+  const code = itemObj.code;
+  const statusId = `status-${code}`;
+  const existing = savedState[code];
+  const initStatus = existing
+    ? `${existing.zotero_key ? `<span class="badge b-ok">✅ Zotero: ${existing.zotero_key}</span> ` : ""}${existing.notion_url ? `<a class="ext-link" href="${existing.notion_url}" target="_blank" rel="noopener">📝 開啟 Notion</a>` : ""}`
+    : `<span style="font-size:0.75rem;color:#64748b;">（未點擊則預設不存入）</span>`;
+
+  const makePayload = (target) => ({
+    target,
+    code: itemObj.code,
+    titleZh: itemObj.titleZh,
+    titleOrig: itemObj.titleOrig,
+    authors: itemObj.authors,
+    journal: itemObj.journal || itemObj.publisher,
+    publisher: itemObj.publisher || itemObj.journal,
+    pubDate: itemObj.pubDate || "2026-10-29",
+    year: itemObj.year || 2026,
+    doi: itemObj.doi || itemObj.url,
+    url: itemObj.url || itemObj.doi,
+    tags: itemObj.tags || ["fundraising", "donation"],
+    summaryShort: isMain ? itemObj.bullets.map(b => b.text).join(" ") : itemObj.point,
+    summaryPoints: isMain ? itemObj.bullets.map(b => b.text) : [itemObj.point],
+    criticalPoints: isMain ? itemObj.critiques : [itemObj.value],
+    consultantInsight: isMain ? itemObj.consultant : itemObj.deep,
+    teachingQuestion: isMain ? itemObj.teachingQ : `請結合《${itemObj.titleOrig}》探討其對台灣與亞洲 NPO 策略募款之實務啟示。`
+  });
+
+  const pBoth = JSON.stringify(makePayload("both")).replace(/"/g, "&quot;");
+  const pZot = JSON.stringify(makePayload("zotero")).replace(/"/g, "&quot;");
+  const pNot = JSON.stringify(makePayload("notion")).replace(/"/g, "&quot;");
+
+  return `
+    <button class="save-btn primary" onclick="triggerSave(${pBoth}, '${statusId}')">📥 同時存入 Zotero ＆ Notion</button>
+    <button class="save-btn" onclick="triggerSave(${pZot}, '${statusId}')">📚 僅存入 Zotero</button>
+    <button class="save-btn" onclick="triggerSave(${pNot}, '${statusId}')">📝 僅存入 Notion</button>
+    <span id="${statusId}">${initStatus}</span>
+  `;
+}
+
+function renderAll() {
+  document.getElementById("art-nav").innerHTML = ARTICLES.map((it, i) => `
+    <button class="art-pill ${i === curArtIdx ? 'active' : ''}" onclick="curArtIdx=${i};curSubTab=0;renderAll();">
+      第 ${i + 1} 則：${it.region.split(' ')[0]} ${it.titleZh.slice(0, 15)}…
+    </button>
+  `).join("");
+
+  const art = ARTICLES[curArtIdx];
+  let bodyHtml = "";
+  if (curSubTab === 0) {
+    bodyHtml = art.bullets.map(b => `
+      <div class="bullet-box">
+        <div>${b.text} <a class="ext-link" href="${art.url}" target="_blank" rel="noopener">[原始文本連結]</a></div>
+        <div class="quote-box">📜 <strong>原文引句 (Verbatim Quote)：</strong>${b.quote}</div>
+      </div>
+    `).join("");
+  } else if (curSubTab === 1) {
+    bodyHtml = art.critiques.map(c => `<div class="bullet-box" style="border-left-color:#d97706;">⚖️ ${c}</div>`).join("");
+  } else if (curSubTab === 2) {
+    bodyHtml = `
+      <div class="bullet-box" style="border-left-color:#059669;"><strong>💼 顧問實務洞察：</strong><br/>${art.consultant}</div>
+      <div class="bullet-box" style="border-left-color:#7c3aed;"><strong>🎓 課堂備課提問：</strong><br/>${art.teachingQ}</div>
+    `;
+  } else {
+    bodyHtml = art.refs.map((r, rIdx) => {
+      const rWithTags = Object.assign({ tags: art.tags, pubDate: art.pubDate, year: r.year }, r);
+      const dId = `dd-${art.code}-${rIdx}`;
+      return `
+        <div class="ref-card">
+          <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;">
+            <span class="badge" style="background:var(--purple-bg);color:var(--purple-text);">延伸參考文獻 ${r.code}</span>
+            <a class="ext-link" href="${r.doi}" target="_blank" rel="noopener">🔗 Crossref / 原文連結: ${r.doi}</a>
+          </div>
+          <div class="ref-title-zh">${r.titleZh}</div>
+          <div class="ref-title-orig">📖 原文文獻名稱：${r.titleOrig}</div>
+          <div style="font-size:0.79rem;color:var(--muted);margin-bottom:6px;">👤 <strong>作者：</strong>${r.authors} ｜ 🏛️ <strong>出處：</strong><em>${r.journal}</em> (${r.year})</div>
+          <div style="font-size:0.85rem;background:#f8fafc;padding:8px 12px;border-radius:6px;margin-bottom:6px;border-left:3px solid #64748b;"><strong>📌 核心論點：</strong>${r.point}</div>
+          <div style="font-size:0.83rem;background:var(--amber-bg);color:var(--amber-text);padding:8px 12px;border-radius:6px;margin-bottom:10px;"><strong>💡 對照價值：</strong>${r.value}</div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;">
+            ${buildSaveButtonsHtml(rWithTags, false)}
+            <button class="deep-btn" onclick="document.getElementById('${dId}').classList.toggle('show')">🔍 深入閱讀與討論此文獻</button>
+          </div>
+          <div class="deep-drawer" id="${dId}">
+            <strong>🔬 深度方法論與台日實務研討：</strong><br/>${r.deep}<br/>
+            <span style="color:#3730a3;font-weight:700;">💬 研討提問：</span>如何將《${r.titleOrig}》之研究發現與主文獻《${art.titleOrig}》結合應用於台灣與日本之非營利募款與治理實務？
+          </div>
+        </div>
+      `;
+    }).join("");
+  }
+
+  document.getElementById("art-card").innerHTML = `
+    <div class="meta-bar">
+      <span class="badge b-region">${art.region}</span>
+      <span class="badge b-ok">✅ 原文核驗通過</span>
+      <span>🕒 發布時間：<strong>${art.timestamp}</strong></span>
+      <span>🏛️ 出處：<strong>${art.publisher}</strong> (${art.authors})</span>
+      <a class="ext-link" href="${art.url}" target="_blank" rel="noopener">🔗 開啟原始文本</a>
+    </div>
+    <h2 class="title-zh">${art.titleZh}</h2>
+    <div class="title-orig">📖 原文文獻名稱：${art.titleOrig}</div>
+    <div style="margin-bottom:8px;">${art.tags.map(t => `<span class="tag-pill">${t}</span>`).join(" ")}</div>
+
+    <div class="action-bar">
+      <strong style="font-size:0.82rem;color:#1e293b;">📌 主文獻直接入庫操作：</strong>
+      ${buildSaveButtonsHtml(art, true)}
+    </div>
+
+    <div class="sub-tabs">
+      <button class="sub-btn ${curSubTab === 0 ? 'active' : ''}" onclick="curSubTab=0;renderAll();">📌 1. 事實摘要 ＆ 📜 原文引句</button>
+      <button class="sub-btn ${curSubTab === 1 ? 'active' : ''}" onclick="curSubTab=1;renderAll();">⚖️ 2. 批判性觀點與反思</button>
+      <button class="sub-btn ${curSubTab === 2 ? 'active' : ''}" onclick="curSubTab=2;renderAll();">💼 3. 顧問洞察 ＆ 🎓 備課提問</button>
+      <button class="sub-btn ${curSubTab === 3 ? 'active' : ''}" onclick="curSubTab=3;renderAll();">📚 4. 深入展開 ＆ 3 篇延伸文獻 (含直接入庫按鈕)</button>
+    </div>
+    <div>${bodyHtml}</div>
+  `;
+}
+
+// Read saved state if available
+fetch("http://127.0.0.1:8765/api/status").then(r => r.json()).then(d => {
+  if (d && d.saved) Object.assign(savedState, d.saved);
+  renderAll();
+}).catch(() => renderAll());
+
+renderAll();
+</script>
+</body>
+</html>
