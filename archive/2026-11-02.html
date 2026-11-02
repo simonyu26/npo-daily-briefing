@@ -487,6 +487,99 @@
   }
   .sug-item input { margin-top: 4px; cursor: pointer; }
 
+
+  /* Executive Briefing Card */
+  .briefing-box {
+    background: #fffbeb;
+    border: 1px solid #fde68a;
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 22px;
+  }
+  .briefing-title {
+    font-size: 0.92rem;
+    font-weight: 800;
+    color: #92400e;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .briefing-list {
+    margin: 0;
+    padding-left: 20px;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: #78350f;
+  }
+  .briefing-list li { margin-bottom: 4px; }
+  .briefing-list li:last-child { margin-bottom: 0; }
+
+  /* Relevance Badge */
+  .badge-rel-high { background: #fee2e2; color: #991b1b; font-weight: 800; font-size: 0.76rem; padding: 2px 8px; border-radius: 6px; border: 1px solid #fca5a5; }
+  .badge-rel-mid { background: #fef3c7; color: #92400e; font-weight: 800; font-size: 0.76rem; padding: 2px 8px; border-radius: 6px; border: 1px solid #fde68a; }
+  .badge-rel-low { background: #f3f4f6; color: #4b5563; font-weight: 700; font-size: 0.76rem; padding: 2px 8px; border-radius: 6px; border: 1px solid #e5e7eb; }
+  .badge-verify { background: #ecfdf5; color: #065f46; font-weight: 700; font-size: 0.76rem; padding: 2px 8px; border-radius: 6px; border: 1px solid #a7f3d0; }
+
+  /* 30s TL;DR Quote Box */
+  .tldr-box {
+    background: #eff6ff;
+    border-left: 4px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    padding: 10px 16px;
+    margin: 12px 0 16px 0;
+    font-size: 0.94rem;
+    line-height: 1.65;
+    color: #1e3a8a;
+  }
+
+  /* Actionable Takeaway Card */
+  .action-card {
+    margin-top: 16px;
+    padding: 16px 20px;
+    background: #f0fdf4;
+    border: 1px solid #86efac;
+    border-left: 5px solid #16a34a;
+    border-radius: 0 12px 12px 0;
+  }
+  .action-card-title {
+    font-size: 0.92rem;
+    font-weight: 800;
+    color: #166534;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .action-card-body {
+    font-size: 0.96rem;
+    color: #14532d;
+    line-height: 1.75;
+    font-weight: 600;
+  }
+
+  /* Collapsible Extra References */
+  details.extra-refs {
+    margin-top: 12px;
+    border: 1px dashed #cbd5e1;
+    border-radius: 10px;
+    padding: 8px 12px;
+    background: #fafaf9;
+  }
+  details.extra-refs > summary {
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 0.88rem;
+    color: #475569;
+    padding: 6px 4px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  details.extra-refs > summary::-webkit-details-marker { display: none; }
+  details.extra-refs > summary:hover { color: #0f172a; }
+
   /* History Archive */
   .history-section {
     margin-top: 28px;
@@ -600,6 +693,9 @@
     </div>
   </header>
 
+  <!-- ⭐ 今日 3 個重點快覽 -->
+  <div class="briefing-box" id="briefing-box"></div>
+
   <!-- 焦點切換導航 -->
   <nav class="story-switcher" id="art-nav"></nav>
 
@@ -669,6 +765,10 @@ const ARTICLES = [
     tags: ["strategy", "technology", "donation", "fundraising"],
     titleZh: "演算法正在限縮捐款人的看見路徑：生成式 AI 帶來的「非營利能見度新鴻溝（The New Nonprofit Visibility Gap）」與組織策略因應",
     titleOrig: "The New Nonprofit Visibility Gap",
+    tldr: "生成式 AI 限縮了支持者自主發現在地與創新非營利組織的路徑；NPO 必須建立機器可讀結構化影響力數據以避免在演算法時代隱形。",
+    relevance: "高",
+    verify: "search_web 實測",
+    action: "盤點組織官網專案成果與常見問答，導入 Schema.org 語義化標記並爭取權威第三方評鑑認證，確保主流大型模型檢索時能正確索引。",
     doi: "",
     url: "https://ssir.org/articles/entry/the_new_nonprofit_visibility_gap",
     bullets: [
@@ -739,6 +839,10 @@ const ARTICLES = [
     tags: ["governance", "accountability", "taiwan", "strategy"],
     titleZh: "從女性不敢走的路看見城市治理缺口：德里與巴黎的「女性安全審計（Women's Safety Audit）」與基層培力創新",
     titleOrig: "從女性不敢走的路，看見城市治理缺口：德里與巴黎的女性安全審計",
+    tldr: "「女性安全審計」透過女性日常體感走訪公共空間，將第一線微觀經驗轉化為政府改善清單，為公私協同與向下責信樹立典範。",
+    relevance: "高",
+    verify: "search_web 實測",
+    action: "在下年度方案規劃中導入「受助者生活經驗審查表」，讓第一線服務對象直接參與專案流程設計與痛點盤點。",
     doi: "",
     url: "https://rightplus.org/2026/10/30/women-safety-audit/",
     bullets: [
@@ -809,6 +913,10 @@ const ARTICLES = [
     tags: ["accounting", "performance", "japan", "strategy"],
     titleZh: "日本休眠預金活用事業重大進展：2026 年度「資金分配團體（出資）」公募截止（9 事業申請，涵蓋基金出資與法人出資型）",
     titleOrig: "2026年度 資金分配団体（出資）の申請状況について",
+    tldr: "日本休眠預金活用事業由無償補助跨入「股權出資與影響力投資」，9 個中介組織完成申請正式進入實質審查，推動多元金融工具落地。",
+    relevance: "中",
+    verify: "search_web 實測",
+    action: "組織內部研讀混合金融（Blended Finance）架構，評估未來特定社會創新方案結合捐贈與可回收資金（Recoverable Grants）的可行性。",
     doi: "",
     url: "https://www.janpia.or.jp/news/janpia/notice/news2026103001",
     bullets: [
@@ -879,6 +987,10 @@ const ARTICLES = [
     tags: ["governance", "accounting", "compliance", "strategy"],
     titleZh: "當財政贊助機構終止運作時：High Desert 基金會退出財政贊助計畫對 30 個基層 NPO 專案的結構性衝擊與自立挑戰",
     titleOrig: "What happens when a fiscal sponsor shuts down?",
+    tldr: "High Desert 基金會終止財政贊助計畫迫使 30 個基層專案在期限內自立或尋找新傘護，深刻揭露共享後勤基建背後的系統性依賴風險。",
+    relevance: "中",
+    verify: "search_web 實測",
+    action: "盤點組織內部各專案對外部單一系統、行政帳戶或傘護單位的依賴度，建立合約備援過渡條款與儲備金移轉機制。",
     doi: "",
     url: "https://nonprofitquarterly.org/what-happens-when-a-fiscal-sponsor-shuts-down/",
     bullets: [
@@ -1139,11 +1251,28 @@ function buildSaveButtonsHtml(itemObj, isMain) {
 }
 
 function renderAll() {
+  // 渲染頂部今日 3 個重點 (Executive Briefing)
+  const topArticles = ARTICLES.slice().sort((a, b) => {
+    const p = { '高': 0, '中': 1, '低': 2 };
+    return (p[a.relevance] ?? 3) - (p[b.relevance] ?? 3);
+  }).slice(0, 3);
+
+  document.getElementById("briefing-box").innerHTML = `
+    <div class="briefing-title">⭐ 今日 3 個重點快覽（Executive Briefing ｜ 依台灣 NPO 關聯度排序）</div>
+    <ol class="briefing-list">
+      ${topArticles.map(a => `
+        <li>
+          <strong>${a.titleZh.slice(0, 26)}…</strong>：${a.tldr || ""}
+        </li>
+      `).join("")}
+    </ol>
+  `;
+
   document.getElementById("art-nav").innerHTML = ARTICLES.map((it, i) => `
     <button class="story-tab ${i === curArtIdx ? 'active' : ''}" onclick="curArtIdx=${i};renderAll();window.scrollTo({top:0,behavior:'smooth'});">
       <div class="story-tab-num">
         <span>FOCUS 0${i + 1} ・ ${it.region.split(' ')[0]}</span>
-        <span>${it.timestamp}</span>
+        <span class="${it.relevance === '高' ? 'badge-rel-high' : (it.relevance === '中' ? 'badge-rel-mid' : 'badge-rel-low')}">關聯度：${it.relevance}</span>
       </div>
       <div class="story-tab-title">${it.titleZh.replace(/^【[^】]+】\s*/, '')}</div>
     </button>
@@ -1180,7 +1309,7 @@ function renderAll() {
     `;
   }).join("");
 
-  const refsHtml = art.refs.map((r, rIdx) => {
+  const renderRefCard = (r, rIdx) => {
     const rWithTags = Object.assign({ tags: art.tags, pubDate: art.pubDate, year: r.year }, r);
     const dId = `dd-${art.code}-${rIdx}`;
     const rLink = r.doi ? (r.doi.startsWith("http") ? r.doi : `https://doi.org/${r.doi}`) : r.url;
@@ -1214,7 +1343,19 @@ function renderAll() {
         </div>
       </div>
     `;
-  }).join("");
+  };
+
+  const MAX_REFS = 2;
+  const primaryRefs = art.refs.slice(0, MAX_REFS).map((r, i) => renderRefCard(r, i)).join("");
+  const secondaryRefs = art.refs.slice(MAX_REFS).map((r, i) => renderRefCard(r, i + MAX_REFS)).join("");
+  const refsHtml = primaryRefs + (secondaryRefs ? `
+    <details class="extra-refs">
+      <summary>▸ 展開其餘 ${art.refs.length - MAX_REFS} 篇進階延伸學術文獻</summary>
+      <div style="margin-top:10px;display:flex;flex-direction:column;gap:14px;">
+        ${secondaryRefs}
+      </div>
+    </details>
+  ` : "");
 
   const artSugHtml = (art.suggestedTags && art.suggestedTags.length)
     ? art.suggestedTags.map(st => `<span class="sug-chip" title="建議新增：${st.reason}">+${st.tag}</span>`).join("")
@@ -1223,12 +1364,19 @@ function renderAll() {
   document.getElementById("art-card").innerHTML = `
     <div class="kicker-row">
       <span class="kicker-badge">${art.region}</span>
+      <span class="badge-verify">✅ ${art.verify || "search_web 實測"}</span>
+      <span class="${art.relevance === '高' ? 'badge-rel-high' : (art.relevance === '中' ? 'badge-rel-mid' : 'badge-rel-low')}">台灣 NPO 關聯度：${art.relevance}</span>
       <span class="source-meta">${art.publisher} ・ 作者：${art.authors} ・ ${art.timestamp}</span>
       <a class="source-link" href="${art.url}" target="_blank" rel="noopener">閱讀原始文本 →</a>
     </div>
 
     <h2 class="headline">${art.titleZh}</h2>
     <div class="subheadline">原文標題：${art.titleOrig}</div>
+
+    <!-- ⚡ 30 秒核心摘要導讀 -->
+    <div class="tldr-box">
+      <strong>⚡ 30 秒決策者摘要：</strong>${art.tldr || ""}
+    </div>
 
     <!-- 知識庫收藏與標籤工具列 -->
     <div class="toolbar">
@@ -1255,6 +1403,12 @@ function renderAll() {
         <div class="insight-card-title" style="color:#065f46;">💼 給 NPO 決策者的顧問建議</div>
         <div class="insight-item" style="color:#064e3b;">${art.consultant}</div>
       </div>
+    </div>
+
+    <!-- 🎯 下週可以做的一件事 -->
+    <div class="action-card">
+      <div class="action-card-title">🎯 下週可以做的一件事（Actionable Takeaway）</div>
+      <div class="action-card-body">${art.action || "檢視當前工作流程並結合組織現況排定具體優化測試。"}</div>
     </div>
 
     <!-- 課堂提問 -->
