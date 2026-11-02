@@ -3,69 +3,658 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>NPO 每日主題情報報告（2026-11-02 週一｜策略與使命創新 - 100% 防幻覺實證核驗版）</title>
+<title>NPO 每日深度晨報（2026-11-02 週一｜策略與使命創新 - 100% 防幻覺實證核驗版）</title>
 <style>
   :root {
-    --bg: #f8fafc; --card: #ffffff; --border: #e2e8f0; --text: #0f172a; --muted: #475569;
-    --accent: #1e40af; --accent-soft: #dbeafe; --green-bg: #dcfce7; --green-text: #166534;
-    --purple-bg: #f3e8ff; --purple-text: #6b21a8; --amber-bg: #fef3c7; --amber-text: #92400e;
-    --indigo-bg: #eef2ff; --indigo-border: #c7d2fe; --indigo-text: #3730a3;
+    --bg: #f7f5f0;
+    --paper: #ffffff;
+    --ink: #1c1917;
+    --ink-body: #292524;
+    --muted: #57534e;
+    --soft: #78716c;
+    --border: #e7e5e4;
+    --accent: #1d4ed8;
+    --accent-bg: #eff6ff;
+    --warm-bg: #faf8f5;
+    --quote-bg: #f5f3ef;
+    --critique-bg: #fffbeb;
+    --critique-border: #f59e0b;
+    --memo-bg: #f0fdf4;
+    --memo-border: #10b981;
+    --seminar-bg: #f5f3ff;
+    --seminar-border: #8b5cf6;
   }
   * { box-sizing: border-box; }
-  body { margin: 0; padding: 14px; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", sans-serif; background: var(--bg); color: var(--text); line-height: 1.58; }
-  .top-banner { background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%); color: #fff; padding: 16px 18px; border-radius: 12px; margin-bottom: 14px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
-  .top-banner h1 { margin: 0; font-size: 1.15rem; }
-  .top-banner .sub { font-size: 0.82rem; color: #cbd5e1; margin-top: 4px; }
-  .top-banner .badge-date { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25); color: #fff; padding: 4px 10px; border-radius: 999px; font-size: 0.78rem; font-weight: 600; }
-  .art-nav { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; align-items: center; }
-  .art-pill { border: 1px solid var(--border); background: #fff; color: var(--muted); padding: 7px 14px; border-radius: 999px; font-size: 0.82rem; font-weight: 700; cursor: pointer; transition: all 0.15s; }
-  .art-pill:hover { border-color: #94a3b8; color: #0f172a; }
-  .art-pill.active { background: #0f172a; color: #fff; border-color: #0f172a; box-shadow: 0 2px 4px rgba(15,23,42,0.15); }
-  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 18px; box-shadow: 0 2px 6px rgba(0,0,0,0.04); }
-  .meta-bar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font-size: 0.79rem; color: var(--muted); margin-bottom: 8px; }
-  .badge { padding: 3px 9px; border-radius: 999px; font-weight: 700; font-size: 0.75rem; }
-  .b-region { background: var(--accent-soft); color: var(--accent); }
-  .b-ok { background: var(--green-bg); color: var(--green-text); }
-  .tag-pill { background: #f1f5f9; color: #334155; font-family: monospace; font-size: 0.74rem; padding: 3px 8px; border-radius: 999px; border: 1px solid #e2e8f0; }
-  h2.title-zh { margin: 6px 0 4px 0; font-size: 1.12rem; color: #0f172a; line-height: 1.45; }
-  .title-orig { font-size: 0.9rem; font-weight: 600; color: #1e40af; margin-bottom: 8px; }
-  .action-bar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 12px 0 14px 0; padding: 10px 12px; background: #f8fafc; border-radius: 8px; border: 1px solid var(--border); }
-  .save-btn { border: 1px solid #cbd5e1; background: #fff; color: #0f172a; padding: 6px 12px; border-radius: 6px; font-size: 0.79rem; font-weight: 700; cursor: pointer; transition: all 0.15s; }
-  .save-btn:hover { background: #eff6ff; border-color: #93c5fd; }
-  .save-btn.primary { background: #1e40af; color: #fff; border-color: #1e40af; }
-  .save-btn.primary:hover { background: #1e3a8a; }
-  .save-btn.done { background: var(--green-bg); color: var(--green-text); border-color: #86efac; }
-  .sub-tabs { display: flex; gap: 6px; border-bottom: 2px solid var(--border); padding-bottom: 8px; margin-bottom: 14px; flex-wrap: wrap; }
-  .sub-btn { border: none; background: #f1f5f9; color: var(--muted); padding: 7px 14px; border-radius: 6px; font-size: 0.82rem; font-weight: 700; cursor: pointer; transition: all 0.12s; }
-  .sub-btn:hover { background: #e2e8f0; color: #0f172a; }
-  .sub-btn.active { background: #0f172a; color: #fff; }
-  .bullet-box { margin-bottom: 12px; padding: 12px 14px; background: #f8fafc; border-radius: 8px; border-left: 4px solid var(--accent); font-size: 0.88rem; line-height: 1.6; }
-  .quote-box { margin-top: 8px; padding: 8px 12px; background: #ffffff; border: 1px dashed #cbd5e1; border-radius: 6px; font-family: Georgia, serif; font-style: italic; font-size: 0.82rem; color: #334155; }
-  .ref-card { border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; margin-bottom: 12px; background: #fff; box-shadow: 0 1px 2px rgba(0,0,0,0.03); }
-  .ref-title-zh { font-weight: 700; font-size: 0.95rem; margin: 4px 0 2px 0; color: #0f172a; }
-  .ref-title-orig { font-weight: 600; font-size: 0.85rem; color: #1e40af; margin-bottom: 6px; }
-  .deep-btn { background: var(--indigo-bg); color: var(--indigo-text); border: 1px solid var(--indigo-border); padding: 5px 12px; border-radius: 6px; font-size: 0.78rem; font-weight: 700; cursor: pointer; transition: all 0.15s; }
-  .deep-btn:hover { background: #e0e7ff; }
-  .deep-drawer { display: none; margin-top: 10px; padding: 12px 14px; background: #f8fafc; border-left: 4px solid var(--indigo-text); border-radius: 6px; font-size: 0.84rem; line-height: 1.6; }
-  .deep-drawer.show { display: block; }
-  .ext-link { font-size: 0.8rem; color: var(--accent); font-weight: 700; text-decoration: none; }
-  .ext-link:hover { text-decoration: underline; }
+  body {
+    margin: 0;
+    padding: 20px 16px 48px 16px;
+    font-family: "Noto Sans TC", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: var(--bg);
+    color: var(--ink-body);
+    line-height: 1.8;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  /* Masthead 報頭 */
+  .masthead {
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 14px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .masthead-eyebrow {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .masthead-title {
+    margin: 0;
+    font-family: "Noto Serif TC", "Songti TC", Georgia, serif;
+    font-size: 1.55rem;
+    font-weight: 800;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+  .masthead-meta {
+    font-size: 0.84rem;
+    color: var(--muted);
+    text-align: right;
+  }
+
+  /* Top Story Switcher */
+  .story-switcher {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    margin-bottom: 22px;
+  }
+  .story-tab {
+    background: #edeae4;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    padding: 12px 15px;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.18s ease;
+  }
+  .story-tab:hover {
+    background: #e5e0d8;
+  }
+  .story-tab.active {
+    background: var(--paper);
+    border-color: var(--ink);
+    box-shadow: 0 4px 12px rgba(28, 25, 23, 0.08);
+  }
+  .story-tab-num {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: var(--accent);
+    margin-bottom: 3px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .story-tab-title {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Main Editorial Sheet */
+  .paper-sheet {
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 32px 36px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  }
+  @media (max-width: 640px) {
+    .paper-sheet { padding: 20px 18px; }
+  }
+
+  .kicker-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+  }
+  .kicker-badge {
+    background: var(--accent-bg);
+    color: var(--accent);
+    font-weight: 800;
+    font-size: 0.8rem;
+    padding: 4px 11px;
+    border-radius: 6px;
+  }
+  .source-meta {
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+  .source-link {
+    font-size: 0.84rem;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 700;
+    margin-left: auto;
+  }
+  .source-link:hover { text-decoration: underline; }
+
+  .headline {
+    font-family: "Noto Serif TC", "Songti TC", Georgia, serif;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--ink);
+    line-height: 1.42;
+    margin: 6px 0 8px 0;
+  }
+  .subheadline {
+    font-size: 0.94rem;
+    color: var(--muted);
+    font-weight: 500;
+    margin-bottom: 18px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* Compact Toolbar */
+  .toolbar {
+    background: var(--warm-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 16px;
+    margin-bottom: 26px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .tags-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+  }
+  .tag-chip {
+    background: #fff;
+    color: var(--muted);
+    border: 1px solid #d6d3d1;
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+    font-size: 0.76rem;
+    padding: 2px 9px;
+    border-radius: 999px;
+  }
+  .sug-chip {
+    background: #fffbeb;
+    color: #b45309;
+    border: 1px dashed #f59e0b;
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+    font-size: 0.76rem;
+    padding: 2px 9px;
+    border-radius: 999px;
+  }
+  .save-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+  }
+  .btn-save-main {
+    background: var(--ink);
+    color: #fff;
+    border: 1px solid var(--ink);
+    padding: 7px 14px;
+    border-radius: 7px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .btn-save-main:hover { background: var(--accent); border-color: var(--accent); }
+  .btn-save-sub {
+    background: #fff;
+    color: var(--muted);
+    border: 1px solid #d6d3d1;
+    padding: 6px 10px;
+    border-radius: 7px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .btn-save-sub:hover { color: var(--ink); border-color: var(--ink); background: #f5f5f4; }
+
+  /* Section Headings */
+  .sec-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.08rem;
+    font-weight: 800;
+    color: var(--ink);
+    margin: 30px 0 14px 0;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #f5f5f4;
+  }
+
+  /* Narrative Story Points */
+  .story-point {
+    margin-bottom: 24px;
+  }
+  .story-point-title {
+    font-size: 1.04rem;
+    font-weight: 800;
+    color: #1e3a8a;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+  .story-point-num {
+    font-family: Georgia, serif;
+    font-size: 1.15rem;
+    color: var(--accent);
+    font-weight: 900;
+  }
+  .story-point-body {
+    font-size: 1rem;
+    color: var(--ink-body);
+    line-height: 1.85;
+    margin: 0 0 10px 0;
+  }
+  .pull-quote {
+    margin: 8px 0 0 14px;
+    padding: 10px 16px;
+    background: var(--quote-bg);
+    border-left: 3px solid #a8a29e;
+    border-radius: 0 8px 8px 0;
+    font-size: 0.88rem;
+    color: #44403c;
+    line-height: 1.65;
+  }
+  .pull-quote-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--soft);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  /* Insight Grid */
+  .insight-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 12px;
+  }
+  @media (max-width: 720px) {
+    .insight-grid { grid-template-columns: 1fr; }
+  }
+  .insight-card {
+    padding: 18px 20px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+  }
+  .insight-card.critique {
+    background: var(--critique-bg);
+    border-color: #fde68a;
+  }
+  .insight-card.memo {
+    background: var(--memo-bg);
+    border-color: #a7f3d0;
+  }
+  .insight-card-title {
+    font-size: 0.92rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .insight-item {
+    margin-bottom: 12px;
+    font-size: 0.94rem;
+    line-height: 1.75;
+  }
+  .insight-item:last-child { margin-bottom: 0; }
+  .insight-sub {
+    font-weight: 800;
+    color: var(--ink);
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  .seminar-box {
+    margin-top: 16px;
+    padding: 18px 22px;
+    background: var(--seminar-bg);
+    border-left: 4px solid var(--seminar-border);
+    border-radius: 0 12px 12px 0;
+  }
+  .seminar-title {
+    font-size: 0.88rem;
+    font-weight: 800;
+    color: #5b21b6;
+    margin-bottom: 6px;
+  }
+  .seminar-text {
+    font-size: 0.96rem;
+    color: #2e1065;
+    line-height: 1.78;
+    font-weight: 500;
+  }
+
+  /* Academic References */
+  .ref-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .ref-item {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px 22px;
+    background: #fafaf9;
+    transition: border-color 0.15s;
+  }
+  .ref-item:hover {
+    border-color: #cbd5e1;
+    background: #ffffff;
+  }
+  .ref-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+  .ref-code {
+    font-size: 0.76rem;
+    font-weight: 800;
+    color: #6b21a8;
+    background: #f3e8ff;
+    padding: 2px 9px;
+    border-radius: 999px;
+  }
+  .ref-title-zh {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--ink);
+    margin: 4px 0 2px 0;
+  }
+  .ref-title-orig {
+    font-size: 0.88rem;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .ref-byline {
+    font-size: 0.82rem;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  .ref-summary-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+  .ref-takeaway {
+    font-size: 0.93rem;
+    line-height: 1.72;
+    color: var(--ink-body);
+  }
+  .ref-value-pill {
+    font-size: 0.88rem;
+    line-height: 1.68;
+    padding: 8px 12px;
+    background: #fefce8;
+    border-left: 3px solid #eab308;
+    color: #713f12;
+    border-radius: 0 6px 6px 0;
+  }
+  .ref-drawer {
+    display: none;
+    margin-top: 12px;
+    padding: 14px 16px;
+    background: #f5f3ff;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    line-height: 1.75;
+    color: #1e1b4b;
+  }
+  .ref-drawer.show { display: block; }
+
+  /* Modal */
+  .modal-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(28, 25, 23, 0.55);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    backdrop-filter: blur(2px);
+  }
+  .modal-backdrop.show { display: flex; }
+  .modal-box {
+    background: #fff;
+    border-radius: 14px;
+    max-width: 540px;
+    width: 100%;
+    padding: 24px;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.22);
+    border: 1px solid var(--border);
+  }
+  .modal-title {
+    font-size: 1.08rem;
+    font-weight: 800;
+    color: var(--ink);
+    margin: 0 0 8px 0;
+  }
+  .sug-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 12px;
+    background: #fffbeb;
+    border: 1px solid #fde68a;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    font-size: 0.88rem;
+    cursor: pointer;
+  }
+  .sug-item input { margin-top: 4px; cursor: pointer; }
+
+  /* History Archive */
+  .history-section {
+    margin-top: 28px;
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  }
+  .history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--ink);
+  }
+  .history-title {
+    font-family: "Noto Serif TC", "Songti TC", Georgia, serif;
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--ink);
+    margin: 0;
+  }
+  details.hist-day {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    background: var(--warm-bg);
+    overflow: hidden;
+    transition: all 0.15s;
+  }
+  details.hist-day[open] {
+    background: #ffffff;
+    border-color: #cbd5e1;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+  }
+  details.hist-day > summary {
+    padding: 13px 16px;
+    font-weight: 800;
+    font-size: 0.96rem;
+    color: var(--ink);
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  details.hist-day > summary::-webkit-details-marker { display: none; }
+  details.hist-day > summary:hover { background: #f1efea; }
+  .hist-day-body {
+    padding: 14px 18px 18px 18px;
+    border-top: 1px solid var(--border);
+    font-size: 0.93rem;
+    line-height: 1.75;
+  }
+  .hist-item {
+    padding: 12px 14px;
+    background: #fafaf9;
+    border-left: 3px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 10px;
+  }
+  .hist-item:last-child { margin-bottom: 0; }
 </style>
 </head>
 <body>
 
-<div class="top-banner">
-  <div>
-    <h1>📋 NPO 每日主題情報報告（2026-11-02 週一｜策略與使命創新 — 100% 防幻覺實證核驗版）</h1>
-    <div class="sub">嚴格限定過去 7 天內發布（2026-10-26 ～ 2026-11-02） ｜ 全部文獻經 search_web 實測與 validate_report_grounding.py 閘門核驗</div>
+<!-- 儲存前確認新標籤 Modal -->
+<div class="modal-backdrop" id="tag-modal">
+  <div class="modal-box">
+    <div class="modal-title">🏷️ 儲存前確認：是否納入建議新增標籤？</div>
+    <div style="font-size:0.86rem;color:var(--muted);margin-bottom:12px;line-height:1.6;">
+      原本的 24 個標準標籤未必涵蓋本篇的專業細分領域。系統為本篇遴選了以下<strong>建議新增標籤</strong>（確認納入後將同步寫入 Zotero、Notion 與 Obsidian <code>[[雙向連結]]</code>）！
+    </div>
+    <div style="font-size:0.82rem;margin-bottom:10px;">
+      <strong>📌 原有標準標籤：</strong><span id="modal-base-tags"></span>
+    </div>
+    <div style="font-size:0.84rem;font-weight:700;color:#92400e;margin-bottom:6px;">💡 請勾選您同意新增的標籤：</div>
+    <div id="modal-sug-list" style="margin-bottom:12px;"></div>
+    <div style="margin-bottom:16px;">
+      <label style="font-size:0.8rem;color:var(--muted);display:block;margin-bottom:4px;">✏️ 手動輸入其他想新增的標籤（全小寫英文，多標籤用逗號分隔）：</label>
+      <input type="text" id="modal-custom-tags" placeholder="例如：ai-governance, urban-planning, civic-tech" style="width:100%;padding:8px 12px;border:1px solid #cbd5e1;border-radius:8px;font-size:0.86rem;font-family:monospace;" />
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end;">
+      <button class="btn-save-sub" onclick="closeTagModal()">取消</button>
+      <button class="btn-save-sub" onclick="confirmTagModal(false)">🛡️ 僅用標準標籤存入</button>
+      <button class="btn-save-main" onclick="confirmTagModal(true)">✅ 納入勾選新標籤並存入</button>
+    </div>
   </div>
-  <div class="badge-date">📅 2026-11-02（星期一） Asia/Taipei</div>
 </div>
 
-<div id="week-index" style="margin-bottom:10px;font-size:0.8rem;"></div>
-<div id="overview" class="card" style="margin-bottom:12px;background:#fffbeb;border-color:#fde68a;"></div>
-<div class="art-nav" id="art-nav"></div>
-<div class="card" id="art-card"></div>
+<div class="container">
+  <!-- 報頭 Masthead -->
+  <header class="masthead">
+    <div>
+      <div class="masthead-eyebrow">NPO Intelligence Review ・ 週一策略與使命創新專刊</div>
+      <h1 class="masthead-title">非營利組織每日深度晨報</h1>
+    </div>
+    <div class="masthead-meta">
+      <div><strong>2026 年 11 月 02 日（週一）</strong> ｜ 過去 7 天實證核驗</div>
+      <div style="margin-top:6px;display:flex;gap:8px;justify-content:flex-end;align-items:center;flex-wrap:wrap;">
+        <button class="btn-save-sub" style="background:#fef3c7;color:#92400e;border-color:#fde68a;font-weight:700;" onclick="document.getElementById('history-archive-section').scrollIntoView({behavior:'smooth'})">🗂️ 過去歷史日報折疊區 ↓</button>
+        <button class="btn-save-sub" style="background:#f0fdf4;color:#166534;border-color:#86efac;font-weight:700;" onclick="publishToGitHub()">🌐 推送到 GitHub 網站</button>
+        <span id="issue-notion-status"></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- 焦點切換導航 -->
+  <nav class="story-switcher" id="art-nav"></nav>
+
+  <!-- 單頁一氣呵成閱讀長文紙張 -->
+  <main class="paper-sheet" id="art-card"></main>
+
+  <!-- 歷史日報折疊專區 -->
+  <section class="history-section" id="history-archive-section">
+    <div class="history-header">
+      <div>
+        <div class="masthead-eyebrow">Historical Briefings Archive ・ 跨日知識累積</div>
+        <h2 class="history-title">🗂️ 過去歷史日報折疊總覽（點擊日期即可展開閱讀）</h2>
+      </div>
+      <div style="display:flex;gap:6px;">
+        <button class="btn-save-sub" onclick="document.querySelectorAll('details.hist-day').forEach(d=>d.open=true)">展開全部</button>
+        <button class="btn-save-sub" onclick="document.querySelectorAll('details.hist-day').forEach(d=>d.open=false)">收合全部</button>
+      </div>
+    </div>
+
+    <!-- 2026-10-30 週五 -->
+    <details class="hist-day">
+      <summary>
+        <span>📅 <strong>2026-10-30（週五）</strong>：全球與東亞法規政策、自律動態（兒少保護、新公益信託、身障權益防禦）</span>
+        <span style="font-size:0.8rem;color:var(--accent);">點擊展開 / 收合 ▾</span>
+      </summary>
+      <div class="hist-day-body">
+        <div class="hist-item">
+          <strong>[FRI-1・🇹🇼 台灣社工權益] 【獨家｜2026 地方大選】沈伯洋＆社工客廳會：政府的角色就是必須接住社工、如何緩解人力荒？</strong><br/>
+          <small style="color:var(--muted);">出處：Right Plus 多多益善 ｜ <a href="https://rightplus.org/2026/10/29/" target="_blank">原始連結 →</a></small>
+          <p style="margin:6px 0 0 0;">深度剖析第一線基層社工在面對保護責任重擔下的體制性背叛與人力流失困境，倡議行政合規減負與政策接住支持系統。<br/>📚 <strong>延伸文獻：</strong>Brodkin (2011) 基層官僚新管理主義 ｜ Munro (2011) 英國兒少保護檢討報告 ｜ Smidt & Freyd (2018) 政府體制性背叛。</p>
+        </div>
+      </div>
+    </details>
+
+    <!-- 2026-10-29 週四 -->
+    <details class="hist-day">
+      <summary>
+        <span>📅 <strong>2026-10-29（週四）</strong>：策略募款與捐款人行為（基金會被動資本、日本寄付稅制、特殊活動與大額捐款）</span>
+        <span style="font-size:0.8rem;color:var(--accent);">點擊展開 / 收合 ▾</span>
+      </summary>
+      <div class="hist-day-body">
+        <div class="hist-item">
+          <strong>[THU-1・🇺🇸 NPQ] 免稅補貼下的冷漠聳肩：資產規模 2.2 兆美元的基金會如何以「被動囤積資本」威脅民主體制與 NPO 永續？</strong><br/>
+          <small style="color:var(--muted);">出處：Nonprofit Quarterly, Aparna Rae ｜ <a href="https://nonprofitquarterly.org/the-tax-subsidized-shrug-how-foundation-leaders-threaten-democracy-and-the-nonprofit-sector/" target="_blank">原始連結 →</a></small>
+          <p style="margin:6px 0 0 0;">批判基金會將 5% 最低撥款率當作上限的資本囤積現象，呼籲釋放多年期無限制營運補助。<br/>📚 <strong>延伸文獻：</strong>Madoff (2020) 5% 遮羞布 ｜ Heist & Vance-McMullen (2019) DAF 撥款實證 ｜ Salehi & Infante (2024) 信任導向慈善。</p>
+        </div>
+        <div class="hist-item">
+          <strong>[THU-3・🌐 NML 頂刊] 特殊募款活動在「關係型募款」中的實證角色：活動累積參與度、親密性特質與大額捐款轉化盲點</strong><br/>
+          <small style="color:var(--muted);">出處：Nonprofit Management and Leadership, Jensen et al., 2026 ｜ <a href="https://doi.org/10.1002/nml.70067" target="_blank">DOI: 10.1002/nml.70067 →</a></small>
+          <p style="margin:6px 0 0 0;">實證戳破「晚宴促成大額捐款」迷思：活動出席無法替代專人一對一個別深度培育。<br/>📚 <strong>延伸文獻：</strong>Sargeant (2001) 關係型募款基石 ｜ Walk et al. (2022) 募款邊際效益遞減 ｜ Russell James (2016) 慈善規劃顧問職稱實驗。</p>
+        </div>
+      </div>
+    </details>
+  </section>
+</div>
 
 <script>
 const ARTICLES = [
@@ -75,16 +664,13 @@ const ARTICLES = [
     timestamp: "2026-10-29",
     publisher: "Stanford Social Innovation Review (SSIR)",
     authors: "Andrew Dunckelman & Dale Nirvani Pfeifer",
-    url: "https://ssir.org/articles/entry/the_new_nonprofit_visibility_gap",
     pubDate: "2026-10-29",
     year: 2026,
     tags: ["strategy", "technology", "donation", "fundraising"],
     titleZh: "演算法正在限縮捐款人的看見路徑：生成式 AI 帶來的「非營利能見度新鴻溝（The New Nonprofit Visibility Gap）」與組織策略因應",
     titleOrig: "The New Nonprofit Visibility Gap",
-    tldr: "生成式 AI 限縮了捐款人探索 NPO 的路徑，組織必須建立機器可讀結構化影響力數據以避免被演算法隱形。",
-    relevance: "高",
-    verify: "search_web 實測",
-    action: "盤點官網 impact 與專案成果，導入 Schema.org 語義化標記與權威第三方評鑑，確保 AI 檢索推薦時能正確識別。",
+    doi: "",
+    url: "https://ssir.org/articles/entry/the_new_nonprofit_visibility_gap",
     bullets: [
       {
         text: "【AI 生成摘要取代開放搜尋與探索空間】過去捐款人搜尋「如何捐款改善兒少生存」時，會瀏覽多個搜尋結果、評鑑報告與多元在地組織；然而生成式 AI 工具直接產出單一結論或極少數推薦名單，嚴重限縮了支持者自主發現新穎或草根非營利組織的機會。",
@@ -92,11 +678,11 @@ const ARTICLES = [
       },
       {
         text: "【捐款人個別化發現歷程的喪失】過去開放的網路檢索允許支持者點擊年報、權衡自身價值觀與實證數據，雖然流程不完美但保有探索偶然性；AI 的黑盒子推薦抹煞了遇見在地創新機構的機會，將慈善資源高度集中於少數演算法青睞的大型品牌。",
-        quote: "The query would have generated a long list of links. The donor might have spent an hour clicking through charity ratings, reading annual reports, comparing local and global options, and weighing her values against the evidence. The path was imperfect, but it left room for discovery."
+        quote: "Picture someone troubled by an article about growing numbers of children dying from preventable causes. Motivated to help, she decides to donate, but she is a charity novice and doesn't know where to turn. A few years ago, she might have opened a search engine and typed, “Where should I donate to save children's lives?” The query would have generated a long list of links. The donor might have spent an hour clicking through charity ratings, reading annual reports, comparing local and global options, and weighing her values against the evidence. The path was imperfect, but it left room for discovery."
       },
       {
         text: "【新型數位鴻溝：AI 推薦信任度斷層】這場變革並非「有無網站」的傳統數位落差，而是「能被 AI 工具高度確信推薦」與「影響力活在線下、線上信用資料仍在累積」兩者間的新型能見度鴻溝，非營利部門必須集體行動化解隱形危機。",
-        quote: "This is a sea change for nonprofits that could become the next digital divide—not between organizations with websites and those without, but between organizations that AI tools recommend confidently and organizations whose credibility is still growing or lives mostly offline. Those in the sector who care about donors finding causes to support need to address this new visibility gap."
+        quote: "For the donor, what gets lost is the opportunity for individualized discovery—the chance to encounter novel approaches, stumble upon local actors, and weigh contradictory signals before settling on a personally meaningful choice. This is a sea change for nonprofits that could become the next digital divide—not between organizations with websites and those without, but between organizations that AI tools recommend confidently and organizations whose credibility is still growing or lives mostly offline. Those in the sector who care about donors finding causes to support need to address this new visibility gap."
       }
     ],
     critiques: [
@@ -105,6 +691,10 @@ const ARTICLES = [
     ],
     consultant: "建議 NPO 策略性調整數位基建：(1) 將組織真實影響力成果轉換為公開、結構化的「機器可讀（Machine-Readable）」開放數據與 FAQ；(2) 積極參與具公信力的第三方評鑑體系（如自律聯盟透明度認證、傳善獎或學術數據庫），建立高權威度的語義互連（Semantic Linking）。",
     teachingQ: "在 Dunckelman & Pfeifer (2026) 所揭示的「非營利能見度新鴻溝」下，非營利組織除了爭奪搜尋引擎最佳化（SEO）外，該如何與大型模型平台或數據仲介者對話，防範慈善資本走向「贏者全拿」的演算法壟斷？",
+    suggestedTags: [
+      { tag: "ai-governance", reason: "AI 演算法對公共領域與能見度之治理" },
+      { tag: "digital-divide", reason: "新舊數位落差與機器可讀性鴻溝" }
+    ],
     refs: [
       {
         code: "MON-1A",
@@ -113,10 +703,13 @@ const ARTICLES = [
         authors: "Wanzhu Shi & Lauren Azevedo",
         journal: "Nonprofit and Voluntary Sector Quarterly",
         year: 2026,
-        doi: "https://doi.org/10.1177/08997640261429018",
+        doi: "10.1177/08997640261429018",
         point: "運用技術—組織—環境（TOE）框架檢驗非營利組織在導入生成式 AI（GenAI）時的關鍵驅動力與障礙，揭示資源有限機構在追求營運效率與防範數據偏誤、隱私洩漏間的兩難抉擇。",
         value: "為 Dunckelman & Pfeifer (2026) 的 AI 能見度理論提供第一線 NPO 技術採納現況的計量實證支撐。",
-        deep: "研究指出，組織領導者的科技素養與對倫理風險的治理框架，是決定 AI 是成為放大社會使命的槓桿、抑或加劇內部數位斷層的決定性因素。"
+        deep: "研究指出，組織領導者的科技素養與對倫理風險的治理框架，是決定 AI 是成為放大社會使命的槓桿、抑或加劇內部數位斷層的決定性因素。",
+        suggestedTags: [
+          { tag: "ai-governance", reason: "TOE 架構下之 AI 採納決定因素" }
+        ]
       },
       {
         code: "MON-1B",
@@ -125,10 +718,13 @@ const ARTICLES = [
         authors: "René Bekkers, Pamala Wiepking",
         journal: "Nonprofit and Voluntary Sector Quarterly",
         year: 2011,
-        doi: "https://doi.org/10.1177/0899764010380927",
+        doi: "10.1177/0899764010380927",
         point: "系統性歸納超過 500 篇實證論文，確立驅動捐款的八大核心機制（需求認知、勸募邀請、成本效益、利他、聲譽、心理利益、價值觀、效能感）。",
         value: "解釋為何 AI 介入資訊篩選會直接干擾「需求認知（Awareness of Need）」與「勸募邀請（Solicitation）」的路徑。",
-        deep: "當 AI 取代了支持者原本透過多元社會網絡與探索所形成的「價值觀認同」與「效能感驗證」時，捐款決策可能被簡化為冷冰冰的演算法效能評估，弱化長期支持者黏著度。"
+        deep: "當 AI 取代了支持者原本透過多元社會網絡與探索所形成的「價值觀認同」與「效能感驗證」時，捐款決策可能被簡化為冷冰冰的演算法效能評估，弱化長期支持者黏著度。",
+        suggestedTags: [
+          { tag: "donor-behavior", reason: "捐款動機八大核心機制原典" }
+        ]
       }
     ]
   },
@@ -138,16 +734,13 @@ const ARTICLES = [
     timestamp: "2026-10-30",
     publisher: "Right Plus 多多益善",
     authors: "沈嘉偉",
-    url: "https://rightplus.org/2026/10/30/women-safety-audit/",
     pubDate: "2026-10-30",
     year: 2026,
     tags: ["governance", "accountability", "taiwan", "strategy"],
     titleZh: "從女性不敢走的路看見城市治理缺口：德里與巴黎的「女性安全審計（Women's Safety Audit）」與基層培力創新",
     titleOrig: "從女性不敢走的路，看見城市治理缺口：德里與巴黎的女性安全審計",
-    tldr: "「女性安全審計」透過女性日常體感走訪翻轉由上而下的官僚治理，將基層生活經驗轉化為公共改善清單。",
-    relevance: "高",
-    verify: "search_web 實測",
-    action: "在方案規劃中納入受助者同行評估機制，設計以使用者體感為核心的微觀檢核清單。",
+    doi: "",
+    url: "https://rightplus.org/2026/10/30/women-safety-audit/",
     bullets: [
       {
         text: "【女性安全審計的國際實踐與追蹤難題】「女性安全審計」邀請女性走訪公共空間，將第一線體感觀察轉為改善建議並交由公部門落實，在多倫多、德里、巴黎已行之有年；然而硬體工程是否持續維護、政策建議是否具體落實，仍需要組織長期追蹤倡議。",
@@ -168,6 +761,10 @@ const ARTICLES = [
     ],
     consultant: "輔導台灣社區型與社福 NPO 推動倡議時，建議導入「生活經驗者參與式審核（Experiential Audit Toolkit）」：不只撰寫紙上建議書，而是組織服務對象（身障者、長者、婦女、無家者）進行具備影像紀錄的「街區痛點同行盤點」，結合社群傳播轉化為地方議會具體質詢法案。",
     teachingQ: "在沈嘉偉 (2026) 探討的「女性安全審計」案例中，生活經驗者的微觀感受如何挑戰了傳統以量化犯罪率為導向的官僚治安指標？非營利組織在促進這類跨界公民參與時，應如何設計長期追蹤機制以避免淪為形式合規？",
+    suggestedTags: [
+      { tag: "urban-governance", reason: "城市公共空間與性別安全治理" },
+      { tag: "participatory-audit", reason: "市民與當事人參與式審計方法" }
+    ],
     refs: [
       {
         code: "MON-2A",
@@ -176,10 +773,13 @@ const ARTICLES = [
         authors: "Jason Corburn",
         journal: "The MIT Press",
         year: 2005,
-        doi: "https://doi.org/10.7551/mitpress/6494.001.0001",
+        doi: "10.7551/mitpress/6494.001.0001",
         point: "提出「街頭科學（Street Science）」理論典範，論證將底層居民的生活經驗知能與專業科學技術結合，才能打破專業官僚盲點，有效解決環境與公衛不平等難題。",
         value: "為沈嘉偉 (2026) 倡導的「女性生活經驗重於單純專家數據」提供最經典的公共治理原典理論支持。",
-        deep: "Corburn 深入剖析布魯克林社區個案，證實草根居民對日常微環境的敏銳體察，能發現學院模型忽略的致病因子，為 NPO 建構自下而上的證據鏈提供方法論範例。"
+        deep: "Corburn 深入剖析布魯克林社區個案，證實草根居民對日常微環境的敏銳體察，能發現學院模型忽略的致病因子，為 NPO 建構自下而上的證據鏈提供方法論範例。",
+        suggestedTags: [
+          { tag: "community-knowledge", reason: "在地知識與街頭科學賦權" }
+        ]
       },
       {
         code: "MON-2B",
@@ -188,10 +788,13 @@ const ARTICLES = [
         authors: "John M. Bryson, Barbara C. Crosby, Melissa Middleton Stone",
         journal: "Public Administration Review",
         year: 2015,
-        doi: "https://doi.org/10.1111/puar.12432",
+        doi: "10.1111/puar.12432",
         point: "系統性回顧跨部門協作十年間之理論與實證發展，提出「協同優勢（Collaborative Advantage）」模型，剖析公私協力中因組織文化、權力失衡與責任要求分歧所引發的制度張力與解決之道。",
         value: "為評估「女性審計建議交付市府後如何跨局處落實改善」提供最權威的公共行政協作架構。",
-        deep: "研究強調，成功的跨部門協作必須具備結構性的信任修復機制與共享治理領導力，否則脆弱的協作常因官僚壁壘與人事更迭而迅速瓦解。"
+        deep: "研究強調，成功的跨部門協作必須具備結構性的信任修復機制與共享治理領導力，否則脆弱的協作常因官僚壁壘與人事更迭而迅速瓦解。",
+        suggestedTags: [
+          { tag: "cross-sector-collaboration", reason: "跨部門公共協同優勢與治理" }
+        ]
       }
     ]
   },
@@ -201,16 +804,13 @@ const ARTICLES = [
     timestamp: "2026-10-30",
     publisher: "一般財団法人 日本民間公益活動連携機構 (JANPIA)",
     authors: "JANPIA 事務局",
-    url: "https://www.janpia.or.jp/news/janpia/notice/news2026103001",
     pubDate: "2026-10-30",
     year: 2026,
     tags: ["accounting", "performance", "japan", "strategy"],
     titleZh: "日本休眠預金活用事業重大進展：2026 年度「資金分配團體（出資）」公募截止（9 事業申請，涵蓋基金出資與法人出資型）",
     titleOrig: "2026年度 資金分配団体（出資）の申請状況について",
-    tldr: "日本休眠預金活用事業由無償補助跨入「股權出資與影響力投資」，9 個中介組織完成申請正式進入實質審查。",
-    relevance: "中",
-    verify: "search_web 實測",
-    action: "研究混合金融（Blended Finance）概念，評估組織未來在社會創新中結合補助與可回收資金的可能性。",
+    doi: "",
+    url: "https://www.janpia.or.jp/news/janpia/notice/news2026103001",
     bullets: [
       {
         text: "【2026 年度出資事業公募申請正式截止】JANPIA 官方於 2026 年 10 月 30 日公布最新進度，自 7 月 14 日啟動之 2026 年度資金分配團體（出資）公募順利截止。在 17 個事前登錄專案中，最終共有 9 個事業完成正式申請，標誌著日本社會性資金邁向股權投資的關鍵里程碑。",
@@ -231,6 +831,10 @@ const ARTICLES = [
     ],
     consultant: "建議關注永續金融的 NPO 與智庫團隊：(1) 深入研究「影響力投資評估（IMM）」標準，建立能同時向商業投資人與公益受託者證明的效益指標；(2) 探索以「可回收補助款（Recoverable Grants）」或「次順位劣後出資」作為孵化創新專案的槓桿工具。",
     teachingQ: "日本 JANPIA (2026) 在休眠預金制度推行多年後，為何積極從傳統「無償助成」擴展至「出資事業」？這種金融化轉型對非營利組織傳統的財務管理準則與治理自主性帶來何種制度挑戰？",
+    suggestedTags: [
+      { tag: "dormant-deposits", reason: "休眠預金活用制度與立法" },
+      { tag: "impact-investing", reason: "出資事業與影響力投資市場成形" }
+    ],
     refs: [
       {
         code: "MON-3A",
@@ -239,10 +843,13 @@ const ARTICLES = [
         authors: "小笠原 由佳, 沖浦 文彦",
         journal: "国際P2M学会誌",
         year: 2023,
-        doi: "https://doi.org/10.20702/iappmjour.17.2_133",
+        doi: "10.20702/iappmjour.17.2_133",
         point: "運用 P2M（Project & Program Management）架構，實證檢驗日本休眠預金制度下資金分配團體如何建立多層次社會影響力評估體系，釐清中介組織在資金輸送與社會變革管理中的槓桿角色。",
         value: "針對日本休眠預金制度最權威的學術期刊評估研究，與 JANPIA 最新公募動態直接對應。",
-        deep: "研究指認出日本休眠預金在實務運作上最大的挑戰在於「如何量化跨領域的長期社會效益」，主張必須建立標準化指標庫以降低基層被資助者的填表行政負擔。"
+        deep: "研究指認出日本休眠預金在實務運作上最大的挑戰在於「如何量化跨領域的長期社會效益」，主張必須建立標準化指標庫以降低基層被資助者的填表行政負擔。",
+        suggestedTags: [
+          { tag: "impact-measurement", reason: "P2M 與休眠預金社會影響力衡量" }
+        ]
       },
       {
         code: "MON-3B",
@@ -251,10 +858,13 @@ const ARTICLES = [
         authors: "Thad D. Calabrese",
         journal: "Nonprofit Management and Leadership",
         year: 2013,
-        doi: "https://doi.org/10.1002/nml.21064",
+        doi: "10.1002/nml.21064",
         point: "實證分析非營利組織為何普遍缺乏充足的營運儲備金（Operating Reserves），揭示過度依賴指定用途補助與政府合約如何導致組織陷入「零流動性」的結構性脆弱陷阱。",
         value: "為理解為何 NPO 需要走向多元投資工具與資本累積提供堅實的財務經濟學論據。",
-        deep: "Calabrese 教授指出，外部出資者往往抱持「行政成本越低越好、留存現金是不道德」的錯誤觀念，反向迫使 NPO 在面對景氣衝擊時缺乏緩衝能力，倡導組織應將保留儲備金列為治理核心目標。"
+        deep: "Calabrese 教授指出，外部出資者往往抱持「行政成本越低越好、留存現金是不道德」的錯誤觀念，反向迫使 NPO 在面對景氣衝擊時缺乏緩衝能力，倡導組織應將保留儲備金列為治理核心目標。",
+        suggestedTags: [
+          { tag: "financial-reserves", reason: "非營利組織營運儲備與財務韌性" }
+        ]
       }
     ]
   },
@@ -264,16 +874,13 @@ const ARTICLES = [
     timestamp: "2026-10-28",
     publisher: "Nonprofit Quarterly (NPQ)",
     authors: "Jason Collins",
-    url: "https://nonprofitquarterly.org/what-happens-when-a-fiscal-sponsor-shuts-down/",
     pubDate: "2026-10-28",
     year: 2026,
     tags: ["governance", "accounting", "compliance", "strategy"],
     titleZh: "當財政贊助機構終止運作時：High Desert 基金會退出財政贊助計畫對 30 個基層 NPO 專案的結構性衝擊與自立挑戰",
     titleOrig: "What happens when a fiscal sponsor shuts down?",
-    tldr: "財政贊助機構終止運作迫使 30 個基層公益專案必須在期限內自立或尋找新傘護，凸顯共享基礎設施背後的依賴風險。",
-    relevance: "中",
-    verify: "search_web 實測",
-    action: "檢視組織內部專案的法律獨立性與合約備援方案，盤點核心營運基礎設施是否具備移轉韌性。",
+    doi: "",
+    url: "https://nonprofitquarterly.org/what-happens-when-a-fiscal-sponsor-shuts-down/",
     bullets: [
       {
         text: "【High Desert 基金會宣布終止財政贊助業務】High Desert Community Foundation (HDCF) 正式公告將於 2026 年 12 月 31 日終止其財政贊助計畫，並預計於 2027 年 6 月底全面停止運作。這意味著其傘護下的所有贊助專案必須立即尋求取得獨立免稅地位或另覓新的贊助機構。",
@@ -294,6 +901,10 @@ const ARTICLES = [
     ],
     consultant: "輔導社福專案或社會企業進行組織架構設計時，建議建立「自立分階段路線圖」：(1) 在加入任何財政贊助或共享後勤計畫初期，即簽訂明確的「智財權、捐款人名單歸屬與交接過渡條款」；(2) 每年檢討組織規模與獨立合規成本，建立儲備金以因應突發的架構移轉需求。",
     teachingQ: "在 Jason Collins (2026) 報導的 High Desert 基金會案例中，財政贊助機制在降低初期創業門檻的同時，為何容易埋下後續「系統性脆弱」的種子？非營利專案負責人應如何在追求營運便利與維護組織自主生存能力之間取得平衡？",
+    suggestedTags: [
+      { tag: "fiscal-sponsorship", reason: "財政贊助機制與傘護法人運作" },
+      { tag: "organizational-resilience", reason: "基層組織轉移韌性與自立" }
+    ],
     refs: [
       {
         code: "MON-4A",
@@ -302,10 +913,13 @@ const ARTICLES = [
         authors: "Katherine R. Cooper, Reyhaneh Maktoufi",
         journal: "Nonprofit Management and Leadership",
         year: 2019,
-        doi: "https://doi.org/10.1002/nml.21382",
+        doi: "10.1002/nml.21382",
         point: "實證檢驗非營利組織在組織重組、合併與架構轉移過程中，員工的人際網絡、組織認同感與關鍵人才留任如何決定組織整體的生存與整合成功率。",
         value: "為解析 High Desert 基金會贊助專案在被迫重新尋找歸宿時所面臨的組織文化與認同衝擊提供理論視角。",
-        deep: "研究揭示，忽視非營利組織成員對原有使命品牌的心理依附，往往是導致各類組織整合與架構移轉破局的核心主因。"
+        deep: "研究揭示，忽視非營利組織成員對原有使命品牌的心理依附，往往是導致各類組織整合與架構移轉破局的核心主因。",
+        suggestedTags: [
+          { tag: "nonprofit-mergers", reason: "非營利組織併購與整合認同" }
+        ]
       },
       {
         code: "MON-4B",
@@ -314,10 +928,13 @@ const ARTICLES = [
         authors: "Marshall B. Jones",
         journal: "Nonprofit and Voluntary Sector Quarterly",
         year: 2007,
-        doi: "https://doi.org/10.1177/0899764007300385",
+        doi: "10.1177/0899764007300385",
         point: "批判非營利組織傳統觀點中將「商業創收」視為使命漂移唯一根源的狹隘思維，論證組織面臨生存財務底線壓力與外部資源依賴時，更容易引發深層的使命偏離。",
         value: "解釋小型專案在失去財政贊助傘護後，為了倉促自立可能被迫迎合不適當資源而引發使命漂移的結構性風險。",
-        deep: "Jones 教授指出，單純防範商業化無法杜絕使命漂移，組織必須在治理機制中內建穩固的使命錨定與反思程序。"
+        deep: "Jones 教授指出，單純防範商業化無法杜絕使命漂移，組織必須在治理機制中內建穩固的使命錨定與反思程序。",
+        suggestedTags: [
+          { tag: "mission-drift", reason: "生存底線壓力與使命漂移原典" }
+        ]
       },
       {
         code: "MON-4C",
@@ -326,58 +943,163 @@ const ARTICLES = [
         authors: "Stephanie Moulton, Adam Eckerd",
         journal: "Nonprofit and Voluntary Sector Quarterly",
         year: 2012,
-        doi: "https://doi.org/10.1177/0899764011419517",
+        doi: "10.1177/0899764011419517",
         point: "透過「非營利部門公共角色指數」實證檢驗不同資源獲取管道如何形塑組織的公共價值與公民倡議能力，挑戰單純追求自給自足的教條思維。",
         value: "為評估 NPO 基礎設施公共性與基層專案獨立生存能力提供宏觀制度分析框架。",
-        deep: "研究證明，健康的非營利生態體系必須具備穩固的公共資源支撐，否則基層組織在被動追求財務獨立的過程中，往往不得不犧牲其最具價值的社會倡議角色。"
+        deep: "研究證明，健康的非營利生態體系必須具備穩固的公共資源支撐，否則基層組織在被動追求財務獨立的過程中，往往不得不犧牲其最具價值的社會倡議角色。",
+        suggestedTags: [
+          { tag: "publicness", reason: "非營利公共價值與資源依賴" }
+        ]
       }
     ]
   }
 ];
 
 let curArtIdx = 0;
-let curSubTab = 0;
 const savedState = {};
 
-function toBase64Url(obj) {
-  const jsonStr = JSON.stringify(obj);
-  const bytes = new TextEncoder().encode(jsonStr);
-  let bin = "";
-  bytes.forEach(b => bin += String.fromCharCode(b));
-  return btoa(bin).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+function splitHeadingAndBody(raw) {
+  const m = raw.match(/^【([^】]+)】\s*([\s\S]*)$/);
+  if (m) return { heading: m[1].trim(), body: m[2].trim() };
+  return { heading: "", body: raw.trim() };
 }
 
-async function triggerSave(payload, statusSpanId) {
-  const el = document.getElementById(statusSpanId);
-  if (el) el.innerHTML = `<span style="color:#1e40af;font-weight:700;font-size:0.78rem;">⏳ 正在寫入 ${payload.target === 'both' ? 'Zotero ＆ Notion' : payload.target.toUpperCase()}...</span>`;
-  try {
-    const resp = await fetch("http://127.0.0.1:8765/api/save", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload)
-    });
-    const res = await resp.json();
-    if (res && res.ok) {
-      savedState[payload.code] = res;
-      const zBadge = res.zotero_key ? `<span class="badge b-ok">✅ Zotero: ${res.zotero_key}</span> ` : "";
-      const nLink = res.notion_url ? `<a class="ext-link" href="${res.notion_url}" target="_blank" rel="noopener">📝 開啟 Notion 筆記</a>` : "";
-      if (el) el.innerHTML = zBadge + nLink;
-      return;
-    }
-  } catch (e) {
-    const b64 = toBase64Url(payload);
-    window.open(`http://127.0.0.1:8765/api/save?d=${b64}`, "_blank");
-    if (el) el.innerHTML = `<span class="badge b-ok">✅ 已在新分頁觸發入庫橋接（預設不自動覆寫未選項目）</span>`;
+let pendingSavePayload = null;
+let pendingStatusId = null;
+
+function openTagModal(payload, statusId, suggestedTags) {
+  pendingSavePayload = payload;
+  pendingStatusId = statusId;
+
+  document.getElementById("modal-base-tags").innerHTML = (payload.tags || [])
+    .map(t => `<span class="tag-chip" style="margin-right:4px;">${t}</span>`)
+    .join("");
+
+  const sugBox = document.getElementById("modal-sug-list");
+  if (!suggestedTags || !suggestedTags.length) {
+    sugBox.innerHTML = `<div style="font-size:0.84rem;color:var(--muted);font-style:italic;">（本篇文獻已具備充分標準標籤，無特定建議擴充詞）</div>`;
+  } else {
+    sugBox.innerHTML = suggestedTags.map((st, i) => `
+      <label class="sug-item">
+        <input type="checkbox" class="sug-tag-chk" value="${st.tag}" checked />
+        <div>
+          <strong style="color:#b45309;font-family:monospace;font-size:0.88rem;">+ ${st.tag}</strong>
+          <div style="font-size:0.8rem;color:var(--muted);margin-top:2px;">${st.reason}</div>
+        </div>
+      </label>
+    `).join("");
   }
+
+  document.getElementById("modal-custom-tags").value = "";
+  document.getElementById("tag-modal").classList.add("show");
+}
+
+function closeTagModal() {
+  document.getElementById("tag-modal").classList.remove("show");
+  pendingSavePayload = null;
+  pendingStatusId = null;
+}
+
+function confirmTagModal(includeSuggested) {
+  if (!pendingSavePayload) return;
+  const payload = Object.assign({}, pendingSavePayload);
+  const tagSet = new Set(payload.tags || []);
+
+  if (includeSuggested) {
+    document.querySelectorAll(".sug-tag-chk:checked").forEach(chk => {
+      const val = chk.value.trim().toLowerCase();
+      if (val) tagSet.add(val);
+    });
+    const customRaw = document.getElementById("modal-custom-tags").value || "";
+    customRaw.split(",").forEach(part => {
+      const clean = part.trim().toLowerCase().replace(/\s+/g, "-");
+      if (clean) tagSet.add(clean);
+    });
+  }
+
+  payload.tags = Array.from(tagSet);
+  const statusId = pendingStatusId;
+  closeTagModal();
+  triggerSave(payload, statusId);
+}
+
+const API_BASE = (window.location.origin && window.location.origin.startsWith("http") && window.location.port === "8765")
+  ? window.location.origin
+  : "http://127.0.0.1:8765";
+
+function triggerSave(itemPayload, statusElementId) {
+  const el = document.getElementById(statusElementId);
+  if (el) el.innerHTML = `<span style="font-size:0.8rem;color:#0284c7;">⏳ 正在入庫中...</span>`;
+
+  fetch(`${API_BASE}/api/save`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(itemPayload)
+  })
+  .then(r => r.json())
+  .then(d => {
+    if (d && (d.status === "ok" || d.ok === true)) {
+      savedState[itemPayload.code] = {
+        target: itemPayload.target,
+        zotero_key: d.zotero_key,
+        notion_url: d.notion_url,
+        obsidian_uri: d.obsidian_uri
+      };
+      if (el) {
+        let links = "";
+        if (d.notion_url) {
+          links += `<a href="${d.notion_url}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;margin-left:6px;padding:3px 9px;background:#eef2ff;color:#3730a3;border:1px solid #c7d2fe;border-radius:6px;font-size:0.76rem;font-weight:700;text-decoration:none;">📝 開啟 Notion ↗</a>`;
+        }
+        if (d.obsidian_uri) {
+          links += `<a href="${d.obsidian_uri}" style="display:inline-flex;align-items:center;gap:4px;margin-left:6px;padding:3px 9px;background:#f3e8ff;color:#6b21a8;border:1px solid #d8b4fe;border-radius:6px;font-size:0.76rem;font-weight:700;text-decoration:none;">🟣 開啟 Obsidian ↗</a>`;
+        }
+        el.innerHTML = `<span style="font-size:0.8rem;color:#166534;font-weight:700;">✅ 已存入</span>${links}`;
+      }
+    } else {
+      if (el) el.innerHTML = `<span style="font-size:0.8rem;color:#b91c1c;">⚠️ 失敗：${d ? (d.error || JSON.stringify(d)) : '未知錯誤'}</span>`;
+    }
+  })
+  .catch(() => {
+    if (el) el.innerHTML = `<span style="font-size:0.8rem;color:#b91c1c;">⚠️ 請確認已啟動 npo_sync_server.py</span>`;
+  });
+}
+
+function publishToGitHub() {
+  const el = document.getElementById("issue-notion-status");
+  if (el) el.innerHTML = `<span style="font-size:0.78rem;color:#0284c7;">⏳ 正在推送至 GitHub Pages 網站...</span>`;
+  fetch(`${API_BASE}/api/publish_github`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ date: "2026-11-02" })
+  })
+  .then(r => r.json())
+  .then(d => {
+    if (d && d.ok && d.pages_url) {
+      if (el) el.innerHTML = `<a href="${d.pages_url}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;padding:4px 10px;background:#dcfce7;color:#166534;border:1px solid #86efac;border-radius:6px;font-size:0.78rem;font-weight:700;text-decoration:none;">🌐 已發布！點此開啟您的 GitHub 網站 ↗</a>`;
+    } else {
+      if (el) el.innerHTML = `<span style="font-size:0.78rem;color:#b91c1c;">⚠️ GitHub 發布未完成</span>`;
+    }
+  })
+  .catch(() => {
+    if (el) el.innerHTML = `<span style="font-size:0.78rem;color:#b91c1c;">⚠️ 請確認已啟動 npo_sync_server.py</span>`;
+  });
 }
 
 function buildSaveButtonsHtml(itemObj, isMain) {
   const code = itemObj.code;
-  const statusId = `status-${code}`;
-  const existing = savedState[code];
-  const initStatus = existing
-    ? `${existing.zotero_key ? `<span class="badge b-ok">✅ Zotero: ${existing.zotero_key}</span> ` : ""}${existing.notion_url ? `<a class="ext-link" href="${existing.notion_url}" target="_blank" rel="noopener">📝 開啟 Notion</a>` : ""}`
-    : `<span style="font-size:0.75rem;color:#64748b;">（未點擊則預設不存入）</span>`;
+  const statusId = `save-status-${code}`;
+  const curr = savedState[code];
+  let initStatus = "";
+  if (curr) {
+    let links = "";
+    if (curr.notion_url) {
+      links += `<a href="${curr.notion_url}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;margin-left:6px;padding:3px 9px;background:#eef2ff;color:#3730a3;border:1px solid #c7d2fe;border-radius:6px;font-size:0.76rem;font-weight:700;text-decoration:none;">📝 開啟 Notion ↗</a>`;
+    }
+    if (curr.obsidian_uri) {
+      links += `<a href="${curr.obsidian_uri}" style="display:inline-flex;align-items:center;gap:4px;margin-left:6px;padding:3px 9px;background:#f3e8ff;color:#6b21a8;border:1px solid #d8b4fe;border-radius:6px;font-size:0.76rem;font-weight:700;text-decoration:none;">🟣 開啟 Obsidian ↗</a>`;
+    }
+    initStatus = `<span style="font-size:0.78rem;color:#166534;font-weight:700;">✅ 已典藏</span>${links}`;
+  }
 
   const makePayload = (target) => ({
     target,
@@ -389,132 +1111,166 @@ function buildSaveButtonsHtml(itemObj, isMain) {
     publisher: itemObj.publisher || itemObj.journal,
     pubDate: itemObj.pubDate || "2026-11-02",
     year: itemObj.year || 2026,
-    doi: itemObj.doi || itemObj.url,
-    url: itemObj.url || itemObj.doi,
+    doi: (itemObj.doi || "").replace("https://doi.org/", ""),
+    url: itemObj.url || (itemObj.doi ? (itemObj.doi.startsWith("http") ? itemObj.doi : "https://doi.org/" + itemObj.doi) : ""),
     tags: itemObj.tags || ["strategy", "innovation"],
     summaryShort: isMain ? itemObj.bullets.map(b => b.text).join(" ") : itemObj.point,
     summaryPoints: isMain ? itemObj.bullets.map(b => b.text) : [itemObj.point],
     criticalPoints: isMain ? itemObj.critiques : [itemObj.value],
     consultantInsight: isMain ? itemObj.consultant : itemObj.deep,
-    teachingQuestion: isMain ? itemObj.teachingQ : `請結合《${itemObj.titleOrig}》探討其對台灣與亞洲 NPO 策略與治理之實務啟示。`
+    teachingQuestion: isMain ? itemObj.teachingQ : `請結合《${itemObj.titleOrig}》探討其對台灣與亞洲 NPO 策略與使命創新之實務啟示。`
   });
 
   const pBoth = JSON.stringify(makePayload("both")).replace(/"/g, "&quot;");
   const pZot = JSON.stringify(makePayload("zotero")).replace(/"/g, "&quot;");
   const pNot = JSON.stringify(makePayload("notion")).replace(/"/g, "&quot;");
+  const pObs = JSON.stringify(makePayload("obsidian")).replace(/"/g, "&quot;");
+  const sTags = JSON.stringify(itemObj.suggestedTags || []).replace(/"/g, "&quot;");
 
   return `
-    <button class="save-btn primary" onclick="triggerSave(${pBoth}, '${statusId}')">📥 同時存入 Zotero ＆ Notion</button>
-    <button class="save-btn" onclick="triggerSave(${pZot}, '${statusId}')">📚 僅存入 Zotero</button>
-    <button class="save-btn" onclick="triggerSave(${pNot}, '${statusId}')">📝 僅存入 Notion</button>
-    <span id="${statusId}">${initStatus}</span>
+    <div class="save-actions">
+      <button class="btn-save-main" onclick="openTagModal(${pBoth}, '${statusId}', ${sTags})">📥 一鍵典藏 (Zotero＋Notion＋Obsidian)</button>
+      <button class="btn-save-sub" onclick="openTagModal(${pZot}, '${statusId}', ${sTags})">僅 Zotero</button>
+      <button class="btn-save-sub" onclick="openTagModal(${pNot}, '${statusId}', ${sTags})">僅 Notion</button>
+      <button class="btn-save-sub" onclick="openTagModal(${pObs}, '${statusId}', ${sTags})">僅 Obsidian</button>
+      <span id="${statusId}">${initStatus}</span>
+    </div>
   `;
 }
 
-// 本週各日報告索引
-const WEEK_INDEX = [
-  { label: "週一 11/02（本日）", href: "npo_daily_reader_2026-11-02.html" },
-  { label: "上週四 10/29", href: "npo_daily_reader_v2_preview.html" },
-  { label: "上週一～三 10/26-28", href: "npo_this_week_mon_wed_reader.html" }
-];
-
-function renderOverview() {
-  const wi = document.getElementById("week-index");
-  wi.innerHTML = WEEK_INDEX.length
-    ? "🗓️ <strong>本週各日報告：</strong>" + WEEK_INDEX.map(w => `<a class="ext-link" href="${w.href}">${w.label}</a>`).join(" ｜ ")
-    : "";
-  const top = ARTICLES.slice().sort((a, b) => ({ "高": 0, "中": 1, "低": 2 }[a.relevance] ?? 3) - ({ "高": 0, "中": 1, "低": 2 }[b.relevance] ?? 3)).slice(0, 3);
-  document.getElementById("overview").innerHTML =
-    `<strong>⭐ 今日 3 個重點（依台灣 NPO 關聯度排序）</strong><ol style="margin:6px 0 0 18px;padding:0;font-size:0.88rem;">` +
-    top.map(a => `<li><strong>${a.titleZh.slice(0, 28)}…</strong>：${a.tldr || ""}</li>`).join("") + `</ol>`;
-}
-
 function renderAll() {
-  renderOverview();
   document.getElementById("art-nav").innerHTML = ARTICLES.map((it, i) => `
-    <button class="art-pill ${i === curArtIdx ? 'active' : ''}" onclick="curArtIdx=${i};curSubTab=0;renderAll();">
-      第 ${i + 1} 則：${it.region.split(' ')[0]} ${it.titleZh.slice(0, 15)}…
+    <button class="story-tab ${i === curArtIdx ? 'active' : ''}" onclick="curArtIdx=${i};renderAll();window.scrollTo({top:0,behavior:'smooth'});">
+      <div class="story-tab-num">
+        <span>FOCUS 0${i + 1} ・ ${it.region.split(' ')[0]}</span>
+        <span>${it.timestamp}</span>
+      </div>
+      <div class="story-tab-title">${it.titleZh.replace(/^【[^】]+】\s*/, '')}</div>
     </button>
   `).join("");
 
   const art = ARTICLES[curArtIdx];
-  let bodyHtml = "";
-  if (curSubTab === 0) {
-    bodyHtml = art.bullets.map(b => `
-      <div class="bullet-box">
-        <div>${b.text} <a class="ext-link" href="${art.url}" target="_blank" rel="noopener">[原始文本連結]</a></div>
-        <div class="quote-box">📜 <strong>原文引句 (Verbatim Quote)：</strong>${b.quote}</div>
+
+  const storyHtml = art.bullets.map((b, idx) => {
+    const parsed = splitHeadingAndBody(b.text);
+    return `
+      <div class="story-point">
+        ${parsed.heading ? `
+          <div class="story-point-title">
+            <span class="story-point-num">0${idx + 1}.</span>
+            <span>${parsed.heading}</span>
+          </div>
+        ` : ""}
+        <p class="story-point-body">${parsed.body}</p>
+        <div class="pull-quote">
+          <span class="pull-quote-label">📜 原文關鍵引句</span>
+          「${b.quote}」
+        </div>
       </div>
-    `).join("");
-  } else if (curSubTab === 1) {
-    bodyHtml = `
-      <div class="bullet-box" style="border-left-color:#d97706;"><strong>⚖️ 批判性觀點：</strong><ul style="margin:6px 0 0 18px;padding:0;">${art.critiques.map(c => `<li>${c}</li>`).join("")}</ul></div>
-      <div class="bullet-box" style="border-left-color:#059669;"><strong>💼 顧問洞察：</strong><br/>${art.consultant}</div>
-      <div class="bullet-box" style="border-left-color:#7c3aed;"><strong>🎓 備課提問：</strong><br/>${art.teachingQ}</div>
-      <div class="bullet-box" style="border-left-color:#dc2626;background:#fef2f2;"><strong>✅ 下週可以做的一件事：</strong>${art.action || "（本則未提供）"}</div>
     `;
-  } else {
-    const MAX_SHOW = 2;
-    const renderRef = (r, rIdx) => {
-      const rWithTags = Object.assign({ tags: art.tags, pubDate: art.pubDate, year: r.year }, r);
-      const dId = `dd-${art.code}-${rIdx}`;
-      return `
-        <div class="ref-card">
-          <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;">
-            <span class="badge" style="background:var(--purple-bg);color:var(--purple-text);">延伸參考文獻 ${r.code}</span>
-            <a class="ext-link" href="${r.doi}" target="_blank" rel="noopener">🔗 Crossref / 原文連結: ${r.doi}</a>
-          </div>
-          <div class="ref-title-zh">${r.titleZh}</div>
-          <div class="ref-title-orig">📖 原文文獻名稱：${r.titleOrig}</div>
-          <div style="font-size:0.79rem;color:var(--muted);margin-bottom:6px;">👤 <strong>作者：</strong>${r.authors} ｜ 🏛️ <strong>出處：</strong><em>${r.journal}</em> (${r.year})</div>
-          <div style="font-size:0.85rem;background:#f8fafc;padding:8px 12px;border-radius:6px;margin-bottom:6px;border-left:3px solid #64748b;"><strong>📌 核心論點：</strong>${r.point}</div>
-          <div style="font-size:0.83rem;background:var(--amber-bg);color:var(--amber-text);padding:8px 12px;border-radius:6px;margin-bottom:10px;"><strong>💡 對照價值：</strong>${r.value}</div>
-          <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;">
-            ${buildSaveButtonsHtml(rWithTags, false)}
-            <button class="deep-btn" onclick="document.getElementById('${dId}').classList.toggle('show')">🔍 深入閱讀與討論此文獻</button>
-          </div>
-          <div class="deep-drawer" id="${dId}">
-            <strong>🔬 深度方法論與台日實務研討：</strong><br/>${r.deep}<br/>
-            <span style="color:#3730a3;font-weight:700;">💬 研討提問：</span>如何將《${r.titleOrig}》之研究發現與主文獻《${art.titleOrig}》結合應用於台灣與日本之非營利實務？
-          </div>
-        </div>`;
-    };
-    const shown = art.refs.slice(0, MAX_SHOW).map(renderRef).join("");
-    const rest = art.refs.slice(MAX_SHOW).map((r, i) => renderRef(r, i + MAX_SHOW)).join("");
-    bodyHtml = shown + (rest ? `<details><summary style="cursor:pointer;font-weight:700;font-size:0.82rem;color:#475569;margin-bottom:8px;">▸ 展開其餘 ${art.refs.length - MAX_SHOW} 篇延伸文獻</summary>${rest}</details>` : "");
-  }
+  }).join("");
 
-  const relColor = { "高": "#dc2626", "中": "#d97706", "低": "#64748b" }[art.relevance] || "#64748b";
+  const critiquesHtml = art.critiques.map(c => {
+    const parsed = splitHeadingAndBody(c);
+    return `
+      <div class="insight-item">
+        ${parsed.heading ? `<span class="insight-sub">▸ ${parsed.heading}</span>` : ""}
+        <span>${parsed.body}</span>
+      </div>
+    `;
+  }).join("");
+
+  const refsHtml = art.refs.map((r, rIdx) => {
+    const rWithTags = Object.assign({ tags: art.tags, pubDate: art.pubDate, year: r.year }, r);
+    const dId = `dd-${art.code}-${rIdx}`;
+    const rLink = r.doi ? (r.doi.startsWith("http") ? r.doi : `https://doi.org/${r.doi}`) : r.url;
+    const rSugHtml = (r.suggestedTags && r.suggestedTags.length)
+      ? `<div style="margin-bottom:10px;display:flex;flex-wrap:wrap;gap:5px;align-items:center;">
+           <span style="font-size:0.76rem;color:#b45309;font-weight:700;">💡 建議擴充標籤：</span>
+           ${r.suggestedTags.map(st => `<span class="sug-chip" title="${st.reason}">+${st.tag} (${st.reason})</span>`).join("")}
+         </div>`
+      : "";
+
+    return `
+      <div class="ref-item">
+        <div class="ref-top">
+          <span class="ref-code">延伸文獻 ${r.code}</span>
+          <a class="source-link" href="${rLink}" target="_blank" rel="noopener">🔗 查閱原始論文 (${r.doi || '官方報告'}) →</a>
+        </div>
+        <div class="ref-title-zh">${r.titleZh}</div>
+        <div class="ref-title-orig">${r.titleOrig}</div>
+        <div class="ref-byline">${r.authors} ・ <em>${r.journal}</em> (${r.year})</div>
+        <div class="ref-summary-grid">
+          <div class="ref-takeaway">${r.point}</div>
+          <div class="ref-value-pill"><strong>💡 為什麼這篇值得對照閱讀：</strong>${r.value}</div>
+        </div>
+        ${rSugHtml}
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;padding-top:8px;border-top:1px dashed var(--border);">
+          ${buildSaveButtonsHtml(rWithTags, false)}
+          <button class="btn-save-sub" style="color:#4f46e5;border-color:#c7d2fe;background:#eef2ff;" onclick="document.getElementById('${dId}').classList.toggle('show')">🔍 展開方法論與台日實務探討</button>
+        </div>
+        <div class="ref-drawer" id="${dId}">
+          <strong>🔬 深度方法論與實務啟示：</strong><br/>${r.deep}
+        </div>
+      </div>
+    `;
+  }).join("");
+
+  const artSugHtml = (art.suggestedTags && art.suggestedTags.length)
+    ? art.suggestedTags.map(st => `<span class="sug-chip" title="建議新增：${st.reason}">+${st.tag}</span>`).join("")
+    : "";
+
   document.getElementById("art-card").innerHTML = `
-    <div class="meta-bar">
-      <span class="badge b-region">${art.region}</span>
-      <span class="badge b-ok">✅ 原文核驗通過｜${art.verify || "已驗證"}</span>
-      <span class="badge" style="background:#fff;border:1px solid ${relColor};color:${relColor};">台灣 NPO 關聯度：${art.relevance || "—"}</span>
-      <span>🕒 發布時間：<strong>${art.timestamp}</strong></span>
-      <span>🏛️ 出處：<strong>${art.publisher}</strong> (${art.authors})</span>
-      <a class="ext-link" href="${art.url}" target="_blank" rel="noopener">🔗 開啟原始文本</a>
+    <div class="kicker-row">
+      <span class="kicker-badge">${art.region}</span>
+      <span class="source-meta">${art.publisher} ・ 作者：${art.authors} ・ ${art.timestamp}</span>
+      <a class="source-link" href="${art.url}" target="_blank" rel="noopener">閱讀原始文本 →</a>
     </div>
-    <h2 class="title-zh">${art.titleZh}</h2>
-    <div class="title-orig">📖 原文文獻名稱：${art.titleOrig}</div>
-    <div style="background:#eff6ff;border-left:4px solid #1e40af;padding:8px 12px;border-radius:6px;margin:6px 0 8px 0;font-size:0.9rem;"><strong>⚡ 30 秒摘要：</strong>${art.tldr || ""}</div>
-    <div style="margin-bottom:8px;">${art.tags.map(t => `<span class="tag-pill">${t}</span>`).join(" ")}</div>
 
-    <div class="action-bar">
-      <strong style="font-size:0.82rem;color:#1e293b;">📌 主文獻直接入庫操作：</strong>
+    <h2 class="headline">${art.titleZh}</h2>
+    <div class="subheadline">原文標題：${art.titleOrig}</div>
+
+    <!-- 知識庫收藏與標籤工具列 -->
+    <div class="toolbar">
+      <div class="tags-group">
+        <span style="font-size:0.78rem;color:var(--muted);font-weight:700;">🏷️ 標籤：</span>
+        ${art.tags.map(t => `<span class="tag-chip">${t}</span>`).join("")}
+        ${artSugHtml}
+      </div>
       ${buildSaveButtonsHtml(art, true)}
     </div>
 
-    <div class="sub-tabs">
-      <button class="sub-btn ${curSubTab === 0 ? 'active' : ''}" onclick="curSubTab=0;renderAll();">📌 1. 事實摘要 ＆ 📜 原文引句</button>
-      <button class="sub-btn ${curSubTab === 1 ? 'active' : ''}" onclick="curSubTab=1;renderAll();">🧭 2. 觀點、洞察 ＆ 行動</button>
-      <button class="sub-btn ${curSubTab === 2 ? 'active' : ''}" onclick="curSubTab=2;renderAll();">📚 3. 延伸文獻（含入庫按鈕）</button>
+    <!-- 第一節：新聞與法規脈絡 -->
+    <div class="sec-header">📖 焦點脈絡與關鍵現場</div>
+    <div>${storyHtml}</div>
+
+    <!-- 第二節：深度評論與顧問處方箋（左右雙欄） -->
+    <div class="sec-header">⚖️ 深度評論與顧問處方箋</div>
+    <div class="insight-grid">
+      <div class="insight-card critique">
+        <div class="insight-card-title" style="color:#92400e;">🔍 體制盲點與批判性反思</div>
+        ${critiquesHtml}
+      </div>
+      <div class="insight-card memo">
+        <div class="insight-card-title" style="color:#065f46;">💼 給 NPO 決策者的顧問建議</div>
+        <div class="insight-item" style="color:#064e3b;">${art.consultant}</div>
+      </div>
     </div>
-    <div>${bodyHtml}</div>
+
+    <!-- 課堂提問 -->
+    <div class="seminar-box">
+      <div class="seminar-title">🎓 課堂與讀書會思辨提問 (Seminar Discussion)</div>
+      <div class="seminar-text">${art.teachingQ}</div>
+    </div>
+
+    <!-- 第三節：延伸學術文庫 -->
+    <div class="sec-header">📚 延伸學術與政策文庫（點擊即可展開或存入知識庫）</div>
+    <div class="ref-list">${refsHtml}</div>
   `;
 }
 
-// Read saved state if available
-fetch("http://127.0.0.1:8765/api/status").then(r => r.json()).then(d => {
+// 讀取已儲存狀態
+fetch(`${API_BASE}/api/status`).then(r => r.json()).then(d => {
   if (d && d.saved) Object.assign(savedState, d.saved);
   renderAll();
 }).catch(() => renderAll());
