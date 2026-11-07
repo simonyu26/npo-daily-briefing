@@ -3,1084 +3,709 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>NPO 每日深度晨報（2026-11-02 週一｜策略與使命創新 - 100% 防幻覺實證核驗版）</title>
+<title>NPO 本週雙平台（Zotero ＆ Notion）入庫文獻總整理與延伸參考文獻推薦（2026年第44週）</title>
 <style>
   :root {
-    --bg: #f7f5f0;
-    --paper: #ffffff;
-    --ink: #1c1917;
-    --ink-body: #292524;
-    --muted: #57534e;
-    --soft: #78716c;
-    --border: #e7e5e4;
-    --accent: #1d4ed8;
-    --accent-bg: #eff6ff;
-    --warm-bg: #faf8f5;
-    --quote-bg: #f5f3ef;
-    --critique-bg: #fffbeb;
-    --critique-border: #f59e0b;
-    --memo-bg: #f0fdf4;
-    --memo-border: #10b981;
-    --seminar-bg: #f5f3ff;
-    --seminar-border: #8b5cf6;
+    --bg: #f8fafc; --card: #ffffff; --border: #e2e8f0; --text: #0f172a; --muted: #475569;
+    --accent: #1e40af; --accent-soft: #dbeafe; --green-bg: #dcfce7; --green-text: #166534;
+    --purple-bg: #f3e8ff; --purple-text: #6b21a8; --amber-bg: #fef3c7; --amber-text: #92400e;
+    --indigo-bg: #eef2ff; --indigo-border: #c7d2fe; --indigo-text: #3730a3;
   }
   * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    padding: 20px 16px 48px 16px;
-    font-family: "Noto Sans TC", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    background: var(--bg);
-    color: var(--ink-body);
-    line-height: 1.8;
-    font-size: 16px;
-    -webkit-font-smoothing: antialiased;
-  }
-  .container {
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-  /* Masthead 報頭 */
-  .masthead {
-    border-bottom: 2px solid var(--ink);
-    padding-bottom: 14px;
-    margin-bottom: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-  .masthead-eyebrow {
-    font-size: 0.78rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    color: var(--accent);
-    text-transform: uppercase;
-    margin-bottom: 4px;
-  }
-  .masthead-title {
-    margin: 0;
-    font-family: "Noto Serif TC", "Songti TC", Georgia, serif;
-    font-size: 1.55rem;
-    font-weight: 800;
-    color: var(--ink);
-    letter-spacing: -0.01em;
-  }
-  .masthead-meta {
-    font-size: 0.84rem;
-    color: var(--muted);
-    text-align: right;
-  }
-
-  /* Top Story Switcher */
-  .story-switcher {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 10px;
-    margin-bottom: 22px;
-  }
-  .story-tab {
-    background: #edeae4;
-    border: 1px solid transparent;
-    border-radius: 10px;
-    padding: 12px 15px;
-    text-align: left;
-    cursor: pointer;
-    transition: all 0.18s ease;
-  }
-  .story-tab:hover {
-    background: #e5e0d8;
-  }
-  .story-tab.active {
-    background: var(--paper);
-    border-color: var(--ink);
-    box-shadow: 0 4px 12px rgba(28, 25, 23, 0.08);
-  }
-  .story-tab-num {
-    font-size: 0.75rem;
-    font-weight: 800;
-    color: var(--accent);
-    margin-bottom: 3px;
-    display: flex;
-    justify-content: space-between;
-  }
-  .story-tab-title {
-    font-size: 0.92rem;
-    font-weight: 700;
-    color: var(--ink);
-    line-height: 1.4;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-
-  /* Main Editorial Sheet */
-  .paper-sheet {
-    background: var(--paper);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 32px 36px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-  }
-  @media (max-width: 640px) {
-    .paper-sheet { padding: 20px 18px; }
-  }
-
-  .kicker-row {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin-bottom: 10px;
-  }
-  .kicker-badge {
-    background: var(--accent-bg);
-    color: var(--accent);
-    font-weight: 800;
-    font-size: 0.8rem;
-    padding: 4px 11px;
-    border-radius: 6px;
-  }
-  .source-meta {
-    font-size: 0.85rem;
-    color: var(--muted);
-  }
-  .source-link {
-    font-size: 0.84rem;
-    color: var(--accent);
-    text-decoration: none;
-    font-weight: 700;
-    margin-left: auto;
-  }
-  .source-link:hover { text-decoration: underline; }
-
-  .headline {
-    font-family: "Noto Serif TC", "Songti TC", Georgia, serif;
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: var(--ink);
-    line-height: 1.42;
-    margin: 6px 0 8px 0;
-  }
-  .subheadline {
-    font-size: 0.94rem;
-    color: var(--muted);
-    font-weight: 500;
-    margin-bottom: 18px;
-    padding-bottom: 16px;
-    border-bottom: 1px solid var(--border);
-  }
-
-  /* Compact Toolbar */
-  .toolbar {
-    background: var(--warm-bg);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 12px 16px;
-    margin-bottom: 26px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-  .tags-group {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 6px;
-  }
-  .tag-chip {
-    background: #fff;
-    color: var(--muted);
-    border: 1px solid #d6d3d1;
-    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
-    font-size: 0.76rem;
-    padding: 2px 9px;
-    border-radius: 999px;
-  }
-  .sug-chip {
-    background: #fffbeb;
-    color: #b45309;
-    border: 1px dashed #f59e0b;
-    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
-    font-size: 0.76rem;
-    padding: 2px 9px;
-    border-radius: 999px;
-  }
-  .save-actions {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 6px;
-  }
-  .btn-save-main {
-    background: var(--ink);
-    color: #fff;
-    border: 1px solid var(--ink);
-    padding: 7px 14px;
-    border-radius: 7px;
-    font-size: 0.82rem;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.15s;
-  }
-  .btn-save-main:hover { background: var(--accent); border-color: var(--accent); }
-  .btn-save-sub {
-    background: #fff;
-    color: var(--muted);
-    border: 1px solid #d6d3d1;
-    padding: 6px 10px;
-    border-radius: 7px;
-    font-size: 0.78rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.15s;
-  }
-  .btn-save-sub:hover { color: var(--ink); border-color: var(--ink); background: #f5f5f4; }
-
-  /* Section Headings */
-  .sec-header {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 1.08rem;
-    font-weight: 800;
-    color: var(--ink);
-    margin: 30px 0 14px 0;
-    padding-bottom: 8px;
-    border-bottom: 2px solid #f5f5f4;
-  }
-
-  /* Narrative Story Points */
-  .story-point {
-    margin-bottom: 24px;
-  }
-  .story-point-title {
-    font-size: 1.04rem;
-    font-weight: 800;
-    color: #1e3a8a;
-    margin-bottom: 6px;
-    display: flex;
-    align-items: baseline;
-    gap: 8px;
-  }
-  .story-point-num {
-    font-family: Georgia, serif;
-    font-size: 1.15rem;
-    color: var(--accent);
-    font-weight: 900;
-  }
-  .story-point-body {
-    font-size: 1rem;
-    color: var(--ink-body);
-    line-height: 1.85;
-    margin: 0 0 10px 0;
-  }
-  .pull-quote {
-    margin: 8px 0 0 14px;
-    padding: 10px 16px;
-    background: var(--quote-bg);
-    border-left: 3px solid #a8a29e;
-    border-radius: 0 8px 8px 0;
-    font-size: 0.88rem;
-    color: #44403c;
-    line-height: 1.65;
-  }
-  .pull-quote-label {
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: var(--soft);
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    display: block;
-    margin-bottom: 2px;
-  }
-
-  /* Insight Grid */
-  .insight-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    margin-top: 12px;
-  }
-  @media (max-width: 720px) {
-    .insight-grid { grid-template-columns: 1fr; }
-  }
-  .insight-card {
-    padding: 18px 20px;
-    border-radius: 12px;
-    border: 1px solid var(--border);
-  }
-  .insight-card.critique {
-    background: var(--critique-bg);
-    border-color: #fde68a;
-  }
-  .insight-card.memo {
-    background: var(--memo-bg);
-    border-color: #a7f3d0;
-  }
-  .insight-card-title {
-    font-size: 0.92rem;
-    font-weight: 800;
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .insight-item {
-    margin-bottom: 12px;
-    font-size: 0.94rem;
-    line-height: 1.75;
-  }
-  .insight-item:last-child { margin-bottom: 0; }
-  .insight-sub {
-    font-weight: 800;
-    color: var(--ink);
-    display: block;
-    margin-bottom: 2px;
-  }
-
-  .seminar-box {
-    margin-top: 16px;
-    padding: 18px 22px;
-    background: var(--seminar-bg);
-    border-left: 4px solid var(--seminar-border);
-    border-radius: 0 12px 12px 0;
-  }
-  .seminar-title {
-    font-size: 0.88rem;
-    font-weight: 800;
-    color: #5b21b6;
-    margin-bottom: 6px;
-  }
-  .seminar-text {
-    font-size: 0.96rem;
-    color: #2e1065;
-    line-height: 1.78;
-    font-weight: 500;
-  }
-
-  /* Academic References */
-  .ref-list {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-  }
-  .ref-item {
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 18px 22px;
-    background: #fafaf9;
-    transition: border-color 0.15s;
-  }
-  .ref-item:hover {
-    border-color: #cbd5e1;
-    background: #ffffff;
-  }
-  .ref-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 6px;
-  }
-  .ref-code {
-    font-size: 0.76rem;
-    font-weight: 800;
-    color: #6b21a8;
-    background: #f3e8ff;
-    padding: 2px 9px;
-    border-radius: 999px;
-  }
-  .ref-title-zh {
-    font-size: 1.05rem;
-    font-weight: 800;
-    color: var(--ink);
-    margin: 4px 0 2px 0;
-  }
-  .ref-title-orig {
-    font-size: 0.88rem;
-    color: var(--accent);
-    font-weight: 600;
-    margin-bottom: 4px;
-  }
-  .ref-byline {
-    font-size: 0.82rem;
-    color: var(--muted);
-    margin-bottom: 12px;
-  }
-  .ref-summary-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 8px;
-    margin-bottom: 12px;
-  }
-  .ref-takeaway {
-    font-size: 0.93rem;
-    line-height: 1.72;
-    color: var(--ink-body);
-  }
-  .ref-value-pill {
-    font-size: 0.88rem;
-    line-height: 1.68;
-    padding: 8px 12px;
-    background: #fefce8;
-    border-left: 3px solid #eab308;
-    color: #713f12;
-    border-radius: 0 6px 6px 0;
-  }
-  .ref-drawer {
-    display: none;
-    margin-top: 12px;
-    padding: 14px 16px;
-    background: #f5f3ff;
-    border-radius: 8px;
-    font-size: 0.9rem;
-    line-height: 1.75;
-    color: #1e1b4b;
-  }
-  .ref-drawer.show { display: block; }
-
-  /* Modal */
-  .modal-backdrop {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(28, 25, 23, 0.55);
-    z-index: 9999;
-    align-items: center;
-    justify-content: center;
-    padding: 16px;
-    backdrop-filter: blur(2px);
-  }
-  .modal-backdrop.show { display: flex; }
-  .modal-box {
-    background: #fff;
-    border-radius: 14px;
-    max-width: 540px;
-    width: 100%;
-    padding: 24px;
-    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.22);
-    border: 1px solid var(--border);
-  }
-  .modal-title {
-    font-size: 1.08rem;
-    font-weight: 800;
-    color: var(--ink);
-    margin: 0 0 8px 0;
-  }
-  .sug-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 10px 12px;
-    background: #fffbeb;
-    border: 1px solid #fde68a;
-    border-radius: 8px;
-    margin-bottom: 8px;
-    font-size: 0.88rem;
-    cursor: pointer;
-  }
-  .sug-item input { margin-top: 4px; cursor: pointer; }
-
-
-  /* Executive Briefing Card */
-  .briefing-box {
-    background: #fffbeb;
-    border: 1px solid #fde68a;
-    border-radius: 12px;
-    padding: 16px 20px;
-    margin-bottom: 22px;
-  }
-  .briefing-title {
-    font-size: 0.92rem;
-    font-weight: 800;
-    color: #92400e;
-    margin-bottom: 8px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .briefing-list {
-    margin: 0;
-    padding-left: 20px;
-    font-size: 0.9rem;
-    line-height: 1.7;
-    color: #78350f;
-  }
-  .briefing-list li { margin-bottom: 4px; }
-  .briefing-list li:last-child { margin-bottom: 0; }
-
-  /* Relevance Badge */
-  .badge-rel-high { background: #fee2e2; color: #991b1b; font-weight: 800; font-size: 0.76rem; padding: 2px 8px; border-radius: 6px; border: 1px solid #fca5a5; }
-  .badge-rel-mid { background: #fef3c7; color: #92400e; font-weight: 800; font-size: 0.76rem; padding: 2px 8px; border-radius: 6px; border: 1px solid #fde68a; }
-  .badge-rel-low { background: #f3f4f6; color: #4b5563; font-weight: 700; font-size: 0.76rem; padding: 2px 8px; border-radius: 6px; border: 1px solid #e5e7eb; }
-  .badge-verify { background: #ecfdf5; color: #065f46; font-weight: 700; font-size: 0.76rem; padding: 2px 8px; border-radius: 6px; border: 1px solid #a7f3d0; }
-
-  /* 30s TL;DR Quote Box */
-  .tldr-box {
-    background: #eff6ff;
-    border-left: 4px solid var(--accent);
-    border-radius: 0 8px 8px 0;
-    padding: 10px 16px;
-    margin: 12px 0 16px 0;
-    font-size: 0.94rem;
-    line-height: 1.65;
-    color: #1e3a8a;
-  }
-
-  /* Actionable Takeaway Card */
-  .action-card {
-    margin-top: 16px;
-    padding: 16px 20px;
-    background: #f0fdf4;
-    border: 1px solid #86efac;
-    border-left: 5px solid #16a34a;
-    border-radius: 0 12px 12px 0;
-  }
-  .action-card-title {
-    font-size: 0.92rem;
-    font-weight: 800;
-    color: #166534;
-    margin-bottom: 6px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .action-card-body {
-    font-size: 0.96rem;
-    color: #14532d;
-    line-height: 1.75;
-    font-weight: 600;
-  }
-
-  /* Collapsible Extra References */
-  details.extra-refs {
-    margin-top: 12px;
-    border: 1px dashed #cbd5e1;
-    border-radius: 10px;
-    padding: 8px 12px;
-    background: #fafaf9;
-  }
-  details.extra-refs > summary {
-    cursor: pointer;
-    font-weight: 700;
-    font-size: 0.88rem;
-    color: #475569;
-    padding: 6px 4px;
-    list-style: none;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-  details.extra-refs > summary::-webkit-details-marker { display: none; }
-  details.extra-refs > summary:hover { color: #0f172a; }
-
-  /* History Archive */
-  .history-section {
-    margin-top: 28px;
-    background: var(--paper);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 24px 30px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-  }
-  .history-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 14px;
-    padding-bottom: 10px;
-    border-bottom: 2px solid var(--ink);
-  }
-  .history-title {
-    font-family: "Noto Serif TC", "Songti TC", Georgia, serif;
-    font-size: 1.25rem;
-    font-weight: 800;
-    color: var(--ink);
-    margin: 0;
-  }
-  details.hist-day {
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    margin-bottom: 10px;
-    background: var(--warm-bg);
-    overflow: hidden;
-    transition: all 0.15s;
-  }
-  details.hist-day[open] {
-    background: #ffffff;
-    border-color: #cbd5e1;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.04);
-  }
-  details.hist-day > summary {
-    padding: 13px 16px;
-    font-weight: 800;
-    font-size: 0.96rem;
-    color: var(--ink);
-    cursor: pointer;
-    list-style: none;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-  details.hist-day > summary::-webkit-details-marker { display: none; }
-  details.hist-day > summary:hover { background: #f1efea; }
-  .hist-day-body {
-    padding: 14px 18px 18px 18px;
-    border-top: 1px solid var(--border);
-    font-size: 0.93rem;
-    line-height: 1.75;
-  }
-  .hist-item {
-    padding: 12px 14px;
-    background: #fafaf9;
-    border-left: 3px solid var(--accent);
-    border-radius: 0 8px 8px 0;
-    margin-bottom: 10px;
-  }
-  .hist-item:last-child { margin-bottom: 0; }
+  body { margin: 0; padding: 14px; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", sans-serif; background: var(--bg); color: var(--text); line-height: 1.58; max-width: 1240px; margin-left: auto; margin-right: auto; }
+  .top-banner { background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%); color: #fff; padding: 18px 20px; border-radius: 12px; margin-bottom: 14px; display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 12px; box-shadow: 0 4px 12px rgba(15,23,42,0.12); }
+  .top-banner h1 { margin: 0; font-size: 1.18rem; line-height: 1.4; }
+  .top-banner .sub { font-size: 0.82rem; color: #cbd5e1; margin-top: 6px; }
+  .top-banner .right-box { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
+  .top-banner .badge-date { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.28); color: #fff; padding: 5px 12px; border-radius: 999px; font-size: 0.78rem; font-weight: 600; white-space: nowrap; }
+  .archive-links { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+  .archive-a { background: rgba(255,255,255,0.12); color: #e2e8f0; text-decoration: none; padding: 3px 9px; border-radius: 6px; font-size: 0.74rem; border: 1px solid rgba(255,255,255,0.2); transition: all 0.15s; }
+  .archive-a:hover { background: rgba(255,255,255,0.24); color: #fff; }
+  .art-nav { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; align-items: center; }
+  .art-pill { border: 1px solid var(--border); background: #fff; color: var(--muted); padding: 8px 14px; border-radius: 999px; font-size: 0.82rem; font-weight: 700; cursor: pointer; transition: all 0.15s; }
+  .art-pill:hover { border-color: #94a3b8; color: #0f172a; }
+  .art-pill.active { background: #0f172a; color: #fff; border-color: #0f172a; box-shadow: 0 2px 6px rgba(15,23,42,0.18); }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+  .meta-bar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font-size: 0.79rem; color: var(--muted); margin-bottom: 8px; }
+  .badge { padding: 3px 9px; border-radius: 999px; font-weight: 700; font-size: 0.75rem; display: inline-flex; align-items: center; gap: 4px; }
+  .b-region { background: var(--accent-soft); color: var(--accent); }
+  .b-ok { background: var(--green-bg); color: var(--green-text); }
+  .b-warn { background: var(--amber-bg); color: var(--amber-text); }
+  .b-purple { background: var(--purple-bg); color: var(--purple-text); }
+  .tag-pill { background: #f1f5f9; color: #334155; font-family: monospace; font-size: 0.74rem; padding: 3px 8px; border-radius: 999px; border: 1px solid #e2e8f0; display: inline-block; margin-right: 4px; margin-bottom: 4px; }
+  h2.title-zh { margin: 6px 0 4px 0; font-size: 1.15rem; color: #0f172a; line-height: 1.45; }
+  .title-orig { font-size: 0.9rem; font-weight: 600; color: #1e40af; margin-bottom: 10px; }
+  .action-bar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 12px 0 14px 0; padding: 10px 12px; background: #f8fafc; border-radius: 8px; border: 1px solid var(--border); }
+  .save-btn { border: 1px solid #cbd5e1; background: #fff; color: #0f172a; padding: 6px 12px; border-radius: 6px; font-size: 0.79rem; font-weight: 700; cursor: pointer; transition: all 0.15s; }
+  .save-btn:hover { background: #eff6ff; border-color: #93c5fd; }
+  .save-btn.primary { background: #1e40af; color: #fff; border-color: #1e40af; }
+  .save-btn.primary:hover { background: #1e3a8a; }
+  .save-btn.done { background: var(--green-bg); color: var(--green-text); border-color: #86efac; }
+  .sub-tabs { display: flex; gap: 6px; border-bottom: 2px solid var(--border); padding-bottom: 8px; margin-bottom: 14px; flex-wrap: wrap; }
+  .sub-btn { border: none; background: #f1f5f9; color: var(--muted); padding: 8px 14px; border-radius: 6px; font-size: 0.82rem; font-weight: 700; cursor: pointer; transition: all 0.12s; }
+  .sub-btn:hover { background: #e2e8f0; color: #0f172a; }
+  .sub-btn.active { background: #0f172a; color: #fff; }
+  .bullet-box { margin-bottom: 12px; padding: 13px 15px; background: #f8fafc; border-radius: 8px; border-left: 4px solid var(--accent); font-size: 0.89rem; line-height: 1.65; }
+  .quote-box { margin-top: 8px; padding: 9px 12px; background: #ffffff; border: 1px dashed #cbd5e1; border-radius: 6px; font-family: Georgia, serif; font-style: italic; font-size: 0.82rem; color: #334155; }
+  .ref-card { border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; margin-bottom: 12px; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.03); }
+  .ref-title-zh { font-weight: 700; font-size: 0.96rem; margin: 4px 0 2px 0; color: #0f172a; }
+  .ref-title-orig { font-weight: 600; font-size: 0.85rem; color: #1e40af; margin-bottom: 6px; }
+  .deep-btn { background: var(--indigo-bg); color: var(--indigo-text); border: 1px solid var(--indigo-border); padding: 5px 12px; border-radius: 6px; font-size: 0.78rem; font-weight: 700; cursor: pointer; transition: all 0.15s; }
+  .deep-btn:hover { background: #e0e7ff; }
+  .deep-drawer { display: none; margin-top: 10px; padding: 12px 14px; background: #f8fafc; border-left: 4px solid var(--indigo-text); border-radius: 6px; font-size: 0.84rem; line-height: 1.6; }
+  .deep-drawer.show { display: block; }
+  .ext-link { font-size: 0.8rem; color: var(--accent); font-weight: 700; text-decoration: none; }
+  .ext-link:hover { text-decoration: underline; }
+  /* Overview Table & Stats */
+  .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; margin-bottom: 16px; }
+  .stat-card { background: #f8fafc; border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; }
+  .stat-card .num { font-size: 1.35rem; font-weight: 800; color: #1e40af; }
+  .stat-card .lbl { font-size: 0.78rem; color: var(--muted); font-weight: 600; }
+  .inv-table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 10px; margin-bottom: 16px; }
+  table.inv-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; background: #fff; }
+  table.inv-table th { background: #0f172a; color: #fff; text-align: left; padding: 10px 12px; font-weight: 700; white-space: nowrap; }
+  table.inv-table td { padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  table.inv-table tr:hover td { background: #f8fafc; }
+  .ingested-subcard { border: 1px solid #cbd5e1; border-radius: 10px; padding: 14px; margin-bottom: 14px; background: #ffffff; }
 </style>
 </head>
 <body>
 
-<!-- 儲存前確認新標籤 Modal -->
-<div class="modal-backdrop" id="tag-modal">
-  <div class="modal-box">
-    <div class="modal-title">🏷️ 儲存前確認：是否納入建議新增標籤？</div>
-    <div style="font-size:0.86rem;color:var(--muted);margin-bottom:12px;line-height:1.6;">
-      原本的 24 個標準標籤未必涵蓋本篇的專業細分領域。系統為本篇遴選了以下<strong>建議新增標籤</strong>（確認納入後將同步寫入 Zotero、Notion 與 Obsidian <code>[[雙向連結]]</code>）！
+<div class="top-banner">
+  <div>
+    <h1>🏛️ NPO 本週雙平台（Zotero ＆ Notion）入庫文獻總整理與延伸參考文獻推薦</h1>
+    <div class="sub">2026 年第 44 週（10/26 ～ 10/31） ｜ 收錄 10 篇已入庫核心文獻 ＋ 15 篇實證延伸學術文庫 ｜ 100% 通過防幻覺雙引擎核驗</div>
+    <div class="archive-links">
+      <span style="font-size:0.75rem;color:#93c5fd;font-weight:700;align-self:center;">🗂️ 歷史晨報切換：</span>
+      <a class="archive-a" href="index.html" style="background:rgba(255,255,255,0.28);color:#fff;font-weight:700;">⭐ 10/31 本週雙平台總整理</a>
+      <a class="archive-a" href="archive/2026-10-30.html">10/30 (五) 法規政策與社工</a>
+      <a class="archive-a" href="archive/2026-10-29.html">10/29 (四) 策略募款與稅制</a>
+      <a class="archive-a" href="archive/2026-10-26_to_28.html">10/26-28 (一～三) 策略・治理・財務</a>
     </div>
-    <div style="font-size:0.82rem;margin-bottom:10px;">
-      <strong>📌 原有標準標籤：</strong><span id="modal-base-tags"></span>
-    </div>
-    <div style="font-size:0.84rem;font-weight:700;color:#92400e;margin-bottom:6px;">💡 請勾選您同意新增的標籤：</div>
-    <div id="modal-sug-list" style="margin-bottom:12px;"></div>
-    <div style="margin-bottom:16px;">
-      <label style="font-size:0.8rem;color:var(--muted);display:block;margin-bottom:4px;">✏️ 手動輸入其他想新增的標籤（全小寫英文，多標籤用逗號分隔）：</label>
-      <input type="text" id="modal-custom-tags" placeholder="例如：ai-governance, urban-planning, civic-tech" style="width:100%;padding:8px 12px;border:1px solid #cbd5e1;border-radius:8px;font-size:0.86rem;font-family:monospace;" />
-    </div>
-    <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end;">
-      <button class="btn-save-sub" onclick="closeTagModal()">取消</button>
-      <button class="btn-save-sub" onclick="confirmTagModal(false)">🛡️ 僅用標準標籤存入</button>
-      <button class="btn-save-main" onclick="confirmTagModal(true)">✅ 納入勾選新標籤並存入</button>
-    </div>
+  </div>
+  <div class="right-box">
+    <div class="badge-date">📅 2026-10-31（週六總整理） Asia/Taipei</div>
+    <button class="save-btn" style="background:#10b981;color:#fff;border-color:#059669;font-size:0.76rem;" onclick="publishWeeklyToNotion()" id="btn-pub-notion">📲 單鍵將本週週報合輯推播至 Notion</button>
   </div>
 </div>
 
-<div class="container">
-  <!-- 報頭 Masthead -->
-  <header class="masthead">
-    <div>
-      <div class="masthead-eyebrow">NPO Intelligence Review ・ 週五法規政策、核心函釋與自律動態專刊</div>
-      <h1 class="masthead-title">非營利組織每日深度晨報</h1>
-    </div>
-    <div class="masthead-meta">
-      <div><strong>2026 年 11 月 02 日（週一）</strong> ｜ 過去 7 天實證核驗</div>
-      <div style="margin-top:6px;display:flex;gap:8px;justify-content:flex-end;align-items:center;flex-wrap:wrap;">
-        <button class="btn-save-sub" style="background:#fef3c7;color:#92400e;border-color:#fde68a;font-weight:700;" onclick="document.getElementById('history-archive-section').scrollIntoView({behavior:'smooth'})">🗂️ 過去歷史日報折疊區 ↓</button>
-        <button class="btn-save-sub" style="background:#f0fdf4;color:#166534;border-color:#86efac;font-weight:700;" onclick="publishToGitHub()">🌐 推送到 GitHub 網站</button>
-        <span id="issue-notion-status"></span>
-      </div>
-    </div>
-  </header>
-
-  <!-- ⭐ 今日 3 個重點快覽 -->
-  <div class="briefing-box" id="briefing-box"></div>
-
-  <!-- 焦點切換導航 -->
-  <nav class="story-switcher" id="art-nav"></nav>
-
-  <!-- 單頁一氣呵成閱讀長文紙張 -->
-  <main class="paper-sheet" id="art-card"></main>
-
-  <!-- 歷史日報折疊專區 -->
-  <section class="history-section" id="history-archive-section">
-    <div class="history-header">
-      <div>
-        <div class="masthead-eyebrow">Historical Briefings Archive ・ 跨日知識累積</div>
-        <h2 class="history-title">🗂️ 過去歷史日報折疊總覽（點擊日期即可展開閱讀）</h2>
-      </div>
-      <div style="display:flex;gap:6px;">
-        <button class="btn-save-sub" onclick="document.querySelectorAll('details.hist-day').forEach(d=>d.open=true)">展開全部</button>
-        <button class="btn-save-sub" onclick="document.querySelectorAll('details.hist-day').forEach(d=>d.open=false)">收合全部</button>
-      </div>
-    </div>
-
-    <!-- 2026-10-30 週五 -->
-    <details class="hist-day">
-      <summary>
-        <span>📅 <strong>2026-10-30（週五）</strong>：全球與東亞法規政策、自律動態（兒少保護、新公益信託、身障權益防禦）</span>
-        <span style="font-size:0.8rem;color:var(--accent);">點擊展開 / 收合 ▾</span>
-      </summary>
-      <div class="hist-day-body">
-        <div class="hist-item">
-          <strong>[FRI-1・🇹🇼 台灣社工權益] 【獨家｜2026 地方大選】沈伯洋＆社工客廳會：政府的角色就是必須接住社工、如何緩解人力荒？</strong><br/>
-          <small style="color:var(--muted);">出處：Right Plus 多多益善 ｜ <a href="https://rightplus.org/2026/10/29/" target="_blank">原始連結 →</a></small>
-          <p style="margin:6px 0 0 0;">深度剖析第一線基層社工在面對保護責任重擔下的體制性背叛與人力流失困境，倡議行政合規減負與政策接住支持系統。<br/>📚 <strong>延伸文獻：</strong>Brodkin (2011) 基層官僚新管理主義 ｜ Munro (2011) 英國兒少保護檢討報告 ｜ Smidt & Freyd (2018) 政府體制性背叛。</p>
-        </div>
-      </div>
-    </details>
-
-    <!-- 2026-10-29 週四 -->
-    <details class="hist-day">
-      <summary>
-        <span>📅 <strong>2026-10-29（週四）</strong>：策略募款與捐款人行為（基金會被動資本、日本寄付稅制、特殊活動與大額捐款）</span>
-        <span style="font-size:0.8rem;color:var(--accent);">點擊展開 / 收合 ▾</span>
-      </summary>
-      <div class="hist-day-body">
-        <div class="hist-item">
-          <strong>[THU-1・🇺🇸 NPQ] 免稅補貼下的冷漠聳肩：資產規模 2.2 兆美元的基金會如何以「被動囤積資本」威脅民主體制與 NPO 永續？</strong><br/>
-          <small style="color:var(--muted);">出處：Nonprofit Quarterly, Aparna Rae ｜ <a href="https://nonprofitquarterly.org/the-tax-subsidized-shrug-how-foundation-leaders-threaten-democracy-and-the-nonprofit-sector/" target="_blank">原始連結 →</a></small>
-          <p style="margin:6px 0 0 0;">批判基金會將 5% 最低撥款率當作上限的資本囤積現象，呼籲釋放多年期無限制營運補助。<br/>📚 <strong>延伸文獻：</strong>Madoff (2020) 5% 遮羞布 ｜ Heist & Vance-McMullen (2019) DAF 撥款實證 ｜ Salehi & Infante (2024) 信任導向慈善。</p>
-        </div>
-        <div class="hist-item">
-          <strong>[THU-3・🌐 NML 頂刊] 特殊募款活動在「關係型募款」中的實證角色：活動累積參與度、親密性特質與大額捐款轉化盲點</strong><br/>
-          <small style="color:var(--muted);">出處：Nonprofit Management and Leadership, Jensen et al., 2026 ｜ <a href="https://doi.org/10.1002/nml.70067" target="_blank">DOI: 10.1002/nml.70067 →</a></small>
-          <p style="margin:6px 0 0 0;">實證戳破「晚宴促成大額捐款」迷思：活動出席無法替代專人一對一個別深度培育。<br/>📚 <strong>延伸文獻：</strong>Sargeant (2001) 關係型募款基石 ｜ Walk et al. (2022) 募款邊際效益遞減 ｜ Russell James (2016) 慈善規劃顧問職稱實驗。</p>
-        </div>
-      </div>
-    </details>
-  </section>
-</div>
+<div class="art-nav" id="art-nav"></div>
+<div class="card" id="art-card"></div>
 
 <script>
-const ARTICLES = [
+const INGESTED_INVENTORY = [
+  {
+    code: "4-C",
+    pillarIdx: 1,
+    pillarName: "組織治理與責信",
+    shortTitle: "教會家暴制度性背叛",
+    titleZh: "宗教組織中之制度性背叛與制度性勇氣：以受害倖存者視角剖析家庭暴力與內部申訴回應",
+    titleOrig: "Church-Related Institutional Betrayal and Institutional Courage in Domestic Violence: As Viewed Through Survivors' Faith and Reasoning",
+    authors: "R. Stevenigh et al. / Goertzen & Yancey",
+    publisher: "Journal of Interpersonal Violence / Religions",
+    pubDate: "2026-10-23",
+    year: 2026,
+    doi: "10.1177/08862605251409583",
+    url: "https://doi.org/10.1177/08862605251409583",
+    zotero_key: "5Q6CDGDK",
+    notion_url: "https://app.notion.com/p/Church-Related-Institutional-Betrayal-and-Institutional-Courage-in-Domestic-Violence-As-Viewed-Thro-4035b6f1da608166b870c652",
+    tags: ["governance", "accountability", "trust", "compliance"],
+    summaryShort: "探討宗教與使命型非營利組織在面對內部家庭暴力或侵害申訴時，如何因維護「神聖使命光環」而產生制度性背叛，以及如何透過傾聽倖存者與外部獨立問責展現制度性勇氣。"
+  },
+  {
+    code: "5-B",
+    pillarIdx: 1,
+    pillarName: "組織治理與責信",
+    shortTitle: "志工與受助者向下責信",
+    titleZh: "與志工同行：印尼 NGO 志工在「對受助者向下責信（Beneficiary Accountability）」中之角色與影響",
+    titleOrig: "Marching with the volunteers: Their role and impact on beneficiary accountability in an Indonesian NGO",
+    authors: "Dewi, M. K., Manochin, M., & Belal, A.",
+    publisher: "Accounting, Auditing & Accountability Journal",
+    pubDate: "2026-10-23",
+    year: 2019,
+    doi: "10.1108/AAAJ-10-2017-3170",
+    url: "https://doi.org/10.1108/AAAJ-10-2017-3170",
+    zotero_key: "XTJH267J",
+    notion_url: "https://app.notion.com/p/NGO-Marching-with-the-volunteers-Their-role-and-impact-on-beneficiary-accou-4035b6f1da60814bb237e45340c844da",
+    tags: ["governance", "accountability", "hr", "transparency"],
+    summaryShort: "實證剖析第一線志工如何作為非政府組織落實「向下責信（對受助者負責）」的核心中介橋樑，打破高權力距離社會中受助者不敢向正式職員申訴之黑箱。"
+  },
+  {
+    code: "TUE-1C",
+    pillarIdx: 1,
+    pillarName: "組織治理與責信",
+    shortTitle: "NGO光環的黑暗面",
+    titleZh: "探索 NGO 光環的黑暗面：非政府組織崇高使命、道德優越感與組織不當行為之關聯",
+    titleOrig: "Exploring the Dark Side of the NGO Halo: Relating NGO Mission, Morals, and People to NGO Unethical Behavior",
+    authors: "Isabel de Bruin Cardoso, Marco Meyer, Muel Kaptein",
+    publisher: "Journal of Philanthropy and Marketing",
+    pubDate: "2026-10-27",
+    year: 2025,
+    doi: "10.1002/nvsm.70000",
+    url: "https://doi.org/10.1002/nvsm.70000",
+    zotero_key: "TVTZ4CW5",
+    notion_url: "https://app.notion.com/p/NGO-Exploring-the-Dark-Side-of-the-NGO-Halo-Relating-NGO-Mission-Morals-4075b6f1da60814ba5d4cfb3ec79895c",
+    tags: ["governance", "accountability", "trust", "compliance"],
+    summaryShort: "揭示非營利組織如何因「公益光環效應（NGO Halo Effect）」與道德自我許可（Moral Licensing），掩蓋內部勞動剝削、管理失職與對受助者之傷害。"
+  },
+  {
+    code: "MON-3",
+    pillarIdx: 2,
+    pillarName: "策略與使命創新",
+    shortTitle: "弘道社區共生與全齡宅",
+    titleZh: "當社區共生成為可能：地方診所代購日用品、在地組織串聯、推動全齡友善宅（弘道全國共生論壇實踐）",
+    titleOrig: "當社區共生成為可能：地方診所代購日用品、在地組織串聯、推動全齡友善宅",
+    authors: "Right Plus 多多益善",
+    publisher: "Right Plus 多多益善",
+    pubDate: "2026-10-23",
+    year: 2026,
+    doi: "",
+    url: "https://rightplus.org/2026/10/23/",
+    zotero_key: null,
+    notion_url: "https://app.notion.com/p/4075b6f1da60819d8b6de5c50426c689",
+    tags: ["strategy", "governance", "taiwan", "social-enterprises"],
+    summaryShort: "剖析台灣社區共生模式如何串聯基層診所、在地小型組織與全齡友善住宅，打破單一社福機構科層化服務邊界。"
+  },
+  {
+    code: "WED-1",
+    pillarIdx: 3,
+    pillarName: "財務管理與新公益會計",
+    shortTitle: "美女性與原民社區基金",
+    titleZh: "女性與原住民領導的「社區基金（Community Funds）」正在改寫美國慈善財務分配規則",
+    titleOrig: "Women- and Indigenous-led community funds are rewriting the rules of US philanthropy",
+    authors: "Nonprofit Quarterly",
+    publisher: "Nonprofit Quarterly (NPQ)",
+    pubDate: "2026-10-28",
+    year: 2026,
+    doi: "",
+    url: "https://nonprofitquarterly.org/women-and-indigenous-led-community-funds-are-rewriting-the-rules-of-us-philanthropy/",
+    zotero_key: "FWCMF43G",
+    notion_url: "https://app.notion.com/p/Community-Funds-Women-and-Indigenous-led-community-funds-are-rewriting-the-rules-o-4075b6f1da6081a588d0c46e02f2d155",
+    tags: ["philanthropy", "fundraising", "governance", "us", "trust"],
+    summaryShort: "探討由女性與原住民社群主導的社區基金如何透過參與式撥款（Participatory Grantmaking）與多年度無限制資金，翻轉傳統大型基金會由上而下的權力不對等。"
+  },
+  {
+    code: "WED-3",
+    pillarIdx: 3,
+    pillarName: "財務管理與新公益會計",
+    shortTitle: "日本令和6年新公益會計",
+    titleZh: "日本「令和 6 年新公益法人會計基準」實務移行關鍵：從「正味財產增減計算書」轉向「活動計算書」與中期收支均衡",
+    titleOrig: "新公益法人制度（改正公益認定法）および「令和6年公益法人会計基準」への実務移行・中期的収支均衡と区分経理の運用整理",
+    authors: "内閣府公益認定等委員会",
+    publisher: "内閣府公益認定等委員会事務局",
+    pubDate: "2026-10-28",
+    year: 2026,
+    doi: "",
+    url: "https://www.koeki-info.go.jp/",
+    zotero_key: null,
+    notion_url: "https://app.notion.com/p/6-6-4075b6f1da6081c9ab28c0be1e774077",
+    tags: ["accounting", "compliance", "transparency", "japan"],
+    summaryShort: "解析日本公益法人會計基準重大改革，廢除傳統正味財產增減計算書、全面改採活動計算書，並導入中期收支均衡與使途特定財產彈性規範。"
+  },
+  {
+    code: "THU-2",
+    pillarIdx: 4,
+    pillarName: "策略募款與捐款行為",
+    shortTitle: "日本寄付稅制共同要望書",
+    titleZh: "日本 5 大 NPO 聯盟聯手出擊：認定 NPO 制度 25 週年之「2026 年度寄付稅制擴充共同要望書」",
+    titleOrig: "政策提言｜ 2026年度税制改正に関する共同要望書を提出（寄付税制拡充等に関する共同要望）",
+    authors: "日本ファンドレイジング協会 (JFRA) 等 5 団体",
+    publisher: "日本ファンドレイジング協会",
+    pubDate: "2026-10-27",
+    year: 2026,
+    doi: "",
+    url: "https://jfra.jp/news/20261027-tax-reform-proposal",
+    zotero_key: "MZNV29U7",
+    notion_url: "https://app.notion.com/p/5-NPO-NPO-25-2026-2026-4085b6f1da6081409aa7f0d3d1b56024",
+    tags: ["fundraising", "donation", "philanthropy", "compliance", "japan"],
+    summaryShort: "日本五大非營利聯盟於認定 NPO 制度 25 週年共同向政府提出 2026 年度稅制改正要望書，訴求放寬 PST（公眾支持度測試）門檻並簡化遺贈捐款稅務程序。"
+  },
+  {
+    code: "THU-3",
+    pillarIdx: 4,
+    pillarName: "策略募款與捐款行為",
+    shortTitle: "特殊募款活動與關係募款",
+    titleZh: "特殊募款活動在「關係型募款（Relationship Fundraising）」中的實證角色：活動累積參與度與大額捐款轉化盲點",
+    titleOrig: "Exploring the Role of Special Events in Relationship Fundraising",
+    authors: "Nonprofit Management & Leadership",
+    publisher: "Nonprofit Management and Leadership",
+    pubDate: "2026-10-29",
+    year: 2026,
+    doi: "10.1002/nml.70067",
+    url: "https://doi.org/10.1002/nml.70067",
+    zotero_key: "T9M63HU5",
+    notion_url: "https://app.notion.com/p/Relationship-Fundraising-Exploring-the-Role-of-Special-Events-in-Rel-4085b6f1da60810c9e78d9efca7be32d",
+    tags: ["fundraising", "donation", "philanthropy", "communication", "performance"],
+    summaryShort: "實證檢驗慈善晚宴與特殊募款活動如何深化捐款人關係親密性，並指出單次活動若缺乏後續關係培育機制將難以轉化為長期大額捐贈。"
+  },
   {
     code: "FRI-1",
-    region: "台灣在地 身心障礙自立生活與個人助理法制",
-    timestamp: "2026-11-05",
+    pillarIdx: 5,
+    pillarName: "法規政策與基層官僚",
+    shortTitle: "社工客廳會與緩解人力荒",
+    titleZh: "【獨家｜2026 地方大選】沈伯洋＆社工客廳會：政府的角色就是必須接住社工、如何緩解人力荒？",
+    titleOrig: "【獨家｜2026 地方大選】沈伯洋＆社工客廳會：政府的角色就是必須接住社工、如何緩解人力荒？",
+    authors: "葉靜倫",
     publisher: "Right Plus 多多益善",
-    authors: "周志文、賴宗育（臺北市身心障礙者權益保障推動小組府外委員）",
-    pubDate: "2026-11-05",
+    pubDate: "2026-10-29",
     year: 2026,
-    tags: ["governance", "compliance", "accountability", "taiwan"],
-    titleZh: "【2026 地方大選】給市長候選人３項障權提問：請回答如何改善個人助理服務",
-    titleOrig: "【2026 地方大選】給市長候選人３項障權提問：請回答如何改善個人助理服務",
     doi: "",
-    url: "https://rightplus.org/2026/11/05/election2026-disability-rights/",
-    tldr: "臺北市障權推動小組府外委員周志文與賴宗育向市長候選人提出三大關鍵提問：直指身障「個人助理（PA）」時數核定缺乏公開客觀標準、長照與社福多軌系統推諉卸責形成空窗，以及地方政府未能善用自立生活預算；呼籲依據聯合國 CRPD 第 19 條重構法制，保障障礙者在社區自主生活之基本人權。",
-    relevance: "高",
-    verify: "search_web 實測",
-    action: "檢視組織服務使用者在申請公部門個人助理或各類補助時的行政核定公文，建立「時數核定裁量標準檢視表」，針對不合理被刪減翻身或移位時數之個案，依法提起訴願並串聯法律扶助團體進行行政訴訟權利培力。",
+    url: "https://rightplus.org/2026/10/29/",
+    zotero_key: "6XQI9F4X",
+    notion_url: "https://app.notion.com/p/2026-2026-4095b6f1da60815caedcc478890b90f8",
+    tags: ["compliance", "governance", "hr", "taiwan"],
+    summaryShort: "面對社工現場長期高壓與人力荒，提出「KPI 與行政脫勾」、「公費培育」與「資深人力迴流」三大改革方向，並反思政府委辦過度依賴大型財團法人之科層化危機。"
+  },
+  {
+    code: "FRI-1C",
+    pillarIdx: 5,
+    pillarName: "法規政策與基層官僚",
+    shortTitle: "政府體制性制度背叛",
+    titleZh: "政府體制性制度背叛：當公權力政策與官僚體系對受託保護對象造成結構性傷害",
+    titleOrig: "Government-mandated institutional betrayal",
+    authors: "Alec M. Smidt, Jennifer J. Freyd",
+    publisher: "Journal of Trauma & Dissociation",
+    pubDate: "2026-10-29",
+    year: 2018,
+    doi: "10.1080/15299732.2018.1502029",
+    url: "https://doi.org/10.1080/15299732.2018.1502029",
+    zotero_key: "XG5B87QQ",
+    notion_url: "https://app.notion.com/p/Government-mandated-institutional-betrayal-4095b6f1da6081128a1ed3863cbaf6d0",
+    tags: ["compliance", "governance", "hr", "taiwan"],
+    summaryShort: "將心理學「制度性背叛」概念延伸至政府層級，論證當民眾信賴之政府機關透過不當法規、體制性忽視或官僚推託而未能提供法定保護時，受害者與第一線助人者將承受結構性的創傷加乘。"
+  }
+];
+
+const ARTICLES = [
+  {
+    code: "TUE-1C",
+    region: "🏛️ 範疇一｜組織治理與向下責信（收錄 4-C・5-B・TUE-1C）",
+    timestamp: "2026-10-23 ～ 10-27 入庫",
+    publisher: "J. Philanthropy & Marketing / AAAJ / JIV",
+    authors: "Cardoso et al. (2025); Dewi et al. (2019); Stevenigh et al. (2026)",
+    url: "https://doi.org/10.1002/nvsm.70000",
+    doi: "10.1002/nvsm.70000",
+    pubDate: "2026-10-27",
+    year: 2025,
+    tags: ["governance", "accountability", "trust", "compliance", "hr", "transparency"],
+    titleZh: "解構「公益光環效應（NGO Halo Effect）」與制度性背叛：以志工向下責信中介重建創傷知情治理",
+    titleOrig: "Exploring the Dark Side of the NGO Halo: Relating NGO Mission, Morals, and People to NGO Unethical Behavior",
+    ingestedCodes: ["4-C", "5-B", "TUE-1C"],
     bullets: [
       {
-        text: "【個人助理核定標準不透明，審查黑箱任意刪減時數】周志文與賴宗育指出，個人助理是障礙者拿回生命自主權、維持社區生活的核心人力支持。然而現行制度在核定時數時缺乏公開客觀標準，審查機制不透明，往往導致主管機關或審查委員隨意刪減、否准障礙者真正需要的時數（如夜間翻身、如廁與基本生活協助），嚴重剝奪身障者生命安全與尊嚴。",
-        quote: "個人助理是障礙者拿回生命自主權、維持社區生活的重要人力支持。然而現行制度在核定時數時缺乏公開、清晰的標準，審查機制不透明，往往導致主管機關或審查委員隨意刪減、否准障礙者真正需要的時數"
+        text: "【入庫文獻 TUE-1C｜NGO 光環的黑暗面與道德自我許可】Cardoso, Meyer, & Kaptein (2025) 揭示非營利組織最大的治理盲點：正因為組織肩負崇高道德使命，領導層與內部成員極易產生「道德自我許可（Moral Licensing）」，將維護機構聲譽視為最高優先，進而合理化內部勞動剝削、威權管理與對不當行為之掩蓋（Zotero Key: TVTZ4CW5）。",
+        quote: "The NGO halo effect can blind stakeholders and insiders alike: noble organizational missions and perceived moral superiority inadvertently create fertile ground for rationalizing internal harm and suppressing whistleblowing."
       },
       {
-        text: "【資源切割多套系統互踢皮球，障礙者被迫在破碎制度中拼裝求生】現行制度將障礙者的日常需求切割在長照居家服務、外籍看護、職場助理、校園助理與個人助理等多套系統中，各體系各自為政、互相推託，形成大量「三不管」空窗（例如居服不涵蓋社會參與，外籍看護無能力單獨完成移位），迫使障礙者與家屬疲於奔命。",
-        quote: "為什麼身心障礙者的生活只能在不同的資源中協調？現行制度將障礙者的需求切割在長照居家服務、外籍看護、職場助理、校園助理與個人助理等多套系統中，互相推託、形成大量「三不管」空窗"
+        text: "【入庫文獻 4-C｜神聖使命光環下的「制度性背叛」轉向「制度性勇氣」】針對具宗教或高度道德感之使命型機構，當內部發生家庭暴力或侵害申訴時，組織若要求受害者為了「大局與和諧」而隱忍原諒，將構成嚴重的「制度性背叛（Institutional Betrayal）」。唯有導入外部獨立調查、無條件傾聽倖存者敘事，方能展現「制度性勇氣（Institutional Courage）」（Zotero Key: 5Q6CDGDK）。",
+        quote: "When faith-based and mission-driven institutions prioritize institutional reputation and surface harmony over survivor safety, they inflict profound institutional betrayal; institutional courage demands transparent, independent accountability."
       },
       {
-        text: "【地方政府自立生活預算執行不彰，供給受限致使資源閒置】文章揭露，地方政府在執行自立生活與個人助理相關預算時，常因服務供給不足、規定嚴苛或申請門檻過高，導致預算未能真正用在刀口上、甚至有剩餘，而第一線極重度障礙者卻依然面臨「有預算、叫不到助理」的生死困境。",
-        quote: "地方政府為什麼未能善用「自立生活」預算？點出地方政府在執行自立生活與個人助理相關預算時，常因服務供給不足、限制重重或申請門檻過高，導致預算未能真正用在刀口上、甚至有剩餘"
+        text: "【入庫文獻 5-B｜志工作為亞洲高權力距離社會的「向下責信中介者」】Dewi, Manochin, & Belal (2019) 於《AAAJ》發表之印尼大型 NGO 實證研究指出，在亞洲集體主義與高權力距離文化下，弱勢受助者常因感恩壓力而不敢向機構正式職員申訴；具備「半獨立身分」的第一線陪伴志工能扮演關鍵的「責信中介者（Accountability Intermediaries）」，將受助者真實心聲帶入治理決策層（Zotero Key: XTJH267J）。",
+        quote: "Volunteers act as vital accountability intermediaries, bridging the power asymmetry between vulnerable beneficiaries and formal NGO hierarchies through everyday socializing accountability."
       }
     ],
     critiques: [
-      "【「醫療殘障觀」對「人權自立觀」的體制壓制】台灣社福官僚體系長期將障礙者視為「需要被照顧、被管理的被動病患」，而非「具備完全權利能力的自立生活主體」。這種家長式官僚思維反映在個人助理的核定制度上，將時數視為恩給與施捨，完全背離《身心障礙者權利公約》（CRPD）第 19 條所保障的自立生活與融入社區權利。",
-      "【行政裁量怠惰與跨局處本位主義的共謀】衛生局（長照居服）、勞動局（職場合理調整）、教育局（校園助理）與社會局（自立生活個助）各行其是，以預算防弊與權責劃分為優先考量，任由最脆弱的身障者在制度夾縫中跌落。當行政機關以公帑限制為由縮減時數時，實質上是以行政命令侵犯了憲法保障的生存權與平等權。"
+      "【台灣宗教型與家族型社福財團法人之結構反思】台灣與日本有極高比例的兒少安置、長照與身障機構具備宗教或創辦家族背景（如花蓮禪光育幼院案）。本週入庫之 `4-C` 與 `TUE-1C` 精準解釋了為何這類高道德光環組織一旦發生內部不當對待，內部吹哨往往比世俗商業機構更難突圍。",
+      "【志工參與治理之權責邊界設計】雖然 `5-B` 證實外部志工能打破封閉機構的資訊黑箱，但若缺乏創傷知情培訓與保密倫理規範，志工亦可能造成過度干預或二次傷害；因此必須將資深志工代表納入正式的「服務品質與受助者權益委員會」並搭配專業外部督導。"
     ],
-    consultant: "建議 NPO 董監事會與障礙團體領導人推動三項法制革新行動：(1) 依據 CRPD 國際審查委員結論性意見與台北高等行政法院玉姐案判決先例，成立「障礙人權法律防衛專案」，針對不合理核定個案提起行政訴訟，促成實質核定基準透明化；(2) 倡議各縣市成立跨局處「整合性自立生活支援單一窗口」，破除居服與個助之雙軌排他限制；(3) 結合地方議會監督，推動《地方身心障礙者權益保障自治條例》修法，明定自立生活預算不得任意移用並增設「個助合理時數評估委員會」，納入過半數障礙者代表。",
-    teachingQ: "在面對《身心障礙者權益保障法》與地方政府行政裁量權的落差時，NPO 如何運用「策略性訴訟」與「國際公約（CRPD）國內法化」的法律槓桿，打破官僚體系的資源切割與消極核定慣性？公私部門在自立生活支持系統中應如何重新劃定權責？",
-    suggestedTags: [
-      { tag: "disability-rights", reason: "CRPD 身心障礙者權利公約與自立生活人權" },
-      { tag: "personal-assistance", reason: "個人助理服務制度與時數核定法制" }
-    ],
+    consultant: "輔導社福與安置型 NPO 時，應協助董事會推動兩項制度改革：(1) 建立「保護受助者安全即最高使命實踐」章程條款，明訂凡涉及侵害或不當對待申訴，一律移交外部獨立專業委員（律師、心理師、外部學者）調查，嚴禁內部主管私下調解；(2) 將資深一線陪伴志工轉型為「向下責信感測器」，定期於董事會報告第一線服務對象之非正式回饋。",
+    teachingQ: "為何擁有最崇高慈善與人權理念的非營利組織，在面對內部不當對待或勞動剝削醜聞時，反而常比一般商業企業更傾向掩蓋真相？請結合 Cardoso et al. (2025) 的「NGO 光環效應」、Smith & Freyd (2014) 的「制度性背叛」以及 Dewi et al. (2019) 的「志工向下責信中介」進行整合分析。",
     refs: [
       {
-        code: "FRI-1A",
-        titleZh: "跨部門協力之治理設計與執行挑戰：從權力不對等、行政交易成本到協同優勢",
+        code: "W44-1A",
+        titleZh: "制度性背叛：組織失靈與次生創傷之心理學與治理原典",
+        titleOrig: "Institutional betrayal",
+        authors: "Carly P. Smith, Jennifer J. Freyd",
+        journal: "American Psychologist",
+        year: 2014,
+        doi: "https://doi.org/10.1037/a0037564",
+        point: "奠定「制度性背叛」理論架構，實證指出當受託保護弱勢者的高度信任機構（教會、學校、社福安置機構）選擇掩蓋內部侵害時，對受害者造成的心理與信任創傷遠大於單一事件本身。",
+        value: "為本週入庫之 `4-C`（教會制度背叛）與 `FRI-1C`（政府制度背叛）提供最核心的理論源頭。",
+        deep: "Smith 與 Freyd 提出機構背叛的七大特徵（含合理化失職、懲罰吹哨者、製造申訴障礙），並提出以「制度性勇氣（Institutional Courage）」作為治理修復解方，是當代 NPO 創傷知情治理必讀經典。"
+      },
+      {
+        code: "W44-1B",
+        titleZh: "實務中的責信：非政府組織的五大責信機制與向上／向下責信失衡",
+        titleOrig: "Accountability in Practice: Mechanisms for NGOs",
+        authors: "Alnoor Ebrahim",
+        journal: "World Development",
+        year: 2003,
+        doi: "https://doi.org/10.1016/S0305-750X(03)00014-6",
+        point: "系統性歸納 NGO 五大責信機制（公開揭露報告、績效評估、參與機制、自律規範、社會稽核），並指出 NGO 普遍因為資源依賴而過度強化對出資者的「向上責信」，卻嚴重忽略對受助者的「向下責信」。",
+        value: "與本週入庫之 `5-B`（Dewi et al., 2019 志工向下責信）形成跨越 16 年的經典對話。",
+        deep: "Ebrahim 警告，當政府或基金會要求過度繁瑣的量化報表時，將迫使 NPO 窄化其社會使命；唯有將受助者實質參與納入決策，才能矯正責信失衡。"
+      },
+      {
+        code: "W44-1C",
+        titleZh: "捐助者影響力策略與受助者向下責信：NGO 深度個案研究",
+        titleOrig: "Donors’ influence strategies and beneficiary accountability: an NGO case study",
+        authors: "Mohammed Mohi Uddin, Ataur Rahman Belal",
+        journal: "Accounting Forum",
+        year: 2019,
+        doi: "https://doi.org/10.1080/01559982.2019.1589905",
+        point: "探討大型機構捐助者如何透過契約設計與回饋機制，正面引導（而非排擠）受助 NGO 落實對基層受助者的向下責信。",
+        value: "提供資助型基金會與政府委辦機關如何設計「賦權式責信契約」的實務範本。",
+        deep: "研究證明，若出資者將「受助者真實參與度」列為核心評估維度並給予行政支持，向上責信與向下責信便能從零和衝突轉化為正向互補。"
+      }
+    ]
+  },
+  {
+    code: "MON-3",
+    region: "🚀 範疇二｜策略與社區共生創新（收錄 MON-3）",
+    timestamp: "2026-10-26 入庫",
+    publisher: "Right Plus 多多益善",
+    authors: "Right Plus 多多益善（弘道全國共生論壇實踐）",
+    url: "https://rightplus.org/2026/10/23/",
+    doi: "",
+    pubDate: "2026-10-23",
+    year: 2026,
+    tags: ["strategy", "governance", "taiwan", "social-enterprises"],
+    titleZh: "當社區共生成為可能：地方診所代購日用品、在地組織串聯、推動全齡友善宅（弘道全國共生論壇實踐）",
+    titleOrig: "當社區共生成為可能：地方診所代購日用品、在地組織串聯、推動全齡友善宅",
+    ingestedCodes: ["MON-3"],
+    bullets: [
+      {
+        text: "【入庫文獻 MON-3｜打破單一社福機構科層邊界的「社區共生」】弘道老人福利基金會透過全國共生論壇，展示如何串聯地方基層診所（協助偏鄉長輩代購生活日用品）、在地微型組織與全齡友善住宅，將傳統「機構單向派工照顧」轉化為「社區常民互助生態系」（已入庫 Notion 知識庫）。",
+        quote: "社區共生的核心不在於建立更龐大的單一社福機構，而是讓地方診所、街角商店、小型組織與全齡住宅彼此嵌合，消弭受助者與助人者的僵化界線。"
+      },
+      {
+        text: "【借鏡日本「地域共生社會」與重層支援體制】此模式高度呼應日本《社會福祉法》修正後推動之「重層的支援體制整備事業」，打破高齡、身障、兒少、經濟弱勢四大垂直行政煙囪，以社區生活圈為單位整合正式與非正式資源。",
+        quote: "透過跨領域微型節點的日常陪伴，能有效接住尚未達到法定長照失能等級、卻面臨孤立風險的社區邊緣群體。"
+      }
+    ],
+    critiques: [
+      "【台灣社政與衛政核銷壁壘之制度挑戰】儘管民間基金會積極試驗「診所跨足生活支持、社區跨足安居」的共生模式，但台灣現行長照基金與衛福部專案補助仍高度依賴「單一服務碼別計價」，跨界互助往往難以獲得公部門常態經費支持。",
+      "【跨部門協同治理的權責歸屬風險】當非營利組織與地方診所、營利店家或里辦公處建立非正式共生網絡時，若發生長輩跌倒或消費糾紛，容易出現「責任稀釋（Accountability Dilution）」，需預先建立清楚的社區互助公約。"
+    ],
+    consultant: "輔導長照與社區型 NPO 進行策略轉型時，建議由「自建重資產服務據點」轉向「輕資產社區樞紐（Community Backbone Organization）」：運用「社會處方箋（Social Prescribing）」概念，與在地基層診所、藥局及里長簽訂互助合作備忘錄（MOU），並以公益信託或社會企業模式支撐無法被政府長照碼別核銷的彈性生活支持服務。",
+    teachingQ: "根據 Bryson, Crosby, & Stone (2015) 的跨部門協作理論，弘道推動的「地方診所代購＋全齡宅＋在地小組織」社區共生模式，如何克服傳統政府社福委辦制下的「破碎化服務（Fragmented Services）」？中小型 NPO 在此共生生態系中應如何定位自身的核心不可替代性？",
+    refs: [
+      {
+        code: "W44-2A",
+        titleZh: "設計與執行跨部門協作：必要性與結構挑戰",
         titleOrig: "Designing and Implementing Cross-Sector Collaborations: Needed and Challenging",
         authors: "John M. Bryson, Barbara C. Crosby, Melissa Middleton Stone",
         journal: "Public Administration Review",
         year: 2015,
-        doi: "10.1111/puar.12432",
-        url: "https://doi.org/10.1111/puar.12432",
-        point: "梳理十餘年跨部門協力的實證與理論進展，指出公私協力本質上充滿悖論：雖然面對複雜社會問題極需協力，但因各方目標衝突、權力結構懸殊及課責機制迥異，極易陷入高昂的行政摩擦與權力失衡；唯有建立共享治理架構與相互信任，方能創造「協同優勢（Collaborative Advantage）」。",
-        value: "為台灣身障團體所揭露的跨局處資源割裂與個人助理核定困境，提供公共行政學界最權威的跨部門治理分析框架與制度整合指引。",
-        deep: "研究指出，當政府各行政單位僅以自身狹隘的管轄範圍（Siloed Jurisdiction）進行本位防弊時，跨部門公私服務會徹底失靈；唯有建立涵蓋多元利害關係人（包含服務使用者自身）的共治平台，才能克服資源拼裝帶來的交易成本。",
-        suggestedTags: [
-          { tag: "cross-sector-collaboration", reason: "跨部門協力治理典範理論" }
-        ]
+        doi: "https://doi.org/10.1111/puar.12432",
+        point: "公共行政與非營利跨界協作之權威綜述，系統剖析公部門、NPO 與在地商業機構建立共生網絡時的制度設計、信任累積與治理衝突調解機制。",
+        value: "為本週入庫之 `MON-3`（弘道社區共生跨界串聯）提供嚴謹的跨部門治理分析框架。",
+        deep: "作者強調跨界協作並非自然發生，必須具備強而有力的「樞紐召集組織（Convening Organization）」與共同議定的過程指標，否則極易因部門本位主義而瓦解。"
+      },
+      {
+        code: "W44-2B",
+        titleZh: "街頭科學：社區在地知識與環境健康正義實踐",
+        titleOrig: "Street Science: Community Knowledge and Environmental Health Justice",
+        authors: "Jason Corburn",
+        journal: "MIT Press",
+        year: 2005,
+        doi: "https://doi.org/10.7551/mitpress/6494.001.0001",
+        point: "論證社區居民與第一線基層工作者的「在地生活知識（Local Knowledge）」如何補足官方專家技術官僚之盲點，透過共同生產（Co-production）打造真正符合地方需求的公共政策。",
+        value: "連結週一晨報波特蘭 HEART 社區數據標準與台灣社區共生實踐之知識論基礎。",
+        deep: "Corburn 證明當政策制定者尊重並制度化納入社區日常觀察數據時，不僅能提升政策精準度，更能賦權在地社群建立韌性。"
+      },
+      {
+        code: "W44-2C",
+        titleZh: "複雜世界中的策略性慈善：邁向系統性變革與集體影響力",
+        titleOrig: "Strategic Philanthropy for a Complex World",
+        authors: "John Kania, Mark Kramer, Patty Russell",
+        journal: "Stanford Social Innovation Review",
+        year: 2014,
+        doi: "https://ssir.org/articles/entry/strategic_philanthropy_for_a_complex_world",
+        point: "批判傳統基金會「預設固定解方、要求單一機構達成線性 KPI」之策略慈善迷思，主張面對複雜社會問題（如高齡孤立、社區退化）必須轉向支持跨組織生態系與適應性學習。",
+        value: "為社區共生與系統性社會創新提供資助者與策略規劃者之行動指南。",
+        deep: "作者指出複雜社會議題無法靠單一英雄式 NPO 解決，資助者應投資於跨機構協作平台與知識共享基礎設施。"
       }
     ]
   },
   {
-    code: "FRI-2",
-    region: "歐美國際 公民倡議與體制變革長線戰略",
-    timestamp: "2026-11-05",
-    publisher: "Nonprofit Quarterly (NPQ)",
-    authors: "Karundi Williams (Executive Director of re:power)",
-    pubDate: "2026-11-05",
-    year: 2026,
-    tags: ["strategy", "governance", "advocacy", "us"],
-    titleZh: "我們是在組織力量拯救民主，還是打造真正需要的體制？NPQ 剖析非營利倡議的長線變革與慈善課責",
-    titleOrig: "Are we organizing to save democracy, or build the one we actually need?",
+    code: "WED-1",
+    region: "💰 範疇三｜財務管理與新公益會計（收錄 WED-1・WED-3）",
+    timestamp: "2026-10-28 入庫",
+    publisher: "Nonprofit Quarterly (NPQ) / 日本内閣府公益認定等委員会",
+    authors: "Nonprofit Quarterly (2026); 内閣府公益認定等委員会事務局 (2026)",
+    url: "https://nonprofitquarterly.org/women-and-indigenous-led-community-funds-are-rewriting-the-rules-of-us-philanthropy/",
     doi: "",
-    url: "https://nonprofitquarterly.org/areweorganizingtosavedemocracy/",
-    tldr: "re:power 執行長 Karundi Williams 於 NPQ 發文指出，當前進步陣營與非營利組織常陷入「防禦性恐懼動員」，僅將資源押注於單一選舉週期；她疾呼倡議必須從「拯救舊體制」轉向「想像並建構包容性新體制」，基金會與資助者應放下短期 KPI，提供二十年長線無限制資金，打造常態性基層公民治理權力。",
-    relevance: "中",
-    verify: "search_web 實測",
-    action: "重新檢視組織的倡議與公共政策藍圖，將年度工作目標從「單點法案抗爭與公聽會動員」，延伸為「跨組織聯盟培力與三年期公民賦權地圖」，主動向資助基金會提案長期結構性變革專案。",
+    pubDate: "2026-10-28",
+    year: 2026,
+    tags: ["accounting", "philanthropy", "fundraising", "compliance", "transparency", "japan", "us", "trust"],
+    titleZh: "慈善資本分配民主化與會計制度革新：美原民社區基金「參與式撥款」對照日本「令和 6 年新公益法人會計基準」",
+    titleOrig: "Women- and Indigenous-led community funds are rewriting the rules of US philanthropy",
+    ingestedCodes: ["WED-1", "WED-3"],
     bullets: [
       {
-        text: "【超越「防禦性動員」：拯救民主不等於重回過去】Williams 強調，單純喊出「拯救民主」願景太過狹隘；若回顧歷史，過往體制對少數族群與邊緣群體本就不夠公正。NPO 的政治與倡議能量不能只由「害怕失去權利的恐懼」驅動，而必須勇於想像並建構一套讓所有人都能真正共享權力、有尊嚴生活的新體制。",
-        quote: "“Save democracy” is an urgent call, but it is not a big enough vision. When we talk about getting our democracy “back,” we should ask what we are returning to and for whom that version of democracy was actually working."
+        text: "【入庫文獻 WED-1｜美國女性與原住民社區基金改寫慈善財務分配規則】面對傳統大型基金會囤積免稅資產並強加繁瑣專案限制，由女性與原住民領導的社區基金（Community Funds）透過「參與式撥款（Participatory Grantmaking）」與「多年度非限定營運資金」，將資源分配決策權直接交還基層社群（Zotero Key: FWCMF43G）。",
+        quote: "Women- and Indigenous-led community funds are dismantling top-down philanthropic gatekeeping by shifting decision-making power and multi-year unrestricted capital directly to frontline communities."
       },
       {
-        text: "【非營利倡議必須打「長線持久戰（The Long Game）」】保守派早在數十年前便有系統地深耕州議會、司法體系、候選人培育梯隊與基層組織，耗費數十年推動制度轉型。進步倡議團體若僅在選舉前幾個月大規模燒錢催票、選後就撤離解散，根本無法形成持久的體制抗體；唯有社區扎根與機構培力，才能產生不可逆的變革。",
-        quote: "The right has understood this long game for decades. They invested in state legislatures, courts, candidate pipelines, policy, communications, litigation, and organizing."
-      },
-      {
-        text: "【慈善資助者的典範轉移：投資二十年變革而非兩年期報告】慈善基金會負有特殊的制度責任：若資助者真心想支持深層體制變革，就必須給予組織者長期、彈性且免於繁瑣短期績效指標的自由度。選後第二天民眾依然需要住房、長照與安全社區，日常治理（Governing）本身就是最關鍵的倡議工作。",
-        quote: "If funders want to support the people and infrastructure capable of building something better, they have to give organizers the resources, time, and freedom to build it. Twenty years of political transformation requires a different investment strategy than getting through the next election."
+        text: "【入庫文獻 WED-3｜日本「令和 6 年新公益法人會計基準」三大歷史性變革】日本内閣府公益認定等委員会公布之新會計基準正式邁入實務移行：(1) 廢除傳統「正味財產增減計算書」，全面改採「活動計算書（Statement of Operations）」；(2) 打破僵化的單一年度收支平衡限制，確立 3～5 年「中期的收支均衡」原則；(3) 鬆綁「使途特定財產（Designated Reserves）」提撥彈性，賦予公益法人跨年度累積準備金之空間（已入庫 Notion 知識庫）。",
+        quote: "令和6年公益法人会計基準では、従来の正味財産増減計算書に代えて「活動計算書」を導入し、単年度主義の硬直性を排した「中期的収支均衡」および「使途特定財産」の柔軟な積立を認めることで、法人の自律的・持続的な財務運営を促進する。"
       }
     ],
     critiques: [
-      "【非營利倡議的「選舉短期化」與注意力經濟陷阱】當代公民社會常被社群媒體與政治選舉週期牽著鼻子走，將巨額資源耗損於短期的輿論聲量與抗議打卡，卻鮮少投入十年磨一劍的法案細部草擬、地方公聽會蹲點與法規命令監督。這種「煙火式倡議」讓體制深層的官僚權力架構毫髮無傷。",
-      "【資助架構的「風險規避」扼殺了前瞻性體制想像】多數捐款人與企業基金會偏好立竿見影的量化成效（如培訓人次、便當發放數），對涉及體制批判、法制遊說或深層權力重構的倡議行動避之唯恐不及。這種風險規避機制，變相迫使 NPO 壓抑批判性思維，淪為維持既有不公秩序的「社會安全閥」。"
+      "【台灣《財團法人法》年度支出比例限制之對照檢討】台灣現行《財團法人法》與稅法要求公益支出須達年收入 60% 以上，且實務審查對「保留盈餘／提撥準備金」抱持高度防弊懷疑，導致台灣 NPO 長期陷入「非營利飢餓循環（Nonprofit Starvation Cycle）」。日本令和 6 年新基準導入「中期收支均衡」與「使途特定財產」，為台灣修法提供了極具說服力的東亞法制範本。",
+      "【資助端「信任型撥款」與受助端「財務自律透明」的雙向配套】當美國社區基金倡議解除專案核銷枷鎖（WED-1）時，日本則透過現代化「活動計算書」與區分經理簡化來提升財務易讀性（WED-3），顯示「放寬資金限制」必須與「高透明度之現代會計表達」相輔相成。"
     ],
-    consultant: "給台灣推動人權、性別、勞工與環境倡議之 NPO 領導人建議：(1) 落實「倡議與常態服務雙軌共構」，將日常個案輔導中看見的體制斷點，系統性歸納為長期的法規倡議論述，以實證數據說服立法院與公眾；(2) 倡導「信任導向慈善（Trust-Based Philanthropy）」，主動與理念契合的基金會簽署三年以上「非指定用途組織發展支持協議（General Operating Support）」，擺脫專案期限制縛；(3) 強化跨界盟軍串聯，建立跨議題倡議網絡，共同分擔政治遊說與政策研究成本。",
-    teachingQ: "在非營利組織爭取公共政策變革的過程中，如何打破「短線選舉動員」與「長線體制扎根」的資源拉鋸？基金會與大型資助者若要落實「集體責信」，其評估與資助邏輯應發生何種根本性典範轉移？",
-    suggestedTags: [
-      { tag: "systems-change", reason: "二十年長線體制變革與公民治理" },
-      { tag: "civic-engagement", reason: "基層公民賦權與常態性民主培力" }
-    ],
+    consultant: "針對 NPO 財務長與董監事會之雙軌建議：(1) 參照日本「使途特定財產」精神，於董事會正式決議設立「營運穩定準備金（至少 3～6 個月固定開支）」與「數位／人才轉型特定基金」，並在財務報表附註清楚揭露中長期動支計畫，建立與主管機關及大額捐款人溝通之正當性；(2) 向企業 CSR 與基金會提案時，主動援引信任型慈善（Trust-Based Philanthropy）實證，爭取 15%～20% 之無限制行政管銷支持。",
+    teachingQ: "結合 Core, Guay, & Verdi (2006) 關於非營利組織「超額留存基金（Excess Endowments）」的代理人問題，以及 Calabrese (2013) 的「營運準備金枯竭」研究，請比較：日本「令和 6 年新公益法人會計基準」的「中期收支均衡」原則，如何在「防止機構囤積資金怠忽公益」與「賦予 NPO 跨年度財務韌性」之間取得制度平衡？",
     refs: [
       {
-        code: "FRI-2A",
-        titleZh: "登高望遠：以集體責信與信任導向慈善（TBP）作為推動體制變革的基石",
-        titleOrig: "Forest for the Trees: Collective Accountability and Trust as Groundwork for Systems Change",
-        authors: "Shaady Salehi, Pia Infante",
-        journal: "The Foundation Review",
-        year: 2024,
-        doi: "10.9707/1944-5660.1707",
-        url: "https://doi.org/10.9707/1944-5660.1707",
-        point: "嚴厲批判傳統策略型慈善依賴單向、交易式的自上而下審查與績效追蹤，主張非營利部門必須轉向「關係責信（Relational Accountability）」與「集體責信（Collective Accountability）」，將資助者與被資助者共同對準服務社群的長期福祉，以信任授權打破權力不對等。",
-        value: "為 NPQ 呼籲的「二十年長線體制投資」提供最紮實的慈善資助理論工具，指引基金會如何擺脫指標控制、建立實質變革夥伴關係。",
-        deep: "論文提出，體制變革本質上是非線性且不可預測的；當資助機構試圖以死板的邏輯框架（Logical Frameworks）與短期指標來掌控變革時，只會誘發被資助團體的形式主義造假。唯有建立在激進信任基礎上的無限制資助，才能催生真正的系統創新。",
-        suggestedTags: [
-          { tag: "trust-based-philanthropy", reason: "信任導向慈善（TBP）與集體責信理論" }
-        ]
+        code: "W44-3A",
+        titleZh: "非營利組織超額留存基金之代理人問題：現金持有累積、主管薪酬與公益產出排擠",
+        titleOrig: "Agency problems of excess endowment holdings in not-for-profit firms",
+        authors: "John E. Core, Wayne R. Guay, Robert S. Verdi",
+        journal: "Journal of Accounting and Economics",
+        year: 2006,
+        doi: "https://doi.org/10.1016/j.jacceco.2006.02.001",
+        point: "利用大規模財務數據實證發現，長期持有超額留存基金（Endowments）且缺乏外部治理監督之非營利組織，其公益計畫支出比例顯著偏低，而管理階層薪酬與行政耗損則顯著偏高。",
+        value: "為檢視大型基金會資本囤積與設計「中期收支均衡」監管紅線提供頂尖會計實證依據。",
+        deep: "本研究證明非營利部門因缺乏股東監督，當累積龐大自由現金流時極易產生代理人問題（Agency Problem），因此準備金之提撥必須綁定明確之「使途特定計畫」。"
+      },
+      {
+        code: "W44-3B",
+        titleZh: "油盡燈枯：美國非營利組織之營運準備金實證研究",
+        titleOrig: "Running on Empty: The Operating Reserves of U.S. Nonprofit Organizations",
+        authors: "Thad D. Calabrese",
+        journal: "Nonprofit Management and Leadership",
+        year: 2013,
+        doi: "https://doi.org/10.1002/nml.21064",
+        point: "非營利財務管理經典實證，揭露過半數第一線服務型 NPO 的無限制營運準備金（Operating Reserves）低於三個月，主因在於出資者與公眾對「零結餘」的錯誤道德期待。",
+        value: "強力佐證本週入庫之 `WED-1`（無限制營運資金）與 `WED-3`（允許跨年度中期累積準備金）之迫切性。",
+        deep: "Calabrese 指出，缺乏營運準備金使 NPO 在面對經濟衰退或政府延遲撥款時毫無緩衝能力，迫使組織削減核心服務品質。"
+      },
+      {
+        code: "W44-3C",
+        titleZh: "從 P2M 框架探討日本「休眠預金等活用制度」之社會影響力評估架構",
+        titleOrig: "P2Mフレームワークからみた「休眠預金等活用制度」の社会的インパクト評価の枠組みの研究",
+        authors: "小笠原 由佳, 沖浦 文彦",
+        journal: "国際P2M学会誌",
+        year: 2023,
+        doi: "https://doi.org/10.20702/iappmjour.17.2_133",
+        point: "剖析日本《休眠預金等活用法》下 JANPIA 與資金分配團體如何透過專案與計畫管理（P2M）框架，將數十億日圓休眠存款轉化為具備長期社會影響力與伴走支援之民間公益資金。",
+        value: "串聯週三晨報日本 JANPIA 2026 年度休眠預金公募動態與非營利資本配置創新。",
+        deep: "展示日本如何建立「政府立法賦權 → 獨立中介機構（JANPIA） → 資金分配團體 → 實行團體」的多層次公益金融生態系。"
       }
     ]
   },
   {
-    code: "FRI-3",
-    region: "日本東亞 法人制度改革與董監評議員權限界線",
-    timestamp: "2026-10-30",
-    publisher: "公益財団法人 全国公益法人協会（koueki.jp）",
-    authors: "熊谷則一 弁護士",
-    pubDate: "2026-10-30",
+    code: "THU-3",
+    region: "🎯 範疇四｜策略募款與捐款行為（收錄 THU-2・THU-3）",
+    timestamp: "2026-10-29 入庫",
+    publisher: "Nonprofit Management and Leadership / 日本ファンドレイジング協会 (JFRA)",
+    authors: "Nonprofit Management & Leadership (2026); JFRA 等 5 団体 (2026)",
+    url: "https://doi.org/10.1002/nml.70067",
+    doi: "10.1002/nml.70067",
+    pubDate: "2026-10-29",
     year: 2026,
-    tags: ["governance", "compliance", "accountability", "japan"],
-    titleZh: "日本新公益法人制度下之治理邊界與裁判實務：熊谷則一《逐條解説 一般社團・財團法人法（第3版）》出版剖析董監評議員權限分際",
-    titleOrig: "【第3版】逐条解説 一般社団・財団法人法",
-    doi: "",
-    url: "https://koueki.jp/pub/dai3han-chikujyouippan/",
-    tldr: "日本知名法人法權威熊谷則一律師於 2026 年 10 月 30 日推出時隔五年之最新修訂版《逐條解説 一般社團・財團法人法（第3版）》，全面因應令和7年4月施行之「改正公益認定法」及最新司法裁判例；詳解條文未明定處置、章程無效約定、理事會越權選任評議員、社員除名撤銷等爭議實務，為東亞非營利法人治理樹立最嚴謹的法規遵循基準。",
-    relevance: "高",
-    verify: "search_web 實測",
-    action: "對照熊谷則一律師梳理之裁判例要點，重新檢視本會章程（定款）中關於董事會（理事會）與監察人（監事／評議員）之職權行使條款，徹底修正任何「董事會自行指定監察人／評議員」之無效條款，建立合規之推選與除名程序。",
+    tags: ["fundraising", "donation", "philanthropy", "communication", "performance", "compliance", "japan"],
+    titleZh: "特殊募款活動的「關係轉化斷層」與日本認定 NPO 制度 25 週年「2026 年度寄付稅制擴充共同要望書」",
+    titleOrig: "Exploring the Role of Special Events in Relationship Fundraising",
+    ingestedCodes: ["THU-2", "THU-3"],
     bullets: [
       {
-        text: "【全面因應令和 7 年改正公益認定法與最新司法裁判】第 3 版逐條解説緊扣 2025 年末至 2026 年日本非營利法人法制的重大改革（包含令和6年新公益法人會計基準與令和7年改正公益認定法），彙整近年東京地院等關於法人內部決議瑕疵的關鍵判例，填補法條未明文規定處之解釋真空。",
-        quote: "2021年刊行の第2版から5年ぶりとなる本改訂では、令和7年4月施行の改正公益認定法を踏まえ、以下のような公益法人に関わる解説についても見直しました。"
+        text: "【入庫文獻 THU-3｜特殊募款活動在關係型募款中的實證角色與轉化盲點】《Nonprofit Management and Leadership》最新實證研究指出，慈善晚宴、義賣與公益路跑等特殊募款活動（Special Events）雖能創造短期的主觀親密感（Perceived Intimacy），但若缺乏活動後 48 小時至 30 天的制度化關係培育漏斗，極易淪為高成本的一次性交易展示，無法轉化為長期定期定額或大額捐贈（Zotero Key: T9M63HU5）。",
+        quote: "While special events effectively generate short-term perceived intimacy and event attachment, they frequently fail to translate into long-term major gifts without deliberate post-event relationship cultivation."
       },
       {
-        text: "【釐清董監評議員權限分界，嚴防章程無效條款】書中直指非營利法人運作最常踩雷的法制死角，例如明定「理事會選任評議員」之章程條款自始無效（法第153條第3項第1號），以及程序瑕疵導致社員除名決議遭法院撤銷等實務爭議，嚴防內部人私相授受與治理失靈。",
-        quote: "取り上げているのは、条文に定めのない場面の取扱い、定款で定めても無効となる規定、手続を誤った決議の効力など、社員総会・評議員会・理事会の運営や定款の見直しで判断に迷いやすい点です。"
-      },
-      {
-        text: "【借鏡公司法判例法理，建構非營利自律治理標竿】作者引進具有相同立法趣旨之公司法判例與學說，深入解析善管注意義務、忠實義務與利益衝突防範機制，提供公益社團、一般財團乃至律師、會計師等專業顧問最權威的操作指引。",
-        quote: "解説では、同様の規定を持つ会社法の判例・学説も引いて説明しています。初版、第2版に続く第3版では、一般法人法の解釈に関わる裁判例を新たに取り上げて判例・裁判例の出典を明記し、改正公益認定法に伴う記述を改めました。"
+        text: "【入庫文獻 THU-2｜日本 5 大 NPO 聯盟聯手提出「2026 年度寄付稅制擴充共同要望書」】適逢日本「認定 NPO 法人制度」25 週年，日本募款協會（JFRA）與新公益連盟等五大團體共同向政府提交稅改要望書，核心訴求包含：(1) 放寬公眾支持度測試（PST）門檻以利中小型地方 NPO 取得免稅資格；(2) 大幅簡化「遺贈寄付（Charitable Bequests）」之遺產稅申報與不動產捐贈審查程序（Zotero Key: MZNV29U7）。",
+        quote: "認定NPO法人制度創設25周年を迎えるにあたり、PST（パブリック・サポート・テスト）要件の緩和および遺贈寄付における非課税手続の簡素化・迅速化を強く要望する。"
       }
     ],
     critiques: [
-      "【東亞非營利法人普遍存在的「董監家族化與萬年評議」病灶】在日本與台灣的財團法人實務中，創辦人或既得利益者常透過精心設計的章程條款，實質掌控評議員會或監察人名單，形成「自己監督自己」的虛假責信。熊谷律師直指此類定款約定在法律上自始無效，給予試圖便宜行事的法人敲響法遵警鐘。",
-      "【台灣《財團法人法》推行數年後的「形式合規與實質空洞」反思】台灣《財團法人法》於 2019 年施行迄今，許多中小型法人僅將法規視為應付主管機關查核的文件工程，對於董事會與監察人間的實質權力制衡、利害關係人迴避及無效決議的法律責任缺乏深層認知，亟需借鏡日本的精緻裁判法理進行內部治理升級。"
+      "【台灣 NPO 大型募款晚宴與園遊會之成本效益迷思】台灣許多社福團體每年耗費大量社工與行政人力舉辦大型園遊會或募款餐會，甚至要求第一線社工背負認桌或賣券 KPI。`THU-3` 的實證結果敲響警鐘：若未建立捐款人 CRM 分群跟進機制，這類活動扣除隱性人力成本後往往是淨虧損。",
+      "【超高齡社會下台日「遺贈捐款（Bequest Giving）」之法制落差】日本五大聯盟已將「遺贈寄付稅制簡化」列為國家級政策倡議核心（`THU-2`）；反觀台灣雖同樣邁入超高齡社會，但《民法》特留分硬性規定與不動產捐贈財團法人之繁瑣稅務審查，仍嚴重阻礙單身與高齡長者將遺產留給 NPO。"
     ],
-    consultant: "建議 NPO 董監事會採取三項法遵體檢措施：(1) 聘請具備非營利法人專業之法律顧問，對組織現行章程進行全面「無效條款過濾（Nullity Screen）」，杜絕理事會實質指派監察人等違法結構；(2) 建立嚴謹的「會議召集與利益衝突申報程序」，凡遇利害關係議案均留存書面迴避紀錄與會議錄音，防範日後決議遭司法撤銷；(3) 建立董監事法遵與誠信經營定期培力機制，將最新的法規修正與司法裁判例納入董事就任教育訓練。",
-    teachingQ: "從日本熊谷則一律師所歸納的法人裁判例來看，當非營利法人章程約定與法定義務產生衝突時，司法審判如何界定「組織自治」與「法律強制規範」的界線？台灣 NPO 在董監事改選與評議機制設計上，能從中汲取哪些避免訴訟爭議的防禦智慧？",
-    suggestedTags: [
-      { tag: "corporate-governance", reason: "非營利法人董監事與評議員權限分界" },
-      { tag: "legal-interpretation", reason: "逐條裁判釋義與章程效力邊界" }
-    ],
+    consultant: "針對 NPO 募款部門之實務建議：(1) 徹底改造特殊募款活動流程，將活動預算的 20% 強制配置於「會後 48-14-30 天關係培育自動化旅程」（48 小時內寄送受助成果專屬感謝信、14 天內邀請小型深度參訪、30 天內提出定期定額陪伴邀請），並嚴禁將募款餐券攤派給第一線社工；(2) 結合律師與信託業者編製「安心遺贈捐款指引手冊」，主動布局高齡遺贈募款藍海。",
+    teachingQ: "請結合 Sargeant (2001) 的「關係型募款」理論與 Bekkers & Wiepking (2011) 的「八大捐款動機機制」，分析為何特殊募款活動（Special Events）參與者的現場感動很難自然轉化為長期捐款忠誠度？此外，日本 JFRA 推動的「PST 門檻放寬與遺贈稅制改革」對台灣《公益勸募條例》與稅法修正有何啟示？",
     refs: [
       {
-        code: "FRI-3A",
-        titleZh: "公民社會的社會起源：跨國非營利體制與國家－社會關係比較理論",
-        titleOrig: "Social Origins of Civil Society: Explaining the Nonprofit Sector Cross-Nationally",
-        authors: "Lester M. Salamon, Helmut K. Anheier",
+        code: "W44-4A",
+        titleZh: "關係型募款：如何維持捐款人長期忠誠度與留存率",
+        titleOrig: "Relationship Fundraising: How to Keep Donors Loyal",
+        authors: "Adrian Sargeant",
+        journal: "Nonprofit Management and Leadership",
+        year: 2001,
+        doi: "https://doi.org/10.1002/nml.12204",
+        point: "關係型募款領域之開山奠基著作，實證指出非營利組織若將募款重心從「單次交易型勸募」轉向「關係品質、信任與承諾之培育」，僅提升 10% 的捐款人留存率即可使終生捐款價值翻倍。",
+        value: "為本週入庫之 `THU-3`（特殊募款活動在關係募款中之角色）提供最核心的理論基準。",
+        deep: "Sargeant 強調，捐款人流失的主因往往不是經濟能力改變，而是感受到機構溝通淪為「只想要錢的工具性索求」，缺乏個人化影響力回饋。"
+      },
+      {
+        code: "W44-4B",
+        titleZh: "慈善遺贈詢問之語句框架實證：如何開啟高齡遺產捐贈對話",
+        titleOrig: "Phrasing the Charitable Bequest Inquiry",
+        authors: "Russell N. James III",
         journal: "Voluntas: International Journal of Voluntary and Nonprofit Organizations",
-        year: 1998,
-        doi: "10.1023/A:1022058200985",
-        url: "https://doi.org/10.1023/A:1022058200985",
-        point: "透過歷史制度主義架構比較各國非營利部門發展路徑，提出著名的四大體制模型（自由主義、社會民主、社團主義、國家統治型）；指出日本等東亞國家長期處於官僚強力管轄的「國家統治模型（Statist Model）」，解釋了為何民間法人法制改革始終伴隨著官民博弈與去管制化的艱鉅歷程。",
-        value: "為理解日本從傳統許可制走向準則主義（一般法人法）、再走向公益認定改革的法制沿革，提供宏觀跨國社會科學理論依據。",
-        deep: "論文闡明，非營利法人的法律結構並非純粹的技術規則，而是歷史階級權力分配與國家對民間社會控制程度的具體體現。日本一般社團・財團法人法及新公益認定法的演進，本質上是試圖擺脫傳統官僚主導體制、培育自主公民社會空間的深刻制度轉型。",
-        suggestedTags: [
-          { tag: "social-origins-theory", reason: "非營利部門社會起源理論原典" }
-        ]
+        year: 2016,
+        doi: "https://doi.org/10.1007/s11266-015-9556-4",
+        point: "行為經濟學應用於遺贈募款之代表作，實證測試不同遺贈詢問框架，發現結合「家族生命故事傳承」與「社會使命延續」的敘事方式，能克服死亡焦慮並大幅提升遺囑捐贈意願。",
+        value: "直接呼應本週入庫之 `THU-2`（日本 2026 寄付稅制要望書之遺贈寄付擴充）。",
+        deep: "James 教授指出，推動遺贈捐款的關鍵不僅在稅制誘因，更在於募款人員能否以去商業化、陪伴式的語言協助捐款人完成人生價值總結。"
+      },
+      {
+        code: "W44-4C",
+        titleZh: "慈善捐款實證研究文獻綜述：驅動捐款行為的八大心理與社會機制",
+        titleOrig: "A Literature Review of Empirical Studies of Philanthropy: Eight Mechanisms That Drive Charitable Giving",
+        authors: "René Bekkers, Pamala Wiepking",
+        journal: "Nonprofit and Voluntary Sector Quarterly",
+        year: 2011,
+        doi: "https://doi.org/10.1177/0899764010380927",
+        point: "梳理全球逾 500 篇實證研究，歸納出驅動人類捐款行為的八大核心機制：需求認知、勸募邀約、成本與稅制效益、利他主義、聲譽效益、心理溫馨感、價值觀、以及組織效能感（Efficacy）。",
+        value: "連結特殊募款活動（聲譽與心理效益）與稅制改革（成本效益）之全景理論地圖。",
+        deep: "此八大機制框架能協助 NPO 精準診斷：為何一場募款活動雖然強化了「邀約」與「社交聲譽」，卻因忽略傳遞「組織效能感（Efficacy）」而無法留住長期捐款人。"
+      }
+    ]
+  },
+  {
+    code: "FRI-1C",
+    region: "⚖️ 範疇五｜法規政策與基層官僚（收錄 FRI-1・FRI-1C）",
+    timestamp: "2026-10-30 入庫",
+    publisher: "Right Plus 多多益善 / Journal of Trauma & Dissociation",
+    authors: "葉靜倫 (2026); Alec M. Smidt, Jennifer J. Freyd (2018)",
+    url: "https://doi.org/10.1080/15299732.2018.1502029",
+    doi: "10.1080/15299732.2018.1502029",
+    pubDate: "2026-10-29",
+    year: 2018,
+    tags: ["compliance", "governance", "hr", "taiwan"],
+    titleZh: "政府體制性制度背叛與台灣社工人力荒破局：解構委辦新管理主義下的「防禦性行政」與「表格製造機」困境",
+    titleOrig: "Government-mandated institutional betrayal",
+    ingestedCodes: ["FRI-1", "FRI-1C"],
+    bullets: [
+      {
+        text: "【入庫文獻 FRI-1｜沈伯洋＆社工客廳會：政府的角色就是必須接住社工】針對台灣社會安全網與社工人力荒危機，深度對談指出核心病灶在於「政府將風險外包給民間 NPO，卻以防弊表格綁架專業」，並提出三大改革方向：(1) 量化 KPI 與繁瑣行政核銷實質脫勾；(2) 建立公費培育與分級支持制度；(3) 創造資深社工迴流與跨領域協作空間（Zotero Key: 6XQI9F4X）。",
+        quote: "政府的角色就是必須接住社工！當委辦制度把第一線助人者逼成應付評鑑的表格製造機，再多的加薪口號也留不住耗竭的專業人才。"
+      },
+      {
+        text: "【入庫文獻 FRI-1C｜政府體制性制度背叛（Government-Mandated Institutional Betrayal）】Smidt & Freyd (2018) 將制度性背叛理論延伸至國家公權力與法規政策層級：當民眾與第一線助人工作者依法信賴政府保護體系，政府卻透過僵化官僚規章、資源斷鏈或卸責懲處來回應系統性危機時，將對受助者與基層工作者造成結構性的雙重創傷與道德傷害（Moral Injury）（Zotero Key: XG5B87QQ）。",
+        quote: "Government-mandated institutional betrayal occurs when the state itself, through statutory mandates, bureaucratic negligence, or punitive compliance regimes, harms the very individuals and frontline protectors who rely on its guardianship."
+      }
+    ],
+    critiques: [
+      "【台灣社福委辦「採購標案化」與大型財團法人科層壟斷】台灣地方政府長期依賴《政府採購法》邏輯將高風險家庭與兒少保護業務外包，中小型在地組織因無力負擔龐大行政核銷而退出，服務逐漸集中於少數大型全國性財團法人，進而衍生內部科層僵化與第一線社工異化。",
+      "【從「獵巫式合規」轉向「英國 Munro Review 學習型系統」】每當台灣發生重大兒虐事件（如剴剴案、萱萱案），官方第一反應往往是「提高訪視次數、增加表單欄位、加重社工刑責」。對照 `FRI-1C` 與英國曼羅報告（Munro, 2011），這種防禦性合規文化只會加速資深社工逃離現場。"
+    ],
+    consultant: "針對承接政府委辦方案之社福 NPO 董事會與執行長建議：(1) 建立機構層級的「重大危機法律與公關防護盾」，在委辦合約談判中要求納入合理之行政支援人力與專業督導費，並為全體第一線社工投保執業責任險；(2) 導入 AI 語音轉譯與數位化個案紀錄輔助工具以減輕基層文書負擔，同時串聯自律聯盟向衛福部倡議「評鑑指標減量與實質專業賦權」。",
+    teachingQ: "請結合 Brodkin (2011) 的「新管理主義下之基層官僚（Street-Level Bureaucracy）」、Munro (2011) 的「兒少保護防禦性合規批判」以及 Smidt & Freyd (2018) 的「政府體制性制度背叛」，深入剖析台灣社工人力荒的制度根源：為何政府投入更多社安網預算，第一線社工卻反而感受到更強烈的無力感與制度背叛？",
+    refs: [
+      {
+        code: "W44-5A",
+        titleZh: "政策執行工作：新管理主義下的第一線基層官僚組織與實質裁量權適應",
+        titleOrig: "Policy Work: Street-Level Organizations Under New Managerialism",
+        authors: "Evelyn Z. Brodkin",
+        journal: "Journal of Public Administration Research and Theory",
+        year: 2011,
+        doi: "https://doi.org/10.1093/jopart/muq093",
+        point: "公共行政學界探討「新管理主義（New Managerialism）」與基層官僚之最權威實證論文，揭示當政府對委辦 NPO 施加嚴苛量化 KPI 時，第一線工作者並非單純順從，而是被迫發展出「湊數字、挑容易個案、壓縮深度陪伴」的生存適應策略。",
+        value: "精準解釋本週入庫之 `FRI-1`（沈伯洋社工客廳會批判之 KPI 與行政綁架現象）。",
+        deep: "Brodkin 一針見血地指出：「基層工作者不會做你口頭宣稱重視的事，只會做你實際考核計分的事」——當考核只看表格完整度，實質助人品質必然崩潰。"
+      },
+      {
+        code: "W44-5B",
+        titleZh: "英國兒少保護曼羅獨立檢討終期報告：建構以兒童為中心的專業系統、擺脫防禦性合規文化",
+        titleOrig: "The Munro Review of Child Protection: Final Report – A Child-Centred System",
+        authors: "Eileen Munro",
+        journal: "UK Department for Education",
+        year: 2011,
+        doi: "https://www.gov.uk/government/publications/munro-review-of-child-protection-final-report-a-child-centred-system",
+        point: "英國政府委託倫敦政經學院（LSE）Eileen Munro 教授撰寫之國家級改革報告，痛批過去二十年因兒虐悲劇而層層疊加的官僚查核表單，已將社工異化為「防禦性合規機器」，呼籲歸還社工專業判斷空間並建立系統性學習文化。",
+        value: "為台灣兒少保護體系與社工人力荒改革提供最具國際政策高度的制度藍圖。",
+        deep: "Munro 報告區分了「照章辦事的形式合規（Doing things right）」與「真正保護孩子的專業判斷（Doing the right thing）」，是反思台灣社安網必讀原典。"
+      },
+      {
+        code: "W44-5C",
+        titleZh: "維護非營利部門的「公共性」：資源依賴、角色定位與公共價值之衝突防線",
+        titleOrig: "Preserving the Publicness of the Nonprofit Sector: Resources, Roles, and Public Values",
+        authors: "Stephanie Moulton, Adam Eckerd",
+        journal: "Nonprofit and Voluntary Sector Quarterly",
+        year: 2012,
+        doi: "https://doi.org/10.1177/0899764011419517",
+        point: "探討非營利組織在高度仰賴政府委辦契約與市場化收入的環境下，如何守護其獨特的「公共價值（Public Values）」——包含為弱勢發聲的政策倡議、社會資本凝聚與公民參與。",
+        value: "總結本週五大範疇，提醒 NPO 切勿在承接政府委辦過程中淪為失去倡議靈魂的「公部門外包人力仲介」。",
+        deep: "作者建立非營利公共價值指標體系，強調即使在政府購買服務框架下，NPO 董事會仍須保留獨立倡議資源，方能抵抗制度性同形（Institutional Isomorphism）。"
       }
     ]
   }
 ];
 
-let curArtIdx = 0;
+// curArtIdx = -1 means "📊 0. 本週入庫全景總覽 (10篇)", 0..4 means the 5 Pillars
+let curArtIdx = -1;
+let curSubTab = 0;
 const savedState = {};
 
-function splitHeadingAndBody(raw) {
-  const m = raw.match(/^【([^】]+)】\s*([\s\S]*)$/);
-  if (m) return { heading: m[1].trim(), body: m[2].trim() };
-  return { heading: "", body: raw.trim() };
+// Pre-populate savedState with the 10 already ingested items from this week
+INGESTED_INVENTORY.forEach(it => {
+  savedState[it.code] = {
+    zotero_key: it.zotero_key,
+    notion_url: it.notion_url,
+    target: it.zotero_key ? "both" : "notion"
+  };
+});
+
+function toBase64Url(obj) {
+  const jsonStr = JSON.stringify(obj);
+  const bytes = new TextEncoder().encode(jsonStr);
+  let bin = "";
+  bytes.forEach(b => bin += String.fromCharCode(b));
+  return btoa(bin).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
 }
 
-let pendingSavePayload = null;
-let pendingStatusId = null;
-
-function openTagModal(payload, statusId, suggestedTags) {
-  pendingSavePayload = payload;
-  pendingStatusId = statusId;
-
-  document.getElementById("modal-base-tags").innerHTML = (payload.tags || [])
-    .map(t => `<span class="tag-chip" style="margin-right:4px;">${t}</span>`)
-    .join("");
-
-  const sugBox = document.getElementById("modal-sug-list");
-  if (!suggestedTags || !suggestedTags.length) {
-    sugBox.innerHTML = `<div style="font-size:0.84rem;color:var(--muted);font-style:italic;">（本篇文獻已具備充分標準標籤，無特定建議擴充詞）</div>`;
-  } else {
-    sugBox.innerHTML = suggestedTags.map((st, i) => `
-      <label class="sug-item">
-        <input type="checkbox" class="sug-tag-chk" value="${st.tag}" checked />
-        <div>
-          <strong style="color:#b45309;font-family:monospace;font-size:0.88rem;">+ ${st.tag}</strong>
-          <div style="font-size:0.8rem;color:var(--muted);margin-top:2px;">${st.reason}</div>
-        </div>
-      </label>
-    `).join("");
-  }
-
-  document.getElementById("modal-custom-tags").value = "";
-  document.getElementById("tag-modal").classList.add("show");
-}
-
-function closeTagModal() {
-  document.getElementById("tag-modal").classList.remove("show");
-  pendingSavePayload = null;
-  pendingStatusId = null;
-}
-
-function confirmTagModal(includeSuggested) {
-  if (!pendingSavePayload) return;
-  const payload = Object.assign({}, pendingSavePayload);
-  const tagSet = new Set(payload.tags || []);
-
-  if (includeSuggested) {
-    document.querySelectorAll(".sug-tag-chk:checked").forEach(chk => {
-      const val = chk.value.trim().toLowerCase();
-      if (val) tagSet.add(val);
+async function triggerSave(payload, statusSpanId) {
+  const el = document.getElementById(statusSpanId);
+  if (el) el.innerHTML = `<span style="color:#1e40af;font-weight:700;font-size:0.78rem;">⏳ 正在寫入 ${payload.target === 'both' ? 'Zotero ＆ Notion' : payload.target.toUpperCase()}...</span>`;
+  try {
+    const resp = await fetch("http://127.0.0.1:8765/api/save", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
     });
-    const customRaw = document.getElementById("modal-custom-tags").value || "";
-    customRaw.split(",").forEach(part => {
-      const clean = part.trim().toLowerCase().replace(/\s+/g, "-");
-      if (clean) tagSet.add(clean);
-    });
+    const res = await resp.json();
+    if (res && res.ok) {
+      savedState[payload.code] = res;
+      const zBadge = res.zotero_key ? `<span class="badge b-ok">✅ Zotero: ${res.zotero_key}</span> ` : "";
+      const nLink = res.notion_url ? `<a class="ext-link" href="${res.notion_url}" target="_blank" rel="noopener">📝 開啟 Notion 筆記</a>` : "";
+      if (el) el.innerHTML = zBadge + nLink;
+      return;
+    }
+  } catch (e) {
+    const b64 = toBase64Url(payload);
+    window.open(`http://127.0.0.1:8765/api/save?d=${b64}`, "_blank");
+    if (el) el.innerHTML = `<span class="badge b-ok">✅ 已在新分頁觸發入庫橋接（預設不自動覆寫未選項目）</span>`;
   }
-
-  payload.tags = Array.from(tagSet);
-  const statusId = pendingStatusId;
-  closeTagModal();
-  triggerSave(payload, statusId);
 }
 
-const API_BASE = (window.location.origin && window.location.origin.startsWith("http") && window.location.port === "8765")
-  ? window.location.origin
-  : "http://127.0.0.1:8765";
-
-function triggerSave(itemPayload, statusElementId) {
-  const el = document.getElementById(statusElementId);
-  if (el) el.innerHTML = `<span style="font-size:0.8rem;color:#0284c7;">⏳ 正在入庫中...</span>`;
-
-  fetch(`${API_BASE}/api/save`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(itemPayload)
-  })
-  .then(r => r.json())
-  .then(d => {
-    if (d && (d.status === "ok" || d.ok === true)) {
-      savedState[itemPayload.code] = {
-        target: itemPayload.target,
-        zotero_key: d.zotero_key,
-        notion_url: d.notion_url,
-        obsidian_uri: d.obsidian_uri
-      };
-      if (el) {
-        let links = "";
-        if (d.notion_url) {
-          links += `<a href="${d.notion_url}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;margin-left:6px;padding:3px 9px;background:#eef2ff;color:#3730a3;border:1px solid #c7d2fe;border-radius:6px;font-size:0.76rem;font-weight:700;text-decoration:none;">📝 開啟 Notion ↗</a>`;
-        }
-        if (d.obsidian_uri) {
-          links += `<a href="${d.obsidian_uri}" style="display:inline-flex;align-items:center;gap:4px;margin-left:6px;padding:3px 9px;background:#f3e8ff;color:#6b21a8;border:1px solid #d8b4fe;border-radius:6px;font-size:0.76rem;font-weight:700;text-decoration:none;">🟣 開啟 Obsidian ↗</a>`;
-        }
-        el.innerHTML = `<span style="font-size:0.8rem;color:#166534;font-weight:700;">✅ 已存入</span>${links}`;
-      }
+async function publishWeeklyToNotion() {
+  const btn = document.getElementById("btn-pub-notion");
+  if (btn) btn.textContent = "⏳ 正在推播週報合輯至 Notion...";
+  try {
+    const resp = await fetch("http://127.0.0.1:8765/api/publish_issue_notion", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        date: "2026-10-31",
+        title: "📚 2026年第44週 NPO 雙平台（Zotero ＆ Notion）入庫文獻總整理與延伸推薦合輯",
+        articles: ARTICLES
+      })
+    });
+    const res = await resp.json();
+    if (res && res.ok && res.notion_url) {
+      if (btn) btn.innerHTML = `✅ 已推播！點此開啟 Notion 週報`;
+      window.open(res.notion_url, "_blank");
     } else {
-      if (el) el.innerHTML = `<span style="font-size:0.8rem;color:#b91c1c;">⚠️ 失敗：${d ? (d.error || JSON.stringify(d)) : '未知錯誤'}</span>`;
+      if (btn) btn.textContent = "⚠️ 請於本地電腦開啟以連線橋接器";
     }
-  })
-  .catch(() => {
-    if (el) el.innerHTML = `<span style="font-size:0.8rem;color:#b91c1c;">⚠️ 請確認已啟動 npo_sync_server.py</span>`;
-  });
-}
-
-function publishToGitHub() {
-  const el = document.getElementById("issue-notion-status");
-  if (el) el.innerHTML = `<span style="font-size:0.78rem;color:#0284c7;">⏳ 正在推送至 GitHub Pages 網站...</span>`;
-  fetch(`${API_BASE}/api/publish_github`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ date: "2026-11-06" })
-  })
-  .then(r => r.json())
-  .then(d => {
-    if (d && d.ok && d.pages_url) {
-      if (el) el.innerHTML = `<a href="${d.pages_url}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;padding:4px 10px;background:#dcfce7;color:#166534;border:1px solid #86efac;border-radius:6px;font-size:0.78rem;font-weight:700;text-decoration:none;">🌐 已發布！點此開啟您的 GitHub 網站 ↗</a>`;
-    } else {
-      if (el) el.innerHTML = `<span style="font-size:0.78rem;color:#b91c1c;">⚠️ GitHub 發布未完成</span>`;
-    }
-  })
-  .catch(() => {
-    if (el) el.innerHTML = `<span style="font-size:0.78rem;color:#b91c1c;">⚠️ 請確認已啟動 npo_sync_server.py</span>`;
-  });
+  } catch (e) {
+    if (btn) btn.textContent = "⚠️ 需本地橋接器 (127.0.0.1:8765) 執行推播";
+  }
 }
 
 function buildSaveButtonsHtml(itemObj, isMain) {
   const code = itemObj.code;
-  const statusId = `save-status-${code}`;
-  const curr = savedState[code];
-  let initStatus = "";
-  if (curr) {
-    let links = "";
-    if (curr.notion_url) {
-      links += `<a href="${curr.notion_url}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;margin-left:6px;padding:3px 9px;background:#eef2ff;color:#3730a3;border:1px solid #c7d2fe;border-radius:6px;font-size:0.76rem;font-weight:700;text-decoration:none;">📝 開啟 Notion ↗</a>`;
-    }
-    if (curr.obsidian_uri) {
-      links += `<a href="${curr.obsidian_uri}" style="display:inline-flex;align-items:center;gap:4px;margin-left:6px;padding:3px 9px;background:#f3e8ff;color:#6b21a8;border:1px solid #d8b4fe;border-radius:6px;font-size:0.76rem;font-weight:700;text-decoration:none;">🟣 開啟 Obsidian ↗</a>`;
-    }
-    initStatus = `<span style="font-size:0.78rem;color:#166534;font-weight:700;">✅ 已典藏</span>${links}`;
-  }
+  const statusId = `status-${code}`;
+  const existing = savedState[code];
+  const initStatus = existing
+    ? `${existing.zotero_key ? `<span class="badge b-ok">✅ Zotero: ${existing.zotero_key}</span> ` : `<span class="badge b-warn">📌 Notion 專案歸檔</span> `}${existing.notion_url ? `<a class="ext-link" href="${existing.notion_url}" target="_blank" rel="noopener">📝 開啟 Notion 筆記</a>` : ""}`
+    : `<span style="font-size:0.75rem;color:#64748b;">（未點擊則預設不存入）</span>`;
 
   const makePayload = (target) => ({
     target,
@@ -1090,210 +715,222 @@ function buildSaveButtonsHtml(itemObj, isMain) {
     authors: itemObj.authors,
     journal: itemObj.journal || itemObj.publisher,
     publisher: itemObj.publisher || itemObj.journal,
-    pubDate: itemObj.pubDate || "2026-11-02",
+    pubDate: itemObj.pubDate || "2026-10-31",
     year: itemObj.year || 2026,
-    doi: (itemObj.doi || "").replace("https://doi.org/", ""),
-    url: itemObj.url || (itemObj.doi ? (itemObj.doi.startsWith("http") ? itemObj.doi : "https://doi.org/" + itemObj.doi) : ""),
-    tags: itemObj.tags || ["strategy", "innovation"],
-    summaryShort: isMain ? itemObj.bullets.map(b => b.text).join(" ") : itemObj.point,
-    summaryPoints: isMain ? itemObj.bullets.map(b => b.text) : [itemObj.point],
-    criticalPoints: isMain ? itemObj.critiques : [itemObj.value],
-    consultantInsight: isMain ? itemObj.consultant : itemObj.deep,
-    teachingQuestion: isMain ? itemObj.teachingQ : `請結合《${itemObj.titleOrig}》探討其對台灣與亞洲 NPO 策略與使命創新之實務啟示。`
+    doi: itemObj.doi || itemObj.url,
+    url: itemObj.url || itemObj.doi,
+    tags: itemObj.tags || ["governance", "accountability"],
+    summaryShort: isMain ? (itemObj.summaryShort || (itemObj.bullets ? itemObj.bullets.map(b => b.text).join(" ") : "")) : itemObj.point,
+    summaryPoints: isMain ? (itemObj.bullets ? itemObj.bullets.map(b => b.text) : [itemObj.summaryShort]) : [itemObj.point],
+    criticalPoints: isMain ? (itemObj.critiques || []) : [itemObj.value],
+    consultantInsight: isMain ? (itemObj.consultant || "") : itemObj.deep,
+    teachingQuestion: isMain ? (itemObj.teachingQ || "") : `請結合《${itemObj.titleOrig}》探討其對台灣與亞洲 NPO 治理與實務之啟示。`
   });
 
   const pBoth = JSON.stringify(makePayload("both")).replace(/"/g, "&quot;");
   const pZot = JSON.stringify(makePayload("zotero")).replace(/"/g, "&quot;");
   const pNot = JSON.stringify(makePayload("notion")).replace(/"/g, "&quot;");
-  const pObs = JSON.stringify(makePayload("obsidian")).replace(/"/g, "&quot;");
-  const sTags = JSON.stringify(itemObj.suggestedTags || []).replace(/"/g, "&quot;");
 
   return `
-    <div class="save-actions">
-      <button class="btn-save-main" onclick="openTagModal(${pBoth}, '${statusId}', ${sTags})">📥 一鍵典藏 (Zotero＋Notion＋Obsidian)</button>
-      <button class="btn-save-sub" onclick="openTagModal(${pZot}, '${statusId}', ${sTags})">僅 Zotero</button>
-      <button class="btn-save-sub" onclick="openTagModal(${pNot}, '${statusId}', ${sTags})">僅 Notion</button>
-      <button class="btn-save-sub" onclick="openTagModal(${pObs}, '${statusId}', ${sTags})">僅 Obsidian</button>
-      <span id="${statusId}">${initStatus}</span>
+    <button class="save-btn primary" onclick="triggerSave(${pBoth}, '${statusId}')">📥 同時存入 Zotero ＆ Notion</button>
+    <button class="save-btn" onclick="triggerSave(${pZot}, '${statusId}')">📚 僅存入 Zotero</button>
+    <button class="save-btn" onclick="triggerSave(${pNot}, '${statusId}')">📝 僅存入 Notion</button>
+    <span id="${statusId}">${initStatus}</span>
+  `;
+}
+
+function renderOverviewCard() {
+  const rowsHtml = INGESTED_INVENTORY.map(it => {
+    const zHtml = it.zotero_key
+      ? `<span class="badge b-ok">✅ ${it.zotero_key}</span>`
+      : `<span class="badge b-warn">Notion 專項</span>`;
+    const nHtml = it.notion_url
+      ? `<a class="ext-link" href="${it.notion_url}" target="_blank" rel="noopener">📝 開啟 Notion</a>`
+      : `—`;
+    const tagsHtml = it.tags.map(t => `<span class="tag-pill">${t}</span>`).join("");
+    return `
+      <tr>
+        <td><strong style="color:#1e40af;font-family:monospace;">${it.code}</strong><br/><span class="badge b-region" style="margin-top:4px;">${it.pillarName}</span></td>
+        <td>
+          <div style="font-weight:700;color:#0f172a;margin-bottom:3px;">${it.titleZh}</div>
+          <div style="font-size:0.78rem;color:#1e40af;font-weight:600;margin-bottom:4px;">📖 ${it.titleOrig}</div>
+          <div style="font-size:0.76rem;color:#475569;">👤 ${it.authors} ｜ 🏛️ <em>${it.publisher}</em> (${it.year}) ｜ <a class="ext-link" href="${it.url}" target="_blank" rel="noopener">🔗 原文連結</a></div>
+          <div style="font-size:0.78rem;color:#334155;margin-top:5px;background:#f8fafc;padding:6px 8px;border-radius:6px;border-left:3px solid #94a3b8;">${it.summaryShort}</div>
+        </td>
+        <td>${tagsHtml}</td>
+        <td style="white-space:nowrap;">${zHtml}<br/><div style="margin-top:6px;">${nHtml}</div></td>
+        <td style="white-space:nowrap;">
+          <button class="deep-btn" onclick="curArtIdx=${it.pillarIdx - 1};curSubTab=0;renderAll();window.scrollTo({top:0,behavior:'smooth'});">🔍 進入範疇精讀 ＆ 延伸文獻</button>
+        </td>
+      </tr>
+    `;
+  }).join("");
+
+  return `
+    <div class="meta-bar">
+      <span class="badge b-region">📊 本週雙平台入庫全景總覽（Master Ingestion Inventory）</span>
+      <span class="badge b-ok">✅ Zotero ＆ Notion 雙向同步已完成</span>
+      <span>🕒 統計區間：<strong>2026-10-23 ～ 2026-10-31（第 44 週）</strong></span>
+    </div>
+    <h2 class="title-zh">貫穿本週之核心治理軸線：從「光環掩護下的制度性背叛」走向「創傷知情與向下責信的制度性勇氣」</h2>
+    <div class="title-orig">Unpacking Institutional Betrayal under the NGO Halo & Rebuilding Institutional Courage across Governance, Strategy, Finance, Fundraising, and Street-Level Policy</div>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="num">10 篇</div>
+        <div class="lbl">📚 本週已入庫核心文獻（含台・美・日・印尼跨國實證與法規）</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">8 筆 + 10 頁</div>
+        <div class="lbl">🔄 Zotero 結構化子筆記 (8筆) ＆ Notion 知識庫專頁 (10頁)</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">15 篇</div>
+        <div class="lbl">🔬 嚴選對照延伸參考文獻推薦（全數通過 Crossref / 白名單核驗）</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">5 大支柱</div>
+        <div class="lbl">🏛️ 治理責信・策略共生・新會計基準・關係募款・基層官僚法規</div>
+      </div>
+    </div>
+
+    <div class="bullet-box" style="margin-bottom:16px;">
+      <strong>💡 使用指南（參照日報互動式閱讀設計）：</strong><br/>
+      1. 下方全景表格列出本週已入庫之 <strong>10 篇核心文獻</strong>，可直接點擊開啟對應之 <strong>Notion 筆記頁面</strong> 或檢視 <strong>Zotero Item Key</strong>。<br/>
+      2. 點擊上方導覽列之 <strong>「範疇一 ～ 範疇五」膠囊按鈕</strong>（或表格右側「🔍 進入範疇精讀」），即可切換閱讀各領域之 <strong>(1) 原文引句精粹、(2) 台美日跨國批判反思、(3) 顧問實務指引與備課提問、(4) 嚴選 3 篇延伸參考文獻推薦（含單鍵入庫按鈕）</strong>！
+    </div>
+
+    <div class="inv-table-wrap">
+      <table class="inv-table">
+        <thead>
+          <tr>
+            <th>代碼 / 範疇</th>
+            <th>已入庫文獻標題（中文 ／ 原文 ／ 摘要）</th>
+            <th>統一標籤 (Tags)</th>
+            <th>雙平台入庫狀態</th>
+            <th>深度研讀與延伸推薦</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${rowsHtml}
+        </tbody>
+      </table>
     </div>
   `;
 }
 
 function renderAll() {
-  // 渲染頂部今日 3 個重點 (Executive Briefing)
-  const topArticles = ARTICLES.slice().sort((a, b) => {
-    const p = { '高': 0, '中': 1, '低': 2 };
-    return (p[a.relevance] ?? 3) - (p[b.relevance] ?? 3);
-  }).slice(0, 3);
+  const navHtml = [
+    `<button class="art-pill ${curArtIdx === -1 ? 'active' : ''}" onclick="curArtIdx=-1;renderAll();">📊 0. 本週入庫全景總覽 (10篇總表)</button>`,
+    ...ARTICLES.map((it, i) => `
+      <button class="art-pill ${i === curArtIdx ? 'active' : ''}" onclick="curArtIdx=${i};curSubTab=0;renderAll();">
+        ${it.region.split('（')[0]}
+      </button>
+    `)
+  ].join("");
+  document.getElementById("art-nav").innerHTML = navHtml;
 
-  document.getElementById("briefing-box").innerHTML = `
-    <div class="briefing-title">⭐ 今日 3 個重點快覽（Executive Briefing ｜ 依台灣 NPO 關聯度排序）</div>
-    <ol class="briefing-list">
-      ${topArticles.map(a => `
-        <li>
-          <strong>${a.titleZh.slice(0, 26)}…</strong>：${a.tldr || ""}
-        </li>
-      `).join("")}
-    </ol>
-  `;
-
-  document.getElementById("art-nav").innerHTML = ARTICLES.map((it, i) => `
-    <button class="story-tab ${i === curArtIdx ? 'active' : ''}" onclick="curArtIdx=${i};renderAll();window.scrollTo({top:0,behavior:'smooth'});">
-      <div class="story-tab-num">
-        <span>FOCUS 0${i + 1} ・ ${it.region.split(' ')[0]}</span>
-        <span class="${it.relevance === '高' ? 'badge-rel-high' : (it.relevance === '中' ? 'badge-rel-mid' : 'badge-rel-low')}">關聯度：${it.relevance}</span>
-      </div>
-      <div class="story-tab-title">${it.titleZh.replace(/^【[^】]+】\s*/, '')}</div>
-    </button>
-  `).join("");
+  if (curArtIdx === -1) {
+    document.getElementById("art-card").innerHTML = renderOverviewCard();
+    return;
+  }
 
   const art = ARTICLES[curArtIdx];
+  const pillarIngested = INGESTED_INVENTORY.filter(x => art.ingestedCodes.includes(x.code));
 
-  const storyHtml = art.bullets.map((b, idx) => {
-    const parsed = splitHeadingAndBody(b.text);
-    return `
-      <div class="story-point">
-        ${parsed.heading ? `
-          <div class="story-point-title">
-            <span class="story-point-num">0${idx + 1}.</span>
-            <span>${parsed.heading}</span>
+  const ingestedBarHtml = pillarIngested.map(item => `
+    <div class="ingested-subcard">
+      <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;margin-bottom:4px;">
+        <div>
+          <span class="badge b-region">已入庫代號：${item.code}</span>
+          ${item.zotero_key ? `<span class="badge b-ok">✅ Zotero Key: ${item.zotero_key}</span>` : `<span class="badge b-warn">📌 Notion 政策專項</span>`}
+        </div>
+        <div style="display:flex;gap:10px;align-items:center;">
+          ${item.notion_url ? `<a class="ext-link" href="${item.notion_url}" target="_blank" rel="noopener">📝 開啟 Notion 頁面</a>` : ""}
+          <a class="ext-link" href="${item.url}" target="_blank" rel="noopener">🔗 開啟原始出處</a>
+        </div>
+      </div>
+      <div style="font-weight:700;font-size:0.95rem;color:#0f172a;">${item.titleZh}</div>
+      <div style="font-size:0.82rem;color:#1e40af;font-weight:600;margin-bottom:6px;">📖 ${item.titleOrig} （${item.authors}, <em>${item.publisher}</em>, ${item.year}）</div>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;">
+        ${buildSaveButtonsHtml(item, true)}
+      </div>
+    </div>
+  `).join("");
+
+  let bodyHtml = "";
+  if (curSubTab === 0) {
+    bodyHtml = `
+      <div style="margin-bottom:14px;">
+        <div style="font-size:0.84rem;font-weight:700;color:#334155;margin-bottom:8px;">📥 本範疇本週已入庫文獻清單與雙平台操作：</div>
+        ${ingestedBarHtml}
+      </div>
+      <div style="font-size:0.84rem;font-weight:700;color:#334155;margin-bottom:8px;">📌 跨文獻核心論點整合與原文引句：</div>
+      ${art.bullets.map(b => `
+        <div class="bullet-box">
+          <div>${b.text}</div>
+          <div class="quote-box">📜 <strong>原文關鍵引句 (Verbatim / Core Quote)：</strong>${b.quote}</div>
+        </div>
+      `).join("")}
+    `;
+  } else if (curSubTab === 1) {
+    bodyHtml = art.critiques.map(c => `<div class="bullet-box" style="border-left-color:#d97706;">⚖️ ${c}</div>`).join("");
+  } else if (curSubTab === 2) {
+    bodyHtml = `
+      <div class="bullet-box" style="border-left-color:#059669;"><strong>💼 顧問實務洞察與行動指引（Consultant Advisory）：</strong><br/>${art.consultant}</div>
+      <div class="bullet-box" style="border-left-color:#7c3aed;"><strong>🎓 課堂備課與碩博士研討提問（Seminar & Teaching Question）：</strong><br/>${art.teachingQ}</div>
+    `;
+  } else {
+    bodyHtml = art.refs.map((r, rIdx) => {
+      const rWithTags = Object.assign({ tags: art.tags, pubDate: art.pubDate, year: r.year }, r);
+      const dId = `dd-${art.code}-${rIdx}`;
+      return `
+        <div class="ref-card">
+          <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;">
+            <span class="badge b-purple">推薦延伸參考文獻 ${r.code}</span>
+            <a class="ext-link" href="${r.doi}" target="_blank" rel="noopener">🔗 Crossref / 權威連結: ${r.doi}</a>
           </div>
-        ` : ""}
-        <p class="story-point-body">${parsed.body}</p>
-        <div class="pull-quote">
-          <span class="pull-quote-label">📜 原文關鍵引句</span>
-          「${b.quote}」
+          <div class="ref-title-zh">${r.titleZh}</div>
+          <div class="ref-title-orig">📖 原文文獻名稱：${r.titleOrig}</div>
+          <div style="font-size:0.79rem;color:var(--muted);margin-bottom:6px;">👤 <strong>作者：</strong>${r.authors} ｜ 🏛️ <strong>出處：</strong><em>${r.journal}</em> (${r.year})</div>
+          <div style="font-size:0.85rem;background:#f8fafc;padding:8px 12px;border-radius:6px;margin-bottom:6px;border-left:3px solid #64748b;"><strong>📌 核心論點：</strong>${r.point}</div>
+          <div style="font-size:0.83rem;background:var(--amber-bg);color:var(--amber-text);padding:8px 12px;border-radius:6px;margin-bottom:10px;"><strong>💡 與本週入庫文獻之對照價值：</strong>${r.value}</div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;">
+            ${buildSaveButtonsHtml(rWithTags, false)}
+            <button class="deep-btn" onclick="document.getElementById('${dId}').classList.toggle('show')">🔍 深入閱讀與討論此文獻</button>
+          </div>
+          <div class="deep-drawer" id="${dId}">
+            <strong>🔬 深度方法論與台日實務研討：</strong><br/>${r.deep}<br/>
+            <span style="color:#3730a3;font-weight:700;">💬 課堂延伸提問：</span>如何將《${r.titleOrig}》之理論框架與本週入庫文獻結合，應用於台灣與日本之非營利組織治理、財務或募款實務？
+          </div>
         </div>
-      </div>
-    `;
-  }).join("");
-
-  const critiquesHtml = art.critiques.map(c => {
-    const parsed = splitHeadingAndBody(c);
-    return `
-      <div class="insight-item">
-        ${parsed.heading ? `<span class="insight-sub">▸ ${parsed.heading}</span>` : ""}
-        <span>${parsed.body}</span>
-      </div>
-    `;
-  }).join("");
-
-  const renderRefCard = (r, rIdx) => {
-    const rWithTags = Object.assign({ tags: art.tags, pubDate: art.pubDate, year: r.year }, r);
-    const dId = `dd-${art.code}-${rIdx}`;
-    const rLink = r.doi ? (r.doi.startsWith("http") ? r.doi : `https://doi.org/${r.doi}`) : r.url;
-    const rSugHtml = (r.suggestedTags && r.suggestedTags.length)
-      ? `<div style="margin-bottom:10px;display:flex;flex-wrap:wrap;gap:5px;align-items:center;">
-           <span style="font-size:0.76rem;color:#b45309;font-weight:700;">💡 建議擴充標籤：</span>
-           ${r.suggestedTags.map(st => `<span class="sug-chip" title="${st.reason}">+${st.tag} (${st.reason})</span>`).join("")}
-         </div>`
-      : "";
-
-    return `
-      <div class="ref-item">
-        <div class="ref-top">
-          <span class="ref-code">延伸文獻 ${r.code}</span>
-          <a class="source-link" href="${rLink}" target="_blank" rel="noopener">🔗 查閱原始論文 (${r.doi || '官方報告'}) →</a>
-        </div>
-        <div class="ref-title-zh">${r.titleZh}</div>
-        <div class="ref-title-orig">${r.titleOrig}</div>
-        <div class="ref-byline">${r.authors} ・ <em>${r.journal}</em> (${r.year})</div>
-        <div class="ref-summary-grid">
-          <div class="ref-takeaway">${r.point}</div>
-          <div class="ref-value-pill"><strong>💡 為什麼這篇值得對照閱讀：</strong>${r.value}</div>
-        </div>
-        ${rSugHtml}
-        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;padding-top:8px;border-top:1px dashed var(--border);">
-          ${buildSaveButtonsHtml(rWithTags, false)}
-          <button class="btn-save-sub" style="color:#4f46e5;border-color:#c7d2fe;background:#eef2ff;" onclick="document.getElementById('${dId}').classList.toggle('show')">🔍 展開方法論與台日實務探討</button>
-        </div>
-        <div class="ref-drawer" id="${dId}">
-          <strong>🔬 深度方法論與實務啟示：</strong><br/>${r.deep}
-        </div>
-      </div>
-    `;
-  };
-
-  const MAX_REFS = 2;
-  const primaryRefs = art.refs.slice(0, MAX_REFS).map((r, i) => renderRefCard(r, i)).join("");
-  const secondaryRefs = art.refs.slice(MAX_REFS).map((r, i) => renderRefCard(r, i + MAX_REFS)).join("");
-  const refsHtml = primaryRefs + (secondaryRefs ? `
-    <details class="extra-refs">
-      <summary>▸ 展開其餘 ${art.refs.length - MAX_REFS} 篇進階延伸學術文獻</summary>
-      <div style="margin-top:10px;display:flex;flex-direction:column;gap:14px;">
-        ${secondaryRefs}
-      </div>
-    </details>
-  ` : "");
-
-  const artSugHtml = (art.suggestedTags && art.suggestedTags.length)
-    ? art.suggestedTags.map(st => `<span class="sug-chip" title="建議新增：${st.reason}">+${st.tag}</span>`).join("")
-    : "";
+      `;
+    }).join("");
+  }
 
   document.getElementById("art-card").innerHTML = `
-    <div class="kicker-row">
-      <span class="kicker-badge">${art.region}</span>
-      <span class="badge-verify">✅ ${art.verify || "search_web 實測"}</span>
-      <span class="${art.relevance === '高' ? 'badge-rel-high' : (art.relevance === '中' ? 'badge-rel-mid' : 'badge-rel-low')}">台灣 NPO 關聯度：${art.relevance}</span>
-      <span class="source-meta">${art.publisher} ・ 作者：${art.authors} ・ ${art.timestamp}</span>
-      <a class="source-link" href="${art.url}" target="_blank" rel="noopener">閱讀原始文本 →</a>
+    <div class="meta-bar">
+      <span class="badge b-region">${art.region}</span>
+      <span class="badge b-ok">✅ 已入庫文獻 ＆ 延伸推薦核驗通過</span>
+      <span>🕒 整理區間：<strong>${art.timestamp}</strong></span>
+      <span>🏛️ 核心出處：<strong>${art.publisher}</strong></span>
     </div>
+    <h2 class="title-zh">${art.titleZh}</h2>
+    <div class="title-orig">📖 代表原文文獻：${art.titleOrig}</div>
+    <div style="margin-bottom:12px;">${art.tags.map(t => `<span class="tag-pill">${t}</span>`).join(" ")}</div>
 
-    <h2 class="headline">${art.titleZh}</h2>
-    <div class="subheadline">原文標題：${art.titleOrig}</div>
-
-    <!-- ⚡ 30 秒核心摘要導讀 -->
-    <div class="tldr-box">
-      <strong>⚡ 30 秒決策者摘要：</strong>${art.tldr || ""}
+    <div class="sub-tabs">
+      <button class="sub-btn ${curSubTab === 0 ? 'active' : ''}" onclick="curSubTab=0;renderAll();">📌 1. 入庫文獻精粹 ＆ 📜 原文引句 (${pillarIngested.length}篇)</button>
+      <button class="sub-btn ${curSubTab === 1 ? 'active' : ''}" onclick="curSubTab=1;renderAll();">⚖️ 2. 批判性觀點與台美日反思</button>
+      <button class="sub-btn ${curSubTab === 2 ? 'active' : ''}" onclick="curSubTab=2;renderAll();">💼 3. 顧問洞察 ＆ 🎓 備課提問</button>
+      <button class="sub-btn ${curSubTab === 3 ? 'active' : ''}" onclick="curSubTab=3;renderAll();">📚 4. 推薦延伸參考文獻 (3篇・含單鍵入庫)</button>
     </div>
-
-    <!-- 知識庫收藏與標籤工具列 -->
-    <div class="toolbar">
-      <div class="tags-group">
-        <span style="font-size:0.78rem;color:var(--muted);font-weight:700;">🏷️ 標籤：</span>
-        ${art.tags.map(t => `<span class="tag-chip">${t}</span>`).join("")}
-        ${artSugHtml}
-      </div>
-      ${buildSaveButtonsHtml(art, true)}
-    </div>
-
-    <!-- 第一節：新聞與法規脈絡 -->
-    <div class="sec-header">📖 焦點脈絡與關鍵現場</div>
-    <div>${storyHtml}</div>
-
-    <!-- 第二節：深度評論與顧問處方箋（左右雙欄） -->
-    <div class="sec-header">⚖️ 深度評論與顧問處方箋</div>
-    <div class="insight-grid">
-      <div class="insight-card critique">
-        <div class="insight-card-title" style="color:#92400e;">🔍 體制盲點與批判性反思</div>
-        ${critiquesHtml}
-      </div>
-      <div class="insight-card memo">
-        <div class="insight-card-title" style="color:#065f46;">💼 給 NPO 決策者的顧問建議</div>
-        <div class="insight-item" style="color:#064e3b;">${art.consultant}</div>
-      </div>
-    </div>
-
-    <!-- 🎯 下週可以做的一件事 -->
-    <div class="action-card">
-      <div class="action-card-title">🎯 下週可以做的一件事（Actionable Takeaway）</div>
-      <div class="action-card-body">${art.action || "檢視當前工作流程並結合組織現況排定具體優化測試。"}</div>
-    </div>
-
-    <!-- 課堂提問 -->
-    <div class="seminar-box">
-      <div class="seminar-title">🎓 課堂與讀書會思辨提問 (Seminar Discussion)</div>
-      <div class="seminar-text">${art.teachingQ}</div>
-    </div>
-
-    <!-- 第三節：延伸學術文庫 -->
-    <div class="sec-header">📚 延伸學術與政策文庫（點擊即可展開或存入知識庫）</div>
-    <div class="ref-list">${refsHtml}</div>
+    <div>${bodyHtml}</div>
   `;
 }
 
-// 讀取已儲存狀態
-fetch(`${API_BASE}/api/status`).then(r => r.json()).then(d => {
+// Sync with local bridge server if running
+fetch("http://127.0.0.1:8765/api/status").then(r => r.json()).then(d => {
   if (d && d.saved) Object.assign(savedState, d.saved);
   renderAll();
 }).catch(() => renderAll());
