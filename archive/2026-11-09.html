@@ -1,0 +1,1304 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>NPO 每日深度晨報（2026-11-02 週一｜策略與使命創新 - 100% 防幻覺實證核驗版）</title>
+<style>
+  :root {
+    --bg: #f7f5f0;
+    --paper: #ffffff;
+    --ink: #1c1917;
+    --ink-body: #292524;
+    --muted: #57534e;
+    --soft: #78716c;
+    --border: #e7e5e4;
+    --accent: #1d4ed8;
+    --accent-bg: #eff6ff;
+    --warm-bg: #faf8f5;
+    --quote-bg: #f5f3ef;
+    --critique-bg: #fffbeb;
+    --critique-border: #f59e0b;
+    --memo-bg: #f0fdf4;
+    --memo-border: #10b981;
+    --seminar-bg: #f5f3ff;
+    --seminar-border: #8b5cf6;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 20px 16px 48px 16px;
+    font-family: "Noto Sans TC", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: var(--bg);
+    color: var(--ink-body);
+    line-height: 1.8;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  /* Masthead 報頭 */
+  .masthead {
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 14px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .masthead-eyebrow {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .masthead-title {
+    margin: 0;
+    font-family: "Noto Serif TC", "Songti TC", Georgia, serif;
+    font-size: 1.55rem;
+    font-weight: 800;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+  .masthead-meta {
+    font-size: 0.84rem;
+    color: var(--muted);
+    text-align: right;
+  }
+
+  /* Top Story Switcher */
+  .story-switcher {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    margin-bottom: 22px;
+  }
+  .story-tab {
+    background: #edeae4;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    padding: 12px 15px;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.18s ease;
+  }
+  .story-tab:hover {
+    background: #e5e0d8;
+  }
+  .story-tab.active {
+    background: var(--paper);
+    border-color: var(--ink);
+    box-shadow: 0 4px 12px rgba(28, 25, 23, 0.08);
+  }
+  .story-tab-num {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: var(--accent);
+    margin-bottom: 3px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .story-tab-title {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Main Editorial Sheet */
+  .paper-sheet {
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 32px 36px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  }
+  @media (max-width: 640px) {
+    .paper-sheet { padding: 20px 18px; }
+  }
+
+  .kicker-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+  }
+  .kicker-badge {
+    background: var(--accent-bg);
+    color: var(--accent);
+    font-weight: 800;
+    font-size: 0.8rem;
+    padding: 4px 11px;
+    border-radius: 6px;
+  }
+  .source-meta {
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+  .source-link {
+    font-size: 0.84rem;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 700;
+    margin-left: auto;
+  }
+  .source-link:hover { text-decoration: underline; }
+
+  .headline {
+    font-family: "Noto Serif TC", "Songti TC", Georgia, serif;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--ink);
+    line-height: 1.42;
+    margin: 6px 0 8px 0;
+  }
+  .subheadline {
+    font-size: 0.94rem;
+    color: var(--muted);
+    font-weight: 500;
+    margin-bottom: 18px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* Compact Toolbar */
+  .toolbar {
+    background: var(--warm-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 16px;
+    margin-bottom: 26px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .tags-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+  }
+  .tag-chip {
+    background: #fff;
+    color: var(--muted);
+    border: 1px solid #d6d3d1;
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+    font-size: 0.76rem;
+    padding: 2px 9px;
+    border-radius: 999px;
+  }
+  .sug-chip {
+    background: #fffbeb;
+    color: #b45309;
+    border: 1px dashed #f59e0b;
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+    font-size: 0.76rem;
+    padding: 2px 9px;
+    border-radius: 999px;
+  }
+  .save-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+  }
+  .btn-save-main {
+    background: var(--ink);
+    color: #fff;
+    border: 1px solid var(--ink);
+    padding: 7px 14px;
+    border-radius: 7px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .btn-save-main:hover { background: var(--accent); border-color: var(--accent); }
+  .btn-save-sub {
+    background: #fff;
+    color: var(--muted);
+    border: 1px solid #d6d3d1;
+    padding: 6px 10px;
+    border-radius: 7px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .btn-save-sub:hover { color: var(--ink); border-color: var(--ink); background: #f5f5f4; }
+
+  /* Section Headings */
+  .sec-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.08rem;
+    font-weight: 800;
+    color: var(--ink);
+    margin: 30px 0 14px 0;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #f5f5f4;
+  }
+
+  /* Narrative Story Points */
+  .story-point {
+    margin-bottom: 24px;
+  }
+  .story-point-title {
+    font-size: 1.04rem;
+    font-weight: 800;
+    color: #1e3a8a;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+  .story-point-num {
+    font-family: Georgia, serif;
+    font-size: 1.15rem;
+    color: var(--accent);
+    font-weight: 900;
+  }
+  .story-point-body {
+    font-size: 1rem;
+    color: var(--ink-body);
+    line-height: 1.85;
+    margin: 0 0 10px 0;
+  }
+  .pull-quote {
+    margin: 8px 0 0 14px;
+    padding: 10px 16px;
+    background: var(--quote-bg);
+    border-left: 3px solid #a8a29e;
+    border-radius: 0 8px 8px 0;
+    font-size: 0.88rem;
+    color: #44403c;
+    line-height: 1.65;
+  }
+  .pull-quote-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--soft);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  /* Insight Grid */
+  .insight-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 12px;
+  }
+  @media (max-width: 720px) {
+    .insight-grid { grid-template-columns: 1fr; }
+  }
+  .insight-card {
+    padding: 18px 20px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+  }
+  .insight-card.critique {
+    background: var(--critique-bg);
+    border-color: #fde68a;
+  }
+  .insight-card.memo {
+    background: var(--memo-bg);
+    border-color: #a7f3d0;
+  }
+  .insight-card-title {
+    font-size: 0.92rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .insight-item {
+    margin-bottom: 12px;
+    font-size: 0.94rem;
+    line-height: 1.75;
+  }
+  .insight-item:last-child { margin-bottom: 0; }
+  .insight-sub {
+    font-weight: 800;
+    color: var(--ink);
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  .seminar-box {
+    margin-top: 16px;
+    padding: 18px 22px;
+    background: var(--seminar-bg);
+    border-left: 4px solid var(--seminar-border);
+    border-radius: 0 12px 12px 0;
+  }
+  .seminar-title {
+    font-size: 0.88rem;
+    font-weight: 800;
+    color: #5b21b6;
+    margin-bottom: 6px;
+  }
+  .seminar-text {
+    font-size: 0.96rem;
+    color: #2e1065;
+    line-height: 1.78;
+    font-weight: 500;
+  }
+
+  /* Academic References */
+  .ref-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .ref-item {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px 22px;
+    background: #fafaf9;
+    transition: border-color 0.15s;
+  }
+  .ref-item:hover {
+    border-color: #cbd5e1;
+    background: #ffffff;
+  }
+  .ref-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+  .ref-code {
+    font-size: 0.76rem;
+    font-weight: 800;
+    color: #6b21a8;
+    background: #f3e8ff;
+    padding: 2px 9px;
+    border-radius: 999px;
+  }
+  .ref-title-zh {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--ink);
+    margin: 4px 0 2px 0;
+  }
+  .ref-title-orig {
+    font-size: 0.88rem;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .ref-byline {
+    font-size: 0.82rem;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  .ref-summary-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+  .ref-takeaway {
+    font-size: 0.93rem;
+    line-height: 1.72;
+    color: var(--ink-body);
+  }
+  .ref-value-pill {
+    font-size: 0.88rem;
+    line-height: 1.68;
+    padding: 8px 12px;
+    background: #fefce8;
+    border-left: 3px solid #eab308;
+    color: #713f12;
+    border-radius: 0 6px 6px 0;
+  }
+  .ref-drawer {
+    display: none;
+    margin-top: 12px;
+    padding: 14px 16px;
+    background: #f5f3ff;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    line-height: 1.75;
+    color: #1e1b4b;
+  }
+  .ref-drawer.show { display: block; }
+
+  /* Modal */
+  .modal-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(28, 25, 23, 0.55);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    backdrop-filter: blur(2px);
+  }
+  .modal-backdrop.show { display: flex; }
+  .modal-box {
+    background: #fff;
+    border-radius: 14px;
+    max-width: 540px;
+    width: 100%;
+    padding: 24px;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.22);
+    border: 1px solid var(--border);
+  }
+  .modal-title {
+    font-size: 1.08rem;
+    font-weight: 800;
+    color: var(--ink);
+    margin: 0 0 8px 0;
+  }
+  .sug-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 12px;
+    background: #fffbeb;
+    border: 1px solid #fde68a;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    font-size: 0.88rem;
+    cursor: pointer;
+  }
+  .sug-item input { margin-top: 4px; cursor: pointer; }
+
+
+  /* Executive Briefing Card */
+  .briefing-box {
+    background: #fffbeb;
+    border: 1px solid #fde68a;
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 22px;
+  }
+  .briefing-title {
+    font-size: 0.92rem;
+    font-weight: 800;
+    color: #92400e;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .briefing-list {
+    margin: 0;
+    padding-left: 20px;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: #78350f;
+  }
+  .briefing-list li { margin-bottom: 4px; }
+  .briefing-list li:last-child { margin-bottom: 0; }
+
+  /* Relevance Badge */
+  .badge-rel-high { background: #fee2e2; color: #991b1b; font-weight: 800; font-size: 0.76rem; padding: 2px 8px; border-radius: 6px; border: 1px solid #fca5a5; }
+  .badge-rel-mid { background: #fef3c7; color: #92400e; font-weight: 800; font-size: 0.76rem; padding: 2px 8px; border-radius: 6px; border: 1px solid #fde68a; }
+  .badge-rel-low { background: #f3f4f6; color: #4b5563; font-weight: 700; font-size: 0.76rem; padding: 2px 8px; border-radius: 6px; border: 1px solid #e5e7eb; }
+  .badge-verify { background: #ecfdf5; color: #065f46; font-weight: 700; font-size: 0.76rem; padding: 2px 8px; border-radius: 6px; border: 1px solid #a7f3d0; }
+
+  /* 30s TL;DR Quote Box */
+  .tldr-box {
+    background: #eff6ff;
+    border-left: 4px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    padding: 10px 16px;
+    margin: 12px 0 16px 0;
+    font-size: 0.94rem;
+    line-height: 1.65;
+    color: #1e3a8a;
+  }
+
+  /* Actionable Takeaway Card */
+  .action-card {
+    margin-top: 16px;
+    padding: 16px 20px;
+    background: #f0fdf4;
+    border: 1px solid #86efac;
+    border-left: 5px solid #16a34a;
+    border-radius: 0 12px 12px 0;
+  }
+  .action-card-title {
+    font-size: 0.92rem;
+    font-weight: 800;
+    color: #166534;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .action-card-body {
+    font-size: 0.96rem;
+    color: #14532d;
+    line-height: 1.75;
+    font-weight: 600;
+  }
+
+  /* Collapsible Extra References */
+  details.extra-refs {
+    margin-top: 12px;
+    border: 1px dashed #cbd5e1;
+    border-radius: 10px;
+    padding: 8px 12px;
+    background: #fafaf9;
+  }
+  details.extra-refs > summary {
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 0.88rem;
+    color: #475569;
+    padding: 6px 4px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  details.extra-refs > summary::-webkit-details-marker { display: none; }
+  details.extra-refs > summary:hover { color: #0f172a; }
+
+  /* History Archive */
+  .history-section {
+    margin-top: 28px;
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  }
+  .history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--ink);
+  }
+  .history-title {
+    font-family: "Noto Serif TC", "Songti TC", Georgia, serif;
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--ink);
+    margin: 0;
+  }
+  details.hist-day {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    background: var(--warm-bg);
+    overflow: hidden;
+    transition: all 0.15s;
+  }
+  details.hist-day[open] {
+    background: #ffffff;
+    border-color: #cbd5e1;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+  }
+  details.hist-day > summary {
+    padding: 13px 16px;
+    font-weight: 800;
+    font-size: 0.96rem;
+    color: var(--ink);
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  details.hist-day > summary::-webkit-details-marker { display: none; }
+  details.hist-day > summary:hover { background: #f1efea; }
+  .hist-day-body {
+    padding: 14px 18px 18px 18px;
+    border-top: 1px solid var(--border);
+    font-size: 0.93rem;
+    line-height: 1.75;
+  }
+  .hist-item {
+    padding: 12px 14px;
+    background: #fafaf9;
+    border-left: 3px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 10px;
+  }
+  .hist-item:last-child { margin-bottom: 0; }
+</style>
+</head>
+<body>
+
+<!-- 儲存前確認新標籤 Modal -->
+<div class="modal-backdrop" id="tag-modal">
+  <div class="modal-box">
+    <div class="modal-title">🏷️ 儲存前確認：是否納入建議新增標籤？</div>
+    <div style="font-size:0.86rem;color:var(--muted);margin-bottom:12px;line-height:1.6;">
+      原本的 24 個標準標籤未必涵蓋本篇的專業細分領域。系統為本篇遴選了以下<strong>建議新增標籤</strong>（確認納入後將同步寫入 Zotero、Notion 與 Obsidian <code>[[雙向連結]]</code>）！
+    </div>
+    <div style="font-size:0.82rem;margin-bottom:10px;">
+      <strong>📌 原有標準標籤：</strong><span id="modal-base-tags"></span>
+    </div>
+    <div style="font-size:0.84rem;font-weight:700;color:#92400e;margin-bottom:6px;">💡 請勾選您同意新增的標籤：</div>
+    <div id="modal-sug-list" style="margin-bottom:12px;"></div>
+    <div style="margin-bottom:16px;">
+      <label style="font-size:0.8rem;color:var(--muted);display:block;margin-bottom:4px;">✏️ 手動輸入其他想新增的標籤（全小寫英文，多標籤用逗號分隔）：</label>
+      <input type="text" id="modal-custom-tags" placeholder="例如：ai-governance, urban-planning, civic-tech" style="width:100%;padding:8px 12px;border:1px solid #cbd5e1;border-radius:8px;font-size:0.86rem;font-family:monospace;" />
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end;">
+      <button class="btn-save-sub" onclick="closeTagModal()">取消</button>
+      <button class="btn-save-sub" onclick="confirmTagModal(false)">🛡️ 僅用標準標籤存入</button>
+      <button class="btn-save-main" onclick="confirmTagModal(true)">✅ 納入勾選新標籤並存入</button>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <!-- 報頭 Masthead -->
+  <header class="masthead">
+    <div>
+      <div class="masthead-eyebrow">NPO Intelligence Review ・ 週一策略轉型與使命創新專刊</div>
+      <h1 class="masthead-title">非營利組織每日深度晨報</h1>
+    </div>
+    <div class="masthead-meta">
+      <div><strong>2026 年 11 月 02 日（週一）</strong> ｜ 過去 7 天實證核驗</div>
+      <div style="margin-top:6px;display:flex;gap:8px;justify-content:flex-end;align-items:center;flex-wrap:wrap;">
+        <button class="btn-save-sub" style="background:#fef3c7;color:#92400e;border-color:#fde68a;font-weight:700;" onclick="document.getElementById('history-archive-section').scrollIntoView({behavior:'smooth'})">🗂️ 過去歷史日報折疊區 ↓</button>
+        <button class="btn-save-sub" style="background:#f0fdf4;color:#166534;border-color:#86efac;font-weight:700;" onclick="publishToGitHub()">🌐 推送到 GitHub 網站</button>
+        <span id="issue-notion-status"></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ⭐ 今日 3 個重點快覽 -->
+  <div class="briefing-box" id="briefing-box"></div>
+
+  <!-- 焦點切換導航 -->
+  <nav class="story-switcher" id="art-nav"></nav>
+
+  <!-- 單頁一氣呵成閱讀長文紙張 -->
+  <main class="paper-sheet" id="art-card"></main>
+
+  <!-- 歷史日報折疊專區 -->
+  <section class="history-section" id="history-archive-section">
+    <div class="history-header">
+      <div>
+        <div class="masthead-eyebrow">Historical Briefings Archive ・ 跨日知識累積</div>
+        <h2 class="history-title">🗂️ 過去歷史日報折疊總覽（點擊日期即可展開閱讀）</h2>
+      </div>
+      <div style="display:flex;gap:6px;">
+        <button class="btn-save-sub" onclick="document.querySelectorAll('details.hist-day').forEach(d=>d.open=true)">展開全部</button>
+        <button class="btn-save-sub" onclick="document.querySelectorAll('details.hist-day').forEach(d=>d.open=false)">收合全部</button>
+      </div>
+    </div>
+
+    <!-- 2026-10-30 週五 -->
+    <details class="hist-day">
+      <summary>
+        <span>📅 <strong>2026-10-30（週五）</strong>：全球與東亞法規政策、自律動態（兒少保護、新公益信託、身障權益防禦）</span>
+        <span style="font-size:0.8rem;color:var(--accent);">點擊展開 / 收合 ▾</span>
+      </summary>
+      <div class="hist-day-body">
+        <div class="hist-item">
+          <strong>[FRI-1・🇹🇼 台灣社工權益] 【獨家｜2026 地方大選】沈伯洋＆社工客廳會：政府的角色就是必須接住社工、如何緩解人力荒？</strong><br/>
+          <small style="color:var(--muted);">出處：Right Plus 多多益善 ｜ <a href="https://rightplus.org/2026/10/29/" target="_blank">原始連結 →</a></small>
+          <p style="margin:6px 0 0 0;">深度剖析第一線基層社工在面對保護責任重擔下的體制性背叛與人力流失困境，倡議行政合規減負與政策接住支持系統。<br/>📚 <strong>延伸文獻：</strong>Brodkin (2011) 基層官僚新管理主義 ｜ Munro (2011) 英國兒少保護檢討報告 ｜ Smidt & Freyd (2018) 政府體制性背叛。</p>
+        </div>
+      </div>
+    </details>
+
+    <!-- 2026-10-29 週四 -->
+    <details class="hist-day">
+      <summary>
+        <span>📅 <strong>2026-10-29（週四）</strong>：策略募款與捐款人行為（基金會被動資本、日本寄付稅制、特殊活動與大額捐款）</span>
+        <span style="font-size:0.8rem;color:var(--accent);">點擊展開 / 收合 ▾</span>
+      </summary>
+      <div class="hist-day-body">
+        <div class="hist-item">
+          <strong>[THU-1・🇺🇸 NPQ] 免稅補貼下的冷漠聳肩：資產規模 2.2 兆美元的基金會如何以「被動囤積資本」威脅民主體制與 NPO 永續？</strong><br/>
+          <small style="color:var(--muted);">出處：Nonprofit Quarterly, Aparna Rae ｜ <a href="https://nonprofitquarterly.org/the-tax-subsidized-shrug-how-foundation-leaders-threaten-democracy-and-the-nonprofit-sector/" target="_blank">原始連結 →</a></small>
+          <p style="margin:6px 0 0 0;">批判基金會將 5% 最低撥款率當作上限的資本囤積現象，呼籲釋放多年期無限制營運補助。<br/>📚 <strong>延伸文獻：</strong>Madoff (2020) 5% 遮羞布 ｜ Heist & Vance-McMullen (2019) DAF 撥款實證 ｜ Salehi & Infante (2024) 信任導向慈善。</p>
+        </div>
+        <div class="hist-item">
+          <strong>[THU-3・🌐 NML 頂刊] 特殊募款活動在「關係型募款」中的實證角色：活動累積參與度、親密性特質與大額捐款轉化盲點</strong><br/>
+          <small style="color:var(--muted);">出處：Nonprofit Management and Leadership, Jensen et al., 2026 ｜ <a href="https://doi.org/10.1002/nml.70067" target="_blank">DOI: 10.1002/nml.70067 →</a></small>
+          <p style="margin:6px 0 0 0;">實證戳破「晚宴促成大額捐款」迷思：活動出席無法替代專人一對一個別深度培育。<br/>📚 <strong>延伸文獻：</strong>Sargeant (2001) 關係型募款基石 ｜ Walk et al. (2022) 募款邊際效益遞減 ｜ Russell James (2016) 慈善規劃顧問職稱實驗。</p>
+        </div>
+      </div>
+    </details>
+  </section>
+</div>
+
+<script>
+const ARTICLES = [
+  {
+    code: "MON-1",
+    region: "台灣在地 城市共融與身障自立生活創新",
+    timestamp: "2026-11-06",
+    publisher: "Right Plus 多多益善",
+    authors: "周月清（國立中正大學高齡社會勞動與福祉研究中心研究員）",
+    pubDate: "2026-11-06",
+    year: 2026,
+    tags: ["strategy", "governance", "compliance", "taiwan"],
+    titleZh: "【2026 地方大選】周月清／下班怎麼回家？障礙者能選擇的城市生活，給地方候選人的４個問題",
+    titleOrig: "【2026 地方大選】周月清／下班怎麼回家？障礙者能選擇的城市生活，給地方候選人的４個問題",
+    doi: "",
+    url: "https://rightplus.org/2026/11/06/election2026-independent-living/",
+    tldr: "中正大學研究員周月清於《多多益善》專文向 2026 地方候選人提出四大關鍵提問：直指交通卡點數政策忽視「有誰根本上不了車」、夜間與假日個人助理支持斷炊、社會住宅與無障礙空間脫節，以及政策缺乏障礙者實質共治；呼籲地方政府將自立生活支持視為「公民基本權利」，擺脫恩給式殘障照顧思維。",
+    relevance: "高",
+    verify: "search_web 實測",
+    action: "檢視本會推動之社區服務方案與無障礙環境設施，導入「全流程連貫性檢核清單（Door-to-Door Accessibility Check）」，並於新年度專案中增設「障礙者同儕生活顧問（Peer Consultant）」，確保服務規劃全面落實『沒有我們的參與，不要為我們做決定』。",
+    bullets: [
+      {
+        text: "【空間斷點癱瘓生活：交通補助掩蓋不了連貫性缺失】周月清指出，地方候選人熱中承諾加碼交通卡點數，卻無視從家門口、人行道、公車站牌、低底盤公車到目的地的連貫性阻礙。只要其中一環走不通（如公車拒載、人行道被佔、無電梯），整趟行程即告泡湯；缺乏夜間與假日的復康接送，更使障礙者被實質禁錮於家中。",
+        quote: "從家門口到人行道、從站牌到車廂，再從下車處到目的地，任何一段走不通，都可能讓人取消整趟行程。即使卡裡有點數，晚上下班時，有沒有合適的車可以搭？週末想出門，有沒有人能幫忙？"
+      },
+      {
+        text: "【自立生活不是凡事自己做，而是擁有決定生活的權力】文章深度釐清自立生活的真正本質：即便身體需要人力協助穿衣、移位或如廁，並不代表失去決定生活型態的主體性。依據聯合國 CRPD 第 19 條，政府有法定責任提供充足且穩定的個人助理（PA）服務，讓身障者能平等外出工作、社交與實踐親職，而非被迫安置於封閉機構。",
+        quote: "「自立生活」常被誤解為凡事都要自己做、不需要別人。然而，一個人需要人力協助穿衣、移動或溝通，並不表示一個人不能決定去哪裡、與誰相處、過什麼生活。"
+      },
+      {
+        text: "【預算編列與實質參與：民主承諾必須抵達最易被遺忘的人】作者批判地方政府往往將障礙者參與化約為「受邀合照與樣板列席」，要求候選人具體承諾：自立生活支持預算如何跨局處整合？改善後的公共設施是否由不同障別者實際試用？成果指標應全面公開「未獲支持的需求缺口」，而非僅美化服務人次。",
+        quote: "「你想生活在什麼樣的城市？」我的答案是：障礙者能與其他市民平等決定自己的生活，也能共同決定城市的未來。民主的承諾，必須抵達那些最容易被遺忘的人。"
+      }
+    ],
+    critiques: [
+      "【「撒幣式補助」替代「結構性無障礙」的政治惰性】政客偏好發放點數卡、發行敬老愛心卡等單向金錢補貼，因為此類政策最具即時宣傳效果；然而，真正攸關障礙者生死與尊嚴的「個人助理夜間人力供給」、「低底盤公車司機服務品質監督」與「社宅無障礙改裝」，因涉及複雜跨局處協調與常態財政支出，長期遭到行政怠惰與邊緣化。",
+      "【公私協力委辦制度將「政府法定人權責任」甩鍋民間】地方政府常將自立生活中心與個人助理培訓外包給微型社福團體，卻給予極其嚴苛的工時核銷規定與低於市場行情的管理費，導致助理流動率居高不下。當服務開天窗時，官僚體系反過來責怪 NPO 派案不力，徹底扭曲了 CRPD 國家作為最終人權義務承擔者的憲法責任。"
+    ],
+    consultant: "給投入身心障礙、高齡長照與社區倡議 NPO 之策略處方：(1) 發展「自立生活共融影響力矩陣（Inclusive Living IMM）」，將衡量指標從單純「補助服務人次」提升為「服務使用者社區自立時數、職場留任率與心理福祉指數」；(2) 串聯交通、建築與社福團體組成「城市平權監督聯盟」，以實地走訪與密客測試數據向地方議會質詢，督促市府落實跨局處單一整合窗口；(3) 建立「個人助理永續職涯梯隊」，倡議政府將個助時薪與專業加給納入法定最低保障，解決長期缺工困境。",
+    teachingQ: "在評估城市社福投資的「社會投資報酬率（SROI）」時，如何將障礙者從『被動機構收容對象』轉變為『社區自主生活與經濟生產者』的長期制度效益納入模型？NPO 如何在政策倡議中運用『生活斷點數據』打破官僚預算壁壘？",
+    suggestedTags: [
+      { tag: "inclusive-city", reason: "共融城市規劃與無障礙空間連貫性" },
+      { tag: "crpd-article19", reason: "CRPD 第 19 條社區自主生活權利" }
+    ],
+    refs: [
+      {
+        code: "MON-1A",
+        titleZh: "個人助理、自立生活與身心障礙者：國際系統性文獻回顧（2013-2023）",
+        titleOrig: "Personal assistance, independent living, and people with disabilities: An international systematic review (2013-2023)",
+        authors: "Breogán Riobóo-Lois, Paula Frieiro, Rubén González-Rodríguez, Carmen Verde-Diego",
+        journal: "Disability and Health Journal",
+        year: 2024,
+        doi: "10.1016/j.dhjo.2024.101630",
+        url: "https://doi.org/10.1016/j.dhjo.2024.101630",
+        point: "系統性回顧全球 2013 至 2023 年間關於身心障礙個人助理（PA）與自立生活的實證研究，指出由使用者自我主導（User-Directed）的個人助理制度，能顯著改善身障者的生活品質、社會參與度與心理健康；同時揭示各國在落實 CRPD 第 19 條時普遍面臨的制度阻礙，包括官僚審查嚴苛、資金不足及專業助理人力短缺。",
+        value: "為台灣周月清教授所倡議之個人助理制度改革與自立生活政策，提供十年來國際最完整之同行評審實證綜述與政策比較依據。",
+        deep: "研究強調，個人助理服務若要發揮賦權效益，核心在於「控制權移轉（Transfer of Control）」——障礙者必須具備招聘、培訓與調度助理的實質權力，而非由外部機構代為指派；任何剝奪自主調度彈性的官僚限制，都將使 PA 制度退化為傳統家長式醫療照護。",
+        suggestedTags: [
+          { tag: "user-directed-support", reason: "使用者自我主導個人助理與賦權模式" }
+        ]
+      }
+    ]
+  },
+  {
+    code: "MON-2",
+    region: "歐美國際 氣候金融與調適韌性交付系統",
+    timestamp: "2026-11-05",
+    publisher: "Stanford Social Innovation Review (SSIR)",
+    authors: "Jennifer S. Martin, Sidra Irfan, Bismah Nayyer, Dan Hunt, Carolina Batista",
+    pubDate: "2026-11-05",
+    year: 2026,
+    tags: ["strategy", "performance", "disaster", "us"],
+    titleZh: "氣候韌性絕非依靠公關新聞稿所能建立：SSIR 呼籲超越 COP31 承諾幻覺、重構保護脆弱社群之落地交付系統",
+    titleOrig: "Climate Resilience Will Not Be Built by Press Release",
+    doi: "",
+    url: "https://ssir.org/articles/entry/climate-finance-cop31",
+    tldr: "在 COP31 氣候峰會召開前夕，五位全球公衛與氣候專家於 SSIR 重砲發表專文指出，當前國際氣候界充斥「公關新聞稿承諾（Press Release Pledges）」與象徵性聯盟，但巨額氣候資金卻遲遲無法下沉至第一線脆弱社群。文章疾呼氣候調適必須轉向「落地交付檢驗」，資金應直接注資於支撐風險的基層公共基礎設施與在地治理組織。",
+    relevance: "中",
+    verify: "search_web 實測",
+    action: "檢視組織既有之氣候變遷、災難救助或弱勢扶助專案，揚棄「單次活動公關造勢」，建立「極端氣候脆弱度基線與社區應變清單」，主動與企業 ESG 或氣候基金會提案長期、可驗證交付之在地韌性建設計畫。",
+    bullets: [
+      {
+        text: "【公關宣示的虛假繁榮：沒有執行的承諾本質上是制度性延宕】作者群抨擊，從紐約氣候週到曼谷高溫論壇，國際峰會總是不斷宣布數十億美元規模的聯合基金與倡議，但資金撥付速度遠遠落後於氣候風險爆發的速度。未經執行的公開承諾絕非價值中立，而是一種製造『正在行動』假象的拖延戰術，放任全球逾三十億脆弱人口暴露於極端氣候災難中。",
+        quote: "The climate field is already expert in producing declarations, roadmaps, pledges, branded funds and collective statements that generate the appearance of movement while leaving the machinery of escalating harm intact... Commitments without implementation are not neutral; they function as a form of delay."
+      },
+      {
+        text: "【調適政治的試金石：資金是否抵達承擔風險的基層系統】專文強調，COP31 檢驗標準不在於各國又宣布了多少宏偉數字，而在於資金是否真正流向地方政府與在地 NPO。以極端高溫為例，擴大高溫預警系統每年可拯救近十萬條人命，但資金卻常卡在國際多邊機構的官僚繁文縟節與顧問費用中，無法轉化為在地遮蔭、醫療與救災裝備。",
+        quote: "Ahead of COP31, the test for climate finance is no longer what gets announced; it is whether money reaches the systems that protect people."
+      },
+      {
+        text: "【重構合約與權力架構：資助者必須信任在地社群的治理能力】韌性本質上涉及「誰被保護、誰獲得資助、誰被信任，以及誰被預期去吸收風險」。若公共機構無法在可預見的災害中保護民眾，將面臨深刻的合法性危機；氣候金融必須去除中介損耗，賦予在地組織自主調度資源的權限。",
+        quote: "Resilience is ultimately about who is protected, who is funded, who is trusted, and who is expected to absorb risk. Institutions that cannot protect people from foreseeable harm will face a crisis of legitimacy."
+      }
+    ],
+    critiques: [
+      "【氣候倡議的「峰會狂熱症」與國際官僚自肥】全球氣候非營利生態系陷入嚴重的「國際會議導向」，菁英組織者頻繁穿梭於全球峰會產出空洞的倡議宣言，賺取媒體曝光與名聲；而真正面對暴雨、土石流與乾旱威脅的基層部落與城鄉貧困社群，卻連最基礎的防汛沙包與備用電力發電機都求助無門。",
+      "【綠色漂白與氣候融資的「避險偏誤」】大型氣候基金與多邊開發銀行為規避財務風險，往往對資金申請設立極端複雜的盡職調查（Due Diligence）與國際審計門檻，實質上將最需要資金的草根型 NPO 徹底排除在外，形成「旱澇不均」的資本配置扭曲。"
+    ],
+    consultant: "給致力於環境正義、社區營造與防減災 NPO 領導人之處方建議：(1) 推動「在地韌性可交付指標（Deliverable Resilience Metrics）」，以具體的生命防護設施覆蓋率、避難所不斷電天數與弱勢長者降溫救助人次，取代模糊的碳權或減碳願景；(2) 倡議「氣候調適資金直達在地（Direct Access Climate Finance）」，要求政府與氣候基金開闢專屬草根 NPO 的快速審查綠色通道；(3) 建立「跨界極端氣候即時聯防網絡」，結合理療機構、地方農會與救災志工隊，形成具備自我造血與物資調度能力的網狀生態圈。",
+    teachingQ: "在面對全球氣候金融『宣示極大化、交付極小化』的結構性困境下，非營利組織如何運用實證數據揭露體制痛點，並建立具備高度課責性的在地直接融資模型？社區韌性評估如何擺脫技術官僚指標、回到以人為本的生命防護？",
+    suggestedTags: [
+      { tag: "climate-finance", reason: "國際氣候金融承諾與交付系統重構" },
+      { tag: "adaptation-resilience", reason: "極端氣候調適與基層防護韌性" }
+    ],
+    refs: [
+      {
+        code: "MON-2A",
+        titleZh: "非營利組織災害管理的行銷策略：建立社區韌性的 7T 分析架構",
+        titleOrig: "Marketing Tactics for Nonprofit Disaster Management: A 7T Framework for Community Resilience",
+        authors: "Cansu Akcicek, Aylin Caliskan, Yucel Ozturkoglu",
+        journal: "Nonprofit and Voluntary Sector Quarterly",
+        year: 2026,
+        doi: "10.1177/08997640261487107",
+        url: "https://doi.org/10.1177/08997640261487107",
+        point: "突破傳統商業行銷思維，針對非營利與志願部門在災害管理（整備、應變、復原）不同階段的特殊屬性，建構專屬之「7T 分析架構」（包含 Targeting、Tangibility、Trust、Time-criticality 等維度），系統化解析 NPO 如何透過精準策略溝通與資源調度，打造具備抗逆力的韌性社區。",
+        value: "為 SSIR 專文所批判的空洞公關宣示提供實證解方，指導非營利組織如何將抽象的氣候韌性轉化為精準可執行的災害管理策略行動。",
+        deep: "研究指出，災害管理行銷的核心並非宣傳組織品牌，而是建立「多邊信任網絡（Multilateral Trust Networks）」；在災前整備期建立透明的資訊與物資交付路徑，才能在災難爆發的關鍵時間窗口內，迅速調動公民社會的隱性資源與自救動能。",
+        suggestedTags: [
+          { tag: "disaster-management-framework", reason: "非營利災害管理 7T 韌性理論模型" }
+        ]
+      }
+    ]
+  },
+  {
+    code: "MON-3",
+    region: "日本東亞 休眠預金機動分配與敏捷專案管理",
+    timestamp: "2026-11-06",
+    publisher: "一般財団法人 日本民間公益活動連携機構（JANPIA）",
+    authors: "JANPIA 事務局",
+    pubDate: "2026-11-06",
+    year: 2026,
+    tags: ["strategy", "performance", "disaster", "japan"],
+    titleZh: "日本休眠預金運用創新：JANPIA 正式選定 2026 年度「緊急枠第2次」資金分配團體投入熊本地震災後重建與社會創新",
+    titleOrig: "休眠預金等活用法に基づく2026年度緊急枠〈第2次〉資金分配団体の決定～令和8年熊本地震への支援に向け、助成対象2事業を選定～",
+    doi: "",
+    url: "https://www.janpia.or.jp/press/news_20261106_01.html",
+    tldr: "日本民間公益活動連携機構（JANPIA）於 2026 年 11 月 6 日正式公佈休眠預金「緊急支援枠〈第2次〉」審查結果，選定認定 NPO 法人 ETIC. 與一般社團法人 RCF 擔任資金分配團體，全力投入 2026 年熊本地震災後重建；此項制度展現了休眠資產如何透過二層式資金架構（JANPIA⇁E資金分配團體⇁E在地執行團體）實現機動、敏捷且導向長期社會影響力的創新救助模式。",
+    relevance: "高",
+    verify: "search_web 實測",
+    action: "研讀日本休眠預金二層式資金分配架構（Intermediary Fund Allocation Model），檢視台灣推動公益信託法修法與民間善款運用之可能途徑，規劃本會如何扮演「中介育成支援型組織（Intermediary NPO）」，提升資源對基層的配置效能。",
+    bullets: [
+      {
+        text: "【突破傳統助成僵化：休眠預金「緊急枠」的機動應變機制】JANPIA 針對 2026 年 7 月 28 日熊本地震後衍生的中長期複雜生活重建需求，於 8 月至 9 月迅速啟動緊急枠第 2 次公募。經過嚴格外部審查，選定在災後重建與地方創生深具公信力的 ETIC. 與 RCF，開創公共休眠資本快速對接民間在地需求的救助通道。",
+        quote: "今回の公募は、2026年7月28日に発生した熊本地震の影響による緊急的な支援ニーズの高まりを踏まえ、被災地域で深刻化・顕在化した社会課題への対応を目的として、2026年8月7日から9月30日まで臨時に実施したものです。"
+      },
+      {
+        text: "【中介組織（PO）賦能基層：從純給錢走向深層組織伴走】選定之資金分配團體並非單純轉發資金，而必須扮演「伴走支援者（Hands-on Incubator）」，協助第一線執行團體設計邏輯模型、導入數位工具並串聯地方自治體與在地企業，將短期的物資救援轉化為長期的社區產業振興與脆弱孤立防範。",
+        quote: "今後、各資金分配団体は、実行団体の公募、審査、選定を行い、実行団体が次年度より活動を開始する見込みです。"
+      },
+      {
+        text: "【制度化社會影響力評價（IMM）：確保每筆休眠善款發揮乘數效應】休眠預金制度自立法以來即強制導入社會影響力評估（Social Impact Measurement），要求分配團體與執行團體建立可量化與質性兼備的變革理論（Theory of Change），為東亞非營利部門展示了公共資本如何兼顧審計嚴謹性與社會創新活力。",
+        quote: "助成予定額は億円単位で表示し、百万円未満を四捨五入しています。申請のあった5事業について、外部審査委員による審査会議での審査を行い、JANPIAの理事会を経て、2事業（2団体）を選定しました。"
+      }
+    ],
+    critiques: [
+      "【台灣公益信託與閒置資產運用的停滯反思】相較於日本將沉睡於銀行的休眠預金立法轉化為高達數百億日圓的常態性公益活水，台灣目前數千億規模之公益信託長年淪為財閥避稅與控股工具，且缺乏如同 JANPIA 的獨立公正中介分配機構，制度革新步伐極度落後。",
+      "【影響力評估指標的「過度繁瑣化」風險】在日本實務中，休眠預金雖然立意良善，但層層的影響力指標提報與複雜行政核銷，亦曾使部分中小型在地草根團體面臨行政過載。如何在確保課責性的同時維持災後緊急救助的彈性，始終是制度演進中的核心辯證。"
+    ],
+    consultant: "給台灣關注災防韌性、影響力投資與中介型 NPO 領導人建議：(1) 借鏡 JANPIA 的「專案與專案群管理（P2M）」框架，建構本會專屬的「敏捷救災中介支援作業準則」，明確界定平時整備、災後應變與中長期社區創生之資源配比；(2) 積極推動台灣版《休眠預金活用法》或《公益信託法》翻修倡議，爭取鬆綁金融閒置資本投入高風險社會創新；(3) 導入簡明易行的「質性賦能型影響力評估工具」，避免以死板量化數字扼殺在地第一線助人者的自發創新。",
+    teachingQ: "日本休眠預金制度如何透過『資金分配團體（中介型 NPO）』化解公部門無法直接篩選、陪伴微型草根組織的痛點？在緊急災後重建的動態情境下，社會影響力評估（SIM）應如何調適，才能兼顧課責要求與敏捷應變？",
+    suggestedTags: [
+      { tag: "dormant-assets", reason: "日本休眠預金等活用制度創新實踐" },
+      { tag: "intermediary-support", reason: "中介型資金分配團體與伴走支援模式" }
+    ],
+    refs: [
+      {
+        code: "MON-3A",
+        titleZh: "從專案與專案群管理（P2M）視角探討「休眠預金等活用制度」之社會影響力評估架構研究",
+        titleOrig: "P2Mフレームワークからみた「休眠預金等活用制度」の社会的インパクト評価の枠組みの研究",
+        authors: "小笠原 由佳, 沖浦 文彦",
+        journal: "国際P2M学会誌",
+        year: 2023,
+        doi: "10.20702/iappmjour.17.2_133",
+        url: "https://doi.org/10.20702/iappmjour.17.2_133",
+        point: "運用國際專案與專案群管理（P2M）理論，深度剖析日本休眠預金活用制度中「資金分配團體」與「執行團體」的兩層式治理結構，建構一套兼顧社會課題複雜性、專案群戰略使命與現場靈活度的社會影響力評估整合架構。",
+        value: "為理解 JANPIA 2026 最新緊急枠資金分配運作，提供東亞公共非營利學界最具針對性之影響力評估與專案管理學術原典。",
+        deep: "研究證實，傳統線性單一專案管理無法因應深層社會問題；休眠預金制度成功的關鍵在於將影響力評估視為「組織學習與策略演化工具（Strategic Learning Mechanism）」，透過中介組織的賦能陪伴，協助執行團隊在動態實踐中持續修正變革路徑。",
+        suggestedTags: [
+          { tag: "p2m-framework", reason: "專案與專案群管理理論在非營利領域應用" }
+        ]
+      }
+    ]
+  }
+];
+
+let curArtIdx = 0;
+const savedState = {};
+
+function splitHeadingAndBody(raw) {
+  const m = raw.match(/^【([^】]+)】\s*([\s\S]*)$/);
+  if (m) return { heading: m[1].trim(), body: m[2].trim() };
+  return { heading: "", body: raw.trim() };
+}
+
+let pendingSavePayload = null;
+let pendingStatusId = null;
+
+function openTagModal(payload, statusId, suggestedTags) {
+  pendingSavePayload = payload;
+  pendingStatusId = statusId;
+
+  document.getElementById("modal-base-tags").innerHTML = (payload.tags || [])
+    .map(t => `<span class="tag-chip" style="margin-right:4px;">${t}</span>`)
+    .join("");
+
+  const sugBox = document.getElementById("modal-sug-list");
+  if (!suggestedTags || !suggestedTags.length) {
+    sugBox.innerHTML = `<div style="font-size:0.84rem;color:var(--muted);font-style:italic;">（本篇文獻已具備充分標準標籤，無特定建議擴充詞）</div>`;
+  } else {
+    sugBox.innerHTML = suggestedTags.map((st, i) => `
+      <label class="sug-item">
+        <input type="checkbox" class="sug-tag-chk" value="${st.tag}" checked />
+        <div>
+          <strong style="color:#b45309;font-family:monospace;font-size:0.88rem;">+ ${st.tag}</strong>
+          <div style="font-size:0.8rem;color:var(--muted);margin-top:2px;">${st.reason}</div>
+        </div>
+      </label>
+    `).join("");
+  }
+
+  document.getElementById("modal-custom-tags").value = "";
+  document.getElementById("tag-modal").classList.add("show");
+}
+
+function closeTagModal() {
+  document.getElementById("tag-modal").classList.remove("show");
+  pendingSavePayload = null;
+  pendingStatusId = null;
+}
+
+function confirmTagModal(includeSuggested) {
+  if (!pendingSavePayload) return;
+  const payload = Object.assign({}, pendingSavePayload);
+  const tagSet = new Set(payload.tags || []);
+
+  if (includeSuggested) {
+    document.querySelectorAll(".sug-tag-chk:checked").forEach(chk => {
+      const val = chk.value.trim().toLowerCase();
+      if (val) tagSet.add(val);
+    });
+    const customRaw = document.getElementById("modal-custom-tags").value || "";
+    customRaw.split(",").forEach(part => {
+      const clean = part.trim().toLowerCase().replace(/\s+/g, "-");
+      if (clean) tagSet.add(clean);
+    });
+  }
+
+  payload.tags = Array.from(tagSet);
+  const statusId = pendingStatusId;
+  closeTagModal();
+  triggerSave(payload, statusId);
+}
+
+const API_BASE = (window.location.origin && window.location.origin.startsWith("http") && window.location.port === "8765")
+  ? window.location.origin
+  : "http://127.0.0.1:8765";
+
+function triggerSave(itemPayload, statusElementId) {
+  const el = document.getElementById(statusElementId);
+  if (el) el.innerHTML = `<span style="font-size:0.8rem;color:#0284c7;">⏳ 正在入庫中...</span>`;
+
+  fetch(`${API_BASE}/api/save`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(itemPayload)
+  })
+  .then(r => r.json())
+  .then(d => {
+    if (d && (d.status === "ok" || d.ok === true)) {
+      savedState[itemPayload.code] = {
+        target: itemPayload.target,
+        zotero_key: d.zotero_key,
+        notion_url: d.notion_url,
+        obsidian_uri: d.obsidian_uri
+      };
+      if (el) {
+        let links = "";
+        if (d.notion_url) {
+          links += `<a href="${d.notion_url}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;margin-left:6px;padding:3px 9px;background:#eef2ff;color:#3730a3;border:1px solid #c7d2fe;border-radius:6px;font-size:0.76rem;font-weight:700;text-decoration:none;">📝 開啟 Notion ↗</a>`;
+        }
+        if (d.obsidian_uri) {
+          links += `<a href="${d.obsidian_uri}" style="display:inline-flex;align-items:center;gap:4px;margin-left:6px;padding:3px 9px;background:#f3e8ff;color:#6b21a8;border:1px solid #d8b4fe;border-radius:6px;font-size:0.76rem;font-weight:700;text-decoration:none;">🟣 開啟 Obsidian ↗</a>`;
+        }
+        el.innerHTML = `<span style="font-size:0.8rem;color:#166534;font-weight:700;">✅ 已存入</span>${links}`;
+      }
+    } else {
+      if (el) el.innerHTML = `<span style="font-size:0.8rem;color:#b91c1c;">⚠️ 失敗：${d ? (d.error || JSON.stringify(d)) : '未知錯誤'}</span>`;
+    }
+  })
+  .catch(() => {
+    if (el) el.innerHTML = `<span style="font-size:0.8rem;color:#b91c1c;">⚠️ 請確認已啟動 npo_sync_server.py</span>`;
+  });
+}
+
+function publishToGitHub() {
+  const el = document.getElementById("issue-notion-status");
+  if (el) el.innerHTML = `<span style="font-size:0.78rem;color:#0284c7;">⏳ 正在推送至 GitHub Pages 網站...</span>`;
+  fetch(`${API_BASE}/api/publish_github`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ date: "2026-11-09" })
+  })
+  .then(r => r.json())
+  .then(d => {
+    if (d && d.ok && d.pages_url) {
+      if (el) el.innerHTML = `<a href="${d.pages_url}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;padding:4px 10px;background:#dcfce7;color:#166534;border:1px solid #86efac;border-radius:6px;font-size:0.78rem;font-weight:700;text-decoration:none;">🌐 已發布！點此開啟您的 GitHub 網站 ↗</a>`;
+    } else {
+      if (el) el.innerHTML = `<span style="font-size:0.78rem;color:#b91c1c;">⚠️ GitHub 發布未完成</span>`;
+    }
+  })
+  .catch(() => {
+    if (el) el.innerHTML = `<span style="font-size:0.78rem;color:#b91c1c;">⚠️ 請確認已啟動 npo_sync_server.py</span>`;
+  });
+}
+
+function buildSaveButtonsHtml(itemObj, isMain) {
+  const code = itemObj.code;
+  const statusId = `save-status-${code}`;
+  const curr = savedState[code];
+  let initStatus = "";
+  if (curr) {
+    let links = "";
+    if (curr.notion_url) {
+      links += `<a href="${curr.notion_url}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;margin-left:6px;padding:3px 9px;background:#eef2ff;color:#3730a3;border:1px solid #c7d2fe;border-radius:6px;font-size:0.76rem;font-weight:700;text-decoration:none;">📝 開啟 Notion ↗</a>`;
+    }
+    if (curr.obsidian_uri) {
+      links += `<a href="${curr.obsidian_uri}" style="display:inline-flex;align-items:center;gap:4px;margin-left:6px;padding:3px 9px;background:#f3e8ff;color:#6b21a8;border:1px solid #d8b4fe;border-radius:6px;font-size:0.76rem;font-weight:700;text-decoration:none;">🟣 開啟 Obsidian ↗</a>`;
+    }
+    initStatus = `<span style="font-size:0.78rem;color:#166534;font-weight:700;">✅ 已典藏</span>${links}`;
+  }
+
+  const makePayload = (target) => ({
+    target,
+    code: itemObj.code,
+    titleZh: itemObj.titleZh,
+    titleOrig: itemObj.titleOrig,
+    authors: itemObj.authors,
+    journal: itemObj.journal || itemObj.publisher,
+    publisher: itemObj.publisher || itemObj.journal,
+    pubDate: itemObj.pubDate || "2026-11-02",
+    year: itemObj.year || 2026,
+    doi: (itemObj.doi || "").replace("https://doi.org/", ""),
+    url: itemObj.url || (itemObj.doi ? (itemObj.doi.startsWith("http") ? itemObj.doi : "https://doi.org/" + itemObj.doi) : ""),
+    tags: itemObj.tags || ["strategy", "innovation"],
+    summaryShort: isMain ? itemObj.bullets.map(b => b.text).join(" ") : itemObj.point,
+    summaryPoints: isMain ? itemObj.bullets.map(b => b.text) : [itemObj.point],
+    criticalPoints: isMain ? itemObj.critiques : [itemObj.value],
+    consultantInsight: isMain ? itemObj.consultant : itemObj.deep,
+    teachingQuestion: isMain ? itemObj.teachingQ : `請結合《${itemObj.titleOrig}》探討其對台灣與亞洲 NPO 策略與使命創新之實務啟示。`
+  });
+
+  const pBoth = JSON.stringify(makePayload("both")).replace(/"/g, "&quot;");
+  const pZot = JSON.stringify(makePayload("zotero")).replace(/"/g, "&quot;");
+  const pNot = JSON.stringify(makePayload("notion")).replace(/"/g, "&quot;");
+  const pObs = JSON.stringify(makePayload("obsidian")).replace(/"/g, "&quot;");
+  const sTags = JSON.stringify(itemObj.suggestedTags || []).replace(/"/g, "&quot;");
+
+  return `
+    <div class="save-actions">
+      <button class="btn-save-main" onclick="openTagModal(${pBoth}, '${statusId}', ${sTags})">📥 一鍵典藏 (Zotero＋Notion＋Obsidian)</button>
+      <button class="btn-save-sub" onclick="openTagModal(${pZot}, '${statusId}', ${sTags})">僅 Zotero</button>
+      <button class="btn-save-sub" onclick="openTagModal(${pNot}, '${statusId}', ${sTags})">僅 Notion</button>
+      <button class="btn-save-sub" onclick="openTagModal(${pObs}, '${statusId}', ${sTags})">僅 Obsidian</button>
+      <span id="${statusId}">${initStatus}</span>
+    </div>
+  `;
+}
+
+function renderAll() {
+  // 渲染頂部今日 3 個重點 (Executive Briefing)
+  const topArticles = ARTICLES.slice().sort((a, b) => {
+    const p = { '高': 0, '中': 1, '低': 2 };
+    return (p[a.relevance] ?? 3) - (p[b.relevance] ?? 3);
+  }).slice(0, 3);
+
+  document.getElementById("briefing-box").innerHTML = `
+    <div class="briefing-title">⭐ 今日 3 個重點快覽（Executive Briefing ｜ 依台灣 NPO 關聯度排序）</div>
+    <ol class="briefing-list">
+      ${topArticles.map(a => `
+        <li>
+          <strong>${a.titleZh.slice(0, 26)}…</strong>：${a.tldr || ""}
+        </li>
+      `).join("")}
+    </ol>
+  `;
+
+  document.getElementById("art-nav").innerHTML = ARTICLES.map((it, i) => `
+    <button class="story-tab ${i === curArtIdx ? 'active' : ''}" onclick="curArtIdx=${i};renderAll();window.scrollTo({top:0,behavior:'smooth'});">
+      <div class="story-tab-num">
+        <span>FOCUS 0${i + 1} ・ ${it.region.split(' ')[0]}</span>
+        <span class="${it.relevance === '高' ? 'badge-rel-high' : (it.relevance === '中' ? 'badge-rel-mid' : 'badge-rel-low')}">關聯度：${it.relevance}</span>
+      </div>
+      <div class="story-tab-title">${it.titleZh.replace(/^【[^】]+】\s*/, '')}</div>
+    </button>
+  `).join("");
+
+  const art = ARTICLES[curArtIdx];
+
+  const storyHtml = art.bullets.map((b, idx) => {
+    const parsed = splitHeadingAndBody(b.text);
+    return `
+      <div class="story-point">
+        ${parsed.heading ? `
+          <div class="story-point-title">
+            <span class="story-point-num">0${idx + 1}.</span>
+            <span>${parsed.heading}</span>
+          </div>
+        ` : ""}
+        <p class="story-point-body">${parsed.body}</p>
+        <div class="pull-quote">
+          <span class="pull-quote-label">📜 原文關鍵引句</span>
+          「${b.quote}」
+        </div>
+      </div>
+    `;
+  }).join("");
+
+  const critiquesHtml = art.critiques.map(c => {
+    const parsed = splitHeadingAndBody(c);
+    return `
+      <div class="insight-item">
+        ${parsed.heading ? `<span class="insight-sub">▸ ${parsed.heading}</span>` : ""}
+        <span>${parsed.body}</span>
+      </div>
+    `;
+  }).join("");
+
+  const renderRefCard = (r, rIdx) => {
+    const rWithTags = Object.assign({ tags: art.tags, pubDate: art.pubDate, year: r.year }, r);
+    const dId = `dd-${art.code}-${rIdx}`;
+    const rLink = r.doi ? (r.doi.startsWith("http") ? r.doi : `https://doi.org/${r.doi}`) : r.url;
+    const rSugHtml = (r.suggestedTags && r.suggestedTags.length)
+      ? `<div style="margin-bottom:10px;display:flex;flex-wrap:wrap;gap:5px;align-items:center;">
+           <span style="font-size:0.76rem;color:#b45309;font-weight:700;">💡 建議擴充標籤：</span>
+           ${r.suggestedTags.map(st => `<span class="sug-chip" title="${st.reason}">+${st.tag} (${st.reason})</span>`).join("")}
+         </div>`
+      : "";
+
+    return `
+      <div class="ref-item">
+        <div class="ref-top">
+          <span class="ref-code">延伸文獻 ${r.code}</span>
+          <a class="source-link" href="${rLink}" target="_blank" rel="noopener">🔗 查閱原始論文 (${r.doi || '官方報告'}) →</a>
+        </div>
+        <div class="ref-title-zh">${r.titleZh}</div>
+        <div class="ref-title-orig">${r.titleOrig}</div>
+        <div class="ref-byline">${r.authors} ・ <em>${r.journal}</em> (${r.year})</div>
+        <div class="ref-summary-grid">
+          <div class="ref-takeaway">${r.point}</div>
+          <div class="ref-value-pill"><strong>💡 為什麼這篇值得對照閱讀：</strong>${r.value}</div>
+        </div>
+        ${rSugHtml}
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;padding-top:8px;border-top:1px dashed var(--border);">
+          ${buildSaveButtonsHtml(rWithTags, false)}
+          <button class="btn-save-sub" style="color:#4f46e5;border-color:#c7d2fe;background:#eef2ff;" onclick="document.getElementById('${dId}').classList.toggle('show')">🔍 展開方法論與台日實務探討</button>
+        </div>
+        <div class="ref-drawer" id="${dId}">
+          <strong>🔬 深度方法論與實務啟示：</strong><br/>${r.deep}
+        </div>
+      </div>
+    `;
+  };
+
+  const MAX_REFS = 2;
+  const primaryRefs = art.refs.slice(0, MAX_REFS).map((r, i) => renderRefCard(r, i)).join("");
+  const secondaryRefs = art.refs.slice(MAX_REFS).map((r, i) => renderRefCard(r, i + MAX_REFS)).join("");
+  const refsHtml = primaryRefs + (secondaryRefs ? `
+    <details class="extra-refs">
+      <summary>▸ 展開其餘 ${art.refs.length - MAX_REFS} 篇進階延伸學術文獻</summary>
+      <div style="margin-top:10px;display:flex;flex-direction:column;gap:14px;">
+        ${secondaryRefs}
+      </div>
+    </details>
+  ` : "");
+
+  const artSugHtml = (art.suggestedTags && art.suggestedTags.length)
+    ? art.suggestedTags.map(st => `<span class="sug-chip" title="建議新增：${st.reason}">+${st.tag}</span>`).join("")
+    : "";
+
+  document.getElementById("art-card").innerHTML = `
+    <div class="kicker-row">
+      <span class="kicker-badge">${art.region}</span>
+      <span class="badge-verify">✅ ${art.verify || "search_web 實測"}</span>
+      <span class="${art.relevance === '高' ? 'badge-rel-high' : (art.relevance === '中' ? 'badge-rel-mid' : 'badge-rel-low')}">台灣 NPO 關聯度：${art.relevance}</span>
+      <span class="source-meta">${art.publisher} ・ 作者：${art.authors} ・ ${art.timestamp}</span>
+      <a class="source-link" href="${art.url}" target="_blank" rel="noopener">閱讀原始文本 →</a>
+    </div>
+
+    <h2 class="headline">${art.titleZh}</h2>
+    <div class="subheadline">原文標題：${art.titleOrig}</div>
+
+    <!-- ⚡ 30 秒核心摘要導讀 -->
+    <div class="tldr-box">
+      <strong>⚡ 30 秒決策者摘要：</strong>${art.tldr || ""}
+    </div>
+
+    <!-- 知識庫收藏與標籤工具列 -->
+    <div class="toolbar">
+      <div class="tags-group">
+        <span style="font-size:0.78rem;color:var(--muted);font-weight:700;">🏷️ 標籤：</span>
+        ${art.tags.map(t => `<span class="tag-chip">${t}</span>`).join("")}
+        ${artSugHtml}
+      </div>
+      ${buildSaveButtonsHtml(art, true)}
+    </div>
+
+    <!-- 第一節：新聞與法規脈絡 -->
+    <div class="sec-header">📖 焦點脈絡與關鍵現場</div>
+    <div>${storyHtml}</div>
+
+    <!-- 第二節：深度評論與顧問處方箋（左右雙欄） -->
+    <div class="sec-header">⚖️ 深度評論與顧問處方箋</div>
+    <div class="insight-grid">
+      <div class="insight-card critique">
+        <div class="insight-card-title" style="color:#92400e;">🔍 體制盲點與批判性反思</div>
+        ${critiquesHtml}
+      </div>
+      <div class="insight-card memo">
+        <div class="insight-card-title" style="color:#065f46;">💼 給 NPO 決策者的顧問建議</div>
+        <div class="insight-item" style="color:#064e3b;">${art.consultant}</div>
+      </div>
+    </div>
+
+    <!-- 🎯 下週可以做的一件事 -->
+    <div class="action-card">
+      <div class="action-card-title">🎯 下週可以做的一件事（Actionable Takeaway）</div>
+      <div class="action-card-body">${art.action || "檢視當前工作流程並結合組織現況排定具體優化測試。"}</div>
+    </div>
+
+    <!-- 課堂提問 -->
+    <div class="seminar-box">
+      <div class="seminar-title">🎓 課堂與讀書會思辨提問 (Seminar Discussion)</div>
+      <div class="seminar-text">${art.teachingQ}</div>
+    </div>
+
+    <!-- 第三節：延伸學術文庫 -->
+    <div class="sec-header">📚 延伸學術與政策文庫（點擊即可展開或存入知識庫）</div>
+    <div class="ref-list">${refsHtml}</div>
+  `;
+}
+
+// 讀取已儲存狀態
+fetch(`${API_BASE}/api/status`).then(r => r.json()).then(d => {
+  if (d && d.saved) Object.assign(savedState, d.saved);
+  renderAll();
+}).catch(() => renderAll());
+
+renderAll();
+</script>
+</body>
+</html>
