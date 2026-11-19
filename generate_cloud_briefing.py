@@ -44,58 +44,76 @@ def load_reported_history(hist_path):
         print(f"⚠️ 無法讀取歷史記錄: {e}")
         return []
 
-def call_gemini_api(api_key, prompt, model="gemini-2.5-flash"):
+def call_gemini_api(api_key, prompt):
     """
     Call Gemini API with Google Search grounding enabled.
+    Supports multi-model fallback (gemini-3.8-flash, gemini-2.0-flash, gemini-1.5-pro, etc.).
     Supports google-genai SDK or direct REST fallback.
     """
-    print(f"🌐 正在呼叫 Google Gemini API ({model})...")
-    
-    # Try SDK first if available
-    try:
-        from google import genai
-        from google.genai import types
-        client = genai.Client(api_key=api_key)
-        response = client.models.generate_content(
-            model=model,
-            contents=prompt,
-            config=types.GenerateContentConfig(
-                tools=[{"google_search": {}}],
-                temperature=0.2,
-            )
-        )
-        return response.text
-    except Exception as e_sdk:
-        print(f"ℹ️ SDK 呼叫未果 ({e_sdk})，切換至原生 REST API 呼叫...")
+    candidate_models = ["gemini-3.8-flash", "gemini-2.0-flash", "gemini-1.5-pro", "gemini-1.5-flash"]
+    last_err = None
 
-    # Fallback to direct REST API
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={api_key}"
-    payload = {
-        "contents": [
-            {
-                "parts": [{"text": prompt}]
+    for model in candidate_models:
+        print(f"🌐 嘗試呼叫 Google Gemini API ({model})...")
+        
+        # 1. Try SDK first if available
+        try:
+            from google import genai
+            from google.genai import types
+            client = genai.Client(api_key=api_key)
+            response = client.models.generate_content(
+                model=model,
+                contents=prompt,
+                config=types.GenerateContentConfig(
+                    tools=[{"google_search": {}}],
+                    temperature=0.2,
+                )
+            )
+            if response.text:
+                print(f"✅ SDK 成功透過 {model} 取得回應！")
+                return response.text
+        except Exception as e_sdk:
+            print(f"ℹ️ {model} SDK 呼叫未果 ({e_sdk})，嘗試 REST API...")
+
+        # 2. Fallback to direct REST API
+        try:
+            url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={api_key}"
+            payload = {
+                "contents": [
+                    {
+                        "parts": [{"text": prompt}]
+                    }
+                ],
+                "tools": [{"googleSearch": {}}],
+                "generationConfig": {
+                    "temperature": 0.2
+                }
             }
-        ],
-        "tools": [{"googleSearch": {}}],
-        "generationConfig": {
-            "temperature": 0.2
-        }
-    }
-    data = json.dumps(payload).encode("utf-8")
-    req = urllib.request.Request(
-        url,
-        data=data,
-        headers={"Content-Type": "application/json", "User-Agent": "NPO-Briefing-Cloud/1.0"},
-        method="POST"
-    )
-    with urllib.request.urlopen(req, timeout=90) as resp:
-        res_json = json.loads(resp.read().decode("utf-8"))
-        candidates = res_json.get("candidates", [])
-        if not candidates:
-            raise RuntimeError(f"Gemini API 未回傳有效內容: {res_json}")
-        parts = candidates[0].get("content", {}).get("parts", [])
-        text = "".join([p.get("text", "") for p in parts])
-        return text
+            data = json.dumps(payload).encode("utf-8")
+            req = urllib.request.Request(
+                url,
+                data=data,
+                headers={"Content-Type": "application/json", "User-Agent": "NPO-Briefing-Cloud/1.0"},
+                method="POST"
+            )
+            with urllib.request.urlopen(req, timeout=90) as resp:
+                res_json = json.loads(resp.read().decode("utf-8"))
+                candidates = res_json.get("candidates", [])
+                if candidates:
+                    parts = candidates[0].get("content", {}).get("parts", [])
+                    text = "".join([p.get("text", "") for p in parts])
+                    if text:
+                        print(f"✅ REST API 成功透過 {model} 取得回應！")
+                        return text
+        except urllib.error.HTTPError as e_http:
+            err_body = e_http.read().decode("utf-8", errors="ignore")
+            print(f"⚠️ {model} REST API 回傳 {e_http.code}: {err_body}")
+            last_err = f"{model} error: {e_http.code} {err_body}"
+        except Exception as e_gen:
+            print(f"⚠️ {model} 呼叫發生例外: {e_gen}")
+            last_err = str(e_gen)
+
+    raise RuntimeError(f"所有 Gemini 模型嘗試皆失敗，最後錯誤: {last_err}")
 
 def verify_url(url):
     """Probe URL with HTTP HEAD/GET to check if it returns 200 OK."""
