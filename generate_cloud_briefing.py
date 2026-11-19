@@ -46,72 +46,100 @@ def load_reported_history(hist_path):
 
 def call_gemini_api(api_key, prompt):
     """
-    Call Gemini API with Google Search grounding enabled.
-    Supports multi-model fallback (gemini-3.8-flash, gemini-2.0-flash, gemini-1.5-pro, etc.).
-    Supports google-genai SDK or direct REST fallback.
+    Call Gemini API.
+    Supports multi-model fallback and search tool fallback (handles 429 search quota restrictions).
     """
-    candidate_models = ["gemini-3.8-flash", "gemini-2.0-flash", "gemini-1.5-pro", "gemini-1.5-flash"]
+    # 0. List accessible models for debugging
+    try:
+        from google import genai
+        client = genai.Client(api_key=api_key)
+        print("📋 檢查可用模型清單 (Listing available models):")
+        avail = []
+        for m in client.models.list():
+            avail.append(m.name)
+        print(f"  找到 {len(avail)} 個模型: {avail[:8]}...")
+    except Exception as e_list:
+        print(f"  無法列出模型清單: {e_list}")
+
+    candidate_models = [
+        "gemini-3.8-flash",
+        "gemini-2.5-pro",
+        "gemini-2.5-flash",
+        "gemini-2.0-flash",
+        "gemini-2.0-flash-exp",
+        "gemini-1.5-pro",
+        "gemini-1.5-flash",
+    ]
     last_err = None
 
     for model in candidate_models:
-        print(f"🌐 嘗試呼叫 Google Gemini API ({model})...")
-        
-        # 1. Try SDK first if available
-        try:
-            from google import genai
-            from google.genai import types
-            client = genai.Client(api_key=api_key)
-            response = client.models.generate_content(
-                model=model,
-                contents=prompt,
-                config=types.GenerateContentConfig(
-                    tools=[{"google_search": {}}],
-                    temperature=0.2,
+        # First attempt: With Google Search grounding
+        for use_search in [True, False]:
+            search_desc = "（含 Google 搜尋工具）" if use_search else "（純文字推理，不含搜尋工具）"
+            print(f"🌐 嘗試呼叫模型 {model} {search_desc}...")
+            
+            # 1. Try SDK
+            try:
+                from google import genai
+                from google.genai import types
+                client = genai.Client(api_key=api_key)
+                
+                config_args = {"temperature": 0.2}
+                if use_search:
+                    config_args["tools"] = [{"google_search": {}}]
+                
+                response = client.models.generate_content(
+                    model=model,
+                    contents=prompt,
+                    config=types.GenerateContentConfig(**config_args)
                 )
-            )
-            if response.text:
-                print(f"✅ SDK 成功透過 {model} 取得回應！")
-                return response.text
-        except Exception as e_sdk:
-            print(f"ℹ️ {model} SDK 呼叫未果 ({e_sdk})，嘗試 REST API...")
+                if response.text:
+                    print(f"✅ SDK 成功透過 {model} {search_desc} 取得回應！")
+                    return response.text
+            except Exception as e_sdk:
+                err_str = str(e_sdk)
+                print(f"ℹ️ {model} SDK {search_desc} 呼叫未果 ({err_str[:150]})...")
+                # If 429 quota exceeded and use_search was True, the next loop (use_search=False) will try without search!
+                if "429" in err_str and use_search:
+                    print("⚠️ 偵測到 429 搜尋額度限制，自動切換至無搜尋工具模式重試...")
+                    continue
 
-        # 2. Fallback to direct REST API
-        try:
-            url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={api_key}"
-            payload = {
-                "contents": [
-                    {
-                        "parts": [{"text": prompt}]
-                    }
-                ],
-                "tools": [{"googleSearch": {}}],
-                "generationConfig": {
-                    "temperature": 0.2
+            # 2. Try REST API
+            try:
+                url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={api_key}"
+                payload = {
+                    "contents": [{"parts": [{"text": prompt}]}],
+                    "generationConfig": {"temperature": 0.2}
                 }
-            }
-            data = json.dumps(payload).encode("utf-8")
-            req = urllib.request.Request(
-                url,
-                data=data,
-                headers={"Content-Type": "application/json", "User-Agent": "NPO-Briefing-Cloud/1.0"},
-                method="POST"
-            )
-            with urllib.request.urlopen(req, timeout=90) as resp:
-                res_json = json.loads(resp.read().decode("utf-8"))
-                candidates = res_json.get("candidates", [])
-                if candidates:
-                    parts = candidates[0].get("content", {}).get("parts", [])
-                    text = "".join([p.get("text", "") for p in parts])
-                    if text:
-                        print(f"✅ REST API 成功透過 {model} 取得回應！")
-                        return text
-        except urllib.error.HTTPError as e_http:
-            err_body = e_http.read().decode("utf-8", errors="ignore")
-            print(f"⚠️ {model} REST API 回傳 {e_http.code}: {err_body}")
-            last_err = f"{model} error: {e_http.code} {err_body}"
-        except Exception as e_gen:
-            print(f"⚠️ {model} 呼叫發生例外: {e_gen}")
-            last_err = str(e_gen)
+                if use_search:
+                    payload["tools"] = [{"googleSearch": {}}]
+                
+                data = json.dumps(payload).encode("utf-8")
+                req = urllib.request.Request(
+                    url,
+                    data=data,
+                    headers={"Content-Type": "application/json", "User-Agent": "NPO-Briefing-Cloud/1.0"},
+                    method="POST"
+                )
+                with urllib.request.urlopen(req, timeout=90) as resp:
+                    res_json = json.loads(resp.read().decode("utf-8"))
+                    candidates = res_json.get("candidates", [])
+                    if candidates:
+                        parts = candidates[0].get("content", {}).get("parts", [])
+                        text = "".join([p.get("text", "") for p in parts])
+                        if text:
+                            print(f"✅ REST API 成功透過 {model} {search_desc} 取得回應！")
+                            return text
+            except urllib.error.HTTPError as e_http:
+                err_body = e_http.read().decode("utf-8", errors="ignore")
+                print(f"⚠️ {model} REST API {search_desc} 回傳 {e_http.code}: {err_body[:150]}")
+                last_err = f"{model} error: {e_http.code} {err_body[:150]}"
+                if e_http.code == 429 and use_search:
+                    print("⚠️ 偵測到 429 搜尋配額限制，自動切換至無搜尋工具重試...")
+                    continue
+            except Exception as e_gen:
+                print(f"⚠️ {model} 呼叫發生例外: {e_gen}")
+                last_err = str(e_gen)
 
     raise RuntimeError(f"所有 Gemini 模型嘗試皆失敗，最後錯誤: {last_err}")
 
