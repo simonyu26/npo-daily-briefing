@@ -1,0 +1,57 @@
+name: 📰 NPO Daily Briefing Cloud Automation
+
+on:
+  schedule:
+    # 台灣時間 (UTC+8) 週一至週五 每天早上 06:00 自動執行 (對應 UTC 22:00 前一天)
+    - cron: '0 22 * * 0-4'
+  workflow_dispatch: # 支援在 GitHub 網頁 Actions 頁籤隨時手動一鍵觸發
+    inputs:
+      target_date:
+        description: '指定生成日期 (格式: YYYY-MM-DD，若留空則以當前台灣日期為準)'
+        required: false
+        default: ''
+      force_regenerate:
+        description: '是否強制覆蓋今天已存在的內容 (true/false)'
+        required: false
+        default: 'false'
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 檢出程式碼庫 (Checkout repository)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: 🐍 設定 Python 環境
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: 📦 安裝必要依賴套件
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: 🤖 呼叫 Google Gemini 雲端大腦生成今日晨報
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          TARGET_DATE: ${{ github.event.inputs.target_date }}
+          FORCE_REGENERATE: ${{ github.event.inputs.force_regenerate == 'true' && '1' || '' }}
+        run: |
+          python generate_cloud_briefing.py
+
+      - name: 🚀 自動提交並發布至 GitHub Pages
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add index.html archive/ reported_history.json
+          git status
+          git commit -m "📰 [Cloud Bot] 自動發布 NPO 深度晨報 ($(date +'%Y-%m-%d')) [skip ci]" || echo "無檔案變更，略過提交"
+          git push origin main
