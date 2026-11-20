@@ -1157,10 +1157,12 @@ function renderAll() {
           </div>
         ` : ""}
         <p class="story-point-body">${parsed.body}</p>
+        ${b.quote && b.quote !== "undefined" ? `
         <div class="pull-quote">
           <span class="pull-quote-label">📜 原文關鍵引句</span>
           「${b.quote}」
         </div>
+        ` : ""}
       </div>
     `;
   }).join("");
