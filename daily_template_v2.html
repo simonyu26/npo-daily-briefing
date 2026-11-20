@@ -4,6 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>NPO 每日深度晨報（2026-11-02 週一｜策略與使命創新 - 100% 防幻覺實證核驗版）</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%231d4ed8'/><text x='50' y='68' font-size='56' text-anchor='middle' fill='%23ffffff'>📰</text></svg>" type="image/svg+xml" />
 <style>
   :root {
     --bg: #f7f5f0;
@@ -71,6 +72,40 @@
     font-size: 0.84rem;
     color: var(--muted);
     text-align: right;
+  }
+
+  /* Header Navigation Switcher Pills */
+  .header-nav-pills {
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+    margin-top: 12px;
+    flex-wrap: wrap;
+  }
+  .nav-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.18s ease;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    background: #ffffff;
+  }
+  .nav-pill:hover {
+    background: #f1f5f9;
+    color: var(--ink);
+    border-color: #cbd5e1;
+  }
+  .nav-pill.active {
+    background: var(--accent);
+    color: #ffffff;
+    border-color: var(--accent);
+    box-shadow: 0 2px 8px rgba(29, 78, 216, 0.25);
   }
 
   /* Top Story Switcher */
@@ -648,6 +683,96 @@
     margin-bottom: 10px;
   }
   .hist-item:last-child { margin-bottom: 0; }
+  .hist-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .hist-date {
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .hist-toggle {
+    font-size: 0.82rem;
+    color: var(--soft);
+    font-weight: 600;
+  }
+  .hist-content {
+    padding: 14px 18px;
+    border-top: 1px solid var(--border);
+    background: #fafaf9;
+    font-size: 0.92rem;
+  }
+
+  /* Monthly & Weekly Archive Drawers */
+  .month-drawer {
+    margin-top: 12px;
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.18s ease;
+  }
+  .month-drawer[open] {
+    box-shadow: 0 4px 14px rgba(28, 25, 23, 0.05);
+    border-color: #cbd5e1;
+  }
+  .month-drawer-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 18px;
+    background: #faf8f5;
+    font-size: 0.98rem;
+    font-weight: 700;
+    color: var(--ink);
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+  }
+  .month-drawer-summary::-webkit-details-marker { display: none; }
+  .month-drawer[open] .month-drawer-summary {
+    border-bottom: 1px solid var(--border);
+    background: #f1f5f9;
+  }
+  .month-drawer-summary:hover {
+    background: #f1efea;
+  }
+  .month-drawer-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 10px;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    background: #e2e8f0;
+    color: #475569;
+    margin-left: 8px;
+  }
+  .month-drawer-content {
+    padding: 14px 16px;
+    background: #fafaf9;
+  }
+  .weekly-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 14px 18px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    transition: all 0.15s ease;
+  }
+  .weekly-card:hover {
+    background: #f8fafc;
+    border-color: #cbd5e1;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
 </style>
 </head>
 <body>
@@ -682,6 +807,11 @@
     <div>
       <div class="masthead-eyebrow">NPO Intelligence Review ・ 週一策略與使命創新專刊</div>
       <h1 class="masthead-title">非營利組織每日深度晨報</h1>
+      <nav class="header-nav-pills">
+        <a href="index.html" class="nav-pill active">📰 每日深度晨報</a>
+        <a href="weekly.html" class="nav-pill">📑 本週精選週報</a>
+        <a href="#history-archive-section" class="nav-pill">📚 歷期知識庫存檔</a>
+      </nav>
     </div>
     <div class="masthead-meta">
       <div><strong>2026 年 11 月 02 日（週一）</strong> ｜ 過去 7 天實證核驗</div>
