@@ -510,7 +510,73 @@ def build_synthesis_prompt(date_str, weekday_str, day_topic, intl_item, tw_item,
 """
     return prompt
 
-def render_html_template(template_path, data):
+def generate_history_section_html(past_records, current_date):
+    from collections import defaultdict
+    by_date = defaultdict(list)
+    for r in past_records:
+        d = r.get("date_reported")
+        if d and d != current_date:
+            by_date[d].append(r)
+    
+    html = """  <section class="history-section" id="history-archive-section">
+    <div class="history-header">
+      <div>
+        <div class="masthead-eyebrow">Historical Briefings Archive ・ 跨日知識累積</div>
+        <h2 class="history-title">🗂️ 過去歷史日報折疊總覽（點擊日期即可展開閱讀）</h2>
+      </div>
+      <div style="display:flex;gap:6px;">
+        <button class="btn-save-sub" onclick="document.querySelectorAll('details.hist-day').forEach(d=>d.open=true)">展開全部</button>
+        <button class="btn-save-sub" onclick="document.querySelectorAll('details.hist-day').forEach(d=>d.open=false)">收合全部</button>
+      </div>
+    </div>
+"""
+
+    weekday_zh_map = {0: "週一", 1: "週二", 2: "週三", 3: "週四", 4: "週五", 5: "週六", 6: "週日"}
+
+    for d in sorted(by_date.keys(), reverse=True):
+        items = by_date[d]
+        topic = items[0].get("day_topic", "").replace(" (延伸文獻)", "")
+        try:
+            dt = datetime.datetime.strptime(d, "%Y-%m-%d")
+            w_str = weekday_zh_map.get(dt.weekday(), "")
+        except Exception:
+            w_str = ""
+
+        mains = [i for i in items if "(延伸文獻)" not in i.get("day_topic", "")]
+
+        items_html = ""
+        for idx, m in enumerate(mains[:3]):
+            t_zh = m.get("title_zh") or m.get("title_orig")
+            t_orig = m.get("title_orig", "")
+            url = m.get("url", "")
+            items_html += f"""
+        <div style="margin-bottom:12px;padding-bottom:10px;border-bottom:1px dashed #e7e5e4;">
+          <div style="font-weight:700;color:var(--ink-body);font-size:0.95rem;">
+            FOCUS 0{idx+1} ｜ <a href="{url}" target="_blank" style="color:var(--ink);text-decoration:underline;">{t_zh}</a>
+          </div>
+          <small style="color:var(--muted);display:block;margin-top:2px;">{t_orig}</small>
+        </div>"""
+
+        html += f"""
+    <!-- {d} {w_str} -->
+    <details class="hist-day">
+      <summary class="hist-summary">
+        <span class="hist-date">🗓️ {d} ({w_str}) ： {topic}</span>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <a href="archive/{d}.html" target="_blank" style="color:var(--accent);font-size:0.85rem;font-weight:700;text-decoration:none;" onclick="event.stopPropagation();">📖 開啟完整日報 ↗</a>
+          <span class="hist-toggle">點擊展開 / 收合 ▾</span>
+        </div>
+      </summary>
+      <div class="hist-content">
+        {items_html}
+      </div>
+    </details>
+"""
+
+    html += "  </section>"
+    return html
+
+def render_html_template(template_path, data, past_records):
     raw = template_path.read_text(encoding="utf-8")
     
     # 1. Title
@@ -548,6 +614,10 @@ def render_html_template(template_path, data):
     # 5. Articles JS array
     arts_json = json.dumps(data['articles'], ensure_ascii=False, indent=2)
     raw = re.sub(r'const ARTICLES = \[.*?\];', f'const ARTICLES = {arts_json};', raw, flags=re.DOTALL)
+
+    # 6. Dynamic History Section
+    hist_html = generate_history_section_html(past_records, data['date'])
+    raw = re.sub(r'<section class="history-section" id="history-archive-section">.*?</section>', hist_html, raw, flags=re.DOTALL)
     
     return raw
 
@@ -661,8 +731,8 @@ def main():
     report_data["articles"][2]["refs"][0]["titleOrig"] = ref3["titleOrig"]
 
     # Render HTML
-    print("\n🎨 正在渲染雜誌版型 HTML 晨報...", flush=True)
-    rendered_html = render_html_template(template_path, report_data)
+    print("\n🎨 正在渲染雜誌版型 HTML 晨報（含動態跨日歷史歸檔總覽）...", flush=True)
+    rendered_html = render_html_template(template_path, report_data, past_records)
 
     index_html_path = repo_root / "index.html"
     archive_html_path = archive_dir / f"{date_str}.html"
