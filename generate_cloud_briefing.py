@@ -330,7 +330,7 @@ def build_synthesis_prompt(date_str, weekday_str, day_topic, intl_item, tw_item,
 2. 進行深度的顧問級解讀：
    - 繁中深度標題：必須傳遞戰略洞察與體制意義。
    - 30 秒 TL;DR：精煉核心價值。
-   - 脈絡重點（bullets）：包含真實/合理的原文引句（quote）。
+   - 脈絡重點（bullets）：必須嚴格包含 3 個物件，每個物件都必須同時包含 "text" 與 "quote" 兩個欄位，"quote" 必須是該論點的核心引句或關鍵金句，絕不可省略、遺漏或為 null！
    - 批判性評論（critiques）：深入探討組織內部痛點、董事會認知盲點、台灣落地適用性。
    - 顧問處方箋（consultant）：給 NPO 領導層的具體落地建議 (1)、(2)。
    - 行動處方（action）：「🎯 下週可以做的一件事」，具體可行。
@@ -633,6 +633,16 @@ def main():
         print(f"❌ 解析 Gemini 回傳之 JSON 失敗: {e}", flush=True)
         print("原始回傳前 500 字元:", json_str[:500], flush=True)
         sys.exit(1)
+
+    # Sanitize bullets quote fields to 100% prevent "undefined"
+    for art in report_data.get("articles", []):
+        for b in art.get("bullets", []):
+            q = b.get("quote")
+            if not q or str(q).strip().lower() in ["none", "null", "undefined", ""]:
+                t = b.get("text", "")
+                clean_t = re.sub(r'【.*?】', '', t).strip()
+                sentences = [s.strip() for s in re.split(r'[。；\n]', clean_t) if len(s.strip()) > 8]
+                b["quote"] = (sentences[0] + "。") if sentences else clean_t[:60]
 
     # Force verified URLs and DOIs into final output to guarantee zero hallucination
     report_data["articles"][0]["url"] = intl_selected["url"]
