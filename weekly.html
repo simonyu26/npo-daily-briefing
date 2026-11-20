@@ -4,6 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>NPO 本週情報精選總覽與延伸學術原典週報 (2026-W45)</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%231d4ed8'/><text x='50' y='68' font-size='56' text-anchor='middle' fill='%23ffffff'>📑</text></svg>" type="image/svg+xml" />
 <style>
   :root {
     --bg: #f7f5f0;
@@ -71,6 +72,40 @@
     font-size: 0.88rem;
     color: var(--muted);
     text-align: right;
+  }
+
+  /* Header Navigation Switcher Pills */
+  .header-nav-pills {
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+    margin-top: 12px;
+    flex-wrap: wrap;
+  }
+  .nav-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.18s ease;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    background: #ffffff;
+  }
+  .nav-pill:hover {
+    background: #f1f5f9;
+    color: var(--ink);
+    border-color: #cbd5e1;
+  }
+  .nav-pill.active {
+    background: var(--accent);
+    color: #ffffff;
+    border-color: var(--accent);
+    box-shadow: 0 2px 8px rgba(29, 78, 216, 0.25);
   }
 
   /* 視圖切換標籤 */
@@ -445,6 +480,11 @@
     <div>
       <div class="masthead-eyebrow">NPO Intelligence Review ・ 本週精選情報暨學術原典總覽 (2026-W45)</div>
       <h1 class="masthead-title">非營利組織雙平台入庫精選週報</h1>
+      <nav class="header-nav-pills">
+        <a href="index.html" class="nav-pill">📰 每日深度晨報</a>
+        <a href="weekly.html" class="nav-pill active">📑 本週精選週報</a>
+        <a href="index.html#history-archive-section" class="nav-pill">📚 歷期知識庫存檔</a>
+      </nav>
     </div>
     <div class="masthead-meta">
       <div><strong>2026 年 11 月 02 日 ～ 11 月 06 日</strong></div>
