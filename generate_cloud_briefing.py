@@ -522,19 +522,19 @@ def generate_history_section_html(past_records, current_date):
     <div class="history-header">
       <div>
         <div class="masthead-eyebrow">Historical Briefings Archive ・ 跨日知識累積</div>
-        <h2 class="history-title">🗂️ 過去歷史日報折疊總覽（點擊日期即可展開閱讀）</h2>
+        <h2 class="history-title">📚 歷期情報智庫與歷史存檔</h2>
+        <p style="margin:4px 0 0 0;font-size:0.88rem;color:var(--muted);">收錄每日深度晨報與全景週報，近期日報隨選即讀，歷史期數依月份抽屜收納。</p>
       </div>
-      <div style="display:flex;gap:6px;">
-        <button class="btn-save-sub" onclick="document.querySelectorAll('details.hist-day').forEach(d=>d.open=true)">展開全部</button>
-        <button class="btn-save-sub" onclick="document.querySelectorAll('details.hist-day').forEach(d=>d.open=false)">收合全部</button>
+      <div style="display:flex;gap:6px;align-items:flex-start;">
+        <button class="btn-save-sub" onclick="document.querySelectorAll('details.hist-day, details.month-drawer').forEach(d=>d.open=true)">展開全部</button>
+        <button class="btn-save-sub" onclick="document.querySelectorAll('details.hist-day, details.month-drawer').forEach(d=>d.open=false)">收合全部</button>
       </div>
     </div>
 """
 
     weekday_zh_map = {0: "週一", 1: "週二", 2: "週三", 3: "週四", 4: "週五", 5: "週六", 6: "週日"}
 
-    for d in sorted(by_date.keys(), reverse=True):
-        items = by_date[d]
+    def render_day_card(d, items):
         topic = items[0].get("day_topic", "").replace(" (延伸文獻)", "")
         try:
             dt = datetime.datetime.strptime(d, "%Y-%m-%d")
@@ -543,6 +543,8 @@ def generate_history_section_html(past_records, current_date):
             w_str = ""
 
         mains = [i for i in items if "(延伸文獻)" not in i.get("day_topic", "")]
+        if not mains:
+            mains = items[:3]
 
         items_html = ""
         for idx, m in enumerate(mains[:3]):
@@ -557,7 +559,7 @@ def generate_history_section_html(past_records, current_date):
           <small style="color:var(--muted);display:block;margin-top:2px;">{t_orig}</small>
         </div>"""
 
-        html += f"""
+        return f"""
     <!-- {d} {w_str} -->
     <details class="hist-day">
       <summary class="hist-summary">
@@ -569,6 +571,92 @@ def generate_history_section_html(past_records, current_date):
       </summary>
       <div class="hist-content">
         {items_html}
+      </div>
+    </details>
+"""
+
+    all_dates = sorted(by_date.keys(), reverse=True)
+    recent_dates = all_dates[:5]
+    older_dates = all_dates[5:]
+
+    # 1. Recent 5 Days Section
+    html += """
+    <div style="margin: 18px 0 8px 0; font-size: 0.92rem; font-weight: 700; color: var(--accent); display: flex; align-items: center; gap: 6px;">
+      <span>⚡ 最近 5 期日報（快速調閱）</span>
+    </div>
+"""
+    for d in recent_dates:
+        html += render_day_card(d, by_date[d])
+
+    # 2. Older Dates Grouped by Month Drawers
+    if older_dates:
+        html += """
+    <div style="margin: 26px 0 10px 0; font-size: 0.92rem; font-weight: 700; color: var(--muted); display: flex; align-items: center; gap: 6px;">
+      <span>📁 歷期按月歸檔存檔（點擊展開歷史抽屜）</span>
+    </div>
+"""
+        older_by_month = defaultdict(list)
+        for d in older_dates:
+            month_key = d[:7]
+            older_by_month[month_key].append(d)
+
+        for ym in sorted(older_by_month.keys(), reverse=True):
+            y, m = ym.split("-")
+            m_dates = older_by_month[ym]
+            total_days = len(m_dates)
+            
+            month_days_html = ""
+            for d in m_dates:
+                month_days_html += render_day_card(d, by_date[d])
+
+            html += f"""
+    <!-- Monthly Drawer: {y} 年 {m} 月 -->
+    <details class="month-drawer">
+      <summary class="month-drawer-summary">
+        <div>
+          <span>📁 {y} 年 {int(m)} 月份歷史日報存檔</span>
+          <span class="month-drawer-badge">共 {total_days} 期</span>
+        </div>
+        <span style="font-size:0.85rem;color:var(--muted);">點擊展開月份存檔 ▾</span>
+      </summary>
+      <div class="month-drawer-content">
+        {month_days_html}
+      </div>
+    </details>
+"""
+
+    # 3. Weekly Digest Archive Section
+    html += """
+    <!-- Weekly Digest Drawer -->
+    <details class="month-drawer" style="margin-top:16px;border-color:#cbd5e1;background:#fafaf9;">
+      <summary class="month-drawer-summary" style="background:#f1f5f9;">
+        <div>
+          <span>📑 歷期全景精選週報存檔（Weekly Digests）</span>
+          <span class="month-drawer-badge" style="background:#dbeafe;color:#1e40af;">持續累積</span>
+        </div>
+        <span style="font-size:0.85rem;color:var(--accent);font-weight:600;">點擊展開週報列表 ▾</span>
+      </summary>
+      <div class="month-drawer-content">
+        <div class="weekly-card">
+          <div>
+            <div style="font-weight:700;color:var(--ink);font-size:0.98rem;">
+              📑 2026 年第 45 週（11/02 - 11/06）：組織變革、地方創生與非營利募款跨領域全景週報
+            </div>
+            <div style="font-size:0.86rem;color:var(--muted);margin-top:4px;">
+              收錄 15 篇深度全球案例與 15 篇學術權威文獻，完整整合週一至週五智庫情報。
+            </div>
+          </div>
+          <div style="display:flex;gap:8px;align-items:center;">
+            <a href="archive/weekly-2026-w45.html" target="_blank" class="nav-pill" style="border-color:var(--accent);color:var(--accent);background:#ffffff;">
+              📖 閱讀第 45 週週報 ↗
+            </a>
+          </div>
+        </div>
+        <div style="text-align:right;margin-top:10px;">
+          <a href="weekly.html" class="nav-pill active" style="font-size:0.82rem;">
+            📑 查看當週最新週報 (weekly.html) →
+          </a>
+        </div>
       </div>
     </details>
 """
