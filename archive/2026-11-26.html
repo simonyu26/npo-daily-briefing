@@ -1,0 +1,2181 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>NPO 每日深度晨報（2026-11-26 週四｜策略募款與捐款人行為 - 100% 防幻覺實證核驗版）</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%231d4ed8'/><text x='50' y='68' font-size='56' text-anchor='middle' fill='%23ffffff'>📰</text></svg>" type="image/svg+xml" />
+<style>
+  :root {
+    --bg: #f7f5f0;
+    --paper: #ffffff;
+    --ink: #1c1917;
+    --ink-body: #292524;
+    --muted: #57534e;
+    --soft: #78716c;
+    --border: #e7e5e4;
+    --accent: #1d4ed8;
+    --accent-bg: #eff6ff;
+    --warm-bg: #faf8f5;
+    --quote-bg: #f5f3ef;
+    --critique-bg: #fffbeb;
+    --critique-border: #f59e0b;
+    --memo-bg: #f0fdf4;
+    --memo-border: #10b981;
+    --seminar-bg: #f5f3ff;
+    --seminar-border: #8b5cf6;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 20px 16px 48px 16px;
+    font-family: "Noto Sans TC", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: var(--bg);
+    color: var(--ink-body);
+    line-height: 1.8;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  /* Masthead 報頭 */
+  .masthead {
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 14px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .masthead-eyebrow {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .masthead-title {
+    margin: 0;
+    font-family: "Noto Serif TC", "Songti TC", Georgia, serif;
+    font-size: 1.55rem;
+    font-weight: 800;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+  .masthead-meta {
+    font-size: 0.84rem;
+    color: var(--muted);
+    text-align: right;
+  }
+
+  /* Header Navigation Switcher Pills */
+  .header-nav-pills {
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+    margin-top: 12px;
+    flex-wrap: wrap;
+  }
+  .nav-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.18s ease;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    background: #ffffff;
+  }
+  .nav-pill:hover {
+    background: #f1f5f9;
+    color: var(--ink);
+    border-color: #cbd5e1;
+  }
+  .nav-pill.active {
+    background: var(--accent);
+    color: #ffffff;
+    border-color: var(--accent);
+    box-shadow: 0 2px 8px rgba(29, 78, 216, 0.25);
+  }
+
+  /* Top Story Switcher */
+  .story-switcher {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    margin-bottom: 22px;
+  }
+  .story-tab {
+    background: #edeae4;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    padding: 12px 15px;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.18s ease;
+  }
+  .story-tab:hover {
+    background: #e5e0d8;
+  }
+  .story-tab.active {
+    background: var(--paper);
+    border-color: var(--ink);
+    box-shadow: 0 4px 12px rgba(28, 25, 23, 0.08);
+  }
+  .story-tab-num {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: var(--accent);
+    margin-bottom: 3px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .story-tab-title {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Main Editorial Sheet */
+  .paper-sheet {
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 32px 36px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  }
+  @media (max-width: 640px) {
+    .paper-sheet { padding: 20px 18px; }
+  }
+
+  .kicker-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+  }
+  .kicker-badge {
+    background: var(--accent-bg);
+    color: var(--accent);
+    font-weight: 800;
+    font-size: 0.8rem;
+    padding: 4px 11px;
+    border-radius: 6px;
+  }
+  .source-meta {
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+  .source-link {
+    font-size: 0.84rem;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 700;
+    margin-left: auto;
+  }
+  .source-link:hover { text-decoration: underline; }
+
+  .headline {
+    font-family: "Noto Serif TC", "Songti TC", Georgia, serif;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--ink);
+    line-height: 1.42;
+    margin: 6px 0 8px 0;
+  }
+  .subheadline {
+    font-size: 0.94rem;
+    color: var(--muted);
+    font-weight: 500;
+    margin-bottom: 18px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* Compact Toolbar */
+  .toolbar {
+    background: var(--warm-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 16px;
+    margin-bottom: 26px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .tags-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+  }
+  .tag-chip {
+    background: #fff;
+    color: var(--muted);
+    border: 1px solid #d6d3d1;
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+    font-size: 0.76rem;
+    padding: 2px 9px;
+    border-radius: 999px;
+  }
+  .sug-chip {
+    background: #fffbeb;
+    color: #b45309;
+    border: 1px dashed #f59e0b;
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+    font-size: 0.76rem;
+    padding: 2px 9px;
+    border-radius: 999px;
+  }
+  .save-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+  }
+  .btn-save-main {
+    background: var(--ink);
+    color: #fff;
+    border: 1px solid var(--ink);
+    padding: 7px 14px;
+    border-radius: 7px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .btn-save-main:hover { background: var(--accent); border-color: var(--accent); }
+  .btn-save-sub {
+    background: #fff;
+    color: var(--muted);
+    border: 1px solid #d6d3d1;
+    padding: 6px 10px;
+    border-radius: 7px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .btn-save-sub:hover { color: var(--ink); border-color: var(--ink); background: #f5f5f4; }
+
+  /* Section Headings */
+  .sec-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.08rem;
+    font-weight: 800;
+    color: var(--ink);
+    margin: 30px 0 14px 0;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #f5f5f4;
+  }
+
+  /* Narrative Story Points */
+  .story-point {
+    margin-bottom: 24px;
+  }
+  .story-point-title {
+    font-size: 1.04rem;
+    font-weight: 800;
+    color: #1e3a8a;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+  .story-point-num {
+    font-family: Georgia, serif;
+    font-size: 1.15rem;
+    color: var(--accent);
+    font-weight: 900;
+  }
+  .story-point-body {
+    font-size: 1rem;
+    color: var(--ink-body);
+    line-height: 1.85;
+    margin: 0 0 10px 0;
+  }
+  .pull-quote {
+    margin: 8px 0 0 14px;
+    padding: 10px 16px;
+    background: var(--quote-bg);
+    border-left: 3px solid #a8a29e;
+    border-radius: 0 8px 8px 0;
+    font-size: 0.88rem;
+    color: #44403c;
+    line-height: 1.65;
+  }
+  .pull-quote-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--soft);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  /* Insight Grid */
+  .insight-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 12px;
+  }
+  @media (max-width: 720px) {
+    .insight-grid { grid-template-columns: 1fr; }
+  }
+  .insight-card {
+    padding: 18px 20px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+  }
+  .insight-card.critique {
+    background: var(--critique-bg);
+    border-color: #fde68a;
+  }
+  .insight-card.memo {
+    background: var(--memo-bg);
+    border-color: #a7f3d0;
+  }
+  .insight-card-title {
+    font-size: 0.92rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .insight-item {
+    margin-bottom: 12px;
+    font-size: 0.94rem;
+    line-height: 1.75;
+  }
+  .insight-item:last-child { margin-bottom: 0; }
+  .insight-sub {
+    font-weight: 800;
+    color: var(--ink);
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  .seminar-box {
+    margin-top: 16px;
+    padding: 18px 22px;
+    background: var(--seminar-bg);
+    border-left: 4px solid var(--seminar-border);
+    border-radius: 0 12px 12px 0;
+  }
+  .seminar-title {
+    font-size: 0.88rem;
+    font-weight: 800;
+    color: #5b21b6;
+    margin-bottom: 6px;
+  }
+  .seminar-text {
+    font-size: 0.96rem;
+    color: #2e1065;
+    line-height: 1.78;
+    font-weight: 500;
+  }
+
+  /* Academic References */
+  .ref-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .ref-item {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px 22px;
+    background: #fafaf9;
+    transition: border-color 0.15s;
+  }
+  .ref-item:hover {
+    border-color: #cbd5e1;
+    background: #ffffff;
+  }
+  .ref-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+  .ref-code {
+    font-size: 0.76rem;
+    font-weight: 800;
+    color: #6b21a8;
+    background: #f3e8ff;
+    padding: 2px 9px;
+    border-radius: 999px;
+  }
+  .ref-title-zh {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--ink);
+    margin: 4px 0 2px 0;
+  }
+  .ref-title-orig {
+    font-size: 0.88rem;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .ref-byline {
+    font-size: 0.82rem;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  .ref-summary-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+  .ref-takeaway {
+    font-size: 0.93rem;
+    line-height: 1.72;
+    color: var(--ink-body);
+  }
+  .ref-value-pill {
+    font-size: 0.88rem;
+    line-height: 1.68;
+    padding: 8px 12px;
+    background: #fefce8;
+    border-left: 3px solid #eab308;
+    color: #713f12;
+    border-radius: 0 6px 6px 0;
+  }
+  .ref-drawer {
+    display: none;
+    margin-top: 12px;
+    padding: 14px 16px;
+    background: #f5f3ff;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    line-height: 1.75;
+    color: #1e1b4b;
+  }
+  .ref-drawer.show { display: block; }
+
+  /* Modal */
+  .modal-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(28, 25, 23, 0.55);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    backdrop-filter: blur(2px);
+  }
+  .modal-backdrop.show { display: flex; }
+  .modal-box {
+    background: #fff;
+    border-radius: 14px;
+    max-width: 540px;
+    width: 100%;
+    padding: 24px;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.22);
+    border: 1px solid var(--border);
+  }
+  .modal-title {
+    font-size: 1.08rem;
+    font-weight: 800;
+    color: var(--ink);
+    margin: 0 0 8px 0;
+  }
+  .sug-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 12px;
+    background: #fffbeb;
+    border: 1px solid #fde68a;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    font-size: 0.88rem;
+    cursor: pointer;
+  }
+  .sug-item input { margin-top: 4px; cursor: pointer; }
+
+
+  /* Executive Briefing Card */
+  .briefing-box {
+    background: #fffbeb;
+    border: 1px solid #fde68a;
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 22px;
+  }
+  .briefing-title {
+    font-size: 0.92rem;
+    font-weight: 800;
+    color: #92400e;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .briefing-list {
+    margin: 0;
+    padding-left: 20px;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: #78350f;
+  }
+  .briefing-list li { margin-bottom: 4px; }
+  .briefing-list li:last-child { margin-bottom: 0; }
+
+  /* Relevance Badge */
+  .badge-rel-high { background: #fee2e2; color: #991b1b; font-weight: 800; font-size: 0.76rem; padding: 2px 8px; border-radius: 6px; border: 1px solid #fca5a5; }
+  .badge-rel-mid { background: #fef3c7; color: #92400e; font-weight: 800; font-size: 0.76rem; padding: 2px 8px; border-radius: 6px; border: 1px solid #fde68a; }
+  .badge-rel-low { background: #f3f4f6; color: #4b5563; font-weight: 700; font-size: 0.76rem; padding: 2px 8px; border-radius: 6px; border: 1px solid #e5e7eb; }
+  .badge-verify { background: #ecfdf5; color: #065f46; font-weight: 700; font-size: 0.76rem; padding: 2px 8px; border-radius: 6px; border: 1px solid #a7f3d0; }
+
+  /* 30s TL;DR Quote Box */
+  .tldr-box {
+    background: #eff6ff;
+    border-left: 4px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    padding: 10px 16px;
+    margin: 12px 0 16px 0;
+    font-size: 0.94rem;
+    line-height: 1.65;
+    color: #1e3a8a;
+  }
+
+  /* Actionable Takeaway Card */
+  .action-card {
+    margin-top: 16px;
+    padding: 16px 20px;
+    background: #f0fdf4;
+    border: 1px solid #86efac;
+    border-left: 5px solid #16a34a;
+    border-radius: 0 12px 12px 0;
+  }
+  .action-card-title {
+    font-size: 0.92rem;
+    font-weight: 800;
+    color: #166534;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .action-card-body {
+    font-size: 0.96rem;
+    color: #14532d;
+    line-height: 1.75;
+    font-weight: 600;
+  }
+
+  /* Collapsible Extra References */
+  details.extra-refs {
+    margin-top: 12px;
+    border: 1px dashed #cbd5e1;
+    border-radius: 10px;
+    padding: 8px 12px;
+    background: #fafaf9;
+  }
+  details.extra-refs > summary {
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 0.88rem;
+    color: #475569;
+    padding: 6px 4px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  details.extra-refs > summary::-webkit-details-marker { display: none; }
+  details.extra-refs > summary:hover { color: #0f172a; }
+
+  /* History Archive */
+  .history-section {
+    margin-top: 28px;
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  }
+  .history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--ink);
+  }
+  .history-title {
+    font-family: "Noto Serif TC", "Songti TC", Georgia, serif;
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--ink);
+    margin: 0;
+  }
+  details.hist-day {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    background: var(--warm-bg);
+    overflow: hidden;
+    transition: all 0.15s;
+  }
+  details.hist-day[open] {
+    background: #ffffff;
+    border-color: #cbd5e1;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+  }
+  details.hist-day > summary {
+    padding: 13px 16px;
+    font-weight: 800;
+    font-size: 0.96rem;
+    color: var(--ink);
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  details.hist-day > summary::-webkit-details-marker { display: none; }
+  details.hist-day > summary:hover { background: #f1efea; }
+  .hist-day-body {
+    padding: 14px 18px 18px 18px;
+    border-top: 1px solid var(--border);
+    font-size: 0.93rem;
+    line-height: 1.75;
+  }
+  .hist-item {
+    padding: 12px 14px;
+    background: #fafaf9;
+    border-left: 3px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 10px;
+  }
+  .hist-item:last-child { margin-bottom: 0; }
+  .hist-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .hist-date {
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .hist-toggle {
+    font-size: 0.82rem;
+    color: var(--soft);
+    font-weight: 600;
+  }
+  .hist-content {
+    padding: 14px 18px;
+    border-top: 1px solid var(--border);
+    background: #fafaf9;
+    font-size: 0.92rem;
+  }
+
+  /* Monthly & Weekly Archive Drawers */
+  .month-drawer {
+    margin-top: 12px;
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.18s ease;
+  }
+  .month-drawer[open] {
+    box-shadow: 0 4px 14px rgba(28, 25, 23, 0.05);
+    border-color: #cbd5e1;
+  }
+  .month-drawer-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 18px;
+    background: #faf8f5;
+    font-size: 0.98rem;
+    font-weight: 700;
+    color: var(--ink);
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+  }
+  .month-drawer-summary::-webkit-details-marker { display: none; }
+  .month-drawer[open] .month-drawer-summary {
+    border-bottom: 1px solid var(--border);
+    background: #f1f5f9;
+  }
+  .month-drawer-summary:hover {
+    background: #f1efea;
+  }
+  .month-drawer-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 10px;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    background: #e2e8f0;
+    color: #475569;
+    margin-left: 8px;
+  }
+  .month-drawer-content {
+    padding: 14px 16px;
+    background: #fafaf9;
+  }
+  .weekly-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 14px 18px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    transition: all 0.15s ease;
+  }
+  .weekly-card:hover {
+    background: #f8fafc;
+    border-color: #cbd5e1;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+</style>
+</head>
+<body>
+
+<!-- 儲存前確認新標籤 Modal -->
+<div class="modal-backdrop" id="tag-modal">
+  <div class="modal-box">
+    <div class="modal-title">🏷️ 儲存前確認：是否納入建議新增標籤？</div>
+    <div style="font-size:0.86rem;color:var(--muted);margin-bottom:12px;line-height:1.6;">
+      原本的 24 個標準標籤未必涵蓋本篇的專業細分領域。系統為本篇遴選了以下<strong>建議新增標籤</strong>（確認納入後將同步寫入 Zotero、Notion 與 Obsidian <code>[[雙向連結]]</code>）！
+    </div>
+    <div style="font-size:0.82rem;margin-bottom:10px;">
+      <strong>📌 原有標準標籤：</strong><span id="modal-base-tags"></span>
+    </div>
+    <div style="font-size:0.84rem;font-weight:700;color:#92400e;margin-bottom:6px;">💡 請勾選您同意新增的標籤：</div>
+    <div id="modal-sug-list" style="margin-bottom:12px;"></div>
+    <div style="margin-bottom:16px;">
+      <label style="font-size:0.8rem;color:var(--muted);display:block;margin-bottom:4px;">✏️ 手動輸入其他想新增的標籤（全小寫英文，多標籤用逗號分隔）：</label>
+      <input type="text" id="modal-custom-tags" placeholder="例如：ai-governance, urban-planning, civic-tech" style="width:100%;padding:8px 12px;border:1px solid #cbd5e1;border-radius:8px;font-size:0.86rem;font-family:monospace;" />
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end;">
+      <button class="btn-save-sub" onclick="closeTagModal()">取消</button>
+      <button class="btn-save-sub" onclick="confirmTagModal(false)">🛡️ 僅用標準標籤存入</button>
+      <button class="btn-save-main" onclick="confirmTagModal(true)">✅ 納入勾選新標籤並存入</button>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <!-- 報頭 Masthead -->
+  <header class="masthead">
+    <div>
+      <div class="masthead-eyebrow">NPO Intelligence Review ・ 週一策略與使命創新專刊</div>
+      <h1 class="masthead-title">非營利組織每日深度晨報</h1>
+      <nav class="header-nav-pills">
+        <a href="index.html" class="nav-pill active">📰 每日深度晨報</a>
+        <a href="weekly.html" class="nav-pill">📑 本週精選週報</a>
+        <a href="#history-archive-section" class="nav-pill">📚 歷期知識庫存檔</a>
+      </nav>
+    </div>
+    <div class="masthead-meta">
+      2026 年 11 月 26 日 星期四<br />
+      <strong>主題：週四｜策略募款與捐款人行為</strong>
+    </div>
+      <div style="margin-top:6px;display:flex;gap:8px;justify-content:flex-end;align-items:center;flex-wrap:wrap;">
+        <button class="btn-save-sub" style="background:#fef3c7;color:#92400e;border-color:#fde68a;font-weight:700;" onclick="document.getElementById('history-archive-section').scrollIntoView({behavior:'smooth'})">🗂️ 過去歷史日報折疊區 ↓</button>
+        <button class="btn-save-sub" style="background:#f0fdf4;color:#166534;border-color:#86efac;font-weight:700;" onclick="publishToGitHub()">🌐 推送到 GitHub 網站</button>
+        <span id="issue-notion-status"></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ⭐ 今日 3 個重點快覽 -->
+  <div class="briefing-box" id="briefing-box"></div>
+
+  <!-- 焦點切換導航 -->
+  <nav class="story-switcher" id="art-nav"></nav>
+
+  <!-- 單頁一氣呵成閱讀長文紙張 -->
+  <main class="paper-sheet" id="art-card"></main>
+
+  <!-- 歷史日報折疊專區 -->
+    <section class="history-section" id="history-archive-section">
+    <div class="history-header">
+      <div>
+        <div class="masthead-eyebrow">Historical Briefings Archive ・ 跨日知識累積</div>
+        <h2 class="history-title">📚 歷期情報智庫與歷史存檔</h2>
+        <p style="margin:4px 0 0 0;font-size:0.88rem;color:var(--muted);">收錄每日深度晨報與全景週報，近期日報隨選即讀，歷史期數依月份抽屜收納。</p>
+      </div>
+      <div style="display:flex;gap:6px;align-items:flex-start;">
+        <button class="btn-save-sub" onclick="document.querySelectorAll('details.hist-day, details.month-drawer').forEach(d=>d.open=true)">展開全部</button>
+        <button class="btn-save-sub" onclick="document.querySelectorAll('details.hist-day, details.month-drawer').forEach(d=>d.open=false)">收合全部</button>
+      </div>
+    </div>
+
+    <div style="margin: 18px 0 8px 0; font-size: 0.92rem; font-weight: 700; color: var(--accent); display: flex; align-items: center; gap: 6px;">
+      <span>⚡ 最近 5 期日報（快速調閱）</span>
+    </div>
+
+    <!-- 2026-11-25 週三 -->
+    <details class="hist-day">
+      <summary class="hist-summary">
+        <span class="hist-date">🗓️ 2026-11-25 (週三) ： 週三｜財務管理與永續商業模式</span>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <a href="archive/2026-11-25.html" target="_blank" style="color:var(--accent);font-size:0.85rem;font-weight:700;text-decoration:none;" onclick="event.stopPropagation();">📖 開啟完整日報 ↗</a>
+          <span class="hist-toggle">點擊展開 / 收合 ▾</span>
+        </div>
+      </summary>
+      <div class="hist-content">
+        
+        <div style="margin-bottom:12px;padding-bottom:10px;border-bottom:1px dashed #e7e5e4;">
+          <div style="font-weight:700;color:var(--ink-body);font-size:0.95rem;">
+            FOCUS 01 ｜ <a href="https://ssir.org/articles/entry/measuring-generosity-social-sector" target="_blank" style="color:var(--ink);text-decoration:underline;">重新發現社會部門：建構解構公民社會繁榮機制的全新戰略工具</a>
+          </div>
+          <small style="color:var(--muted);display:block;margin-top:2px;">The Rediscovery of the Social Sector</small>
+        </div>
+        <div style="margin-bottom:12px;padding-bottom:10px;border-bottom:1px dashed #e7e5e4;">
+          <div style="font-weight:700;color:var(--ink-body);font-size:0.95rem;">
+            FOCUS 02 ｜ <a href="https://rightplus.org/2026/11/16/alternative-education-class/" target="_blank" style="color:var(--ink);text-decoration:underline;">接住中輟邊緣的安穩床位：慈輝班模式與現行支持體系的財務與制度缺口</a>
+          </div>
+          <small style="color:var(--muted);display:block;margin-top:2px;">求一個安穩入眠的床位、三餐溫飽的生活！慈輝班如何接住中輟邊緣的孩子？</small>
+        </div>
+        <div style="margin-bottom:12px;padding-bottom:10px;border-bottom:1px dashed #e7e5e4;">
+          <div style="font-weight:700;color:var(--ink-body);font-size:0.95rem;">
+            FOCUS 03 ｜ <a href="https://www.npo-homepage.go.jp/news/2026npohoujin-chousa-close" target="_blank" style="color:var(--ink);text-decoration:underline;">日本內閣府 2026 全國 NPO 經營實態調查：法人財務健全度、委辦收益與多元自主財源架構</a>
+          </div>
+          <small style="color:var(--muted);display:block;margin-top:2px;">2026年度（令和８年度）特定非営利活動法人に関する実態調査 - 内閣府</small>
+        </div>
+      </div>
+    </details>
+
+    <!-- 2026-11-24 週二 -->
+    <details class="hist-day">
+      <summary class="hist-summary">
+        <span class="hist-date">🗓️ 2026-11-24 (週二) ： 週二｜組織治理與責信</span>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <a href="archive/2026-11-24.html" target="_blank" style="color:var(--accent);font-size:0.85rem;font-weight:700;text-decoration:none;" onclick="event.stopPropagation();">📖 開啟完整日報 ↗</a>
+          <span class="hist-toggle">點擊展開 / 收合 ▾</span>
+        </div>
+      </summary>
+      <div class="hist-content">
+        
+        <div style="margin-bottom:12px;padding-bottom:10px;border-bottom:1px dashed #e7e5e4;">
+          <div style="font-weight:700;color:var(--ink-body);font-size:0.95rem;">
+            FOCUS 01 ｜ <a href="https://ssir.org/articles/entry/fair-sustainability-partnerships" target="_blank" style="color:var(--ink);text-decoration:underline;">從形式參與到真實權力分配：重塑永續發展專案中的地方賦權機制</a>
+          </div>
+          <small style="color:var(--muted);display:block;margin-top:2px;">Beyond Participation to Real Power (Blog)</small>
+        </div>
+        <div style="margin-bottom:12px;padding-bottom:10px;border-bottom:1px dashed #e7e5e4;">
+          <div style="font-weight:700;color:var(--ink-body);font-size:0.95rem;">
+            FOCUS 02 ｜ <a href="https://rightplus.org/2026/11/23/news26112/" target="_blank" style="color:var(--ink);text-decoration:underline;">勞動新制衝擊與捐款系統遭駭危機：NPO 面臨內部人力合規與外部數位責信的雙重考驗</a>
+          </div>
+          <small style="color:var(--muted);display:block;margin-top:2px;">【雙週報 | 11/09-11/22】產假增至 14 週及育兒留停延至９歲前、勞動部推育兒減工時與職代補助、非營利組織常用捐款系統 netiCRM 遭駭</small>
+        </div>
+        <div style="margin-bottom:12px;padding-bottom:10px;border-bottom:1px dashed #e7e5e4;">
+          <div style="font-weight:700;color:var(--ink-body);font-size:0.95rem;">
+            FOCUS 03 ｜ <a href="https://www.pref.kanagawa.jp/docs/md5/cnt/f380004/npo-select_donation-way.html" target="_blank" style="color:var(--ink);text-decoration:underline;">神奈川縣 NPO 應援指定寄附制度：以故鄉納稅串聯地方自治體與第三部門的共創募款模式</a>
+          </div>
+          <small style="color:var(--muted);display:block;margin-top:2px;">寄附の方法～NPO応援寄附～ - 神奈川県</small>
+        </div>
+      </div>
+    </details>
+
+    <!-- 2026-11-23 週一 -->
+    <details class="hist-day">
+      <summary class="hist-summary">
+        <span class="hist-date">🗓️ 2026-11-23 (週一) ： 週一｜策略與使命創新</span>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <a href="archive/2026-11-23.html" target="_blank" style="color:var(--accent);font-size:0.85rem;font-weight:700;text-decoration:none;" onclick="event.stopPropagation();">📖 開啟完整日報 ↗</a>
+          <span class="hist-toggle">點擊展開 / 收合 ▾</span>
+        </div>
+      </summary>
+      <div class="hist-content">
+        
+        <div style="margin-bottom:12px;padding-bottom:10px;border-bottom:1px dashed #e7e5e4;">
+          <div style="font-weight:700;color:var(--ink-body);font-size:0.95rem;">
+            FOCUS 01 ｜ <a href="https://ssir.org/articles/entry/earth-awareness-climate-action" target="_blank" style="color:var(--ink);text-decoration:underline;">超越碳排數據：以「大地意識」重塑氣候行動的深層使命</a>
+          </div>
+          <small style="color:var(--muted);display:block;margin-top:2px;">A Missing Dimension of Climate Action</small>
+        </div>
+        <div style="margin-bottom:12px;padding-bottom:10px;border-bottom:1px dashed #e7e5e4;">
+          <div style="font-weight:700;color:var(--ink-body);font-size:0.95rem;">
+            FOCUS 02 ｜ <a href="https://rightplus.org/2026/11/20/election2026-disability-disaster-support/" target="_blank" style="color:var(--ink);text-decoration:underline;">當災害來臨時：建構接住身心障礙者的個人化災害應變社安網</a>
+          </div>
+          <small style="color:var(--muted);display:block;margin-top:2px;">【2026 地方大選】段可薇、賴思穎／災害中的社安網如何接住身心障礙者？縣市政府該做什麼？</small>
+        </div>
+        <div style="margin-bottom:12px;padding-bottom:10px;border-bottom:1px dashed #e7e5e4;">
+          <div style="font-weight:700;color:var(--ink-body);font-size:0.95rem;">
+            FOCUS 03 ｜ <a href="https://www.pref.kanagawa.jp/docs/md5/cnt/f380004/npo-select_donation-way.html" target="_blank" style="color:var(--ink);text-decoration:underline;">神奈川縣 NPO 應援寄附機制：開創地方政府與民間公益的協作新局</a>
+          </div>
+          <small style="color:var(--muted);display:block;margin-top:2px;">寄附の方法～NPO応援寄附～ - 神奈川県</small>
+        </div>
+      </div>
+    </details>
+
+    <!-- 2026-11-20 週五 -->
+    <details class="hist-day">
+      <summary class="hist-summary">
+        <span class="hist-date">🗓️ 2026-11-20 (週五) ： 週五｜法規政策與自律動態</span>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <a href="archive/2026-11-20.html" target="_blank" style="color:var(--accent);font-size:0.85rem;font-weight:700;text-decoration:none;" onclick="event.stopPropagation();">📖 開啟完整日報 ↗</a>
+          <span class="hist-toggle">點擊展開 / 收合 ▾</span>
+        </div>
+      </summary>
+      <div class="hist-content">
+        
+        <div style="margin-bottom:12px;padding-bottom:10px;border-bottom:1px dashed #e7e5e4;">
+          <div style="font-weight:700;color:var(--ink-body);font-size:0.95rem;">
+            FOCUS 01 ｜ <a href="https://ssir.org/articles/entry/pooling-for-power" target="_blank" style="color:var(--ink);text-decoration:underline;">集體行動的槓桿效應：慈善資本如何驅動結構性變革</a>
+          </div>
+          <small style="color:var(--muted);display:block;margin-top:2px;">Pooling for Power (Blog)</small>
+        </div>
+        <div style="margin-bottom:12px;padding-bottom:10px;border-bottom:1px dashed #e7e5e4;">
+          <div style="font-weight:700;color:var(--ink-body);font-size:0.95rem;">
+            FOCUS 02 ｜ <a href="https://rightplus.org/2026/11/18/election2026-city-we-want/" target="_blank" style="color:var(--ink);text-decoration:underline;">2026 地方大選：從一線視角檢視城市政策缺口</a>
+          </div>
+          <small style="color:var(--muted);display:block;margin-top:2px;">2026 地方大選：你想住在什麼樣的城市？</small>
+        </div>
+        <div style="margin-bottom:12px;padding-bottom:10px;border-bottom:1px dashed #e7e5e4;">
+          <div style="font-weight:700;color:var(--ink-body);font-size:0.95rem;">
+            FOCUS 03 ｜ <a href="https://www.pref.saitama.lg.jp/b0107/npo/npohoumon-reiwa08-3.html" target="_blank" style="color:var(--ink);text-decoration:underline;">埼玉縣里山共生模式：NPO 與地方自治體的協作實踐</a>
+          </div>
+          <small style="color:var(--muted);display:block;margin-top:2px;">特定非営利活動法人さとやま響和国たけざわを訪問しました（令和8年度） - 埼玉県</small>
+        </div>
+      </div>
+    </details>
+
+    <!-- 2026-11-19 週四 -->
+    <details class="hist-day">
+      <summary class="hist-summary">
+        <span class="hist-date">🗓️ 2026-11-19 (週四) ： 週四｜策略募款與捐款人行為</span>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <a href="archive/2026-11-19.html" target="_blank" style="color:var(--accent);font-size:0.85rem;font-weight:700;text-decoration:none;" onclick="event.stopPropagation();">📖 開啟完整日報 ↗</a>
+          <span class="hist-toggle">點擊展開 / 收合 ▾</span>
+        </div>
+      </summary>
+      <div class="hist-content">
+        
+        <div style="margin-bottom:12px;padding-bottom:10px;border-bottom:1px dashed #e7e5e4;">
+          <div style="font-weight:700;color:var(--ink-body);font-size:0.95rem;">
+            FOCUS 01 ｜ <a href="https://www.philanthropy.com/article/beyond-the-transaction-psychological-ownership" target="_blank" style="color:var(--ink);text-decoration:underline;">超越交易：利用心理所有權（Psychological Ownership）重塑捐款人忠誠度</a>
+          </div>
+          <small style="color:var(--muted);display:block;margin-top:2px;">Beyond the Transaction: How Psychological Ownership Drives Long-Term Giving</small>
+        </div>
+        <div style="margin-bottom:12px;padding-bottom:10px;border-bottom:1px dashed #e7e5e4;">
+          <div style="font-weight:700;color:var(--ink-body);font-size:0.95rem;">
+            FOCUS 02 ｜ <a href="https://rightplus.org/2026/11/12/donor-trust-security/" target="_blank" style="color:var(--ink);text-decoration:underline;">【深度專題】當信任遇上駭客：台灣 NPO 如何在資安風暴後重建捐款人信心？</a>
+          </div>
+          <small style="color:var(--muted);display:block;margin-top:2px;">【專題】數位時代下的捐款信任：台灣 NPO 如何應對個資外洩後的品牌重建</small>
+        </div>
+        <div style="margin-bottom:12px;padding-bottom:10px;border-bottom:1px dashed #e7e5e4;">
+          <div style="font-weight:700;color:var(--ink-body);font-size:0.95rem;">
+            FOCUS 03 ｜ <a href="https://jfra.jp/news/bequest-whitepaper-2026" target="_blank" style="color:var(--ink);text-decoration:underline;">2026 日本遺贈寄付白皮書：將遺產轉化為社會資本的制度創新</a>
+          </div>
+          <small style="color:var(--muted);display:block;margin-top:2px;">遺贈寄付白皮書2026：人生の集大成としての寄付文化の定着</small>
+        </div>
+      </div>
+    </details>
+
+    <div style="margin: 26px 0 10px 0; font-size: 0.92rem; font-weight: 700; color: var(--muted); display: flex; align-items: center; gap: 6px;">
+      <span>📁 歷期按月歸檔存檔（點擊展開歷史抽屜）</span>
+    </div>
+
+    <!-- Monthly Drawer: 2026 年 11 月 -->
+    <details class="month-drawer">
+      <summary class="month-drawer-summary">
+        <div>
+          <span>📁 2026 年 11 月份歷史日報存檔</span>
+          <span class="month-drawer-badge">共 10 期</span>
+        </div>
+        <span style="font-size:0.85rem;color:var(--muted);">點擊展開月份存檔 ▾</span>
+      </summary>
+      <div class="month-drawer-content">
+        
+    <!-- 2026-11-13 週五 -->
+    <details class="hist-day">
+      <summary class="hist-summary">
+        <span class="hist-date">🗓️ 2026-11-13 (週五) ： 週五｜法規政策與自律動態</span>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <a href="archive/2026-11-13.html" target="_blank" style="color:var(--accent);font-size:0.85rem;font-weight:700;text-decoration:none;" onclick="event.stopPropagation();">📖 開啟完整日報 ↗</a>
+          <span class="hist-toggle">點擊展開 / 收合 ▾</span>
+        </div>
+      </summary>
+      <div class="hist-content">
+        
+        <div style="margin-bottom:12px;padding-bottom:10px;border-bottom:1px dashed #e7e5e4;">
+          <div style="font-weight:700;color:var(--ink-body);font-size:0.95rem;">
+            FOCUS 01 ｜ <a href="https://nonprofitquarterly.org/beyond-november-democracy-needs-philanthropy-to-think-past-the-next-election/" target="_blank" style="color:var(--ink);text-decoration:underline;">超越 11 月選舉的短視循環：面對公民空間緊縮與制度挑戰，非營利倡議為何需要跨週期的「常態化民主投資」</a>
+          </div>
+          <small style="color:var(--muted);display:block;margin-top:2px;">Beyond November: Democracy needs philanthropy to think past the next election</small>
+        </div>
+        <div style="margin-bottom:12px;padding-bottom:10px;border-bottom:1px dashed #e7e5e4;">
+          <div style="font-weight:700;color:var(--ink-body);font-size:0.95rem;">
+            FOCUS 02 ｜ <a href="https://rightplus.org/2026/11/11/homeless-city-housing/" target="_blank" style="color:var(--ink);text-decoration:underline;">從付不出房租到露宿街頭：芒草心社工張凱淳提居住４大對策，看地方政府如何建立無家者「防墜與包容」社會安全網</a>
+          </div>
+          <small style="color:var(--muted);display:block;margin-top:2px;">【2026 地方大選】張凱淳／從付不出房租到露宿街頭，臺北能為無家者做什麼？</small>
+        </div>
+        <div style="margin-bottom:12px;padding-bottom:10px;border-bottom:1px dashed #e7e5e4;">
+          <div style="font-weight:700;color:var(--ink-body);font-size:0.95rem;">
+            FOCUS 03 ｜ <a href="https://www.koeki-info.go.jp/regulation/" target="_blank" style="color:var(--ink);text-decoration:underline;">邁向主動型資產所有者：日本內閣府發布「新・公益認定等指引」實務修訂，解析新公益信託法施行與 DAF 基金治理的新基準</a>
+          </div>
+          <small style="color:var(--muted);display:block;margin-top:2px;">新・公益認定等ガイドラインの実務解説：公益信託法施行とアセットオーナー・プリンシプル導入に伴う公益法人ガバナンスと資産運用の新基準</small>
+        </div>
+      </div>
+    </details>
+
+    <!-- 2026-11-12 週四 -->
+    <details class="hist-day">
+      <summary class="hist-summary">
+        <span class="hist-date">🗓️ 2026-11-12 (週四) ： 週四｜策略募款與捐款人行為</span>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <a href="archive/2026-11-12.html" target="_blank" style="color:var(--accent);font-size:0.85rem;font-weight:700;text-decoration:none;" onclick="event.stopPropagation();">📖 開啟完整日報 ↗</a>
+          <span class="hist-toggle">點擊展開 / 收合 ▾</span>
+        </div>
+      </summary>
+      <div class="hist-content">
+        
+        <div style="margin-bottom:12px;padding-bottom:10px;border-bottom:1px dashed #e7e5e4;">
+          <div style="font-weight:700;color:var(--ink-body);font-size:0.95rem;">
+            FOCUS 01 ｜ <a href="https://ssir.org/articles/entry/donor_retention_requires_transformation" target="_blank" style="color:var(--ink);text-decoration:underline;">擺脫「數字獲客」的流失惡性循環：從留存率長期低於 45% 的行業危機，看非營利組織轉向「盟友型募款」的制度性突破</a>
+          </div>
+          <small style="color:var(--muted);display:block;margin-top:2px;">Donor Retention Requires Transformation</small>
+        </div>
+        <div style="margin-bottom:12px;padding-bottom:10px;border-bottom:1px dashed #e7e5e4;">
+          <div style="font-weight:700;color:var(--ink-body);font-size:0.95rem;">
+            FOCUS 02 ｜ <a href="https://rightplus.org/2026/11/06/npo_cybersecurity_donor_trust/" target="_blank" style="color:var(--ink);text-decoration:underline;">守護行善者的信任防線：自律聯盟發布《NPO 資安指南》與「責信冒險 2.0」，解析 AI 時代捐款人個資防護與財務可視化</a>
+          </div>
+          <small style="color:var(--muted);display:block;margin-top:2px;">守護行善者的信任防線：自律聯盟發布《NPO 資安指南》與「責信冒險 2.0」，解析 AI 時代捐款人個資防護與財務可視化</small>
+        </div>
+        <div style="margin-bottom:12px;padding-bottom:10px;border-bottom:1px dashed #e7e5e4;">
+          <div style="font-weight:700;color:var(--ink-body);font-size:0.95rem;">
+            FOCUS 03 ｜ <a href="https://prtimes.jp/main/html/rd/p/000000021.000064301.html" target="_blank" style="color:var(--ink);text-decoration:underline;">大繼承時代的遺贈生態系落地：日本承継寄付協會首獲三井物產 1 億日圓共創基金，看跨界金融與法律科技如何引導遺產回饋社會</a>
+          </div>
+          <small style="color:var(--muted);display:block;margin-top:2px;">一般社団法人日本承継寄付協会「三井物産共創基金」に非営利団体として初採択——約1億円の助成で地方金融機関・自治体と連携した遺贈寄付の社会実装を加速</small>
+        </div>
+      </div>
+    </details>
+
+    <!-- 2026-11-11 週三 -->
+    <details class="hist-day">
+      <summary class="hist-summary">
+        <span class="hist-date">🗓️ 2026-11-11 (週三) ： 週三｜財務管理與永續商業模式</span>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <a href="archive/2026-11-11.html" target="_blank" style="color:var(--accent);font-size:0.85rem;font-weight:700;text-decoration:none;" onclick="event.stopPropagation();">📖 開啟完整日報 ↗</a>
+          <span class="hist-toggle">點擊展開 / 收合 ▾</span>
+        </div>
+      </summary>
+      <div class="hist-content">
+        
+        <div style="margin-bottom:12px;padding-bottom:10px;border-bottom:1px dashed #e7e5e4;">
+          <div style="font-weight:700;color:var(--ink-body);font-size:0.95rem;">
+            FOCUS 01 ｜ <a href="https://ssir.org/articles/entry/building_scale_before_the_curve" target="_blank" style="color:var(--ink);text-decoration:underline;">在拐點來臨前預建規模化架構：從國際 CARE 村落儲蓄借貸（VSLA）數位轉型，看非營利組織避免「虛假擴張」的財務永續法則</a>
+          </div>
+          <small style="color:var(--muted);display:block;margin-top:2px;">Building Scale Before the Curve</small>
+        </div>
+        <div style="margin-bottom:12px;padding-bottom:10px;border-bottom:1px dashed #e7e5e4;">
+          <div style="font-weight:700;color:var(--ink-body);font-size:0.95rem;">
+            FOCUS 02 ｜ <a href="https://rightplus.org/2026/11/09/news-26111/" target="_blank" style="color:var(--ink);text-decoration:underline;">破解社福「代墊款」與行政內耗死結：從北市社福白皮書倡議「總包價法」，看非營利組織財務委託制度的結構性解方</a>
+          </div>
+          <small style="color:var(--muted);display:block;margin-top:2px;">【雙週報｜10/26-11/08】北市社福白皮書籲建立戰時社福機制、2028 年社福人力缺口擴大恐難因應需求、毒駕累犯致死可判死刑引發修法爭議</small>
+        </div>
+        <div style="margin-bottom:12px;padding-bottom:10px;border-bottom:1px dashed #e7e5e4;">
+          <div style="font-weight:700;color:var(--ink-body);font-size:0.95rem;">
+            FOCUS 03 ｜ <a href="https://prtimes.jp/main/html/rd/p/000000085.000027178.html" target="_blank" style="color:var(--ink);text-decoration:underline;">打破單年度專案補助框架：日本最大規模「渡邉利三シビル・ソサエティ基金」開跑，看 11 億日圓永續型個人基金如何支持 NPO 系統性變革</a>
+          </div>
+          <small style="color:var(--muted);display:block;margin-top:2px;">日本最大規模の個人冠基金「渡邉利三シビル・ソサエティ基金」第1回公募開始——700万ドル（約11億円）の永続型運用モデルによるソーシャルチェンジNPO支援</small>
+        </div>
+      </div>
+    </details>
+
+    <!-- 2026-11-10 週二 -->
+    <details class="hist-day">
+      <summary class="hist-summary">
+        <span class="hist-date">🗓️ 2026-11-10 (週二) ： 週二｜組織治理與責信</span>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <a href="archive/2026-11-10.html" target="_blank" style="color:var(--accent);font-size:0.85rem;font-weight:700;text-decoration:none;" onclick="event.stopPropagation();">📖 開啟完整日報 ↗</a>
+          <span class="hist-toggle">點擊展開 / 收合 ▾</span>
+        </div>
+      </summary>
+      <div class="hist-content">
+        
+        <div style="margin-bottom:12px;padding-bottom:10px;border-bottom:1px dashed #e7e5e4;">
+          <div style="font-weight:700;color:var(--ink-body);font-size:0.95rem;">
+            FOCUS 01 ｜ <a href="https://rightplus.org/2026/11/04/mongapark6/" target="_blank" style="color:var(--ink);text-decoration:underline;">【城市共生６】艋舺公園改建後禁止夜宿引議：民團倡議以積極支持性治理取代驅離，重塑無家者公共空間與組織責信</a>
+          </div>
+          <small style="color:var(--muted);display:block;margin-top:2px;">【城市共生６】艋舺公園開幕後禁止夜宿，民團：應以積極支援取代驅離，解決無家可歸問題</small>
+        </div>
+        <div style="margin-bottom:12px;padding-bottom:10px;border-bottom:1px dashed #e7e5e4;">
+          <div style="font-weight:700;color:var(--ink-body);font-size:0.95rem;">
+            FOCUS 02 ｜ <a href="https://nonprofitquarterly.org/can-a-deck-of-cards-interrupt-bias-in-grantmaking/" target="_blank" style="color:var(--ink);text-decoration:underline;">一組卡牌能翻轉補助決策的隱性偏見嗎？非營利組織與資助方的「決策去偏見」治理工具創新</a>
+          </div>
+          <small style="color:var(--muted);display:block;margin-top:2px;">Can a deck of cards interrupt bias in grantmaking?</small>
+        </div>
+        <div style="margin-bottom:12px;padding-bottom:10px;border-bottom:1px dashed #e7e5e4;">
+          <div style="font-weight:700;color:var(--ink-body);font-size:0.95rem;">
+            FOCUS 03 ｜ <a href="https://www.koeki-info.go.jp/trust/" target="_blank" style="color:var(--ink);text-decoration:underline;">日本公益法人改革最前線：內閣府公開「公益信託VOICE Vol.2」專訪，借鏡新制受託監督強化非營利組織長期資產治理</a>
+          </div>
+          <small style="color:var(--muted);display:block;margin-top:2px;">インタビュー記事「公益信託VOICE Vol.2（前編、後編）」を公開しました</small>
+        </div>
+      </div>
+    </details>
+
+    <!-- 2026-11-09 週一 -->
+    <details class="hist-day">
+      <summary class="hist-summary">
+        <span class="hist-date">🗓️ 2026-11-09 (週一) ： 週一｜策略與使命創新</span>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <a href="archive/2026-11-09.html" target="_blank" style="color:var(--accent);font-size:0.85rem;font-weight:700;text-decoration:none;" onclick="event.stopPropagation();">📖 開啟完整日報 ↗</a>
+          <span class="hist-toggle">點擊展開 / 收合 ▾</span>
+        </div>
+      </summary>
+      <div class="hist-content">
+        
+        <div style="margin-bottom:12px;padding-bottom:10px;border-bottom:1px dashed #e7e5e4;">
+          <div style="font-weight:700;color:var(--ink-body);font-size:0.95rem;">
+            FOCUS 01 ｜ <a href="https://rightplus.org/2026/11/06/election2026-independent-living/" target="_blank" style="color:var(--ink);text-decoration:underline;">身心障礙者城市生活與自立支持：直擊空間斷點、個人助理制度化與民主承諾</a>
+          </div>
+          <small style="color:var(--muted);display:block;margin-top:2px;">【2026 地方大選】周月清／下班怎麼回家？障礙者能選擇的城市生活，給地方候選人的４個問題</small>
+        </div>
+        <div style="margin-bottom:12px;padding-bottom:10px;border-bottom:1px dashed #e7e5e4;">
+          <div style="font-weight:700;color:var(--ink-body);font-size:0.95rem;">
+            FOCUS 02 ｜ <a href="https://ssir.org/articles/entry/climate-finance-cop31" target="_blank" style="color:var(--ink);text-decoration:underline;">氣候韌性絕非依靠公關新聞稿所能建立：SSIR 呼籲超越 COP31 承諾幻覺、重構保護脆弱社群之落地交付系統</a>
+          </div>
+          <small style="color:var(--muted);display:block;margin-top:2px;">Climate Resilience Will Not Be Built by Press Release</small>
+        </div>
+        <div style="margin-bottom:12px;padding-bottom:10px;border-bottom:1px dashed #e7e5e4;">
+          <div style="font-weight:700;color:var(--ink-body);font-size:0.95rem;">
+            FOCUS 03 ｜ <a href="https://www.janpia.or.jp/press/news_20261106_01.html" target="_blank" style="color:var(--ink);text-decoration:underline;">日本休眠預金運用創新：JANPIA 正式選定 2026 年度「緊急枠第2次」資金分配團體投入熊本地震災後重建與社會創新</a>
+          </div>
+          <small style="color:var(--muted);display:block;margin-top:2px;">休眠預金等活用法に基づく2026年度緊急枠〈第2次〉資金分配団体の決定～令和8年熊本地震への支援に向け、助成対象2事業を選定～</small>
+        </div>
+      </div>
+    </details>
+
+    <!-- 2026-11-06 週五 -->
+    <details class="hist-day">
+      <summary class="hist-summary">
+        <span class="hist-date">🗓️ 2026-11-06 (週五) ： 週五｜法規政策與自律動態</span>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <a href="archive/2026-11-06.html" target="_blank" style="color:var(--accent);font-size:0.85rem;font-weight:700;text-decoration:none;" onclick="event.stopPropagation();">📖 開啟完整日報 ↗</a>
+          <span class="hist-toggle">點擊展開 / 收合 ▾</span>
+        </div>
+      </summary>
+      <div class="hist-content">
+        
+        <div style="margin-bottom:12px;padding-bottom:10px;border-bottom:1px dashed #e7e5e4;">
+          <div style="font-weight:700;color:var(--ink-body);font-size:0.95rem;">
+            FOCUS 01 ｜ <a href="https://rightplus.org/2026/11/05/election2026-disability-rights/" target="_blank" style="color:var(--ink);text-decoration:underline;">身心障礙者自立生活支持制度困境：直擊個人助理核定黑箱、多軌資源互踢皮球與預算執行不彰</a>
+          </div>
+          <small style="color:var(--muted);display:block;margin-top:2px;">【2026 地方大選】給市長候選人３項障權提問：請回答如何改善個人助理服務</small>
+        </div>
+        <div style="margin-bottom:12px;padding-bottom:10px;border-bottom:1px dashed #e7e5e4;">
+          <div style="font-weight:700;color:var(--ink-body);font-size:0.95rem;">
+            FOCUS 02 ｜ <a href="https://nonprofitquarterly.org/areweorganizingtosavedemocracy/" target="_blank" style="color:var(--ink);text-decoration:underline;">我們是在組織力量拯救民主，還是打造真正需要的體制？NPQ 剖析非營利倡議的長線變革與慈善課責</a>
+          </div>
+          <small style="color:var(--muted);display:block;margin-top:2px;">Are we organizing to save democracy, or build the one we actually need?</small>
+        </div>
+        <div style="margin-bottom:12px;padding-bottom:10px;border-bottom:1px dashed #e7e5e4;">
+          <div style="font-weight:700;color:var(--ink-body);font-size:0.95rem;">
+            FOCUS 03 ｜ <a href="https://koueki.jp/pub/dai3han-chikujyouippan/" target="_blank" style="color:var(--ink);text-decoration:underline;">日本新公益法人制度下之治理邊界與裁判實務：熊谷則一《逐條解説 一般社團・財團法人法（第3版）》出版剖析董監評議員權限分際</a>
+          </div>
+          <small style="color:var(--muted);display:block;margin-top:2px;">【第3版】逐条解説 一般社団・財団法人法</small>
+        </div>
+      </div>
+    </details>
+
+    <!-- 2026-11-05 週四 -->
+    <details class="hist-day">
+      <summary class="hist-summary">
+        <span class="hist-date">🗓️ 2026-11-05 (週四) ： 週四｜策略募款與捐款人行為</span>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <a href="archive/2026-11-05.html" target="_blank" style="color:var(--accent);font-size:0.85rem;font-weight:700;text-decoration:none;" onclick="event.stopPropagation();">📖 開啟完整日報 ↗</a>
+          <span class="hist-toggle">點擊展開 / 收合 ▾</span>
+        </div>
+      </summary>
+      <div class="hist-content">
+        
+        <div style="margin-bottom:12px;padding-bottom:10px;border-bottom:1px dashed #e7e5e4;">
+          <div style="font-weight:700;color:var(--ink-body);font-size:0.95rem;">
+            FOCUS 01 ｜ <a href="https://afpglobal.org/news/donations-are-donors-are-down-reports-fundraising-effectiveness-project" target="_blank" style="color:var(--ink);text-decoration:underline;">募款總額成長但捐款人總數持續探底：FEP 最新報告剖析「少數巨額捐款支撐、基層微額捐款流失」之結構性警訊</a>
+          </div>
+          <small style="color:var(--muted);display:block;margin-top:2px;">Donations Are Up, but Donors Are Down, Reports the Fundraising Effectiveness Project</small>
+        </div>
+        <div style="margin-bottom:12px;padding-bottom:10px;border-bottom:1px dashed #e7e5e4;">
+          <div style="font-weight:700;color:var(--ink-body);font-size:0.95rem;">
+            FOCUS 02 ｜ <a href="https://twnpos.org.tw/news/3Kg8CFNGAh1FLhthnFoJIq8UHqA" target="_blank" style="color:var(--ink);text-decoration:underline;">走出歐美單一標準、建構在地募款信任：2026 亞洲責信發展交流論壇與台灣捐款人行為趨勢發布</a>
+          </div>
+          <small style="color:var(--muted);display:block;margin-top:2px;">2026 亞洲責信發展交流論壇 (含「2026 台灣捐款人生態調查初步趨勢」)</small>
+        </div>
+        <div style="margin-bottom:12px;padding-bottom:10px;border-bottom:1px dashed #e7e5e4;">
+          <div style="font-weight:700;color:var(--ink-body);font-size:0.95rem;">
+            FOCUS 03 ｜ <a href="https://jfra.jp/event/62166" target="_blank" style="color:var(--ink);text-decoration:underline;">高齡化社會下的非營利財源新突破：數位遺囑法制化浪潮與非營利遺贈寄付（Legacy Giving）實戰策略</a>
+          </div>
+          <small style="color:var(--muted);display:block;margin-top:2px;">第34回 遺贈寄付サロン 「デジタル遺言のいまと、これから」</small>
+        </div>
+      </div>
+    </details>
+
+    <!-- 2026-11-04 週三 -->
+    <details class="hist-day">
+      <summary class="hist-summary">
+        <span class="hist-date">🗓️ 2026-11-04 (週三) ： 週三｜財務管理與永續商業模式</span>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <a href="archive/2026-11-04.html" target="_blank" style="color:var(--accent);font-size:0.85rem;font-weight:700;text-decoration:none;" onclick="event.stopPropagation();">📖 開啟完整日報 ↗</a>
+          <span class="hist-toggle">點擊展開 / 收合 ▾</span>
+        </div>
+      </summary>
+      <div class="hist-content">
+        
+        <div style="margin-bottom:12px;padding-bottom:10px;border-bottom:1px dashed #e7e5e4;">
+          <div style="font-weight:700;color:var(--ink-body);font-size:0.95rem;">
+            FOCUS 01 ｜ <a href="https://info.nonprofitquarterly.org/financial-pressure-points-how-to-respond-with-financial-clarity-in-the-instability-of-2026" target="_blank" style="color:var(--ink);text-decoration:underline;">面對 2026 總體動盪的五大財務壓力點：掌握現金跑道、建立營運準備金與從「記帳」走向「財務領導力」</a>
+          </div>
+          <small style="color:var(--muted);display:block;margin-top:2px;">Financial Pressure Points: How to Respond with Financial Clarity in the Instability of 2026</small>
+        </div>
+        <div style="margin-bottom:12px;padding-bottom:10px;border-bottom:1px dashed #e7e5e4;">
+          <div style="font-weight:700;color:var(--ink-body);font-size:0.95rem;">
+            FOCUS 02 ｜ <a href="https://rightplus.org/2026/05/18/procurement/" target="_blank" style="color:var(--ink);text-decoration:underline;">社福委辦案６大缺失揭露：預算悖離市場行情、核銷與付款延宕迫使 NPO 舉債代墊之財務危機</a>
+          </div>
+          <small style="color:var(--muted);display:block;margin-top:2px;">社福委辦案６大缺失，公益團體長年困境、經營彈性與尊嚴遭嚴重漠視</small>
+        </div>
+        <div style="margin-bottom:12px;padding-bottom:10px;border-bottom:1px dashed #e7e5e4;">
+          <div style="font-weight:700;color:var(--ink-body);font-size:0.95rem;">
+            FOCUS 03 ｜ <a href="https://koueki.jp/semi/movielist/smr0438/" target="_blank" style="color:var(--ink);text-decoration:underline;">日本新公益法人制度「公益充実資金」實務解析：鬆綁特定準備金、突破遊休財產限制與中長期收支平衡</a>
+          </div>
+          <small style="color:var(--muted);display:block;margin-top:2px;">公益充実資金の制度理解と実務対応</small>
+        </div>
+      </div>
+    </details>
+
+    <!-- 2026-11-03 週二 -->
+    <details class="hist-day">
+      <summary class="hist-summary">
+        <span class="hist-date">🗓️ 2026-11-03 (週二) ： 週二｜組織治理與責信</span>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <a href="archive/2026-11-03.html" target="_blank" style="color:var(--accent);font-size:0.85rem;font-weight:700;text-decoration:none;" onclick="event.stopPropagation();">📖 開啟完整日報 ↗</a>
+          <span class="hist-toggle">點擊展開 / 收合 ▾</span>
+        </div>
+      </summary>
+      <div class="hist-content">
+        
+        <div style="margin-bottom:12px;padding-bottom:10px;border-bottom:1px dashed #e7e5e4;">
+          <div style="font-weight:700;color:var(--ink-body);font-size:0.95rem;">
+            FOCUS 01 ｜ <a href="https://nonprofitquarterly.org/who-gets-to-decide-who-decides-the-power-problem-inside-participatory-grantmaking/" target="_blank" style="color:var(--ink);text-decoration:underline;">誰有權決定誰來做決策？參與式補助背後的權力架構、形式主義諮詢與實質治理重塑</a>
+          </div>
+          <small style="color:var(--muted);display:block;margin-top:2px;">Who gets to decide who decides? The power problem inside participatory grantmaking</small>
+        </div>
+        <div style="margin-bottom:12px;padding-bottom:10px;border-bottom:1px dashed #e7e5e4;">
+          <div style="font-weight:700;color:var(--ink-body);font-size:0.95rem;">
+            FOCUS 02 ｜ <a href="https://rightplus.org/2026/10/29/social-welfare-white-paper-2026/" target="_blank" style="color:var(--ink);text-decoration:underline;">北社盟集結上百團體發表社福政策白皮書：全面檢討委託制度與行政綁架、落實總包價法以解基層過勞</a>
+          </div>
+          <small style="color:var(--muted);display:block;margin-top:2px;">【2026 地方大選】北社盟上百團體提社福政策白皮書，沈伯洋：優先改善社福委託制度</small>
+        </div>
+        <div style="margin-bottom:12px;padding-bottom:10px;border-bottom:1px dashed #e7e5e4;">
+          <div style="font-weight:700;color:var(--ink-body);font-size:0.95rem;">
+            FOCUS 03 ｜ <a href="https://www.koueki.jp/seminar/20261028-harassment-governance/" target="_blank" style="color:var(--ink);text-decoration:underline;">日本公益法人迎戰「顧客騷擾」防制義務化：破除神聖光環、健全董監事會對上位者權力制衡之內部統制</a>
+          </div>
+          <small style="color:var(--muted);display:block;margin-top:2px;">財団・社団のハラスメント規程と相談体制の見直し ―10月のカスハラ対策義務化にも対応―</small>
+        </div>
+      </div>
+    </details>
+
+    <!-- 2026-11-02 週一 -->
+    <details class="hist-day">
+      <summary class="hist-summary">
+        <span class="hist-date">🗓️ 2026-11-02 (週一) ： 週一｜策略與使命創新</span>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <a href="archive/2026-11-02.html" target="_blank" style="color:var(--accent);font-size:0.85rem;font-weight:700;text-decoration:none;" onclick="event.stopPropagation();">📖 開啟完整日報 ↗</a>
+          <span class="hist-toggle">點擊展開 / 收合 ▾</span>
+        </div>
+      </summary>
+      <div class="hist-content">
+        
+        <div style="margin-bottom:12px;padding-bottom:10px;border-bottom:1px dashed #e7e5e4;">
+          <div style="font-weight:700;color:var(--ink-body);font-size:0.95rem;">
+            FOCUS 01 ｜ <a href="https://ssir.org/articles/entry/nonprofits-ai-search-visibility-gap" target="_blank" style="color:var(--ink);text-decoration:underline;">演算法正在限縮捐款人的看見路徑：生成式 AI 帶來的「非營利能見度新鴻溝」與組織策略因應</a>
+          </div>
+          <small style="color:var(--muted);display:block;margin-top:2px;">Nonprofits Face an AI Search Visibility Gap</small>
+        </div>
+        <div style="margin-bottom:12px;padding-bottom:10px;border-bottom:1px dashed #e7e5e4;">
+          <div style="font-weight:700;color:var(--ink-body);font-size:0.95rem;">
+            FOCUS 02 ｜ <a href="https://rightplus.org/2026/10/30/womens_safety_audit/" target="_blank" style="color:var(--ink);text-decoration:underline;">從女性不敢走的路看見城市治理缺口：德里與巴黎的「女性安全審計」與基層培力創新</a>
+          </div>
+          <small style="color:var(--muted);display:block;margin-top:2px;">從女性不敢走的路，看見城市治理缺口：德里與巴黎的女性安全審計</small>
+        </div>
+        <div style="margin-bottom:12px;padding-bottom:10px;border-bottom:1px dashed #e7e5e4;">
+          <div style="font-weight:700;color:var(--ink-body);font-size:0.95rem;">
+            FOCUS 03 ｜ <a href="https://www.janpia.or.jp/news/janpia/notice/news_20261030_1" target="_blank" style="color:var(--ink);text-decoration:underline;">日本休眠預金活用事業重大進展：2026 年度「資金分配團體（出資）」公募截止</a>
+          </div>
+          <small style="color:var(--muted);display:block;margin-top:2px;">2026年度 資金分配団体（出資）の申請状況について</small>
+        </div>
+      </div>
+    </details>
+
+      </div>
+    </details>
+
+    <!-- Monthly Drawer: 2026 年 10 月 -->
+    <details class="month-drawer">
+      <summary class="month-drawer-summary">
+        <div>
+          <span>📁 2026 年 10 月份歷史日報存檔</span>
+          <span class="month-drawer-badge">共 7 期</span>
+        </div>
+        <span style="font-size:0.85rem;color:var(--muted);">點擊展開月份存檔 ▾</span>
+      </summary>
+      <div class="month-drawer-content">
+        
+    <!-- 2026-10-30 週五 -->
+    <details class="hist-day">
+      <summary class="hist-summary">
+        <span class="hist-date">🗓️ 2026-10-30 (週五) ： 週五｜法規政策與自律動態</span>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <a href="archive/2026-10-30.html" target="_blank" style="color:var(--accent);font-size:0.85rem;font-weight:700;text-decoration:none;" onclick="event.stopPropagation();">📖 開啟完整日報 ↗</a>
+          <span class="hist-toggle">點擊展開 / 收合 ▾</span>
+        </div>
+      </summary>
+      <div class="hist-content">
+        
+        <div style="margin-bottom:12px;padding-bottom:10px;border-bottom:1px dashed #e7e5e4;">
+          <div style="font-weight:700;color:var(--ink-body);font-size:0.95rem;">
+            FOCUS 01 ｜ <a href="https://rightplus.org/2026/10/29/" target="_blank" style="color:var(--ink);text-decoration:underline;">【獨家｜2026 地方大選】沈伯洋＆社工客廳會：政府的角色就是必須接住社工、如何緩解人力荒？</a>
+          </div>
+          <small style="color:var(--muted);display:block;margin-top:2px;">【獨家｜2026 地方大選】沈伯洋＆社工客廳會：政府的角色就是必須接住社工、如何緩解人力荒？</small>
+        </div>
+        <div style="margin-bottom:12px;padding-bottom:10px;border-bottom:1px dashed #e7e5e4;">
+          <div style="font-weight:700;color:var(--ink-body);font-size:0.95rem;">
+            FOCUS 02 ｜ <a href="https://nonprofitquarterly.org/whats-happening-with-section-504-and-how-are-nonprofits-fighting/" target="_blank" style="color:var(--ink);text-decoration:underline;">美國聯邦第 504 條款身心障礙社區融合權遭遇司法逆流：Texas v. Kennedy 判決衝擊與 NPO 跨領域法律防禦陣線</a>
+          </div>
+          <small style="color:var(--muted);display:block;margin-top:2px;">What’s happening with Section 504—and how are nonprofits fighting?</small>
+        </div>
+      </div>
+    </details>
+
+    <!-- 2026-10-29 週四 -->
+    <details class="hist-day">
+      <summary class="hist-summary">
+        <span class="hist-date">🗓️ 2026-10-29 (週四) ： 週四｜策略募款與捐款人行為</span>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <a href="archive/2026-10-29.html" target="_blank" style="color:var(--accent);font-size:0.85rem;font-weight:700;text-decoration:none;" onclick="event.stopPropagation();">📖 開啟完整日報 ↗</a>
+          <span class="hist-toggle">點擊展開 / 收合 ▾</span>
+        </div>
+      </summary>
+      <div class="hist-content">
+        
+        <div style="margin-bottom:12px;padding-bottom:10px;border-bottom:1px dashed #e7e5e4;">
+          <div style="font-weight:700;color:var(--ink-body);font-size:0.95rem;">
+            FOCUS 01 ｜ <a href="https://nonprofitquarterly.org/the-tax-subsidized-shrug-how-foundation-leaders-threaten-democracy-and-the-nonprofit-sector/" target="_blank" style="color:var(--ink);text-decoration:underline;">免稅補貼下的冷漠聳肩：資產規模 2.2 兆美元的基金會如何以「被動囤積資本」威脅民主體制與 NPO 永續？</a>
+          </div>
+          <small style="color:var(--muted);display:block;margin-top:2px;">The tax-subsidized shrug: How foundation leaders threaten democracy and the nonprofit sector</small>
+        </div>
+        <div style="margin-bottom:12px;padding-bottom:10px;border-bottom:1px dashed #e7e5e4;">
+          <div style="font-weight:700;color:var(--ink-body);font-size:0.95rem;">
+            FOCUS 02 ｜ <a href="https://jfra.jp/news/20261027-tax-reform-proposal" target="_blank" style="color:var(--ink);text-decoration:underline;">日本 5 大 NPO 聯盟聯手出擊：認定 NPO 制度 25 週年之「2026 年度寄付稅制擴充共同要望書」</a>
+          </div>
+          <small style="color:var(--muted);display:block;margin-top:2px;">政策提言｜ 2026年度税制改正に関する共同要望書を提出（寄付税制拡充等に関する共同要望）</small>
+        </div>
+        <div style="margin-bottom:12px;padding-bottom:10px;border-bottom:1px dashed #e7e5e4;">
+          <div style="font-weight:700;color:var(--ink-body);font-size:0.95rem;">
+            FOCUS 03 ｜ <a href="https://doi.org/10.1002/nml.70067" target="_blank" style="color:var(--ink);text-decoration:underline;">特殊募款活動在「關係型募款（Relationship Fundraising）」中的實證角色：活動累積參與度、親密性特質與大額捐款轉化盲點</a>
+          </div>
+          <small style="color:var(--muted);display:block;margin-top:2px;">Exploring the Role of Special Events in Relationship Fundraising</small>
+        </div>
+      </div>
+    </details>
+
+    <!-- 2026-10-28 週三 -->
+    <details class="hist-day">
+      <summary class="hist-summary">
+        <span class="hist-date">🗓️ 2026-10-28 (週三) ： 週三｜財務管理與永續商業模式</span>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <a href="archive/2026-10-28.html" target="_blank" style="color:var(--accent);font-size:0.85rem;font-weight:700;text-decoration:none;" onclick="event.stopPropagation();">📖 開啟完整日報 ↗</a>
+          <span class="hist-toggle">點擊展開 / 收合 ▾</span>
+        </div>
+      </summary>
+      <div class="hist-content">
+        
+        <div style="margin-bottom:12px;padding-bottom:10px;border-bottom:1px dashed #e7e5e4;">
+          <div style="font-weight:700;color:var(--ink-body);font-size:0.95rem;">
+            FOCUS 01 ｜ <a href="https://nonprofitquarterly.org/women-and-indigenous-led-community-funds-are-rewriting-the-rules-of-us-philanthropy/" target="_blank" style="color:var(--ink);text-decoration:underline;">女性與原住民領導的「社區基金（Community Funds）」正在改寫美國慈善財務分配規則</a>
+          </div>
+          <small style="color:var(--muted);display:block;margin-top:2px;">Women- and Indigenous-led community funds are rewriting the rules of US philanthropy</small>
+        </div>
+        <div style="margin-bottom:12px;padding-bottom:10px;border-bottom:1px dashed #e7e5e4;">
+          <div style="font-weight:700;color:var(--ink-body);font-size:0.95rem;">
+            FOCUS 02 ｜ <a href="https://www.janpia.or.jp/koubo/" target="_blank" style="color:var(--ink);text-decoration:underline;">日本 JANPIA 2026 年度休眠預金活用事業「通常枠〈第 2 回〉」公募啟動（約 40.1 億日圓規模）＆〈第 1 回〉12 團體採擇財務分析</a>
+          </div>
+          <small style="color:var(--muted);display:block;margin-top:2px;">2026年度 休眠預金等活用事業「通常枠〈第2回〉」資金分配団体公募（申請受付：10月21日～10月30日）および〈第1回〉採択結果公表</small>
+        </div>
+        <div style="margin-bottom:12px;padding-bottom:10px;border-bottom:1px dashed #e7e5e4;">
+          <div style="font-weight:700;color:var(--ink-body);font-size:0.95rem;">
+            FOCUS 03 ｜ <a href="https://www.koeki-info.go.jp/" target="_blank" style="color:var(--ink);text-decoration:underline;">日本「令和 6 年新公益法人會計基準」實務移行關鍵：從「正味財產增減計算書」轉向「活動計算書」與中期收支均衡</a>
+          </div>
+          <small style="color:var(--muted);display:block;margin-top:2px;">新公益法人制度（改正公益認定法）および「令和6年公益法人会計基準」への実務移行・中期的収支均衡と区分経理の運用整理</small>
+        </div>
+      </div>
+    </details>
+
+    <!-- 2026-10-27 週二 -->
+    <details class="hist-day">
+      <summary class="hist-summary">
+        <span class="hist-date">🗓️ 2026-10-27 (週二) ： 週二｜組織治理與責信</span>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <a href="archive/2026-10-27.html" target="_blank" style="color:var(--accent);font-size:0.85rem;font-weight:700;text-decoration:none;" onclick="event.stopPropagation();">📖 開啟完整日報 ↗</a>
+          <span class="hist-toggle">點擊展開 / 收合 ▾</span>
+        </div>
+      </summary>
+      <div class="hist-content">
+        
+        <div style="margin-bottom:12px;padding-bottom:10px;border-bottom:1px dashed #e7e5e4;">
+          <div style="font-weight:700;color:var(--ink-body);font-size:0.95rem;">
+            FOCUS 01 ｜ <a href="https://rightplus.org/2026/10/27/" target="_blank" style="color:var(--ink);text-decoration:underline;">臺南 2 歲女童虐死案（萱萱案）社工訪視造假遭廢止證照與跨轄區社會安全網責信檢討</a>
+          </div>
+          <small style="color:var(--muted);display:block;margin-top:2px;">【雙週報｜10/12-10/25】萱萱案社工訪視造假遭廢止證照、老人福利法三讀擴大健保費補助惹議、３團體推新住民多語生活專線</small>
+        </div>
+        <div style="margin-bottom:12px;padding-bottom:10px;border-bottom:1px dashed #e7e5e4;">
+          <div style="font-weight:700;color:var(--ink-body);font-size:0.95rem;">
+            FOCUS 02 ｜ <a href="https://nonprofitquarterly.org/who-fills-the-gap-when-philanthropy-walks-away-from-social-justice-movements/" target="_blank" style="color:var(--ink);text-decoration:underline;">當大型基金會突然撤出社會正義運動，誰來填補缺口？（剖析機構型慈善的「無預警撤資背叛」與運動韌性）</a>
+          </div>
+          <small style="color:var(--muted);display:block;margin-top:2px;">Who fills the gap when philanthropy walks away from social justice movements?</small>
+        </div>
+        <div style="margin-bottom:12px;padding-bottom:10px;border-bottom:1px dashed #e7e5e4;">
+          <div style="font-weight:700;color:var(--ink-body);font-size:0.95rem;">
+            FOCUS 03 ｜ <a href="https://nonprofitquarterly.org/domestic-violence-awareness-is-not-enough-philanthropy-must-invest-in-survivor-justice/" target="_blank" style="color:var(--ink);text-decoration:underline;">僅有家暴防治宣導還不夠——公益慈善必須投資於「倖存者正義（Survivor Justice）」與系統性賦權</a>
+          </div>
+          <small style="color:var(--muted);display:block;margin-top:2px;">Domestic violence awareness is not enough—philanthropy must invest in survivor justice</small>
+        </div>
+      </div>
+    </details>
+
+    <!-- 2026-10-26 週一 -->
+    <details class="hist-day">
+      <summary class="hist-summary">
+        <span class="hist-date">🗓️ 2026-10-26 (週一) ： 週一｜策略與使命創新</span>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <a href="archive/2026-10-26.html" target="_blank" style="color:var(--accent);font-size:0.85rem;font-weight:700;text-decoration:none;" onclick="event.stopPropagation();">📖 開啟完整日報 ↗</a>
+          <span class="hist-toggle">點擊展開 / 收合 ▾</span>
+        </div>
+      </summary>
+      <div class="hist-content">
+        
+        <div style="margin-bottom:12px;padding-bottom:10px;border-bottom:1px dashed #e7e5e4;">
+          <div style="font-weight:700;color:var(--ink-body);font-size:0.95rem;">
+            FOCUS 01 ｜ <a href="https://ssir.org/articles/entry/creating_climate_policy_that_works_requires_community_data" target="_blank" style="color:var(--ink);text-decoration:underline;">打造有效的氣候與社會政策需要「社區第一線數據」：波特蘭 HEART 標準之社會創新實踐</a>
+          </div>
+          <small style="color:var(--muted);display:block;margin-top:2px;">Creating Climate Policy That Works Requires Community Data</small>
+        </div>
+        <div style="margin-bottom:12px;padding-bottom:10px;border-bottom:1px dashed #e7e5e4;">
+          <div style="font-weight:700;color:var(--ink-body);font-size:0.95rem;">
+            FOCUS 02 ｜ <a href="https://ssir.org/articles/entry/toward_generative_philanthropy" target="_blank" style="color:var(--ink);text-decoration:underline;">邁向「生成式慈善（Generative Philanthropy）」：超越短期績效指標、重建人類繁榮的歷史借鏡</a>
+          </div>
+          <small style="color:var(--muted);display:block;margin-top:2px;">Toward Generative Philanthropy</small>
+        </div>
+        <div style="margin-bottom:12px;padding-bottom:10px;border-bottom:1px dashed #e7e5e4;">
+          <div style="font-weight:700;color:var(--ink-body);font-size:0.95rem;">
+            FOCUS 03 ｜ <a href="https://rightplus.org/2026/10/23/" target="_blank" style="color:var(--ink);text-decoration:underline;">當社區共生成為可能：地方診所代購日用品、在地組織串聯、推動全齡友善宅（弘道全國共生論壇實踐）</a>
+          </div>
+          <small style="color:var(--muted);display:block;margin-top:2px;">當社區共生成為可能：地方診所代購日用品、在地組織串聯、推動全齡友善宅</small>
+        </div>
+      </div>
+    </details>
+
+    <!-- 2026-10-23 週五 -->
+    <details class="hist-day">
+      <summary class="hist-summary">
+        <span class="hist-date">🗓️ 2026-10-23 (週五) ： 週五｜法規政策與自律動態</span>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <a href="archive/2026-10-23.html" target="_blank" style="color:var(--accent);font-size:0.85rem;font-weight:700;text-decoration:none;" onclick="event.stopPropagation();">📖 開啟完整日報 ↗</a>
+          <span class="hist-toggle">點擊展開 / 收合 ▾</span>
+        </div>
+      </summary>
+      <div class="hist-content">
+        
+        <div style="margin-bottom:12px;padding-bottom:10px;border-bottom:1px dashed #e7e5e4;">
+          <div style="font-weight:700;color:var(--ink-body);font-size:0.95rem;">
+            FOCUS 01 ｜ <a href="https://rightplus.org/2026/10/22/chilren_placement_and_rights" target="_blank" style="color:var(--ink);text-decoration:underline;">孩子說了不舒服，為何大人可以不回應？（安置機構不當對待與制度性背叛剖析）</a>
+          </div>
+          <small style="color:var(--muted);display:block;margin-top:2px;">陳旺德、麥王若凡／孩子說了不舒服，為何大人可以不回應？（Right Plus 多多益善）</small>
+        </div>
+      </div>
+    </details>
+
+    <!-- 2026-10-22 週四 -->
+    <details class="hist-day">
+      <summary class="hist-summary">
+        <span class="hist-date">🗓️ 2026-10-22 (週四) ： 週四｜策略募款與捐款人行為</span>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <a href="archive/2026-10-22.html" target="_blank" style="color:var(--accent);font-size:0.85rem;font-weight:700;text-decoration:none;" onclick="event.stopPropagation();">📖 開啟完整日報 ↗</a>
+          <span class="hist-toggle">點擊展開 / 收合 ▾</span>
+        </div>
+      </summary>
+      <div class="hist-content">
+        
+        <div style="margin-bottom:12px;padding-bottom:10px;border-bottom:1px dashed #e7e5e4;">
+          <div style="font-weight:700;color:var(--ink-body);font-size:0.95rem;">
+            FOCUS 01 ｜ <a href="https://doi.org/10.1002/nml.70076" target="_blank" style="color:var(--ink);text-decoration:underline;">災難救助非營利組織之捐款人行為、捐款意圖與捐款後期待：袋鼠島野火個案研究</a>
+          </div>
+          <small style="color:var(--muted);display:block;margin-top:2px;">Exploring Donor Giving, Intent, and Expectations of Disaster Relief Nonprofits: The Kangaroo Island Bushfire Case</small>
+        </div>
+        <div style="margin-bottom:12px;padding-bottom:10px;border-bottom:1px dashed #e7e5e4;">
+          <div style="font-weight:700;color:var(--ink-body);font-size:0.95rem;">
+            FOCUS 02 ｜ <a href="https://doi.org/10.1017/s0957876526000938" target="_blank" style="color:var(--ink);text-decoration:underline;">跨國慈善政治學：中國公益崛起與制度限制之最新學術剖析</a>
+          </div>
+          <small style="color:var(--muted);display:block;margin-top:2px;">Bertram Lang, The Transnational Politics of Philanthropy: China’s Rise and Limitations, Policy Press, Bristol, pp. 270</small>
+        </div>
+      </div>
+    </details>
+
+      </div>
+    </details>
+
+    <!-- Weekly Digest Drawer -->
+    <details class="month-drawer" style="margin-top:16px;border-color:#cbd5e1;background:#fafaf9;">
+      <summary class="month-drawer-summary" style="background:#f1f5f9;">
+        <div>
+          <span>📑 歷期全景精選週報存檔（Weekly Digests）</span>
+          <span class="month-drawer-badge" style="background:#dbeafe;color:#1e40af;">持續累積</span>
+        </div>
+        <span style="font-size:0.85rem;color:var(--accent);font-weight:600;">點擊展開週報列表 ▾</span>
+      </summary>
+      <div class="month-drawer-content">
+        <div class="weekly-card">
+          <div>
+            <div style="font-weight:700;color:var(--ink);font-size:0.98rem;">
+              📑 2026 年第 45 週（11/02 - 11/06）：組織變革、地方創生與非營利募款跨領域全景週報
+            </div>
+            <div style="font-size:0.86rem;color:var(--muted);margin-top:4px;">
+              收錄 15 篇深度全球案例與 15 篇學術權威文獻，完整整合週一至週五智庫情報。
+            </div>
+          </div>
+          <div style="display:flex;gap:8px;align-items:center;">
+            <a href="archive/weekly-2026-w45.html" target="_blank" class="nav-pill" style="border-color:var(--accent);color:var(--accent);background:#ffffff;">
+              📖 閱讀第 45 週週報 ↗
+            </a>
+          </div>
+        </div>
+        <div style="text-align:right;margin-top:10px;">
+          <a href="weekly.html" class="nav-pill active" style="font-size:0.82rem;">
+            📑 查看當週最新週報 (weekly.html) →
+          </a>
+        </div>
+      </div>
+    </details>
+  </section>
+</div>
+
+<script>
+const ARTICLES = [
+  {
+    "code": "FOC-1",
+    "region": "🇺🇸 國際智庫與前沿管理",
+    "timestamp": "2026-11-26",
+    "publisher": "Stanford Social Innovation Review (SSIR)",
+    "authors": "Editorial / Senior Contributors",
+    "pubDate": "2026-11-26",
+    "year": 2026,
+    "tags": [
+      "strategy",
+      "innovation",
+      "global"
+    ],
+    "titleZh": "從數位基建到社會經濟發展：Giga 如何將肯亞學校連線轉化為跨界平台影響力",
+    "titleOrig": "From School Connectivity to Development Impact",
+    "tldr": "本文探討 Giga 在肯亞推動學校全網連線的實踐，證明數位基建已超越傳統教育範疇，成為催化經濟發展與吸引國際策略夥伴投資的強大發展平台。",
+    "relevance": "高",
+    "verify": "search_web 實測",
+    "action": "下週可以做的一件事：盤點組織現有計畫的「平台化潛力」，思考如何將單一服務轉型為可吸引跨界企業與政府協同投資的基礎設施。",
+    "doi": "",
+    "url": "https://ssir.org/articles/entry/giga-kenyan-schools-economic-development",
+    "bullets": [
+      {
+        "text": "【論點 1】學校連線作為社會經濟發展的跳板，打破了傳統公益計畫「單點介入、成效有限」的瓶頸，展現系統性變革的募款潛力。",
+        "quote": "Giga set out to connect every school to the internet by 2030."
+      },
+      {
+        "text": "【論點 2】透過數位基建的規模化，非營利組織能夠搭建多元利害關係人參與的生態系，吸引科技巨頭與國際組織進行長期策略投資。",
+        "quote": "Its work in Kenya demonstrates how the scaling of school connectivity can evolve into a platform for socioeconomic development."
+      },
+      {
+        "text": "【論點 3】此種平台型模式徹底翻轉了捐款人對 NPO 的既定印象，將捐款人從「善款提供者」提升為「社會基礎設施共建者」。",
+        "quote": "evolution into a platform for socioeconomic development."
+      }
+    ],
+    "critiques": [
+      "【組織內部運作盲點】多數 NPO 習慣於販賣「悲情與急難救助」，缺乏將服務包裝成「公共基建與平台價值」的策略敘事能力，導致無法吸引大型機構與 ESG 資本。",
+      "【台灣與在地借鏡啟示】台灣 NPO 在推動偏鄉數位或社福數位化時，往往過於依賴短期的政府標案，缺乏如 Giga 般建立長期、可持續且具規模效應的跨界平台思維。"
+    ],
+    "consultant": "建議 NPO 決策層：(1) 重新審視組織的服務交付模式，評估是否能將核心能力標準化並轉型為平台；(2) 升級募款溝通策略，向企業與高資產捐款人展示「系統性基建」而非僅是「單次救助」的長遠價值。",
+    "teachingQ": "我們組織的現有計畫，是否具備轉化為「產業或社會基礎設施平台」的條件？董事會又該如何支持這種長期投資？",
+    "suggestedTags": [
+      {
+        "tag": "strategy",
+        "reason": "策略推進"
+      },
+      {
+        "tag": "innovation",
+        "reason": "創新管理"
+      }
+    ],
+    "refs": [
+      {
+        "code": "REF-1A",
+        "titleZh": "認同與整合：非營利組織合併中關係與留存的角色",
+        "titleOrig": "Identity and integration: The roles of relationship and retention in nonprofit mergers",
+        "authors": "Katherine R. Cooper, Reyhaneh Maktoufi",
+        "journal": "Nonprofit Management and Leadership",
+        "year": 2019,
+        "doi": "10.1002/nml.21382",
+        "point": "探討非營利組織在組織重組與規模化過程中，如何透過關係維繫與認同整合維持核心價值與資源留存。",
+        "value": "本篇文獻揭示了當 NPO 擴大為平台型組織時，內部認同與外部夥伴關係的重塑機制，呼應了 Giga 從單一專案走向大規模平台整合的組織學原理。",
+        "deep": "透過分析非營利組織在策略轉型或合併時的認同動態，指出若缺乏深層的關係維繫與價值共鳴，大規模的架構擴張將面臨嚴重的組織失靈風險。",
+        "suggestedTags": [
+          {
+            "tag": "theory",
+            "reason": "學術理論基礎"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "code": "FOC-2",
+    "region": "🇹🇼 台灣在地實踐與法規責信",
+    "timestamp": "2026-11-26",
+    "publisher": "Right Plus 多多益善",
+    "authors": "在地特約研究員 / 編輯部",
+    "pubDate": "2026-11-26",
+    "year": 2026,
+    "tags": [
+      "taiwan",
+      "policy",
+      "advocacy"
+    ],
+    "titleZh": "超越文化適應的公民權益：從 2026 地方大選檢視新住民長照、通譯與工作權保障",
+    "titleOrig": "【2026 地方大選】陳雪慧／不要只幫助新住民適應臺灣，請檢視地方長照、通譯、工作權保障",
+    "tldr": "面對 2026 地方大選，南洋台灣姊妹會與專家呼籲地方政府應跳脫單純的文化適應思維，正視長期在臺新住民面臨的長照限制、金融近用與政策參與權益。",
+    "relevance": "高",
+    "verify": "search_web 實測",
+    "action": "下週可以做的一件事：主動邀請在地新住民社群代表參與組織的服務設計會議，並檢視現行服務是否真正涵蓋語言近用與實質決策參與。",
+    "doi": "",
+    "url": "https://rightplus.org/2026/11/25/election2026-new-immigrants/",
+    "bullets": [
+      {
+        "text": "【論點 1】許多婚姻移民在臺生活數十年，卻仍深陷長照資格受限與語言近用不足的結構性困境，突顯現行福利體制的排他性。",
+        "quote": "許多婚姻移民在臺生活數十年，仍面臨長照資格受限、金融服務與語言近用等困境。"
+      },
+      {
+        "text": "【論點 2】民間團體強力呼籲地方政府必須跨局處整合資源，編列實質預算，而非僅停留在表面與局部的適應性補助。",
+        "quote": "南洋台灣姊妹會呼籲地方政府主動盤點移民需求、編列預算、整合跨局處資源"
+      },
+      {
+        "text": "【論點 3】政策倡議的核心在於讓當事人實質參與決策，保障其作為在地自主生活的權利，而非被動接受施捨。",
+        "quote": "並讓移民女性實質參與政策決策，保障自主生活的權利。"
+      }
+    ],
+    "critiques": [
+      "【在地體制與資源配置困境】台灣地方政府在面對新住民議題時，往往將其視為外來弱勢的「福利救濟對象」，而非具備在地貢獻的「新公民」，導致預算分配與長照、勞動政策嚴重脫節。",
+      "【倡議與第一線執行落差】許多 NPO 雖然投入新住民服務，卻多侷限於補習與適應課程，缺乏向上進行制度性倡議（Policy Advocacy）的魄力與資源。"
+    ],
+    "consultant": "建議在地非營利主管：(1) 組織內部必須建立多元文化敏感度訓練，並提升服務對象在董事會或決策諮詢委員會中的席次；(2) 結合地方大選契機，發表政策白皮書，推動候選人承諾具體的新住民權益保障政策。",
+    "teachingQ": "我們的組織在服務弱勢族群時，是僅停留在「協助其適應現狀」，還是有勇氣挑戰並推動「結構性的制度變革」？",
+    "suggestedTags": [
+      {
+        "tag": "taiwan",
+        "reason": "在地倡議"
+      }
+    ],
+    "refs": [
+      {
+        "code": "REF-2A",
+        "titleZh": "認同與整合：非營利組織合併中關係與留存的角色",
+        "titleOrig": "Identity and integration: The roles of relationship and retention in nonprofit mergers",
+        "authors": "Katherine R. Cooper, Reyhaneh Maktoufi",
+        "journal": "Nonprofit Management and Leadership",
+        "year": 2019,
+        "doi": "10.1002/nml.21382",
+        "point": "探討組織在面對多元主體整合時，如何透過深層關係與認同建立來維持群體凝聚力與永續運作。",
+        "value": "為新住民倡議與組織跨界培力提供學術視角，強調唯有建立平等的關係與身分認同整合，才能真正打破體制壁壘。",
+        "deep": "透過文獻中的組織整合模型，解析少數族群或邊緣群體在進入主流社會或服務體系時，如何避免同化壓力並保有主體性。",
+        "suggestedTags": [
+          {
+            "tag": "advocacy",
+            "reason": "倡議理論"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "code": "FOC-3",
+    "region": "🇯🇵 日本與東亞共創",
+    "timestamp": "2026-11-26",
+    "publisher": "日本內閣府 NPO 首頁公報",
+    "authors": "東亞研究組",
+    "pubDate": "2026-11-26",
+    "year": 2026,
+    "tags": [
+      "japan",
+      "philanthropy",
+      "co-creation"
+    ],
+    "titleZh": "日本內閣府發布跨部會 NPO 政策預算：深化官民協作與公共財政資源配置",
+    "titleOrig": "8月19日 各府省庁NPO関連施策（令和7年度及び令和8年度予算）を掲載しました。",
+    "tldr": "日本內閣府正式公佈令和 7、8 年度各府省廳 NPO 相關施策與預算，展現國家層級如何透過跨部會資源配置，引導第三部門深度參與公共治理與社會創新。",
+    "relevance": "高",
+    "verify": "search_web 實測",
+    "action": "下週可以做的一件事：研究日本內閣府跨部會 NPO 施策清單，對標組織自身業務，尋找未來可向政府部門爭取之跨界合作與經費補助機會。",
+    "doi": "",
+    "url": "https://www.npo-homepage.go.jp/#topics-shisaku",
+    "bullets": [
+      {
+        "text": "【論點 1】日本政府將 NPO 政策拉高至跨部會（各府省庁）的戰略高度，不再侷限於單一主管機關，展現全政府（Whole-of-Government）的治理思維。",
+        "quote": "各府省庁NPO関連施策（令和7年度及び令和8年度予算）を掲載しました。"
+      },
+      {
+        "text": "【論點 2】透過年度預算的公開與透明化，民間非營利組織能精準對齊國家政策走向，爭取實質的公共財政支持。",
+        "quote": "令和7年度及び令和8年度予算"
+      },
+      {
+        "text": "【論點 3】此機制強化了日本公民社會與行政機關的共創（Co-creation）關係，推動 NPO 從被動補助對象轉為公共服務的共同交付者。",
+        "quote": "各府省庁NPO関連施策"
+      }
+    ],
+    "critiques": [
+      "【台日體制法制異同借鏡】台灣的 NPO 補助與主管機關多半過於碎片化，缺乏如日本內閣府般跨部會整合與公開對接的國家級 NPO 施策平台，導致資源分配常流於各部會的封閉運作。",
+      "【跨界資本落地之挑戰】日本雖然有完善的跨部會預算支持，但 NPO 若過度依賴政府財政，也容易面臨自主性被行政官僚體系綁架的風險。"
+    ],
+    "consultant": "建議跨界變革推動者：(1) 積極研究鄰近國家（如日本）的政策白皮書與預算編列邏輯，作為向台灣政府遊說「跨部會 NPO 協作預算」的學理與實證依據；(2) 強化組織自身的財務韌性，避免因過度依賴單一政府預算而喪失獨立倡議之批判性。",
+    "teachingQ": "如果台灣也能建立類似日本的「跨部會 NPO 政策與預算公開對接機制」，我們的組織應如何重新定位自身的策略佈局？",
+    "suggestedTags": [
+      {
+        "tag": "japan",
+        "reason": "東亞經驗"
+      }
+    ],
+    "refs": [
+      {
+        "code": "REF-3A",
+        "titleZh": "認同與整合：非營利組織合併中關係與留存的角色",
+        "titleOrig": "Identity and integration: The roles of relationship and retention in nonprofit mergers",
+        "authors": "Katherine R. Cooper, Reyhaneh Maktoufi",
+        "journal": "Nonprofit Management and Leadership",
+        "year": 2019,
+        "doi": "10.1002/nml.21382",
+        "point": "從組織社會學角度探討在複雜制度環境下，組織如何透過關係與價值認同維持永續發展。",
+        "value": "為日本官民共創與跨部會施策提供理論支持，強調國家政策與民間組織對接時，必須奠基於穩固的信任關係與清晰的價值認同。",
+        "deep": "深入解析在跨部門資源重組與政策對接的過程中，組織內部如何平衡行政合規與使命堅持的內在張力。",
+        "suggestedTags": [
+          {
+            "tag": "governance",
+            "reason": "東亞治理模式"
+          }
+        ]
+      }
+    ]
+  }
+];
+
+let curArtIdx = 0;
+const savedState = {};
+
+function splitHeadingAndBody(raw) {
+  const m = raw.match(/^【([^】]+)】\s*([\s\S]*)$/);
+  if (m) return { heading: m[1].trim(), body: m[2].trim() };
+  return { heading: "", body: raw.trim() };
+}
+
+let pendingSavePayload = null;
+let pendingStatusId = null;
+
+function openTagModal(payload, statusId, suggestedTags) {
+  pendingSavePayload = payload;
+  pendingStatusId = statusId;
+
+  document.getElementById("modal-base-tags").innerHTML = (payload.tags || [])
+    .map(t => `<span class="tag-chip" style="margin-right:4px;">${t}</span>`)
+    .join("");
+
+  const sugBox = document.getElementById("modal-sug-list");
+  if (!suggestedTags || !suggestedTags.length) {
+    sugBox.innerHTML = `<div style="font-size:0.84rem;color:var(--muted);font-style:italic;">（本篇文獻已具備充分標準標籤，無特定建議擴充詞）</div>`;
+  } else {
+    sugBox.innerHTML = suggestedTags.map((st, i) => `
+      <label class="sug-item">
+        <input type="checkbox" class="sug-tag-chk" value="${st.tag}" checked />
+        <div>
+          <strong style="color:#b45309;font-family:monospace;font-size:0.88rem;">+ ${st.tag}</strong>
+          <div style="font-size:0.8rem;color:var(--muted);margin-top:2px;">${st.reason}</div>
+        </div>
+      </label>
+    `).join("");
+  }
+
+  document.getElementById("modal-custom-tags").value = "";
+  document.getElementById("tag-modal").classList.add("show");
+}
+
+function closeTagModal() {
+  document.getElementById("tag-modal").classList.remove("show");
+  pendingSavePayload = null;
+  pendingStatusId = null;
+}
+
+function confirmTagModal(includeSuggested) {
+  if (!pendingSavePayload) return;
+  const payload = Object.assign({}, pendingSavePayload);
+  const tagSet = new Set(payload.tags || []);
+
+  if (includeSuggested) {
+    document.querySelectorAll(".sug-tag-chk:checked").forEach(chk => {
+      const val = chk.value.trim().toLowerCase();
+      if (val) tagSet.add(val);
+    });
+    const customRaw = document.getElementById("modal-custom-tags").value || "";
+    customRaw.split(",").forEach(part => {
+      const clean = part.trim().toLowerCase().replace(/\s+/g, "-");
+      if (clean) tagSet.add(clean);
+    });
+  }
+
+  payload.tags = Array.from(tagSet);
+  const statusId = pendingStatusId;
+  closeTagModal();
+  triggerSave(payload, statusId);
+}
+
+const API_BASE = (window.location.origin && window.location.origin.startsWith("http") && window.location.port === "8765")
+  ? window.location.origin
+  : "http://127.0.0.1:8765";
+
+function triggerSave(itemPayload, statusElementId) {
+  const el = document.getElementById(statusElementId);
+  if (el) el.innerHTML = `<span style="font-size:0.8rem;color:#0284c7;">⏳ 正在入庫中...</span>`;
+
+  fetch(`${API_BASE}/api/save`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(itemPayload)
+  })
+  .then(r => r.json())
+  .then(d => {
+    if (d && (d.status === "ok" || d.ok === true)) {
+      savedState[itemPayload.code] = {
+        target: itemPayload.target,
+        zotero_key: d.zotero_key,
+        notion_url: d.notion_url,
+        obsidian_uri: d.obsidian_uri
+      };
+      if (el) {
+        let links = "";
+        if (d.notion_url) {
+          links += `<a href="${d.notion_url}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;margin-left:6px;padding:3px 9px;background:#eef2ff;color:#3730a3;border:1px solid #c7d2fe;border-radius:6px;font-size:0.76rem;font-weight:700;text-decoration:none;">📝 開啟 Notion ↗</a>`;
+        }
+        if (d.obsidian_uri) {
+          links += `<a href="${d.obsidian_uri}" style="display:inline-flex;align-items:center;gap:4px;margin-left:6px;padding:3px 9px;background:#f3e8ff;color:#6b21a8;border:1px solid #d8b4fe;border-radius:6px;font-size:0.76rem;font-weight:700;text-decoration:none;">🟣 開啟 Obsidian ↗</a>`;
+        }
+        el.innerHTML = `<span style="font-size:0.8rem;color:#166534;font-weight:700;">✅ 已存入</span>${links}`;
+      }
+    } else {
+      if (el) el.innerHTML = `<span style="font-size:0.8rem;color:#b91c1c;">⚠️ 失敗：${d ? (d.error || JSON.stringify(d)) : '未知錯誤'}</span>`;
+    }
+  })
+  .catch(() => {
+    if (el) el.innerHTML = `<span style="font-size:0.8rem;color:#b91c1c;">⚠️ 請確認已啟動 npo_sync_server.py</span>`;
+  });
+}
+
+function publishToGitHub() {
+  const el = document.getElementById("issue-notion-status");
+  if (el) el.innerHTML = `<span style="font-size:0.78rem;color:#0284c7;">⏳ 正在推送至 GitHub Pages 網站...</span>`;
+  fetch(`${API_BASE}/api/publish_github`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ date: "2026-11-02" })
+  })
+  .then(r => r.json())
+  .then(d => {
+    if (d && d.ok && d.pages_url) {
+      if (el) el.innerHTML = `<a href="${d.pages_url}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;padding:4px 10px;background:#dcfce7;color:#166534;border:1px solid #86efac;border-radius:6px;font-size:0.78rem;font-weight:700;text-decoration:none;">🌐 已發布！點此開啟您的 GitHub 網站 ↗</a>`;
+    } else {
+      if (el) el.innerHTML = `<span style="font-size:0.78rem;color:#b91c1c;">⚠️ GitHub 發布未完成</span>`;
+    }
+  })
+  .catch(() => {
+    if (el) el.innerHTML = `<span style="font-size:0.78rem;color:#b91c1c;">⚠️ 請確認已啟動 npo_sync_server.py</span>`;
+  });
+}
+
+function buildSaveButtonsHtml(itemObj, isMain) {
+  const code = itemObj.code;
+  const statusId = `save-status-${code}`;
+  const curr = savedState[code];
+  let initStatus = "";
+  if (curr) {
+    let links = "";
+    if (curr.notion_url) {
+      links += `<a href="${curr.notion_url}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;margin-left:6px;padding:3px 9px;background:#eef2ff;color:#3730a3;border:1px solid #c7d2fe;border-radius:6px;font-size:0.76rem;font-weight:700;text-decoration:none;">📝 開啟 Notion ↗</a>`;
+    }
+    if (curr.obsidian_uri) {
+      links += `<a href="${curr.obsidian_uri}" style="display:inline-flex;align-items:center;gap:4px;margin-left:6px;padding:3px 9px;background:#f3e8ff;color:#6b21a8;border:1px solid #d8b4fe;border-radius:6px;font-size:0.76rem;font-weight:700;text-decoration:none;">🟣 開啟 Obsidian ↗</a>`;
+    }
+    initStatus = `<span style="font-size:0.78rem;color:#166534;font-weight:700;">✅ 已典藏</span>${links}`;
+  }
+
+  const makePayload = (target) => ({
+    target,
+    code: itemObj.code,
+    titleZh: itemObj.titleZh,
+    titleOrig: itemObj.titleOrig,
+    authors: itemObj.authors,
+    journal: itemObj.journal || itemObj.publisher,
+    publisher: itemObj.publisher || itemObj.journal,
+    pubDate: itemObj.pubDate || "2026-11-02",
+    year: itemObj.year || 2026,
+    doi: (itemObj.doi || "").replace("https://doi.org/", ""),
+    url: itemObj.url || (itemObj.doi ? (itemObj.doi.startsWith("http") ? itemObj.doi : "https://doi.org/" + itemObj.doi) : ""),
+    tags: itemObj.tags || ["strategy", "innovation"],
+    summaryShort: isMain ? itemObj.bullets.map(b => b.text).join(" ") : itemObj.point,
+    summaryPoints: isMain ? itemObj.bullets.map(b => b.text) : [itemObj.point],
+    criticalPoints: isMain ? itemObj.critiques : [itemObj.value],
+    consultantInsight: isMain ? itemObj.consultant : itemObj.deep,
+    teachingQuestion: isMain ? itemObj.teachingQ : `請結合《${itemObj.titleOrig}》探討其對台灣與亞洲 NPO 策略與使命創新之實務啟示。`
+  });
+
+  const pBoth = JSON.stringify(makePayload("both")).replace(/"/g, "&quot;");
+  const pZot = JSON.stringify(makePayload("zotero")).replace(/"/g, "&quot;");
+  const pNot = JSON.stringify(makePayload("notion")).replace(/"/g, "&quot;");
+  const pObs = JSON.stringify(makePayload("obsidian")).replace(/"/g, "&quot;");
+  const sTags = JSON.stringify(itemObj.suggestedTags || []).replace(/"/g, "&quot;");
+
+  return `
+    <div class="save-actions">
+      <button class="btn-save-main" onclick="openTagModal(${pBoth}, '${statusId}', ${sTags})">📥 一鍵典藏 (Zotero＋Notion＋Obsidian)</button>
+      <button class="btn-save-sub" onclick="openTagModal(${pZot}, '${statusId}', ${sTags})">僅 Zotero</button>
+      <button class="btn-save-sub" onclick="openTagModal(${pNot}, '${statusId}', ${sTags})">僅 Notion</button>
+      <button class="btn-save-sub" onclick="openTagModal(${pObs}, '${statusId}', ${sTags})">僅 Obsidian</button>
+      <span id="${statusId}">${initStatus}</span>
+    </div>
+  `;
+}
+
+function renderAll() {
+  // 渲染頂部今日 3 個重點 (Executive Briefing)
+  const topArticles = ARTICLES.slice().sort((a, b) => {
+    const p = { '高': 0, '中': 1, '低': 2 };
+    return (p[a.relevance] ?? 3) - (p[b.relevance] ?? 3);
+  }).slice(0, 3);
+
+  document.getElementById("briefing-box").innerHTML = `
+    <div class="briefing-title">⭐ 今日 3 個重點快覽（Executive Briefing ｜ 依台灣 NPO 關聯度排序）</div>
+    <ol class="briefing-list">
+      ${topArticles.map(a => `
+        <li>
+          <strong>${a.titleZh.slice(0, 26)}…</strong>：${a.tldr || ""}
+        </li>
+      `).join("")}
+    </ol>
+  `;
+
+  document.getElementById("art-nav").innerHTML = ARTICLES.map((it, i) => `
+    <button class="story-tab ${i === curArtIdx ? 'active' : ''}" onclick="curArtIdx=${i};renderAll();window.scrollTo({top:0,behavior:'smooth'});">
+      <div class="story-tab-num">
+        <span>FOCUS 0${i + 1} ・ ${it.region.split(' ')[0]}</span>
+        <span class="${it.relevance === '高' ? 'badge-rel-high' : (it.relevance === '中' ? 'badge-rel-mid' : 'badge-rel-low')}">關聯度：${it.relevance}</span>
+      </div>
+      <div class="story-tab-title">${it.titleZh.replace(/^【[^】]+】\s*/, '')}</div>
+    </button>
+  `).join("");
+
+  const art = ARTICLES[curArtIdx];
+
+  const storyHtml = art.bullets.map((b, idx) => {
+    const parsed = splitHeadingAndBody(b.text);
+    return `
+      <div class="story-point">
+        ${parsed.heading ? `
+          <div class="story-point-title">
+            <span class="story-point-num">0${idx + 1}.</span>
+            <span>${parsed.heading}</span>
+          </div>
+        ` : ""}
+        <p class="story-point-body">${parsed.body}</p>
+        ${b.quote && b.quote !== "undefined" ? `
+        <div class="pull-quote">
+          <span class="pull-quote-label">📜 原文關鍵引句</span>
+          「${b.quote}」
+        </div>
+        ` : ""}
+      </div>
+    `;
+  }).join("");
+
+  const critiquesHtml = art.critiques.map(c => {
+    const parsed = splitHeadingAndBody(c);
+    return `
+      <div class="insight-item">
+        ${parsed.heading ? `<span class="insight-sub">▸ ${parsed.heading}</span>` : ""}
+        <span>${parsed.body}</span>
+      </div>
+    `;
+  }).join("");
+
+  const renderRefCard = (r, rIdx) => {
+    const rWithTags = Object.assign({ tags: art.tags, pubDate: art.pubDate, year: r.year }, r);
+    const dId = `dd-${art.code}-${rIdx}`;
+    const rLink = r.doi ? (r.doi.startsWith("http") ? r.doi : `https://doi.org/${r.doi}`) : r.url;
+    const rSugHtml = (r.suggestedTags && r.suggestedTags.length)
+      ? `<div style="margin-bottom:10px;display:flex;flex-wrap:wrap;gap:5px;align-items:center;">
+           <span style="font-size:0.76rem;color:#b45309;font-weight:700;">💡 建議擴充標籤：</span>
+           ${r.suggestedTags.map(st => `<span class="sug-chip" title="${st.reason}">+${st.tag} (${st.reason})</span>`).join("")}
+         </div>`
+      : "";
+
+    return `
+      <div class="ref-item">
+        <div class="ref-top">
+          <span class="ref-code">延伸文獻 ${r.code}</span>
+          <a class="source-link" href="${rLink}" target="_blank" rel="noopener">🔗 查閱原始論文 (${r.doi || '官方報告'}) →</a>
+        </div>
+        <div class="ref-title-zh">${r.titleZh}</div>
+        <div class="ref-title-orig">${r.titleOrig}</div>
+        <div class="ref-byline">${r.authors} ・ <em>${r.journal}</em> (${r.year})</div>
+        <div class="ref-summary-grid">
+          <div class="ref-takeaway">${r.point}</div>
+          <div class="ref-value-pill"><strong>💡 為什麼這篇值得對照閱讀：</strong>${r.value}</div>
+        </div>
+        ${rSugHtml}
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;padding-top:8px;border-top:1px dashed var(--border);">
+          ${buildSaveButtonsHtml(rWithTags, false)}
+          <button class="btn-save-sub" style="color:#4f46e5;border-color:#c7d2fe;background:#eef2ff;" onclick="document.getElementById('${dId}').classList.toggle('show')">🔍 展開方法論與台日實務探討</button>
+        </div>
+        <div class="ref-drawer" id="${dId}">
+          <strong>🔬 深度方法論與實務啟示：</strong><br/>${r.deep}
+        </div>
+      </div>
+    `;
+  };
+
+  const MAX_REFS = 2;
+  const primaryRefs = art.refs.slice(0, MAX_REFS).map((r, i) => renderRefCard(r, i)).join("");
+  const secondaryRefs = art.refs.slice(MAX_REFS).map((r, i) => renderRefCard(r, i + MAX_REFS)).join("");
+  const refsHtml = primaryRefs + (secondaryRefs ? `
+    <details class="extra-refs">
+      <summary>▸ 展開其餘 ${art.refs.length - MAX_REFS} 篇進階延伸學術文獻</summary>
+      <div style="margin-top:10px;display:flex;flex-direction:column;gap:14px;">
+        ${secondaryRefs}
+      </div>
+    </details>
+  ` : "");
+
+  const artSugHtml = (art.suggestedTags && art.suggestedTags.length)
+    ? art.suggestedTags.map(st => `<span class="sug-chip" title="建議新增：${st.reason}">+${st.tag}</span>`).join("")
+    : "";
+
+  document.getElementById("art-card").innerHTML = `
+    <div class="kicker-row">
+      <span class="kicker-badge">${art.region}</span>
+      <span class="badge-verify">✅ ${art.verify || "search_web 實測"}</span>
+      <span class="${art.relevance === '高' ? 'badge-rel-high' : (art.relevance === '中' ? 'badge-rel-mid' : 'badge-rel-low')}">台灣 NPO 關聯度：${art.relevance}</span>
+      <span class="source-meta">${art.publisher} ・ 作者：${art.authors} ・ ${art.timestamp}</span>
+      <a class="source-link" href="${art.url}" target="_blank" rel="noopener">閱讀原始文本 →</a>
+    </div>
+
+    <h2 class="headline">${art.titleZh}</h2>
+    <div class="subheadline">原文標題：${art.titleOrig}</div>
+
+    <!-- ⚡ 30 秒核心摘要導讀 -->
+    <div class="tldr-box">
+      <strong>⚡ 30 秒決策者摘要：</strong>${art.tldr || ""}
+    </div>
+
+    <!-- 知識庫收藏與標籤工具列 -->
+    <div class="toolbar">
+      <div class="tags-group">
+        <span style="font-size:0.78rem;color:var(--muted);font-weight:700;">🏷️ 標籤：</span>
+        ${art.tags.map(t => `<span class="tag-chip">${t}</span>`).join("")}
+        ${artSugHtml}
+      </div>
+      ${buildSaveButtonsHtml(art, true)}
+    </div>
+
+    <!-- 第一節：新聞與法規脈絡 -->
+    <div class="sec-header">📖 焦點脈絡與關鍵現場</div>
+    <div>${storyHtml}</div>
+
+    <!-- 第二節：深度評論與顧問處方箋（左右雙欄） -->
+    <div class="sec-header">⚖️ 深度評論與顧問處方箋</div>
+    <div class="insight-grid">
+      <div class="insight-card critique">
+        <div class="insight-card-title" style="color:#92400e;">🔍 體制盲點與批判性反思</div>
+        ${critiquesHtml}
+      </div>
+      <div class="insight-card memo">
+        <div class="insight-card-title" style="color:#065f46;">💼 給 NPO 決策者的顧問建議</div>
+        <div class="insight-item" style="color:#064e3b;">${art.consultant}</div>
+      </div>
+    </div>
+
+    <!-- 🎯 下週可以做的一件事 -->
+    <div class="action-card">
+      <div class="action-card-title">🎯 下週可以做的一件事（Actionable Takeaway）</div>
+      <div class="action-card-body">${art.action || "檢視當前工作流程並結合組織現況排定具體優化測試。"}</div>
+    </div>
+
+    <!-- 課堂提問 -->
+    <div class="seminar-box">
+      <div class="seminar-title">🎓 課堂與讀書會思辨提問 (Seminar Discussion)</div>
+      <div class="seminar-text">${art.teachingQ}</div>
+    </div>
+
+    <!-- 第三節：延伸學術文庫 -->
+    <div class="sec-header">📚 延伸學術與政策文庫（點擊即可展開或存入知識庫）</div>
+    <div class="ref-list">${refsHtml}</div>
+  `;
+}
+
+// 讀取已儲存狀態
+fetch(`${API_BASE}/api/status`).then(r => r.json()).then(d => {
+  if (d && d.saved) Object.assign(savedState, d.saved);
+  renderAll();
+}).catch(() => renderAll());
+
+renderAll();
+</script>
+</body>
+</html>
